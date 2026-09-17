@@ -76,7 +76,7 @@ async function main() {
 
   console.log("4. Creating Git Commit...");
   const commit = await api("/git/commits", "POST", {
-    message: "feat: bundle complete dist/ directory and build configuration for Vercel",
+    message: "feat: complete 69-member database + real SHOWROOM/IDN live detection APIs",
     tree: tree.sha,
     parents: [parentSha]
   });

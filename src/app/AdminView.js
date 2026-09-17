@@ -1,4 +1,4 @@
-﻿// Admin Dashboard View — /admin
+// Admin Dashboard View — /admin
 import { liveMonitor } from "../services/liveMonitor.js";
 import { db } from "../lib/database.js";
 import { LIVE_STATUS } from "../types/schemas.js";
@@ -81,6 +81,9 @@ export function renderAdminView() {
           </button>
           <button id="btn-simulate-end-all" style="background-color: var(--bg-secondary); color: var(--dark-main); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
             ⚪ Matikan Semua Live
+          </button>
+          <button id="btn-manual-check" style="background-color: #388E3C; color: #FFF; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
+            🔄 Manual Check (Real API)
           </button>
         </div>
       </section>

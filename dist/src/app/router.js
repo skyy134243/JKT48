@@ -1,4 +1,4 @@
-﻿// Client SPA Router & Event Orchestrator
+// Client SPA Router & Event Orchestrator
 import { auth } from "../lib/auth.js";
 import { db } from "../lib/database.js";
 import { notificationManager } from "../lib/notifications.js";
@@ -46,6 +46,9 @@ class AppRouter {
 
     // Initial routing
     this.route();
+
+    // Start automatic live monitoring (every 60 seconds)
+    this.startLiveMonitoring();
   }
 
   getRoute() {
@@ -63,6 +66,29 @@ class AppRouter {
     const next = current === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     localStorage.setItem("jkt48_theme", next);
+  }
+
+  startLiveMonitoring() {
+    // Run first check after 3 seconds (let UI settle)
+    setTimeout(async () => {
+      console.log("[LiveRadar] 🚀 Running initial live check...");
+      try {
+        await liveMonitor.executeCycle();
+        console.log("[LiveRadar] ✅ Initial live check complete");
+      } catch (err) {
+        console.warn("[LiveRadar] ❌ Initial check failed:", err.message);
+      }
+    }, 3000);
+
+    // Then check every 60 seconds
+    this._liveCheckInterval = setInterval(async () => {
+      console.log("[LiveRadar] 🔄 Periodic live check...");
+      try {
+        await liveMonitor.executeCycle();
+      } catch (err) {
+        console.warn("[LiveRadar] Periodic check error:", err.message);
+      }
+    }, 60000);
   }
 
   route() {
@@ -345,6 +371,24 @@ class AppRouter {
       if (btnEndAll) {
         btnEndAll.addEventListener("click", () => {
           liveMonitor.simulateEndLive();
+        });
+      }
+
+      const btnManualCheck = document.getElementById("btn-manual-check");
+      if (btnManualCheck) {
+        btnManualCheck.addEventListener("click", async () => {
+          btnManualCheck.disabled = true;
+          btnManualCheck.textContent = "⏳ Memeriksa...";
+          try {
+            await liveMonitor.executeCycle();
+            btnManualCheck.textContent = "✅ Selesai!";
+          } catch (err) {
+            btnManualCheck.textContent = "❌ Gagal: " + err.message;
+          }
+          setTimeout(() => {
+            btnManualCheck.disabled = false;
+            btnManualCheck.textContent = "🔄 Manual Check (Real API)";
+          }, 2000);
         });
       }
     }
