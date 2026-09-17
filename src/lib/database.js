@@ -1,11 +1,13 @@
-﻿// Database Adapter for JKT48 Live Radar
+// Database Adapter for JKT48 Live Radar
 // Supports Firestore Cloud Database with local fallback cache
 import { Storage } from "./utils.js";
 import { JKT48_MEMBERS } from "../data/members.js";
 
 class DatabaseAdapter {
   constructor() {
-    this.members = Storage.get("db_members", JKT48_MEMBERS);
+    // Always sync with latest verified members list (includes Gen 14)
+    this.members = JKT48_MEMBERS;
+    Storage.set("db_members", this.members);
     this.liveStates = Storage.get("db_live_states", {});
     this.liveEvents = Storage.get("db_live_events", []);
     this.notifications = Storage.get("db_notifications", []);

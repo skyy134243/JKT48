@@ -690,21 +690,8 @@ export const JKT48_MEMBERS = [
   },
 
   // ═══════════════════════════════════════════
-  //  TRAINEE (Gen 13)
+  //  TRAINEE (Gen 13 — 8 Member)
   // ═══════════════════════════════════════════
-  {
-    id: "afera",
-    name: "Afera Thalia",
-    nickname: "Afera",
-    generation: 13,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_afera.jpg",
-    showroomSlug: "JKT48_Afera",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Afera",
-    idnSlug: "jkt48-afera",
-    idnUrl: "https://www.idn.app/@jkt48-afera"
-  },
   {
     id: "astrella",
     name: "Astrella Virgiananda",
@@ -732,58 +719,6 @@ export const JKT48_MEMBERS = [
     idnUrl: "https://www.idn.app/@jkt48-aprilli"
   },
   {
-    id: "carissa",
-    name: "Carissa Dini",
-    nickname: "Carissa",
-    generation: 13,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_carissa.jpg",
-    showroomSlug: "JKT48_Carissa",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Carissa",
-    idnSlug: "jkt48-carissa",
-    idnUrl: "https://www.idn.app/@jkt48-carissa"
-  },
-  {
-    id: "christabella",
-    name: "Christabella Bonita",
-    nickname: "Christabella",
-    generation: 13,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_christabella.jpg",
-    showroomSlug: "JKT48_Christabella",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Christabella",
-    idnSlug: "jkt48-christabella",
-    idnUrl: "https://www.idn.app/@jkt48-christabella"
-  },
-  {
-    id: "fahira",
-    name: "Fahira Putri",
-    nickname: "Fahira",
-    generation: 13,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_fahira.jpg",
-    showroomSlug: "JKT48_Fahira",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Fahira",
-    idnSlug: "jkt48-fahira",
-    idnUrl: "https://www.idn.app/@jkt48-fahira"
-  },
-  {
-    id: "fatimah",
-    name: "Fatimah Azzahra",
-    nickname: "Fatimah",
-    generation: 13,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_fatimah.jpg",
-    showroomSlug: "JKT48_Fatimah",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Fatimah",
-    idnSlug: "jkt48-fatimah",
-    idnUrl: "https://www.idn.app/@jkt48-fatimah"
-  },
-  {
     id: "hagia",
     name: "Hagia Sopia",
     nickname: "Hagia",
@@ -795,19 +730,6 @@ export const JKT48_MEMBERS = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Hagia",
     idnSlug: "jkt48-hagia",
     idnUrl: "https://www.idn.app/@jkt48-hagia"
-  },
-  {
-    id: "heidi",
-    name: "Heidi Suyangga",
-    nickname: "Heidi",
-    generation: 13,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_heidi.jpg",
-    showroomSlug: "JKT48_Heidi",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Heidi",
-    idnSlug: "jkt48-heidi",
-    idnUrl: "https://www.idn.app/@jkt48-heidi"
   },
   {
     id: "humaira",
@@ -849,19 +771,6 @@ export const JKT48_MEMBERS = [
     idnUrl: "https://www.idn.app/@jkt48-jemima"
   },
   {
-    id: "maxine",
-    name: "Maxine Faye",
-    nickname: "Maxine",
-    generation: 13,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_maxine.jpg",
-    showroomSlug: "JKT48_Maxine",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Maxine",
-    idnSlug: "jkt48-maxine",
-    idnUrl: "https://www.idn.app/@jkt48-maxine"
-  },
-  {
     id: "mikaela",
     name: "Mikaela Kusjanto",
     nickname: "Mikaela",
@@ -887,11 +796,106 @@ export const JKT48_MEMBERS = [
     idnSlug: "jkt48-intan",
     idnUrl: "https://www.idn.app/@jkt48-intan"
   },
+
+  // ═══════════════════════════════════════════
+  //  TRAINEE (Gen 14 — 10 Member)
+  // ═══════════════════════════════════════════
+  {
+    id: "afera",
+    name: "Afera Thalia",
+    nickname: "Afera",
+    generation: 14,
+    teamStatus: "Trainee",
+    status: "active",
+    photoUrl: "https://jkt48.com/images/member/member_afera.jpg",
+    showroomSlug: "JKT48_Afera",
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Afera",
+    idnSlug: "jkt48-afera",
+    idnUrl: "https://www.idn.app/@jkt48-afera"
+  },
+  {
+    id: "carissa",
+    name: "Carissa Dini",
+    nickname: "Carissa",
+    generation: 14,
+    teamStatus: "Trainee",
+    status: "active",
+    photoUrl: "https://jkt48.com/images/member/member_carissa.jpg",
+    showroomSlug: "JKT48_Carissa",
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Carissa",
+    idnSlug: "jkt48-carissa",
+    idnUrl: "https://www.idn.app/@jkt48-carissa"
+  },
+  {
+    id: "christabella",
+    name: "Christabella Bonita",
+    nickname: "Christabella",
+    generation: 14,
+    teamStatus: "Trainee",
+    status: "active",
+    photoUrl: "https://jkt48.com/images/member/member_christabella.jpg",
+    showroomSlug: "JKT48_Christabella",
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Christabella",
+    idnSlug: "jkt48-christabella",
+    idnUrl: "https://www.idn.app/@jkt48-christabella"
+  },
+  {
+    id: "fahira",
+    name: "Fahira Putri",
+    nickname: "Fahira",
+    generation: 14,
+    teamStatus: "Trainee",
+    status: "active",
+    photoUrl: "https://jkt48.com/images/member/member_fahira.jpg",
+    showroomSlug: "JKT48_Fahira",
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Fahira",
+    idnSlug: "jkt48-fahira",
+    idnUrl: "https://www.idn.app/@jkt48-fahira"
+  },
+  {
+    id: "fatimah",
+    name: "Fatimah Azzahra",
+    nickname: "Fatimah",
+    generation: 14,
+    teamStatus: "Trainee",
+    status: "active",
+    photoUrl: "https://jkt48.com/images/member/member_fatimah.jpg",
+    showroomSlug: "JKT48_Fatimah",
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Fatimah",
+    idnSlug: "jkt48-fatimah",
+    idnUrl: "https://www.idn.app/@jkt48-fatimah"
+  },
+  {
+    id: "heidi",
+    name: "Heidi Suyangga",
+    nickname: "Heidi",
+    generation: 14,
+    teamStatus: "Trainee",
+    status: "active",
+    photoUrl: "https://jkt48.com/images/member/member_heidi.jpg",
+    showroomSlug: "JKT48_Heidi",
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Heidi",
+    idnSlug: "jkt48-heidi",
+    idnUrl: "https://www.idn.app/@jkt48-heidi"
+  },
+  {
+    id: "maxine",
+    name: "Maxine Faye",
+    nickname: "Maxine",
+    generation: 14,
+    teamStatus: "Trainee",
+    status: "active",
+    photoUrl: "https://jkt48.com/images/member/member_maxine.jpg",
+    showroomSlug: "JKT48_Maxine",
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Maxine",
+    idnSlug: "jkt48-maxine",
+    idnUrl: "https://www.idn.app/@jkt48-maxine"
+  },
   {
     id: "jazyta",
     name: "Putry Jazyta",
     nickname: "Jazyta",
-    generation: 13,
+    generation: 14,
     teamStatus: "Trainee",
     status: "active",
     photoUrl: "https://jkt48.com/images/member/member_jazyta.jpg",
@@ -904,7 +908,7 @@ export const JKT48_MEMBERS = [
     id: "ralyne",
     name: "Ralyne Van Irwan",
     nickname: "Ralyne",
-    generation: 13,
+    generation: 14,
     teamStatus: "Trainee",
     status: "active",
     photoUrl: "https://jkt48.com/images/member/member_ralyne.jpg",
@@ -917,7 +921,7 @@ export const JKT48_MEMBERS = [
     id: "sona",
     name: "Sona Kalyana",
     nickname: "Sona",
-    generation: 13,
+    generation: 14,
     teamStatus: "Trainee",
     status: "active",
     photoUrl: "https://jkt48.com/images/member/member_sona.jpg",
@@ -928,7 +932,7 @@ export const JKT48_MEMBERS = [
   }
 ];
 
-export const GENERATIONS = [3, 6, 7, 8, 9, 10, 11, 12, 13];
+export const GENERATIONS = [3, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
 // Helper: Build a lookup map from showroomSlug → memberId
 export const SHOWROOM_SLUG_MAP = new Map(
