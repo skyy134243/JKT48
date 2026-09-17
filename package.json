@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "echo 'Static build ready'",
+    "build": "node build.js",
     "start": "node server.js",
     "test": "node test/stateMachine.test.js"
   }
