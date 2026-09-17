@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "jkt48-live-radar",
   "version": "1.0.0",
   "description": "Fan-made real-time live monitoring radar and notification system for JKT48 members (IDN Live & SHOWROOM)",
@@ -6,6 +6,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "build": "echo 'Static build ready'",
     "start": "node server.js",
     "test": "node test/stateMachine.test.js"
   }
