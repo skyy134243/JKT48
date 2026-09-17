@@ -1,0 +1,14 @@
+﻿{
+  "version": 2,
+  "crons": [
+    {
+      "path": "/api/cron/monitor",
+      "schedule": "* * * * *"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
