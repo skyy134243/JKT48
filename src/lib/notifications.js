@@ -1,4 +1,4 @@
-﻿// Web Push & Notification Manager
+// Web Push & Notification Manager
 import { db } from "./database.js";
 import { auth } from "./auth.js";
 
@@ -61,21 +61,77 @@ class NotificationManager {
   }
 
   showLocalNotification(title, options = {}) {
+    // 1. Always show slick In-App Toast Banner
+    this.showInAppToast(title, options.body, options.data?.url);
+
+    // 2. System Web Push / Desktop Notification (if permitted)
     if (this.permission === "granted") {
-      if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-        navigator.serviceWorker.controller.postMessage({
-          type: "SHOW_NOTIFICATION",
-          title,
-          options
-        });
-      } else {
-        new Notification(title, {
-          icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg",
-          badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg",
-          ...options
-        });
+      try {
+        if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.postMessage({
+            type: "SHOW_NOTIFICATION",
+            title,
+            options
+          });
+        } else {
+          new Notification(title, {
+            icon: options.icon || "/icons/icon-192.png",
+            ...options
+          });
+        }
+      } catch (err) {
+        console.warn("[NotificationManager] Desktop notification error:", err);
       }
     }
+  }
+
+  showInAppToast(title, body = "", liveUrl = null) {
+    if (typeof document === "undefined") return;
+
+    // Remove existing toast if any
+    const existing = document.querySelector(".live-radar-toast");
+    if (existing) existing.remove();
+
+    const toast = document.createElement("div");
+    toast.className = "live-radar-toast";
+    toast.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
+        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #FFF; animation: pulse 1s infinite; flex-shrink: 0;"></span>
+        <div style="flex: 1; min-width: 0;">
+          <div style="font-weight: 800; font-size: 0.9rem; color: #FFFFFF; line-height: 1.2;">${title}</div>
+          ${body ? `<div style="font-size: 0.78rem; color: rgba(255,255,255,0.9); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${body}</div>` : ""}
+        </div>
+        ${liveUrl ? `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer" style="background: #FFFFFF; color: #E53935; padding: 6px 12px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">Buka Live</a>` : ""}
+        <button style="background: none; border: none; color: #FFFFFF; font-size: 1.1rem; cursor: pointer; padding: 0 4px; line-height: 1;" onclick="this.closest('.live-radar-toast').remove()">✕</button>
+      </div>
+    `;
+
+    toast.style.cssText = `
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999999;
+      background: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+      color: #FFFFFF;
+      padding: 12px 16px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(229, 57, 53, 0.45);
+      max-width: 440px;
+      width: calc(100% - 32px);
+      box-sizing: border-box;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      if (toast && toast.parentNode) {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateX(-50%) translateY(-10px)";
+        setTimeout(() => toast.remove(), 300);
+      }
+    }, 7000);
   }
 }
 

@@ -1,4 +1,4 @@
-﻿// Notification Router & Anti-Spam Dispatcher
+// Notification Router & Anti-Spam Dispatcher
 import { auth } from "../lib/auth.js";
 import { db } from "../lib/database.js";
 import { notificationManager } from "../lib/notifications.js";
@@ -6,10 +6,12 @@ import { OSHI_PRIORITY, PLATFORMS } from "../types/schemas.js";
 
 export function routeLiveNotification(member, liveEvent) {
   const user = auth.getUser();
+  const uid = user ? user.uid : "guest_user";
+  const userNotificationEnabled = user ? user.notificationEnabled : true;
   const prefs = auth.getPreferences();
 
-  // Rule 1: User auth check
-  if (!user || !user.notificationEnabled) {
+  // Rule 1: User auth & notification switch check
+  if (!userNotificationEnabled) {
     return { dispatched: false, reason: "User notifications disabled" };
   }
 
@@ -52,7 +54,7 @@ export function routeLiveNotification(member, liveEvent) {
         // Record in notification center but suppress push
         db.addNotification({
           notificationId: `notif_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
-          uid: user.uid,
+          uid,
           eventId: liveEvent.eventId,
           memberId: member.id,
           memberName: member.nickname,
@@ -72,7 +74,7 @@ export function routeLiveNotification(member, liveEvent) {
   const notificationId = `notif_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
   const notifRecord = {
     notificationId,
-    uid: user.uid,
+    uid,
     eventId: liveEvent.eventId,
     memberId: member.id,
     memberName: member.nickname,

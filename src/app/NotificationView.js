@@ -1,4 +1,4 @@
-﻿// Notification Center View
+// Notification Center View
 import { auth } from "../lib/auth.js";
 import { db } from "../lib/database.js";
 import { formatDateLabel } from "../lib/utils.js";
@@ -6,7 +6,8 @@ import { renderNotificationCard } from "../components/NotificationCard.js";
 
 export function renderNotificationView() {
   const user = auth.getUser();
-  const notifications = user ? db.getNotifications(user.uid) : [];
+  const uid = user ? user.uid : "guest_user";
+  const notifications = db.getNotifications(uid);
 
   // Group notifications by date label ("Hari ini", "Kemarin", etc.)
   const groups = {};
