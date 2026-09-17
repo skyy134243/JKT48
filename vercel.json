@@ -1,14 +1,10 @@
 ﻿{
-  "version": 2,
-  "crons": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "rewrites": [
     {
-      "path": "/api/cron/monitor",
-      "schedule": "* * * * *"
+      "source": "/((?!api/|.*\\..*).*)",
+      "destination": "/index.html"
     }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
