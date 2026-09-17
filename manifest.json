@@ -1,0 +1,17 @@
+﻿{
+  "short_name": "JKT48 Radar",
+  "name": "JKT48 Live Radar",
+  "description": "Pantau live member JKT48 dalam satu tempat.",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23E53935'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23FFFFFF'/%3E%3Cpolygon points='45,40 60,50 45,60' fill='%23E53935'/%3E%3C/svg%3E",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "theme_color": "#E53935",
+  "display": "standalone",
+  "orientation": "portrait-primary"
+}
