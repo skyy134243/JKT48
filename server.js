@@ -1,4 +1,4 @@
-﻿// Local Development Server for JKT48 Live Radar
+// Local Development Server for JKT48 Live Radar
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
@@ -18,14 +18,37 @@ const MIME_TYPES = {
   ".ico": "image/x-icon"
 };
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   let reqPath = req.url.split("?")[0];
   if (reqPath === "/") reqPath = "/index.html";
 
-  // Mock API routes for local testing
+  // Mock & Serverless API routes for local testing
   if (reqPath === "/api/live/status") {
     res.writeHead(200, { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" });
     return res.end(JSON.stringify({ status: "healthy", liveCount: 0, checkedAt: new Date().toISOString() }));
+  }
+
+  if (reqPath === "/api/live/idn-check") {
+    try {
+      const idnModule = await import("./api/live/idn-check.js");
+      const mockRes = {
+        setHeader: (k, v) => res.setHeader(k, v),
+        status: (code) => {
+          res.statusCode = code;
+          return {
+            json: (data) => {
+              res.setHeader("Content-Type", "application/json");
+              res.end(JSON.stringify(data));
+            },
+            end: () => res.end()
+          };
+        }
+      };
+      return await idnModule.default(req, mockRes);
+    } catch (e) {
+      res.writeHead(500, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ success: false, error: e.message }));
+    }
   }
 
   const filePath = path.join(__dirname, reqPath);
