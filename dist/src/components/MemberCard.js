@@ -1,25 +1,24 @@
 // MemberCard Component — Provider Store Lookbook Aesthetic
+// Red & White Palette, Crisp Typography, Official JKT48 Logo Fallback
 import { escapeHtml } from "../lib/utils.js";
 import { LIVE_STATUS } from "../types/schemas.js";
+import { OFFICIAL_JKT48_LOGO } from "../data/members.js";
 
 export function renderMemberCard(member, liveState, isOshi = false) {
   const isLive = liveState?.status === LIVE_STATUS.LIVE;
-  const initial = (member.nickname || member.name || "J").charAt(0).toUpperCase();
   const teamLabel = member.teamStatus ? `${member.teamStatus} · ` : "";
+  const photo = member.photoUrl || OFFICIAL_JKT48_LOGO;
 
   return `
     <div class="member-catalog-card" data-member-id="${escapeHtml(member.id)}">
       <div class="member-img-frame">
         <img 
-          src="${escapeHtml(member.photoUrl)}" 
+          src="${escapeHtml(photo)}" 
           alt="${escapeHtml(member.name)}" 
           loading="lazy" 
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          referrerpolicy="no-referrer"
+          onerror="this.onerror=null; this.src='${OFFICIAL_JKT48_LOGO}'; this.classList.add('is-fallback-logo');"
         />
-        <div class="member-monogram-fallback" style="display: none;">
-          <span class="member-monogram-initial">${initial}</span>
-          <span class="member-monogram-gen">Gen ${escapeHtml(member.generation)}</span>
-        </div>
 
         <button class="oshi-star-btn ${isOshi ? "is-oshi" : ""}" data-action="toggle-oshi" data-member-id="${escapeHtml(member.id)}" title="${isOshi ? "Hapus dari Oshi" : "Jadikan Oshi"}">
           ★
@@ -29,6 +28,9 @@ export function renderMemberCard(member, liveState, isOshi = false) {
       <div class="member-catalog-info">
         <div class="member-catalog-name" title="${escapeHtml(member.name)}">
           ${escapeHtml(member.nickname)}
+        </div>
+        <div class="member-catalog-fullname">
+          ${escapeHtml(member.name)}
         </div>
         <div class="member-catalog-meta-row">
           <span class="member-catalog-gen">${teamLabel}Gen ${escapeHtml(member.generation)}</span>

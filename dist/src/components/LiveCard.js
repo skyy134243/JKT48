@@ -1,13 +1,15 @@
 // LiveCard Component — Provider Store Lookbook Aesthetic
+// Red & White Palette, Live Radar Pulse, Official JKT48 Logo Fallback
 import { escapeHtml, formatTime } from "../lib/utils.js";
 import { PLATFORMS } from "../types/schemas.js";
+import { OFFICIAL_JKT48_LOGO } from "../data/members.js";
 
 export function renderLiveCard(liveItem, isOshi = false) {
   const { member, platform, liveUrl, startedAt } = liveItem;
   const platformLabel = platform === PLATFORMS.IDN ? "IDN Live" : "SHOWROOM";
   const platformClass = platform === PLATFORMS.IDN ? "idn" : "showroom";
   const timeFormatted = startedAt ? `Mulai ${formatTime(startedAt)} WIB` : "Sedang Live";
-  const initial = (member.nickname || "J").charAt(0).toUpperCase();
+  const photo = member.photoUrl || OFFICIAL_JKT48_LOGO;
 
   return `
     <article class="live-card">
@@ -16,7 +18,7 @@ export function renderLiveCard(liveItem, isOshi = false) {
           ${platformLabel}
         </span>
         <div style="display: flex; align-items: center; gap: 6px;">
-          ${isOshi ? `<span style="font-size: 0.68rem; font-weight: 700; color: var(--oshi-gold); background: var(--oshi-gold-subtle); padding: 3px 8px; border-radius: var(--radius-xs); letter-spacing: 0.06em; border: 1px solid var(--oshi-gold-border);">⭐ OSHI</span>` : ""}
+          ${isOshi ? `<span class="oshi-badge-pill">⭐ OSHI</span>` : ""}
           <span class="section-badge-live">
             <span class="pulse-dot"></span>
             LIVE
@@ -25,16 +27,14 @@ export function renderLiveCard(liveItem, isOshi = false) {
       </div>
 
       <div class="live-card-body">
-        <div class="member-thumb-wrapper" style="position: relative;">
+        <div class="member-thumb-wrapper">
           <img 
-            src="${escapeHtml(member.photoUrl)}" 
+            src="${escapeHtml(photo)}" 
             alt="${escapeHtml(member.name)}" 
             loading="lazy" 
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
+            referrerpolicy="no-referrer"
+            onerror="this.onerror=null; this.src='${OFFICIAL_JKT48_LOGO}'; this.classList.add('is-fallback-logo');" 
           />
-          <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; font-size: 1.8rem; color: var(--text-muted); background: var(--bg-card-alt);">
-            ${initial}
-          </div>
         </div>
         <div class="live-card-info">
           <h3 class="live-member-name">${escapeHtml(member.nickname)}</h3>

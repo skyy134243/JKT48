@@ -96,20 +96,14 @@ class AppRouter {
     const route = this.getRoute();
     const user = auth.getUser();
 
-    // If user is not logged in and routes to home or login, show landing
-    if (!user && (route === "login" || (route === "home" && !sessionStorage.getItem("jkt48_guest_mode")))) {
+    // If user explicitly navigates to #login and is not logged in, show landing
+    if (route === "login" && !user) {
       this.container.innerHTML = renderLandingView();
       this.bindLandingEvents();
       return;
     }
 
-    // If user is logged in but hasn't completed onboarding
-    if (user && !user.onboardingCompleted) {
-      this.renderAppShell(route);
-      this.showOnboarding();
-      return;
-    }
-
+    // Direct entry to web app (Provider Store architecture)
     this.renderAppShell(route);
   }
 
@@ -269,6 +263,28 @@ class AppRouter {
       themeBtn.addEventListener("click", () => this.toggleTheme());
     }
 
+    // Google Login button in Header
+    const btnGoogleHeader = document.getElementById("btn-header-google-login");
+    if (btnGoogleHeader) {
+      btnGoogleHeader.addEventListener("click", () => {
+        playLoginAnimation(async () => {
+          await auth.signInWithGoogle();
+          window.location.hash = "#home";
+          this.route();
+        });
+      });
+    }
+
+    // Logout button in Header
+    const btnLogoutHeader = document.getElementById("btn-header-logout");
+    if (btnLogoutHeader) {
+      btnLogoutHeader.addEventListener("click", async () => {
+        await auth.signOut();
+        window.location.hash = "#home";
+        this.route();
+      });
+    }
+
     // Member Catalog Events
     if (route === "members") {
       const searchInput = document.getElementById("member-search-input");
@@ -279,11 +295,19 @@ class AppRouter {
         });
       }
 
-      const filterPills = document.querySelectorAll(".filter-pill");
-      filterPills.forEach(pill => {
-        pill.addEventListener("click", () => {
-          const type = pill.dataset.filterType;
-          const val = pill.dataset.filterValue;
+      const btnClearSearch = document.getElementById("btn-clear-search");
+      if (btnClearSearch) {
+        btnClearSearch.addEventListener("click", () => {
+          this.memberFilters.search = "";
+          this.renderView("members");
+        });
+      }
+
+      const filterBtns = document.querySelectorAll(".filter-column-btn, .filter-pill");
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const type = btn.dataset.filterType;
+          const val = btn.dataset.filterValue;
           this.memberFilters[type] = val;
           this.renderView("members");
         });

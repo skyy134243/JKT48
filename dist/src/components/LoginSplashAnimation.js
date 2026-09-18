@@ -1,5 +1,6 @@
 // JKT48 Signature Red Login Splash Animation Component
-// Features: Official JKT48 Crimson Typography, Radiance Glow, Cinematic Shimmer, and Smooth Transition
+// Features: Official JKT48 SVG Logo, Official Crimson Typography, Radiance Glow, Cinematic Shimmer, and Smooth Transition
+import { OFFICIAL_JKT48_LOGO_SVG, OFFICIAL_JKT48_LOGO } from "../data/members.js";
 
 export function playLoginAnimation(onComplete) {
   // Remove existing overlay if any
@@ -15,6 +16,16 @@ export function playLoginAnimation(onComplete) {
       <!-- Glow ambient background -->
       <div class="jkt48-ambient-glow"></div>
       
+      <!-- Official JKT48 SVG Logo -->
+      <div class="jkt48-splash-emblem-wrap">
+        <img 
+          src="${OFFICIAL_JKT48_LOGO_SVG}" 
+          alt="JKT48 Official Emblem" 
+          class="jkt48-splash-official-logo"
+          onerror="this.onerror=null; this.src='${OFFICIAL_JKT48_LOGO}';"
+        />
+      </div>
+
       <!-- Official JKT48 Brand Typography -->
       <div class="jkt48-logo-wrapper">
         <div class="jkt48-wordmark">
@@ -30,13 +41,13 @@ export function playLoginAnimation(onComplete) {
       <!-- Tagline & Badge -->
       <div class="jkt48-tagline-wrapper">
         <div class="jkt48-rule-line"></div>
-        <span class="jkt48-tagline">INDONESIA'S FIRST IDOL GROUP</span>
+        <span class="jkt48-tagline">REAL-TIME LIVE STREAM RADAR</span>
         <div class="jkt48-rule-line"></div>
       </div>
 
       <div class="jkt48-radar-badge">
         <span class="jkt48-radar-dot"></span>
-        <span>LIVE RADAR SYSTEM</span>
+        <span>MASUK DENGAN AKUN GOOGLE</span>
       </div>
 
       <!-- Loading Indicator -->
@@ -44,14 +55,14 @@ export function playLoginAnimation(onComplete) {
         <div class="jkt48-progress-bar">
           <div class="jkt48-progress-fill"></div>
         </div>
-        <span class="jkt48-status-text">Menyinkronkan Siaran Member...</span>
+        <span class="jkt48-status-text">Menyinkronkan Akun & Radar Live...</span>
       </div>
     </div>
   `;
 
   document.body.appendChild(overlay);
 
-  // Trigger smooth exit after animation sequence (2.2 seconds)
+  // Trigger smooth exit after animation sequence (2 seconds)
   setTimeout(() => {
     overlay.classList.add("fade-out");
     setTimeout(() => {
@@ -59,6 +70,6 @@ export function playLoginAnimation(onComplete) {
       if (typeof onComplete === "function") {
         onComplete();
       }
-    }, 600);
-  }, 2200);
+    }, 500);
+  }, 2000);
 }

@@ -321,19 +321,6 @@ export const JKT48_MEMBERS = [
 
   // ── Gen 11 ──
   {
-    id: "alya",
-    name: "Alya Amanda",
-    nickname: "Alya",
-    generation: 11,
-    teamStatus: "Inti",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_alya.jpg",
-    showroomSlug: "JKT48_Alya",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Alya",
-    idnSlug: "jkt48-alya",
-    idnUrl: "https://www.idn.app/@jkt48-alya"
-  },
-  {
     id: "anindya",
     name: "Anindya Ramadhani",
     nickname: "Anindya",
@@ -570,19 +557,6 @@ export const JKT48_MEMBERS = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Trisha",
     idnSlug: "jkt48-trisha",
     idnUrl: "https://www.idn.app/@jkt48-trisha"
-  },
-  {
-    id: "moreen",
-    name: "Letycia Moreen",
-    nickname: "Moreen",
-    generation: 12,
-    teamStatus: "Trainee",
-    status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_moreen.jpg",
-    showroomSlug: "JKT48_Moreen",
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Moreen",
-    idnSlug: "jkt48-moreen",
-    idnUrl: "https://www.idn.app/@jkt48-moreen"
   },
   {
     id: "levi",
@@ -943,3 +917,7 @@ export const SHOWROOM_SLUG_MAP = new Map(
 export const IDN_SLUG_MAP = new Map(
   JKT48_MEMBERS.map(m => [m.idnSlug, m.id])
 );
+
+// Official JKT48 Logo for accessories, fallbacks, and branding
+export const OFFICIAL_JKT48_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png";
+export const OFFICIAL_JKT48_LOGO_SVG = "https://upload.wikimedia.org/wikipedia/commons/8/82/JKT48.svg";

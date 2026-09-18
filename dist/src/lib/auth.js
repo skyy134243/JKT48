@@ -1,4 +1,4 @@
-﻿// Auth Manager — Firebase Authentication + Google Provider
+// Auth Manager — Firebase Authentication + Google Provider
 import { Storage } from "./utils.js";
 import { DEFAULT_USER_PREFERENCES } from "../types/schemas.js";
 
@@ -48,11 +48,11 @@ class AuthManager {
       uid: "user_" + Math.random().toString(36).substring(2, 10),
       displayName: "JKT48 Fan",
       email: "wota.fans@gmail.com",
-      photoURL: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
+      photoURL: "https://lh3.googleusercontent.com/a/default-user=s96-c",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       lastLoginAt: new Date().toISOString(),
-      onboardingCompleted: false,
+      onboardingCompleted: true,
       notificationEnabled: true
     };
 
