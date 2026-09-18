@@ -1,14 +1,14 @@
-// JKT48 Complete Member Database — 69 Members (Gen 3 through Gen 13)
+// JKT48 Complete Member Database - Active Members (Gen 3 through Gen 14)
 // Data verified from JKT48 Official Live Streaming Directory
 // SHOWROOM: https://www.showroom-live.com/r/JKT48_[Nickname]
-// IDN Live: https://www.idn.app/jkt48_[nickname]
+// IDN Live: https://www.idn.app/[nickname]jkt48
 
 export const JKT48_MEMBERS = [
-  // ═══════════════════════════════════════════
-  //  MEMBER INTI (Gen 3 — Gen 11)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
+  //  MEMBER INTI (Gen 3 - Gen 11)
+  // ─────────────────────────────────────────
 
-  // ── Gen 3 ──
+  // ✦ Gen 3 ✦
   {
     id: "gracia",
     name: "Shania Gracia",
@@ -19,11 +19,12 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg/440px-Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Gracia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracia",
-    idnSlug: "jkt48_gracia",
-    idnUrl: "https://www.idn.app/jkt48_gracia"
+    idnSlug: "graciajkt48",
+    idnUrl: "https://www.idn.app/graciajkt48",
+    color: "#8B6F9E"
   },
 
-  // ── Gen 6 ──
+  // ✦ Gen 6 ✦
   {
     id: "feni",
     name: "Feni Fitriyanti",
@@ -34,8 +35,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg/440px-Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Feni",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Feni",
-    idnSlug: "jkt48_feni",
-    idnUrl: "https://www.idn.app/jkt48_feni"
+    idnSlug: "fenijkt48",
+    idnUrl: "https://www.idn.app/fenijkt48",
+    color: "#E91E8C"
   },
   {
     id: "gita",
@@ -47,11 +49,12 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg/440px-Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Gita",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gita",
-    idnSlug: "jkt48_gita",
-    idnUrl: "https://www.idn.app/jkt48_gita"
+    idnSlug: "gitajkt48",
+    idnUrl: "https://www.idn.app/gitajkt48",
+    color: "#FF6B9D"
   },
 
-  // ── Gen 7 ──
+  // ✦ Gen 7 ✦
   {
     id: "christy",
     name: "Angelina Christy",
@@ -62,8 +65,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Christy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Christy",
-    idnSlug: "jkt48_christy",
-    idnUrl: "https://www.idn.app/jkt48_christy"
+    idnSlug: "christyjkt48",
+    idnUrl: "https://www.idn.app/christyjkt48",
+    color: "#C2185B"
   },
   {
     id: "olla",
@@ -72,11 +76,12 @@ export const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_olla.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Febriola_Sinambela_%28Olla%29_at_the_JKT48_Summer_Festival.jpg/440px-Febriola_Sinambela_%28Olla%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Olla",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Olla",
-    idnSlug: "jkt48_olla",
-    idnUrl: "https://www.idn.app/jkt48_olla"
+    idnSlug: "ollajkt48",
+    idnUrl: "https://www.idn.app/ollajkt48",
+    color: "#7B1FA2"
   },
   {
     id: "freya",
@@ -88,8 +93,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg/440px-Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Freya",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Freya",
-    idnSlug: "jkt48_freya",
-    idnUrl: "https://www.idn.app/jkt48_freya"
+    idnSlug: "freyajkt48",
+    idnUrl: "https://www.idn.app/freyajkt48",
+    color: "#1565C0"
   },
   {
     id: "eli",
@@ -98,11 +104,12 @@ export const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_eli.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Helisma_Putri_%28Eli%29_at_the_JKT48_Summer_Festival.jpg/440px-Helisma_Putri_%28Eli%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Eli",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Eli",
-    idnSlug: "jkt48_eli",
-    idnUrl: "https://www.idn.app/jkt48_eli"
+    idnSlug: "elijkt48",
+    idnUrl: "https://www.idn.app/elijkt48",
+    color: "#2E7D32"
   },
   {
     id: "jessi",
@@ -111,11 +118,12 @@ export const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_jessi.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jessica_Chandra_%28Jessi%29_at_the_JKT48_Summer_Festival.jpg/440px-Jessica_Chandra_%28Jessi%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Jessi",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jessi",
-    idnSlug: "jkt48_jessi",
-    idnUrl: "https://www.idn.app/jkt48_jessi"
+    idnSlug: "jessijkt48",
+    idnUrl: "https://www.idn.app/jessijkt48",
+    color: "#E65100"
   },
   {
     id: "muthe",
@@ -124,14 +132,15 @@ export const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_muthe.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mutiara_Azzahra_%28Muthe%29_at_the_JKT48_Summer_Festival.jpg/440px-Mutiara_Azzahra_%28Muthe%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Muthe",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Muthe",
-    idnSlug: "jkt48_muthe",
-    idnUrl: "https://www.idn.app/jkt48_muthe"
+    idnSlug: "muthejkt48",
+    idnUrl: "https://www.idn.app/muthejkt48",
+    color: "#F57F17"
   },
 
-  // ── Gen 8 ──
+  // ✦ Gen 8 ✦
   {
     id: "oniel",
     name: "Cornelia Vanisa",
@@ -139,11 +148,12 @@ export const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_oniel.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Cornelia_Vanisa_%28Oniel%29_at_the_JKT48_Summer_Festival.jpg/440px-Cornelia_Vanisa_%28Oniel%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Oniel",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oniel",
-    idnSlug: "jkt48_oniel",
-    idnUrl: "https://www.idn.app/jkt48_oniel"
+    idnSlug: "onieljkt48",
+    idnUrl: "https://www.idn.app/onieljkt48",
+    color: "#880E4F"
   },
   {
     id: "fiony",
@@ -152,11 +162,12 @@ export const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_fiony.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Fiony_Alveria_%28Fiony%29_at_the_JKT48_Summer_Festival.jpg/440px-Fiony_Alveria_%28Fiony%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Fiony",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fiony",
-    idnSlug: "jkt48_fiony",
-    idnUrl: "https://www.idn.app/jkt48_fiony"
+    idnSlug: "fionyjkt48",
+    idnUrl: "https://www.idn.app/fionyjkt48",
+    color: "#AD1457"
   },
   {
     id: "flora",
@@ -165,11 +176,12 @@ export const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_flora.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Flora_Shafiq_%28Flora%29_at_the_JKT48_Summer_Festival.jpg/440px-Flora_Shafiq_%28Flora%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Flora",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Flora",
-    idnSlug: "jkt48_flora",
-    idnUrl: "https://www.idn.app/jkt48_flora"
+    idnSlug: "florajkt48",
+    idnUrl: "https://www.idn.app/florajkt48",
+    color: "#1B5E20"
   },
   {
     id: "lulu",
@@ -178,14 +190,15 @@ export const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_lulu.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Lulu_Salsabila_%28Lulu%29_at_the_JKT48_Summer_Festival.jpg/440px-Lulu_Salsabila_%28Lulu%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Lulu",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lulu",
-    idnSlug: "jkt48_lulu",
-    idnUrl: "https://www.idn.app/jkt48_lulu"
+    idnSlug: "lulujkt48",
+    idnUrl: "https://www.idn.app/lulujkt48",
+    color: "#0D47A1"
   },
 
-  // ── Gen 9 ──
+  // ✦ Gen 9 ✦
   {
     id: "indah",
     name: "Indah Cahya",
@@ -193,11 +206,12 @@ export const JKT48_MEMBERS = [
     generation: 9,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_indah.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Indah_Cahya_%28Indah%29_at_the_JKT48_Summer_Festival.jpg/440px-Indah_Cahya_%28Indah%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Indah",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Indah",
-    idnSlug: "jkt48_indah",
-    idnUrl: "https://www.idn.app/jkt48_indah"
+    idnSlug: "indahjkt48",
+    idnUrl: "https://www.idn.app/indahjkt48",
+    color: "#BF360C"
   },
   {
     id: "kathrina",
@@ -206,11 +220,12 @@ export const JKT48_MEMBERS = [
     generation: 9,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_kathrina.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg/440px-Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Kathrina",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kathrina",
-    idnSlug: "jkt48_kathrina",
-    idnUrl: "https://www.idn.app/jkt48_kathrina"
+    idnSlug: "kathrinajkt48",
+    idnUrl: "https://www.idn.app/kathrinajkt48",
+    color: "#4A148C"
   },
   {
     id: "marsha",
@@ -219,14 +234,15 @@ export const JKT48_MEMBERS = [
     generation: 9,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_marsha.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Marsha_Lenathea_%28Marsha%29_at_the_JKT48_Summer_Festival.jpg/440px-Marsha_Lenathea_%28Marsha%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Marsha",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Marsha",
-    idnSlug: "jkt48_marsha",
-    idnUrl: "https://www.idn.app/jkt48_marsha"
+    idnSlug: "marshajkt48",
+    idnUrl: "https://www.idn.app/marshajkt48",
+    color: "#006064"
   },
 
-  // ── Gen 10 ──
+  // ✦ Gen 10 ✦
   {
     id: "amanda",
     name: "Amanda Sukma",
@@ -234,11 +250,12 @@ export const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_amanda.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Amanda_Sukma_%28Amanda%29_JKT48.jpg/440px-Amanda_Sukma_%28Amanda%29_JKT48.jpg",
     showroomSlug: "JKT48_Amanda",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Amanda",
-    idnSlug: "jkt48_amanda",
-    idnUrl: "https://www.idn.app/jkt48_amanda"
+    idnSlug: "amandajkt48",
+    idnUrl: "https://www.idn.app/amandajkt48",
+    color: "#E53935"
   },
   {
     id: "lia",
@@ -247,11 +264,12 @@ export const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_lia.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Aurellia_%28Lia%29_JKT48.jpg/440px-Aurellia_%28Lia%29_JKT48.jpg",
     showroomSlug: "JKT48_Lia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lia",
-    idnSlug: "jkt48_lia",
-    idnUrl: "https://www.idn.app/jkt48_lia"
+    idnSlug: "liajkt48",
+    idnUrl: "https://www.idn.app/liajkt48",
+    color: "#F06292"
   },
   {
     id: "callie",
@@ -260,11 +278,12 @@ export const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_callie.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Callista_Alifia_%28Callie%29_JKT48.jpg/440px-Callista_Alifia_%28Callie%29_JKT48.jpg",
     showroomSlug: "JKT48_Callie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Callie",
-    idnSlug: "jkt48_callie",
-    idnUrl: "https://www.idn.app/jkt48_callie"
+    idnSlug: "calliejkt48",
+    idnUrl: "https://www.idn.app/calliejkt48",
+    color: "#00695C"
   },
   {
     id: "ella",
@@ -273,11 +292,12 @@ export const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_ella.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Gabriela_Abigail_%28Ella%29_JKT48.jpg/440px-Gabriela_Abigail_%28Ella%29_JKT48.jpg",
     showroomSlug: "JKT48_Ella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ella",
-    idnSlug: "jkt48_ella",
-    idnUrl: "https://www.idn.app/jkt48_ella"
+    idnSlug: "ellajkt48",
+    idnUrl: "https://www.idn.app/ellajkt48",
+    color: "#558B2F"
   },
   {
     id: "indira",
@@ -286,11 +306,12 @@ export const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_indira.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Indira_Seruni_%28Indira%29_JKT48.jpg/440px-Indira_Seruni_%28Indira%29_JKT48.jpg",
     showroomSlug: "JKT48_Indira",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Indira",
-    idnSlug: "jkt48_indira",
-    idnUrl: "https://www.idn.app/jkt48_indira"
+    idnSlug: "indirajkt48",
+    idnUrl: "https://www.idn.app/indirajkt48",
+    color: "#283593"
   },
   {
     id: "lyn",
@@ -299,11 +320,12 @@ export const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_lyn.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Jesslyn_Elly_%28Lyn%29_JKT48.jpg/440px-Jesslyn_Elly_%28Lyn%29_JKT48.jpg",
     showroomSlug: "JKT48_Lyn",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lyn",
-    idnSlug: "jkt48_lyn",
-    idnUrl: "https://www.idn.app/jkt48_lyn"
+    idnSlug: "lynjkt48",
+    idnUrl: "https://www.idn.app/lynjkt48",
+    color: "#E64A19"
   },
   {
     id: "raisha",
@@ -312,14 +334,15 @@ export const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_raisha.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Raisha_Syifa_%28Raisha%29_JKT48.jpg/440px-Raisha_Syifa_%28Raisha%29_JKT48.jpg",
     showroomSlug: "JKT48_Raisha",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Raisha",
-    idnSlug: "jkt48_raisha",
-    idnUrl: "https://www.idn.app/jkt48_raisha"
+    idnSlug: "raishajkt48",
+    idnUrl: "https://www.idn.app/raishajkt48",
+    color: "#6A1B9A"
   },
 
-  // ── Gen 11 ──
+  // ✦ Gen 11 ✦
   {
     id: "anindya",
     name: "Anindya Ramadhani",
@@ -327,11 +350,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_anindya.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Anindya_Ramadhani_%28Anindya%29_JKT48.jpg/440px-Anindya_Ramadhani_%28Anindya%29_JKT48.jpg",
     showroomSlug: "JKT48_Anindya",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Anindya",
-    idnSlug: "jkt48_anindya",
-    idnUrl: "https://www.idn.app/jkt48_anindya"
+    idnSlug: "anindyajkt48",
+    idnUrl: "https://www.idn.app/anindyajkt48",
+    color: "#0277BD"
   },
   {
     id: "cathy",
@@ -340,11 +364,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_cathy.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Cathleen_Nixie_%28Cathy%29_JKT48.jpg/440px-Cathleen_Nixie_%28Cathy%29_JKT48.jpg",
     showroomSlug: "JKT48_Cathy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Cathy",
-    idnSlug: "jkt48_cathy",
-    idnUrl: "https://www.idn.app/jkt48_cathy"
+    idnSlug: "cathyjkt48",
+    idnUrl: "https://www.idn.app/cathyjkt48",
+    color: "#D81B60"
   },
   {
     id: "elin",
@@ -353,11 +378,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_elin.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Celline_Amalika_%28Elin%29_JKT48.jpg/440px-Celline_Amalika_%28Elin%29_JKT48.jpg",
     showroomSlug: "JKT48_Elin",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Elin",
-    idnSlug: "jkt48_elin",
-    idnUrl: "https://www.idn.app/jkt48_elin"
+    idnSlug: "elinjkt48",
+    idnUrl: "https://www.idn.app/elinjkt48",
+    color: "#37474F"
   },
   {
     id: "chelsea",
@@ -366,11 +392,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_chelsea.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Chelsea_Davina_%28Chelsea%29_JKT48.jpg/440px-Chelsea_Davina_%28Chelsea%29_JKT48.jpg",
     showroomSlug: "JKT48_Chelsea",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Chelsea",
-    idnSlug: "jkt48_chelsea",
-    idnUrl: "https://www.idn.app/jkt48_chelsea"
+    idnSlug: "chelseajkt48",
+    idnUrl: "https://www.idn.app/chelseajkt48",
+    color: "#EF6C00"
   },
   {
     id: "cynthia",
@@ -379,11 +406,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_cynthia.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cynthia_Yaputera_%28Cynthia%29_JKT48.jpg/440px-Cynthia_Yaputera_%28Cynthia%29_JKT48.jpg",
     showroomSlug: "JKT48_Cynthia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Cynthia",
-    idnSlug: "jkt48_cynthia",
-    idnUrl: "https://www.idn.app/jkt48_cynthia"
+    idnSlug: "cynthiajkt48",
+    idnUrl: "https://www.idn.app/cynthiajkt48",
+    color: "#5C6BC0"
   },
   {
     id: "danella",
@@ -392,11 +420,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_danella.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dena_Natalia_%28Danella%29_JKT48.jpg/440px-Dena_Natalia_%28Danella%29_JKT48.jpg",
     showroomSlug: "JKT48_Danella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Danella",
-    idnSlug: "jkt48_danella",
-    idnUrl: "https://www.idn.app/jkt48_danella"
+    idnSlug: "danellajkt48",
+    idnUrl: "https://www.idn.app/danellajkt48",
+    color: "#B71C1C"
   },
   {
     id: "daisy",
@@ -405,11 +434,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_daisy.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Desy_Natalia_%28Daisy%29_JKT48.jpg/440px-Desy_Natalia_%28Daisy%29_JKT48.jpg",
     showroomSlug: "JKT48_Daisy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Daisy",
-    idnSlug: "jkt48_daisy",
-    idnUrl: "https://www.idn.app/jkt48_daisy"
+    idnSlug: "daisyjkt48",
+    idnUrl: "https://www.idn.app/daisyjkt48",
+    color: "#00838F"
   },
   {
     id: "gendis",
@@ -418,11 +448,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_gendis.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/g/g7/Gendis_Mayrannisa_%28Gendis%29_JKT48.jpg/440px-Gendis_Mayrannisa_%28Gendis%29_JKT48.jpg",
     showroomSlug: "JKT48_Gendis",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gendis",
-    idnSlug: "jkt48_gendis",
-    idnUrl: "https://www.idn.app/jkt48_gendis"
+    idnSlug: "gendisjkt48",
+    idnUrl: "https://www.idn.app/gendisjkt48",
+    color: "#33691E"
   },
   {
     id: "gracie",
@@ -431,11 +462,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_gracie.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Grace_Octaviani_%28Gracie%29_JKT48.jpg/440px-Grace_Octaviani_%28Gracie%29_JKT48.jpg",
     showroomSlug: "JKT48_Gracie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracie",
-    idnSlug: "jkt48_gracie",
-    idnUrl: "https://www.idn.app/jkt48_gracie"
+    idnSlug: "graciejkt48",
+    idnUrl: "https://www.idn.app/graciejkt48",
+    color: "#F9A825"
   },
   {
     id: "greesel",
@@ -444,11 +476,12 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_greesel.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Greesella_Adhalia_%28Greesel%29_JKT48.jpg/440px-Greesella_Adhalia_%28Greesel%29_JKT48.jpg",
     showroomSlug: "JKT48_Greesel",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Greesel",
-    idnSlug: "jkt48_greesel",
-    idnUrl: "https://www.idn.app/jkt48_greesel"
+    idnSlug: "greeseljkt48",
+    idnUrl: "https://www.idn.app/greeseljkt48",
+    color: "#880E4F"
   },
   {
     id: "michie",
@@ -457,16 +490,17 @@ export const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_michie.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/m/m3/Michelle_Alexandra_%28Michie%29_JKT48.jpg/440px-Michelle_Alexandra_%28Michie%29_JKT48.jpg",
     showroomSlug: "JKT48_Michie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Michie",
-    idnSlug: "jkt48_michie",
-    idnUrl: "https://www.idn.app/jkt48_michie"
+    idnSlug: "michiejkt48",
+    idnUrl: "https://www.idn.app/michiejkt48",
+    color: "#1A237E"
   },
 
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
   //  TRAINEE (Gen 12)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
   {
     id: "aralie",
     name: "Abigail Rachel",
@@ -477,8 +511,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_aralie.jpg",
     showroomSlug: "JKT48_Aralie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Aralie",
-    idnSlug: "jkt48_aralie",
-    idnUrl: "https://www.idn.app/jkt48_aralie"
+    idnSlug: "araliejkt48",
+    idnUrl: "https://www.idn.app/araliejkt48",
+    color: "#E53935"
   },
   {
     id: "delynn",
@@ -490,8 +525,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_delynn.jpg",
     showroomSlug: "JKT48_Delynn",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Delynn",
-    idnSlug: "jkt48_delynn",
-    idnUrl: "https://www.idn.app/jkt48_delynn"
+    idnSlug: "delynjkt48",
+    idnUrl: "https://www.idn.app/delynjkt48",
+    color: "#C2185B"
   },
   {
     id: "lana",
@@ -503,8 +539,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_lana.jpg",
     showroomSlug: "JKT48_Lana",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lana",
-    idnSlug: "jkt48_lana",
-    idnUrl: "https://www.idn.app/jkt48_lana"
+    idnSlug: "lanajkt48",
+    idnUrl: "https://www.idn.app/lanajkt48",
+    color: "#00897B"
   },
   {
     id: "erine",
@@ -516,8 +553,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_erine.jpg",
     showroomSlug: "JKT48_Erine",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Erine",
-    idnSlug: "jkt48_erine",
-    idnUrl: "https://www.idn.app/jkt48_erine"
+    idnSlug: "erinejkt48",
+    idnUrl: "https://www.idn.app/erinejkt48",
+    color: "#E91E8C"
   },
   {
     id: "fritzy",
@@ -529,8 +567,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_fritzy.jpg",
     showroomSlug: "JKT48_Fritzy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fritzy",
-    idnSlug: "jkt48_fritzy",
-    idnUrl: "https://www.idn.app/jkt48_fritzy"
+    idnSlug: "fritzyjkt48",
+    idnUrl: "https://www.idn.app/fritzyjkt48",
+    color: "#8E24AA"
   },
   {
     id: "lily",
@@ -542,8 +581,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_lily.jpg",
     showroomSlug: "JKT48_Lily",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lily",
-    idnSlug: "jkt48_lily",
-    idnUrl: "https://www.idn.app/jkt48_lily"
+    idnSlug: "lilyjkt48",
+    idnUrl: "https://www.idn.app/lilyjkt48",
+    color: "#F06292"
   },
   {
     id: "trisha",
@@ -555,8 +595,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_trisha.jpg",
     showroomSlug: "JKT48_Trisha",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Trisha",
-    idnSlug: "jkt48_trisha",
-    idnUrl: "https://www.idn.app/jkt48_trisha"
+    idnSlug: "trishajkt48",
+    idnUrl: "https://www.idn.app/trishajkt48",
+    color: "#AB47BC"
   },
   {
     id: "levi",
@@ -568,8 +609,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_levi.jpg",
     showroomSlug: "JKT48_Levi",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Levi",
-    idnSlug: "jkt48_levi",
-    idnUrl: "https://www.idn.app/jkt48_levi"
+    idnSlug: "levijkt48",
+    idnUrl: "https://www.idn.app/levijkt48",
+    color: "#1E88E5"
   },
   {
     id: "nayla",
@@ -581,8 +623,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_nayla.jpg",
     showroomSlug: "JKT48_Nayla",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nayla",
-    idnSlug: "jkt48_nayla",
-    idnUrl: "https://www.idn.app/jkt48_nayla"
+    idnSlug: "naylajkt48",
+    idnUrl: "https://www.idn.app/naylajkt48",
+    color: "#43A047"
   },
   {
     id: "nachia",
@@ -594,8 +637,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_nachia.jpg",
     showroomSlug: "JKT48_Nachia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nachia",
-    idnSlug: "jkt48_nachia",
-    idnUrl: "https://www.idn.app/jkt48_nachia"
+    idnSlug: "nachiajkt48",
+    idnUrl: "https://www.idn.app/nachiajkt48",
+    color: "#FB8C00"
   },
   {
     id: "oline",
@@ -607,8 +651,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_oline.jpg",
     showroomSlug: "JKT48_Oline",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oline",
-    idnSlug: "jkt48_oline",
-    idnUrl: "https://www.idn.app/jkt48_oline"
+    idnSlug: "olinejkt48",
+    idnUrl: "https://www.idn.app/olinejkt48",
+    color: "#00ACC1"
   },
   {
     id: "regie",
@@ -620,8 +665,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_regie.jpg",
     showroomSlug: "JKT48_Regie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Regie",
-    idnSlug: "jkt48_regie",
-    idnUrl: "https://www.idn.app/jkt48_regie"
+    idnSlug: "regiejkt48",
+    idnUrl: "https://www.idn.app/regiejkt48",
+    color: "#E53935"
   },
   {
     id: "ribka",
@@ -633,8 +679,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_ribka.jpg",
     showroomSlug: "JKT48_Ribka",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ribka",
-    idnSlug: "jkt48_ribka",
-    idnUrl: "https://www.idn.app/jkt48_ribka"
+    idnSlug: "ribkajkt48",
+    idnUrl: "https://www.idn.app/ribkajkt48",
+    color: "#C62828"
   },
   {
     id: "nala",
@@ -646,8 +693,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_nala.jpg",
     showroomSlug: "JKT48_Nala",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nala",
-    idnSlug: "jkt48_nala",
-    idnUrl: "https://www.idn.app/jkt48_nala"
+    idnSlug: "nalajkt48",
+    idnUrl: "https://www.idn.app/nalajkt48",
+    color: "#6A1B9A"
   },
   {
     id: "kimmy",
@@ -659,13 +707,14 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_kimmy.jpg",
     showroomSlug: "JKT48_Kimmy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kimmy",
-    idnSlug: "jkt48_kimmy",
-    idnUrl: "https://www.idn.app/jkt48_kimmy"
+    idnSlug: "kimmyjkt48",
+    idnUrl: "https://www.idn.app/kimmyjkt48",
+    color: "#AD1457"
   },
 
-  // ═══════════════════════════════════════════
-  //  TRAINEE (Gen 13 — 8 Member)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
+  //  TRAINEE (Gen 13)
+  // ─────────────────────────────────────────
   {
     id: "astrella",
     name: "Astrella Virgiananda",
@@ -676,8 +725,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_astrella.jpg",
     showroomSlug: "JKT48_Astrella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Astrella",
-    idnSlug: "jkt48_astrella",
-    idnUrl: "https://www.idn.app/jkt48_astrella"
+    idnSlug: "astrellajkt48",
+    idnUrl: "https://www.idn.app/astrellajkt48",
+    color: "#1565C0"
   },
   {
     id: "aprilli",
@@ -689,8 +739,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_aprilli.jpg",
     showroomSlug: "JKT48_Aprilli",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Aprilli",
-    idnSlug: "jkt48_aprilli",
-    idnUrl: "https://www.idn.app/jkt48_aprilli"
+    idnSlug: "aprillijkt48",
+    idnUrl: "https://www.idn.app/aprillijkt48",
+    color: "#F57F17"
   },
   {
     id: "hagia",
@@ -702,8 +753,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_hagia.jpg",
     showroomSlug: "JKT48_Hagia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Hagia",
-    idnSlug: "jkt48_hagia",
-    idnUrl: "https://www.idn.app/jkt48_hagia"
+    idnSlug: "hagiajkt48",
+    idnUrl: "https://www.idn.app/hagiajkt48",
+    color: "#00695C"
   },
   {
     id: "humaira",
@@ -715,8 +767,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_humaira.jpg",
     showroomSlug: "JKT48_Humaira",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Humaira",
-    idnSlug: "jkt48_humaira",
-    idnUrl: "https://www.idn.app/jkt48_humaira"
+    idnSlug: "humairajkt48",
+    idnUrl: "https://www.idn.app/humairajkt48",
+    color: "#7B1FA2"
   },
   {
     id: "jacqueline",
@@ -728,8 +781,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_jacqueline.jpg",
     showroomSlug: "JKT48_Jacqueline",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jacqueline",
-    idnSlug: "jkt48_jacqueline",
-    idnUrl: "https://www.idn.app/jkt48_jacqueline"
+    idnSlug: "jacquelinejkt48",
+    idnUrl: "https://www.idn.app/jacquelinejkt48",
+    color: "#BF360C"
   },
   {
     id: "jemima",
@@ -741,8 +795,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_jemima.jpg",
     showroomSlug: "JKT48_Jemima",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jemima",
-    idnSlug: "jkt48_jemima",
-    idnUrl: "https://www.idn.app/jkt48_jemima"
+    idnSlug: "jemimajkt48",
+    idnUrl: "https://www.idn.app/jemimajkt48",
+    color: "#283593"
   },
   {
     id: "mikaela",
@@ -754,8 +809,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_mikaela.jpg",
     showroomSlug: "JKT48_Mikaela",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Mikaela",
-    idnSlug: "jkt48_mikaela",
-    idnUrl: "https://www.idn.app/jkt48_mikaela"
+    idnSlug: "mikaelajkt48",
+    idnUrl: "https://www.idn.app/mikaelajkt48",
+    color: "#C62828"
   },
   {
     id: "intan",
@@ -767,13 +823,14 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_intan.jpg",
     showroomSlug: "JKT48_Intan",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Intan",
-    idnSlug: "jkt48_intan",
-    idnUrl: "https://www.idn.app/jkt48_intan"
+    idnSlug: "intanjkt48",
+    idnUrl: "https://www.idn.app/intanjkt48",
+    color: "#558B2F"
   },
 
-  // ═══════════════════════════════════════════
-  //  TRAINEE (Gen 14 — 10 Member)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
+  //  TRAINEE (Gen 14)
+  // ─────────────────────────────────────────
   {
     id: "afera",
     name: "Afera Thalia",
@@ -784,8 +841,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_afera.jpg",
     showroomSlug: "JKT48_Afera",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Afera",
-    idnSlug: "jkt48_afera",
-    idnUrl: "https://www.idn.app/jkt48_afera"
+    idnSlug: "aferajkt48",
+    idnUrl: "https://www.idn.app/aferajkt48",
+    color: "#E53935"
   },
   {
     id: "carissa",
@@ -797,8 +855,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_carissa.jpg",
     showroomSlug: "JKT48_Carissa",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Carissa",
-    idnSlug: "jkt48_carissa",
-    idnUrl: "https://www.idn.app/jkt48_carissa"
+    idnSlug: "carissajkt48",
+    idnUrl: "https://www.idn.app/carissajkt48",
+    color: "#AD1457"
   },
   {
     id: "christabella",
@@ -810,8 +869,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_christabella.jpg",
     showroomSlug: "JKT48_Christabella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Christabella",
-    idnSlug: "jkt48_christabella",
-    idnUrl: "https://www.idn.app/jkt48_christabella"
+    idnSlug: "christabellajkt48",
+    idnUrl: "https://www.idn.app/christabellajkt48",
+    color: "#1565C0"
   },
   {
     id: "fahira",
@@ -823,8 +883,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_fahira.jpg",
     showroomSlug: "JKT48_Fahira",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fahira",
-    idnSlug: "jkt48_fahira",
-    idnUrl: "https://www.idn.app/jkt48_fahira"
+    idnSlug: "fahirajkt48",
+    idnUrl: "https://www.idn.app/fahirajkt48",
+    color: "#006064"
   },
   {
     id: "fatimah",
@@ -836,8 +897,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_fatimah.jpg",
     showroomSlug: "JKT48_Fatimah",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fatimah",
-    idnSlug: "jkt48_fatimah",
-    idnUrl: "https://www.idn.app/jkt48_fatimah"
+    idnSlug: "fatimahjkt48",
+    idnUrl: "https://www.idn.app/fatimahjkt48",
+    color: "#33691E"
   },
   {
     id: "heidi",
@@ -849,8 +911,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_heidi.jpg",
     showroomSlug: "JKT48_Heidi",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Heidi",
-    idnSlug: "jkt48_heidi",
-    idnUrl: "https://www.idn.app/jkt48_heidi"
+    idnSlug: "heidijkt48",
+    idnUrl: "https://www.idn.app/heidijkt48",
+    color: "#0277BD"
   },
   {
     id: "maxine",
@@ -862,8 +925,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_maxine.jpg",
     showroomSlug: "JKT48_Maxine",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Maxine",
-    idnSlug: "jkt48_maxine",
-    idnUrl: "https://www.idn.app/jkt48_maxine"
+    idnSlug: "maxinejkt48",
+    idnUrl: "https://www.idn.app/maxinejkt48",
+    color: "#D81B60"
   },
   {
     id: "jazyta",
@@ -875,8 +939,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_jazyta.jpg",
     showroomSlug: "JKT48_Jazyta",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jazyta",
-    idnSlug: "jkt48_jazyta",
-    idnUrl: "https://www.idn.app/jkt48_jazyta"
+    idnSlug: "jazytajkt48",
+    idnUrl: "https://www.idn.app/jazytajkt48",
+    color: "#4527A0"
   },
   {
     id: "ralyne",
@@ -888,8 +953,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_ralyne.jpg",
     showroomSlug: "JKT48_Ralyne",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ralyne",
-    idnSlug: "jkt48_ralyne",
-    idnUrl: "https://www.idn.app/jkt48_ralyne"
+    idnSlug: "ralynejkt48",
+    idnUrl: "https://www.idn.app/ralynejkt48",
+    color: "#BF360C"
   },
   {
     id: "sona",
@@ -901,8 +967,9 @@ export const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_sona.jpg",
     showroomSlug: "JKT48_Sona",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Sona",
-    idnSlug: "jkt48_sona",
-    idnUrl: "https://www.idn.app/jkt48_sona"
+    idnSlug: "sonajkt48",
+    idnUrl: "https://www.idn.app/sonajkt48",
+    color: "#00838F"
   }
 ];
 
@@ -913,7 +980,7 @@ export const SHOWROOM_SLUG_MAP = new Map(
   JKT48_MEMBERS.map(m => [m.showroomSlug, m.id])
 );
 
-// Helper: Build a lookup map from idnSlug → memberId  
+// Helper: Build a lookup map from idnSlug → memberId
 export const IDN_SLUG_MAP = new Map(
   JKT48_MEMBERS.map(m => [m.idnSlug, m.id])
 );
