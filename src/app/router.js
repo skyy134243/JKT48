@@ -20,8 +20,6 @@ import { playLoginAnimation } from "../components/LoginSplashAnimation.js";
 import { OSHI_PRIORITY } from "../types/schemas.js";
 import { Storage, Session } from "../lib/utils.js";
 
-
-
 class AppRouter {
   constructor() {
     this.container = document.getElementById("app-root");
@@ -31,6 +29,7 @@ class AppRouter {
     }
     this.memberFilters = { search: "", status: "all", gen: "all" };
     this.onboardingState = { step: 1, selectedOshis: [] };
+    this.currentRoute = null;
     this.init();
   }
 
@@ -44,7 +43,7 @@ class AppRouter {
     // Listen for live radar engine updates
     liveMonitor.onUpdate(() => {
       const route = this.getRoute();
-      if (route === "home" || route === "admin" || route === "members") {
+      if (route === "home" || route === "admin" || route === "members" || route === "oshi") {
         this.renderView(route);
       }
     });
@@ -83,22 +82,16 @@ class AppRouter {
     } catch {}
   }
 
-
   startLiveMonitoring() {
-    // Run first check after 3 seconds (let UI settle)
     setTimeout(async () => {
-      console.log("[LiveRadar] 🚀 Running initial live check...");
       try {
         await liveMonitor.executeCycle();
-        console.log("[LiveRadar] ✅ Initial live check complete");
       } catch (err) {
-        console.warn("[LiveRadar] ❌ Initial check failed:", err.message);
+        console.warn("[LiveRadar] Initial check error:", err.message);
       }
     }, 3000);
 
-    // Then check every 60 seconds
     this._liveCheckInterval = setInterval(async () => {
-      console.log("[LiveRadar] 🔄 Periodic live check...");
       try {
         await liveMonitor.executeCycle();
       } catch (err) {
@@ -107,48 +100,52 @@ class AppRouter {
     }, 60000);
   }
 
+  navigateTo(targetRoute) {
+    if (window.location.hash !== "#" + targetRoute) {
+      window.location.hash = "#" + targetRoute;
+    } else {
+      this.route();
+    }
+  }
+
   route() {
     const route = this.getRoute();
     const user = auth.getUser();
 
-    // If user explicitly navigates to #login and is not logged in, show landing
     if (route === "login" && !user) {
       this.container.innerHTML = renderLandingView();
       this.bindLandingEvents();
+      this.currentRoute = "login";
       return;
     }
 
-    // Direct entry to web app (Provider Store architecture)
     this.renderAppShell(route);
+  }
+
+  getViewHtml(route) {
+    switch (route) {
+      case "members":
+        return renderMemberListView(this.memberFilters);
+      case "oshi":
+        return renderOshiView();
+      case "notifications":
+        return renderNotificationView();
+      case "settings":
+        return renderSettingsView();
+      case "profile":
+        return renderProfileView();
+      case "admin":
+        return renderAdminView();
+      case "home":
+      default:
+        return renderHomeView();
+    }
   }
 
   renderAppShell(route) {
     try {
-      let viewHtml = "";
-      switch (route) {
-        case "members":
-          viewHtml = renderMemberListView(this.memberFilters);
-          break;
-        case "oshi":
-          viewHtml = renderOshiView();
-          break;
-        case "notifications":
-          viewHtml = renderNotificationView();
-          break;
-        case "settings":
-          viewHtml = renderSettingsView();
-          break;
-        case "profile":
-          viewHtml = renderProfileView();
-          break;
-        case "admin":
-          viewHtml = renderAdminView();
-          break;
-        case "home":
-        default:
-          viewHtml = renderHomeView();
-          break;
-      }
+      this.currentRoute = route;
+      const viewHtml = this.getViewHtml(route);
 
       this.container.innerHTML = `
         <div class="app-container">
@@ -163,6 +160,7 @@ class AppRouter {
       `;
 
       this.bindEvents(route);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       console.error("[AppRouter] renderAppShell error:", err);
       this.container.innerHTML = `
@@ -180,13 +178,37 @@ class AppRouter {
 
   renderView(route) {
     const mount = document.getElementById("view-mount");
-    if (!mount) return;
+    if (!mount) {
+      this.renderAppShell(route);
+      return;
+    }
 
-    if (route === "home") mount.innerHTML = renderHomeView();
-    else if (route === "members") mount.innerHTML = renderMemberListView(this.memberFilters);
-    else if (route === "admin") mount.innerHTML = renderAdminView();
-
+    mount.innerHTML = this.getViewHtml(route);
+    this.updateActiveNavs(route);
     this.bindEvents(route);
+  }
+
+  updateActiveNavs(route) {
+    document.querySelectorAll(".provider-nav-link").forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const r = href.replace(/^#/, "");
+      if (r === route) link.classList.add("active");
+      else link.classList.remove("active");
+    });
+
+    document.querySelectorAll(".sidebar-link").forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const r = href.replace(/^#/, "");
+      if (r === route) link.classList.add("active");
+      else link.classList.remove("active");
+    });
+
+    document.querySelectorAll(".mobile-bottom-nav .nav-item").forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const r = href.replace(/^#/, "");
+      if (r === route) link.classList.add("active");
+      else link.classList.remove("active");
+    });
   }
 
   bindLandingEvents() {
@@ -214,79 +236,21 @@ class AppRouter {
         });
       });
     }
-
-  }
-
-  showOnboarding() {
-    const modalMount = document.getElementById("modal-mount");
-    if (!modalMount) return;
-
-    modalMount.innerHTML = renderOnboardingModal(this.onboardingState.step, this.onboardingState.selectedOshis);
-    this.bindOnboardingEvents();
-  }
-
-  bindOnboardingEvents() {
-    const nextButtons = document.querySelectorAll("#btn-onboarding-next, #btn-onboarding-skip");
-    nextButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const nextStep = parseInt(btn.dataset.step, 10);
-        this.onboardingState.step = nextStep;
-        this.showOnboarding();
-      });
-    });
-
-    // Oshi selection in step 2
-    const oshiItems = document.querySelectorAll(".onboarding-oshi-item");
-    oshiItems.forEach(item => {
-      item.addEventListener("click", () => {
-        const id = item.dataset.memberId;
-        const exists = this.onboardingState.selectedOshis.includes(id);
-        if (exists) {
-          this.onboardingState.selectedOshis = this.onboardingState.selectedOshis.filter(mId => mId !== id);
-        } else {
-          this.onboardingState.selectedOshis.push(id);
-        }
-        this.showOnboarding();
-      });
-    });
-
-    // Request push permission in step 4
-    const btnReqPerm = document.getElementById("btn-onboarding-request-perm");
-    if (btnReqPerm) {
-      btnReqPerm.addEventListener("click", async () => {
-        btnReqPerm.disabled = true;
-        btnReqPerm.textContent = "Meminta izin...";
-        await notificationManager.requestPermission();
-        this.finishOnboarding();
-      });
-    }
-
-    // Finish onboarding
-    const btnFinish = document.getElementById("btn-onboarding-finish");
-    if (btnFinish) {
-      btnFinish.addEventListener("click", () => this.finishOnboarding());
-    }
-  }
-
-  finishOnboarding() {
-    // Save selected Oshis
-    const currentPrefs = auth.getPreferences();
-    const priorityMap = { ...currentPrefs.priorityMembers };
-    this.onboardingState.selectedOshis.forEach((id, idx) => {
-      priorityMap[id] = idx === 0 ? OSHI_PRIORITY.HIGH : OSHI_PRIORITY.NORMAL;
-    });
-
-    auth.updatePreferences({
-      favoriteMembers: this.onboardingState.selectedOshis,
-      priorityMembers: priorityMap
-    });
-
-    auth.completeOnboarding();
-    document.getElementById("modal-mount").innerHTML = "";
-    window.location.hash = "#home";
   }
 
   bindEvents(route) {
+    // Universal Navigation Links: Immediate responsive click handling
+    document.querySelectorAll(".provider-nav-link, .sidebar-link, .mobile-bottom-nav .nav-item").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          const target = href.replace(/^#/, "") || "home";
+          this.navigateTo(target);
+        }
+      });
+    });
+
     // Theme toggle
     const themeBtn = document.getElementById("theme-toggle-btn");
     if (themeBtn) {
@@ -347,7 +311,6 @@ class AppRouter {
       const memberCards = document.querySelectorAll(".member-catalog-card");
       memberCards.forEach(card => {
         card.addEventListener("click", (e) => {
-          // If clicked the star button directly
           if (e.target.closest(".oshi-star-btn")) {
             e.stopPropagation();
             const memberId = card.dataset.memberId;
@@ -416,7 +379,6 @@ class AppRouter {
       }
     }
 
-
     // Admin Events
     if (route === "admin") {
       document.querySelectorAll(".btn-simulate-live").forEach(btn => {
@@ -438,16 +400,16 @@ class AppRouter {
       if (btnManualCheck) {
         btnManualCheck.addEventListener("click", async () => {
           btnManualCheck.disabled = true;
-          btnManualCheck.textContent = "⏳ Memeriksa...";
+          btnManualCheck.textContent = "Memeriksa...";
           try {
             await liveMonitor.executeCycle();
-            btnManualCheck.textContent = "✅ Selesai!";
+            btnManualCheck.textContent = "Selesai!";
           } catch (err) {
-            btnManualCheck.textContent = "❌ Gagal: " + err.message;
+            btnManualCheck.textContent = "Gagal: " + err.message;
           }
           setTimeout(() => {
             btnManualCheck.disabled = false;
-            btnManualCheck.textContent = "🔄 Manual Check (Real API)";
+            btnManualCheck.textContent = "Manual Check (Real API)";
           }, 2000);
         });
       }
@@ -472,7 +434,7 @@ class AppRouter {
       priorityMembers: priorityMap
     });
 
-    this.route();
+    this.renderView(this.getRoute());
   }
 
   reorderOshi(memberId, direction) {
@@ -484,12 +446,10 @@ class AppRouter {
     const targetIndex = currentIndex + direction;
     if (targetIndex < 0 || targetIndex >= favorites.length) return;
 
-    // Swap positions
     const temp = favorites[currentIndex];
     favorites[currentIndex] = favorites[targetIndex];
     favorites[targetIndex] = temp;
 
-    // Reassign priorities
     const priorityMap = {};
     favorites.forEach((id, idx) => {
       priorityMap[id] = idx === 0 ? OSHI_PRIORITY.HIGH : (idx === 1 ? OSHI_PRIORITY.NORMAL : OSHI_PRIORITY.LOW);
@@ -530,7 +490,6 @@ class AppRouter {
   }
 }
 
-// Bulletproof instant initialization
 function startApp() {
   if (!window.appRouter) {
     try {
