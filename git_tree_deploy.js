@@ -76,7 +76,7 @@ async function main() {
 
   console.log("4. Creating Git Commit...");
   const commit = await api("/git/commits", "POST", {
-    message: "fix: instant app initialization & official JKT48 logo initial loading screen",
+    message: "fix: accurate recent live history (Mikaela & Indah) and fix 404 IDN Live URL format",
     tree: tree.sha,
     parents: [parentSha]
   });

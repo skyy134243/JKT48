@@ -70,12 +70,12 @@ export function renderLandingView() {
             </div>
             <div class="live-card-body">
               <div class="member-thumb-wrapper">
-                <img src="https://jkt48.com/images/member/member_christy.jpg" alt="Christy" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg'" />
+                <img src="https://jkt48.com/images/member/member_mikaela.jpg" alt="Mikaela" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png'; this.classList.add('is-fallback-logo');" />
               </div>
               <div class="live-card-info">
-                <h3 class="live-member-name">Christy</h3>
-                <p class="live-meta">JKT48 · Gen 7</p>
-                <p class="live-start-time">Mulai 19:42 WIB</p>
+                <h3 class="live-member-name">Mikaela</h3>
+                <p class="live-meta">JKT48 · Gen 13 (Trainee)</p>
+                <p class="live-start-time">Mulai Siaran Langsung</p>
               </div>
             </div>
             <button class="btn-buka-live" style="pointer-events: none;">

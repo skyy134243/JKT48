@@ -4,6 +4,7 @@ import { db } from "../lib/database.js";
 import { LIVE_STATUS } from "../types/schemas.js";
 import { renderLiveCard } from "../components/LiveCard.js";
 import { escapeHtml, formatTime } from "../lib/utils.js";
+import { OFFICIAL_JKT48_LOGO } from "../data/members.js";
 
 export function renderHomeView() {
   const user = auth.getUser();
@@ -160,7 +161,7 @@ export function renderHomeView() {
               return `
                 <div class="notif-card" style="margin-bottom: 0;">
                   <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0; border: 1px solid var(--border-color);">
-                    <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.nickname)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg'" />
+                    <img src="${escapeHtml(member.photoUrl || OFFICIAL_JKT48_LOGO)}" alt="${escapeHtml(member.nickname)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='${OFFICIAL_JKT48_LOGO}'; this.classList.add('is-fallback-logo');" />
                   </div>
                   <div style="flex: 1;">
                     <div style="font-family: var(--font-serif); font-size: 0.95rem; font-weight: 700; color: var(--dark-main);">

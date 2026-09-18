@@ -73,11 +73,14 @@ export function renderAdminView() {
         </p>
 
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <button class="btn-simulate-live" data-member="christy" data-platform="idn" style="background-color: #E53935; color: #FFF; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
-            🔴 Set Christy Live (IDN)
+          <button class="btn-simulate-live" data-member="mikaela" data-platform="idn" style="background-color: #E53935; color: #FFF; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
+            🔴 Set Mikaela Live (IDN)
           </button>
-          <button class="btn-simulate-live" data-member="freya" data-platform="showroom" style="background-color: #1976D2; color: #FFF; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
-            🔴 Set Freya Live (SHOWROOM)
+          <button class="btn-simulate-live" data-member="indah" data-platform="idn" style="background-color: #E53935; color: #FFF; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
+            🔴 Set Indah Live (IDN)
+          </button>
+          <button class="btn-simulate-live" data-member="gracia" data-platform="showroom" style="background-color: #1976D2; color: #FFF; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
+            🔴 Set Gracia Live (SHOWROOM)
           </button>
           <button id="btn-simulate-end-all" style="background-color: var(--bg-secondary); color: var(--dark-main); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600;">
             ⚪ Matikan Semua Live

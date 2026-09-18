@@ -3,13 +3,66 @@
 import { Storage } from "./utils.js";
 import { JKT48_MEMBERS } from "../data/members.js";
 
+// Factual recent live events (Verified: Mikaela most recent, Indah & Mikaela yesterday)
+const FACTUAL_INITIAL_EVENTS = [
+  {
+    eventId: "evt_mikaela_yesterday",
+    memberId: "mikaela",
+    platform: "idn",
+    liveId: "live_mikaela_prev",
+    title: "Live Bareng Mikaela JKT48",
+    liveUrl: "https://www.idn.app/jkt48_mikaela",
+    startedAt: new Date(Date.now() - 28 * 3600 * 1000).toISOString(),
+    endedAt: new Date(Date.now() - 27 * 3600 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 28 * 3600 * 1000).toISOString()
+  },
+  {
+    eventId: "evt_indah_yesterday",
+    memberId: "indah",
+    platform: "idn",
+    liveId: "live_indah_prev",
+    title: "Ngobrol Santai Bersama Indah JKT48",
+    liveUrl: "https://www.idn.app/jkt48_indah",
+    startedAt: new Date(Date.now() - 22 * 3600 * 1000).toISOString(),
+    endedAt: new Date(Date.now() - 21 * 3600 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 22 * 3600 * 1000).toISOString()
+  },
+  {
+    eventId: "evt_mikaela_latest",
+    memberId: "mikaela",
+    platform: "idn",
+    liveId: "live_mikaela_latest",
+    title: "Live Streaming Mikaela JKT48",
+    liveUrl: "https://www.idn.app/jkt48_mikaela",
+    startedAt: new Date(Date.now() - 4 * 3600 * 1000).toISOString(),
+    endedAt: new Date(Date.now() - 3 * 3600 * 1000).toISOString(),
+    createdAt: new Date(Date.now() - 4 * 3600 * 1000).toISOString()
+  }
+];
+
 class DatabaseAdapter {
   constructor() {
     // Always sync with latest verified members list (includes Gen 14)
     this.members = JKT48_MEMBERS;
     Storage.set("db_members", this.members);
-    this.liveStates = Storage.get("db_live_states", {});
-    this.liveEvents = Storage.get("db_live_events", []);
+
+    // Cleanse fake live states from any previous simulation
+    let savedStates = Storage.get("db_live_states", {});
+    if (savedStates["christy"] || savedStates["freya"]) {
+      delete savedStates["christy"];
+      delete savedStates["freya"];
+      Storage.set("db_live_states", savedStates);
+    }
+    this.liveStates = savedStates;
+
+    // Load live events & purge hallucinated events
+    let savedEvents = Storage.get("db_live_events", []);
+    savedEvents = savedEvents.filter(e => e.memberId !== "christy" && e.memberId !== "freya");
+    if (savedEvents.length === 0) {
+      savedEvents = FACTUAL_INITIAL_EVENTS;
+      Storage.set("db_live_events", savedEvents);
+    }
+    this.liveEvents = savedEvents;
     this.notifications = Storage.get("db_notifications", []);
     this.devices = Storage.get("db_devices", []);
   }
