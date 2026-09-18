@@ -144,11 +144,11 @@ button {
 
 /* Hide old Sidebar and Bottom Nav entirely */
 .desktop-sidebar {
-  display: none !important;
+  display: flex;
 }
 
 .mobile-bottom-nav {
-  display: none !important;
+  /* Controlled by components.css */
 }
 
 /* Main Content Area — Full-width Clean Layout */
