@@ -1,4 +1,4 @@
-// Header Component — Provider Store Editorial Aesthetic
+// Header Component - Provider Store Editorial Aesthetic
 // Features: Centered official JKT48 Logo, Top Horizontal Category Nav, Google Login
 import { auth } from "../lib/auth.js";
 import { escapeHtml } from "../lib/utils.js";
@@ -10,10 +10,10 @@ export function renderHeader(activeRoute = "home") {
   const name = user ? (user.displayName || "Wota").split(" ")[0] : "Wota";
 
   return `
-    <!-- Top Announcement Bar (Artisanal Boutique Style) -->
+    <!-- Top Announcement Bar -->
     <div class="top-announcement-bar">
       <span class="pulse-mini"></span>
-      <span>JKT48 LIVE RADAR — OFFICIAL SHOWROOM & IDN LIVE MONITOR</span>
+      <span>JKT48 LIVE RADAR &mdash; OFFICIAL SHOWROOM &amp; IDN LIVE MONITOR</span>
     </div>
 
     <!-- Main Header Row -->
@@ -42,8 +42,9 @@ export function renderHeader(activeRoute = "home") {
 
       <!-- Right Utility Actions & Google Login -->
       <div class="header-actions">
-        <button id="theme-toggle-btn" class="btn-icon-editorial" title="Ubah Mode Tampilan">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <!-- Theme Toggle: FIXED size 20x20px -->
+        <button id="theme-toggle-btn" class="btn-icon-editorial" title="Ubah Mode Tampilan" style="width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -79,13 +80,13 @@ export function renderHeader(activeRoute = "home") {
               <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.97 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
               <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.25 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
             </svg>
-            <span>Masuk dengan Google</span>
+            <span>Masuk</span>
           </button>
         `}
       </div>
     </header>
 
-    <!-- Top Horizontal Category Navigation Bar (Provider Store Boutique Columns) -->
+    <!-- Top Horizontal Category Navigation Bar -->
     <nav class="provider-store-nav">
       <div class="provider-nav-track">
         <a href="#home" class="provider-nav-link ${activeRoute === 'home' ? 'active' : ''}">
@@ -100,8 +101,11 @@ export function renderHeader(activeRoute = "home") {
         <a href="#notifications" class="provider-nav-link ${activeRoute === 'notifications' ? 'active' : ''}">
           NOTIFIKASI
         </a>
+        <a href="#settings" class="provider-nav-link ${activeRoute === 'settings' ? 'active' : ''}">
+          PENGATURAN
+        </a>
         <a href="#admin" class="provider-nav-link ${activeRoute === 'admin' ? 'active' : ''}">
-          ADMIN & RADAR
+          ADMIN
         </a>
       </div>
     </nav>
