@@ -1,4 +1,4 @@
-﻿// Home Dashboard View — Priority #1 View
+// Home Dashboard View — Provider Store Editorial Aesthetic
 import { auth } from "../lib/auth.js";
 import { db } from "../lib/database.js";
 import { LIVE_STATUS } from "../types/schemas.js";
@@ -54,23 +54,26 @@ export function renderHomeView() {
 
   return `
     <div class="page-view">
-      <!-- Greeting Banner -->
-      <div style="margin-bottom: 24px;">
-        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--dark-main); letter-spacing: -0.02em;">
-          ${greeting}, ${escapeHtml(firstName)}!
+      <!-- Editorial Greeting Banner -->
+      <div style="margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
+        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px;">
+          JKT48 LIVE RADAR DASHBOARD
+        </div>
+        <h2 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--dark-main); letter-spacing: -0.02em;">
+          ${greeting}, <span style="font-style: italic; font-weight: 400;">${escapeHtml(firstName)}</span>
         </h2>
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 2px;">
-          Radar aktif memantau IDN Live & SHOWROOM.
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">
+          Radar aktif memantau siaran resmi di IDN Live & SHOWROOM secara real-time.
         </p>
       </div>
 
       <!-- Section 1 — LIVE SEKARANG -->
-      <section style="margin-bottom: 32px;">
+      <section style="margin-bottom: 40px;">
         <div class="section-title">
           <span class="pulse-dot"></span>
-          <span>LIVE SEKARANG</span>
+          <span>SIARAN LANGSUNG</span>
           ${liveItems.length > 0 ? `
-            <span style="font-size: 0.82rem; font-weight: 600; color: var(--primary-red); margin-left: auto;">
+            <span style="font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; color: var(--primary-red); background: var(--primary-red-subtle); padding: 3px 8px; border-radius: var(--radius-xs); margin-left: auto; letter-spacing: 0.05em; text-transform: uppercase;">
               ${liveItems.length} Member Online
             </span>
           ` : ""}
@@ -82,45 +85,47 @@ export function renderHomeView() {
           </div>
         ` : `
           <div class="empty-state">
-            <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="8" x2="12" y2="12"></line>
               <line x1="12" y1="16" x2="12.01" y2="16"></line>
             </svg>
-            <h4 class="empty-state-title">Belum ada member yang live.</h4>
+            <h4 class="empty-state-title" style="font-family: var(--font-serif); font-size: 1.15rem;">Belum ada member yang siaran saat ini</h4>
             <p class="empty-state-text">
-              Kami akan memberi tahu ketika ada member yang mulai live.
+              Radar terus memindai setiap 60 detik. Notifikasi instan akan muncul segera saat member memulai siaran.
             </p>
           </div>
         `}
       </section>
 
       <!-- Section 2 — OSHI KAMU -->
-      <section style="margin-bottom: 32px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+      <section style="margin-bottom: 40px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <h3 class="section-title" style="margin-bottom: 0;">
-            <span>⭐ OSHI KAMU</span>
+            <span>⭐ DAFTAR OSHI</span>
           </h3>
-          <a href="#oshi" style="font-size: 0.82rem; font-weight: 600; color: var(--primary-red);">
+          <a href="#oshi" style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary-red);">
             Kelola Oshi →
           </a>
         </div>
 
         ${userOshis.length > 0 ? `
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">
             ${userOshis.map(member => {
               const liveState = liveStates[member.id];
               const isLive = liveState?.status === LIVE_STATUS.LIVE;
+              const initial = (member.nickname || "J").charAt(0).toUpperCase();
               return `
                 <div class="notif-card" style="margin-bottom: 0; padding: 10px 14px;" onclick="window.location.hash='#members'">
-                  <div style="width: 36px; height: 36px; border-radius: 50%; overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0;">
-                    <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0; border: 1px solid var(--border-color); position: relative;">
+                    <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--text-muted); background: var(--bg-card-alt);">${initial}</div>
                   </div>
                   <div style="flex: 1; min-width: 0;">
-                    <div style="font-weight: 700; font-size: 0.9rem; color: var(--dark-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <div style="font-family: var(--font-serif); font-weight: 700; font-size: 0.95rem; color: var(--dark-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                       ${escapeHtml(member.nickname)}
                     </div>
-                    <div style="font-size: 0.75rem; font-weight: 600; margin-top: 1px;">
+                    <div style="font-size: 0.72rem; font-weight: 600; margin-top: 1px;">
                       ${isLive ? `<span style="color: var(--primary-red);">🔴 LIVE</span>` : `<span style="color: var(--text-light);">⚪ Offline</span>`}
                     </div>
                   </div>
@@ -129,12 +134,12 @@ export function renderHomeView() {
             }).join("")}
           </div>
         ` : `
-          <div style="background-color: var(--bg-secondary); border-radius: var(--radius-md); padding: 16px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
             <div>
-              <div style="font-size: 0.9rem; font-weight: 600; color: var(--dark-main);">Kamu belum memilih Oshi</div>
-              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Pilih Oshi untuk mendapatkan prioritas notifikasi khusus.</div>
+              <div style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; color: var(--dark-main);">Kamu belum memilih Oshi</div>
+              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 3px;">Tentukan Oshi agar radar mengutamakan notifikasi siaran mereka.</div>
             </div>
-            <a href="#oshi" style="background-color: var(--dark-main); color: #FFFFFF; font-size: 0.8rem; font-weight: 600; padding: 6px 12px; border-radius: var(--radius-sm); white-space: nowrap;">
+            <a href="#oshi" style="background-color: var(--dark-main); color: #FAF8F5; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 8px 16px; border-radius: var(--radius-sm); white-space: nowrap;">
               Pilih Oshi
             </a>
           </div>
@@ -145,7 +150,7 @@ export function renderHomeView() {
       ${recentEvents.length > 0 ? `
         <section>
           <div class="section-title">
-            <span>RIWAYAT LIVE TERAKHIR</span>
+            <span>RIWAYAT SIARAN TERAKHIR</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             ${recentEvents.map(evt => {
@@ -154,14 +159,14 @@ export function renderHomeView() {
               const platformName = evt.platform === "idn" ? "IDN Live" : "SHOWROOM";
               return `
                 <div class="notif-card" style="margin-bottom: 0;">
-                  <div style="width: 36px; height: 36px; border-radius: 50%; overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0;">
-                    <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.nickname)}" style="width: 100%; height: 100%; object-fit: cover;" />
+                  <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0; border: 1px solid var(--border-color);">
+                    <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.nickname)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg'" />
                   </div>
                   <div style="flex: 1;">
-                    <div style="font-size: 0.88rem; font-weight: 700; color: var(--dark-main);">
+                    <div style="font-family: var(--font-serif); font-size: 0.95rem; font-weight: 700; color: var(--dark-main);">
                       ${escapeHtml(member.nickname)}
                     </div>
-                    <div style="font-size: 0.78rem; color: var(--text-muted);">
+                    <div style="font-size: 0.76rem; color: var(--text-muted);">
                       ${platformName} · Selesai ${formatTime(evt.endedAt || evt.startedAt)}
                     </div>
                   </div>

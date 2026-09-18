@@ -1,4 +1,4 @@
-﻿// LiveCard Component — Clean, Official Link Only
+// LiveCard Component — Provider Store Lookbook Aesthetic
 import { escapeHtml, formatTime } from "../lib/utils.js";
 import { PLATFORMS } from "../types/schemas.js";
 
@@ -6,7 +6,8 @@ export function renderLiveCard(liveItem, isOshi = false) {
   const { member, platform, liveUrl, startedAt } = liveItem;
   const platformLabel = platform === PLATFORMS.IDN ? "IDN Live" : "SHOWROOM";
   const platformClass = platform === PLATFORMS.IDN ? "idn" : "showroom";
-  const timeFormatted = startedAt ? `Mulai ${formatTime(startedAt)}` : "Sedang Live";
+  const timeFormatted = startedAt ? `Mulai ${formatTime(startedAt)} WIB` : "Sedang Live";
+  const initial = (member.nickname || "J").charAt(0).toUpperCase();
 
   return `
     <article class="live-card">
@@ -15,7 +16,7 @@ export function renderLiveCard(liveItem, isOshi = false) {
           ${platformLabel}
         </span>
         <div style="display: flex; align-items: center; gap: 6px;">
-          ${isOshi ? `<span class="oshi-badge">⭐ OSHI</span>` : ""}
+          ${isOshi ? `<span style="font-size: 0.68rem; font-weight: 700; color: var(--oshi-gold); background: var(--oshi-gold-subtle); padding: 3px 8px; border-radius: var(--radius-xs); letter-spacing: 0.06em; border: 1px solid var(--oshi-gold-border);">⭐ OSHI</span>` : ""}
           <span class="section-badge-live">
             <span class="pulse-dot"></span>
             LIVE
@@ -24,8 +25,16 @@ export function renderLiveCard(liveItem, isOshi = false) {
       </div>
 
       <div class="live-card-body">
-        <div class="member-thumb-wrapper">
-          <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}" loading="lazy" />
+        <div class="member-thumb-wrapper" style="position: relative;">
+          <img 
+            src="${escapeHtml(member.photoUrl)}" 
+            alt="${escapeHtml(member.name)}" 
+            loading="lazy" 
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
+          />
+          <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; font-size: 1.8rem; color: var(--text-muted); background: var(--bg-card-alt);">
+            ${initial}
+          </div>
         </div>
         <div class="live-card-info">
           <h3 class="live-member-name">${escapeHtml(member.nickname)}</h3>
@@ -35,8 +44,8 @@ export function renderLiveCard(liveItem, isOshi = false) {
       </div>
 
       <a href="${escapeHtml(liveUrl)}" target="_blank" rel="noopener noreferrer" class="btn-buka-live">
-        <span>Buka Live</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <span>Buka Siaran</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
           <polyline points="15 3 21 3 21 9"></polyline>
           <line x1="10" y1="14" x2="21" y2="3"></line>

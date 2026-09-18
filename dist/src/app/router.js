@@ -16,6 +16,7 @@ import { renderSettingsView } from "./SettingsView.js";
 import { renderProfileView } from "./ProfileView.js";
 import { renderAdminView } from "./AdminView.js";
 import { renderOnboardingModal } from "./OnboardingModal.js";
+import { playLoginAnimation } from "../components/LoginSplashAnimation.js";
 import { OSHI_PRIORITY } from "../types/schemas.js";
 
 class AppRouter {
@@ -171,9 +172,11 @@ class AppRouter {
     const btnGuest = document.getElementById("btn-landing-guest-explore");
 
     const doLogin = async () => {
-      await auth.signInWithGoogle();
-      this.onboardingState = { step: 1, selectedOshis: [] };
-      window.location.hash = "#home";
+      playLoginAnimation(async () => {
+        await auth.signInWithGoogle();
+        this.onboardingState = { step: 1, selectedOshis: [] };
+        window.location.hash = "#home";
+      });
     };
 
     if (btnGoogle) btnGoogle.addEventListener("click", doLogin);
@@ -181,9 +184,11 @@ class AppRouter {
 
     if (btnGuest) {
       btnGuest.addEventListener("click", () => {
-        sessionStorage.setItem("jkt48_guest_mode", "true");
-        window.location.hash = "#home";
-        this.route();
+        playLoginAnimation(() => {
+          sessionStorage.setItem("jkt48_guest_mode", "true");
+          window.location.hash = "#home";
+          this.route();
+        });
       });
     }
   }

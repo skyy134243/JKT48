@@ -1,4 +1,4 @@
-﻿// Member Catalog View
+// Member Catalog View — Provider Store Editorial Lookbook
 import { db } from "../lib/database.js";
 import { auth } from "../lib/auth.js";
 import { GENERATIONS } from "../data/members.js";
@@ -39,31 +39,44 @@ export function renderMemberListView(filters = { search: "", status: "all", gen:
 
   return `
     <div class="page-view">
-      <div style="margin-bottom: 18px;">
-        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--dark-main);">Member JKT48</h2>
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 2px;">Daftar lengkap member aktif JKT48.</p>
+      <!-- Editorial Page Header -->
+      <div style="margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 18px;">
+        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px;">
+          CURATED DIRECTORY
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+          <h2 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--dark-main); letter-spacing: -0.02em;">
+            Katalog Member <span style="font-style: italic; font-weight: 400;">JKT48</span>
+          </h2>
+          <span style="font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); background: var(--bg-card); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: var(--radius-xs);">
+            ${filtered.length} Member Ditampilkan
+          </span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">
+          Daftar lengkap 69 member resmi dari Member Inti hingga Siswi Pelatihan (Gen 12, 13 & 14).
+        </p>
       </div>
 
       <!-- Search & Filters Container -->
       <div class="member-search-container">
         <div class="search-input-wrapper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input type="text" id="member-search-input" class="search-input" placeholder="Cari nama member..." value="${filters.search || ""}" />
+          <input type="text" id="member-search-input" class="search-input" placeholder="Cari nama atau panggilan member..." value="${filters.search || ""}" />
         </div>
 
         <!-- Status Filter Pills -->
         <div class="filter-pills-row">
-          <button class="filter-pill ${filters.status === "all" ? "active" : ""}" data-filter-type="status" data-filter-value="all">Semua</button>
-          <button class="filter-pill ${filters.status === "live" ? "active" : ""}" data-filter-type="status" data-filter-value="live">🔴 Live</button>
+          <button class="filter-pill ${filters.status === "all" ? "active" : ""}" data-filter-type="status" data-filter-value="all">Semua Status</button>
+          <button class="filter-pill ${filters.status === "live" ? "active" : ""}" data-filter-type="status" data-filter-value="live">🔴 Sedang Live</button>
           <button class="filter-pill ${filters.status === "offline" ? "active" : ""}" data-filter-type="status" data-filter-value="offline">⚪ Offline</button>
         </div>
 
         <!-- Generation Filter Pills -->
         <div class="filter-pills-row">
-          <button class="filter-pill ${filters.gen === "all" ? "active" : ""}" data-filter-type="gen" data-filter-value="all">Semua Gen</button>
+          <button class="filter-pill ${filters.gen === "all" ? "active" : ""}" data-filter-type="gen" data-filter-value="all">Semua Generasi</button>
           ${GENERATIONS.map(g => `
             <button class="filter-pill ${String(filters.gen) === String(g) ? "active" : ""}" data-filter-type="gen" data-filter-value="${g}">Gen ${g}</button>
           `).join("")}
@@ -80,8 +93,9 @@ export function renderMemberListView(filters = { search: "", status: "all", gen:
       </div>
 
       ${filtered.length === 0 ? `
-        <div class="empty-state" style="margin-top: 20px;">
-          <p class="empty-state-text">Tidak ada member yang cocok dengan filter pencarian.</p>
+        <div class="empty-state" style="margin-top: 24px;">
+          <h4 class="empty-state-title" style="font-family: var(--font-serif);">Tidak ada member yang cocok</h4>
+          <p class="empty-state-text">Coba ubah kata kunci pencarian atau reset filter generasi.</p>
         </div>
       ` : ""}
     </div>

@@ -1,4 +1,4 @@
-﻿// Header Component
+// Header Component — Provider Store Editorial Aesthetic
 import { auth } from "../lib/auth.js";
 import { escapeHtml } from "../lib/utils.js";
 
@@ -8,15 +8,24 @@ export function renderHeader(activeRoute = "home") {
   const name = user ? user.displayName.split(" ")[0] : "Wota";
 
   return `
+    <!-- Top Announcement Bar (Artisanal Boutique Style) -->
+    <div class="top-announcement-bar">
+      <span class="pulse-mini"></span>
+      <span>JKT48 LIVE RADAR — REAL-TIME IDN LIVE & SHOWROOM MONITOR</span>
+    </div>
+
     <header class="app-header">
       <div class="brand-badge" onclick="window.location.hash='#home'" style="cursor: pointer;">
         <span class="brand-dot"></span>
-        <span>JKT48 LIVE RADAR</span>
+        <div class="brand-logo-text">
+          <span>JKT<span class="brand-red">48</span></span>
+          <span class="brand-sub">RADAR</span>
+        </div>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <button id="theme-toggle-btn" class="btn-icon-pill" title="Ubah Tema" style="border: none;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <div class="header-actions">
+        <button id="theme-toggle-btn" class="btn-icon-editorial" title="Ubah Tema">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -34,7 +43,7 @@ export function renderHeader(activeRoute = "home") {
             <img src="${escapeHtml(photoUrl)}" alt="${escapeHtml(name)}" />
           </button>
         ` : `
-          <button onclick="window.location.hash='#login'" style="font-size: 0.85rem; font-weight: 600; color: var(--primary-red);">
+          <button onclick="window.location.hash='#login'" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary-red); border: 1px solid var(--border-color); padding: 7px 14px; border-radius: var(--radius-sm); background: var(--bg-elevated);">
             Masuk
           </button>
         `}
