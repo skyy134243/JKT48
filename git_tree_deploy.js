@@ -76,7 +76,7 @@ async function main() {
 
   console.log("4. Creating Git Commit...");
   const commit = await api("/git/commits", "POST", {
-    message: "fix: accurate recent live history (Mikaela & Indah) and fix 404 IDN Live URL format",
+    message: "fix: resolve loading logo freeze with try-catch render safety, safe displayName access, and watchdog",
     tree: tree.sha,
     parents: [parentSha]
   });

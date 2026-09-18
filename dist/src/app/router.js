@@ -112,45 +112,59 @@ class AppRouter {
   }
 
   renderAppShell(route) {
-    let viewHtml = "";
-    switch (route) {
-      case "members":
-        viewHtml = renderMemberListView(this.memberFilters);
-        break;
-      case "oshi":
-        viewHtml = renderOshiView();
-        break;
-      case "notifications":
-        viewHtml = renderNotificationView();
-        break;
-      case "settings":
-        viewHtml = renderSettingsView();
-        break;
-      case "profile":
-        viewHtml = renderProfileView();
-        break;
-      case "admin":
-        viewHtml = renderAdminView();
-        break;
-      case "home":
-      default:
-        viewHtml = renderHomeView();
-        break;
-    }
+    try {
+      let viewHtml = "";
+      switch (route) {
+        case "members":
+          viewHtml = renderMemberListView(this.memberFilters);
+          break;
+        case "oshi":
+          viewHtml = renderOshiView();
+          break;
+        case "notifications":
+          viewHtml = renderNotificationView();
+          break;
+        case "settings":
+          viewHtml = renderSettingsView();
+          break;
+        case "profile":
+          viewHtml = renderProfileView();
+          break;
+        case "admin":
+          viewHtml = renderAdminView();
+          break;
+        case "home":
+        default:
+          viewHtml = renderHomeView();
+          break;
+      }
 
-    this.container.innerHTML = `
-      <div class="app-container">
-        ${renderSidebar(route)}
-        <div class="main-wrapper">
+      this.container.innerHTML = `
+        <div class="app-container">
           ${renderHeader(route)}
-          <main id="view-mount">${viewHtml}</main>
+          <div class="main-wrapper">
+            <main id="view-mount">${viewHtml}</main>
+          </div>
+          ${renderSidebar(route)}
+          ${renderBottomNav(route)}
         </div>
-        ${renderBottomNav(route)}
-      </div>
-      <div id="modal-mount"></div>
-    `;
+        <div id="modal-mount"></div>
+      `;
 
-    this.bindEvents(route);
+      this.bindEvents(route);
+    } catch (err) {
+      console.error("[AppRouter] renderAppShell error:", err);
+      this.container.innerHTML = `
+        <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; font-family: sans-serif; background: #FFF;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/JKT48.svg" alt="JKT48" style="height: 64px; margin-bottom: 20px;" />
+          <h2 style="color: #E53935; font-size: 1.3rem; margin-bottom: 8px;">Gagal Memuat Halaman</h2>
+          <p style="color: #666666; font-size: 0.9rem; max-width: 440px; margin-bottom: 20px;">${err.message || "Terjadi kendala saat memproses tampilan."}</p>
+          <button onclick="window.location.hash='#home'; window.location.reload();" style="background: #E53935; color: #FFFFFF; border: none; padding: 10px 24px; border-radius: 4px; font-weight: 600; cursor: pointer;">
+            Muat Ulang Halaman
+          </button>
+        </div>
+      `;
+    }
   }
 
   renderView(route) {

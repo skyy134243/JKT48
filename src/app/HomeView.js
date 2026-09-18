@@ -20,7 +20,7 @@ export function renderHomeView() {
   else if (hour >= 11 && hour < 15) greeting = "Selamat siang";
   else if (hour >= 15 && hour < 18) greeting = "Selamat sore";
 
-  const firstName = user ? user.displayName.split(" ")[0] : "Wota";
+  const firstName = user?.displayName ? user.displayName.split(" ")[0] : "Wota";
 
   // Find all live members
   const liveItems = [];

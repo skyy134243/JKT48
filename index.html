@@ -154,6 +154,51 @@
           .catch((err) => console.warn("[PWA] Service Worker registration failed:", err));
       });
     }
+
+    // Global Script Error & CORS Guard
+    window.addEventListener("error", function(e) {
+      console.warn("[JKT48 Radar Monitor] Script error observed:", e);
+      if (window.location.protocol === "file:") {
+        const root = document.getElementById("app-root");
+        if (root && root.querySelector(".initial-jkt48-loader")) {
+          root.innerHTML = `
+            <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; font-family: sans-serif; background: #FFF;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/JKT48.svg" style="height: 64px; margin-bottom: 18px;" />
+              <h2 style="color: #E53935; font-size: 1.25rem; margin-bottom: 8px;">Buka Melalui Localhost / Web Server</h2>
+              <p style="color: #555; font-size: 0.9rem; max-width: 460px; line-height: 1.5; margin-bottom: 20px;">
+                Browser memblokir modul ES pada protokol <code>file://</code> karena kebijakan keamanan CORS.<br/>
+                Silakan jalankan web server lokal dengan <b>npm start</b> lalu buka <b>http://localhost:3000</b>.
+              </p>
+            </div>
+          `;
+        }
+      }
+    }, true);
+
+    // Timeout Watchdog: If loader is still visible after 2.5s, trigger dynamic recovery
+    setTimeout(() => {
+      const loader = document.querySelector(".initial-jkt48-loader");
+      if (loader && !window.appRouter) {
+        console.warn("[JKT48 Radar Monitor] Loader watchdog triggered. Attempting dynamic import fallback...");
+        import("./src/app/router.js")
+          .then(() => {
+            console.log("[JKT48 Radar Monitor] Fallback import succeeded!");
+          })
+          .catch((err) => {
+            console.error("[JKT48 Radar Monitor] Fallback import failed:", err);
+            const caption = document.querySelector(".initial-caption");
+            if (caption) {
+              caption.innerHTML = `
+                <div style="margin-top: 14px;">
+                  <button onclick="window.location.reload()" style="background: #E53935; color: #FFF; border: none; padding: 8px 18px; border-radius: 4px; font-weight: 600; font-size: 0.82rem; cursor: pointer;">
+                    Muat Ulang Halaman
+                  </button>
+                </div>
+              `;
+            }
+          });
+      }
+    }, 2500);
   </script>
 
   <!-- Router & Application Core -->
