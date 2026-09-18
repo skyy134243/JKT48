@@ -76,7 +76,7 @@ async function main() {
 
   console.log("4. Creating Git Commit...");
   const commit = await api("/git/commits", "POST", {
-    message: "feat: Provider Store top layout, official JKT48 logo & splash animation, Google login, and member photos",
+    message: "fix: instant app initialization & official JKT48 logo initial loading screen",
     tree: tree.sha,
     parents: [parentSha]
   });

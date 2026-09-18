@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#E53935" />
-  <meta name="description" content="JKT48 Live Radar — Pantau live member JKT48 di IDN Live dan SHOWROOM secara real-time." />
+  <meta name="description" content="JKT48 Live Radar — Pantau siaran live member JKT48 di IDN Live dan SHOWROOM secara real-time." />
   
   <title>JKT48 Live Radar</title>
 
@@ -17,19 +17,135 @@
 
   <!-- Preconnect to image CDNs -->
   <link rel="preconnect" href="https://upload.wikimedia.org" />
+
+  <style>
+    /* Inlined Instant Elegance Loader (Renders instantly before external CSS) */
+    .initial-jkt48-loader {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      color: #111111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Plus Jakarta Sans", sans-serif;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .initial-logo-container {
+      position: relative;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .initial-logo-ambient {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(229, 57, 53, 0.18) 0%, transparent 70%);
+      filter: blur(20px);
+      animation: logoGlow 2s ease-in-out infinite alternate;
+    }
+    @keyframes logoGlow {
+      0% { transform: scale(0.9); opacity: 0.5; }
+      100% { transform: scale(1.15); opacity: 0.9; }
+    }
+    .initial-jkt48-logo {
+      height: 84px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 4px 16px rgba(229, 57, 53, 0.25));
+      animation: logoFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes logoFadeIn {
+      0% { opacity: 0; transform: scale(0.92); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .initial-brand-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .initial-brand-title {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #111111;
+    }
+    .initial-brand-red {
+      color: #E53935;
+    }
+    .initial-brand-sub {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #999999;
+    }
+    .initial-bar-wrapper {
+      width: 180px;
+      height: 3px;
+      background-color: #EEEEEE;
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 0 auto 12px;
+      position: relative;
+    }
+    .initial-bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 35%;
+      background: linear-gradient(90deg, #E53935, #FF5252);
+      border-radius: 3px;
+      animation: initProgress 1.5s ease-in-out infinite;
+    }
+    @keyframes initProgress {
+      0% { transform: translateX(-100%); width: 25%; }
+      50% { width: 60%; }
+      100% { transform: translateX(350%); width: 25%; }
+    }
+    .initial-caption {
+      font-size: 0.78rem;
+      color: #777777;
+      letter-spacing: 0.04em;
+    }
+  </style>
 </head>
 <body>
   <div id="app-root">
-    <!-- App mounts here via router.js -->
-    <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #FFFFFF;">
-      <div style="text-align: center;">
-        <span class="pulse-dot" style="width: 14px; height: 14px; margin: 0 auto 12px; display: block;"></span>
-        <div style="font-weight: 700; font-size: 0.95rem; color: #202124;">Memuat JKT48 Live Radar...</div>
+    <!-- Elegant JKT48 Official Logo Loader -->
+    <div class="initial-jkt48-loader">
+      <div class="initial-logo-container">
+        <div class="initial-logo-ambient"></div>
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/8/82/JKT48.svg" 
+          alt="JKT48 Official Logo" 
+          class="initial-jkt48-logo" 
+        />
       </div>
+      <div class="initial-brand-row">
+        <span class="initial-brand-title">JKT<span class="initial-brand-red">48</span></span>
+        <span class="initial-brand-sub">LIVE RADAR</span>
+      </div>
+      <div class="initial-bar-wrapper">
+        <div class="initial-bar-fill"></div>
+      </div>
+      <div class="initial-caption">Memuat Siaran Resmi JKT48...</div>
     </div>
   </div>
 
-  <!-- Register Service Worker -->
+  <!-- Register Service Worker safely without blocking -->
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {

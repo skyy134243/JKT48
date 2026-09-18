@@ -22,6 +22,10 @@ import { OSHI_PRIORITY } from "../types/schemas.js";
 class AppRouter {
   constructor() {
     this.container = document.getElementById("app-root");
+    if (!this.container) {
+      console.warn("[AppRouter] Element #app-root not yet ready, retrying...");
+      return;
+    }
     this.memberFilters = { search: "", status: "all", gen: "all" };
     this.onboardingState = { step: 1, selectedOshis: [] };
     this.init();
@@ -499,7 +503,33 @@ class AppRouter {
   }
 }
 
-// Instantiate Router on Window Load
-window.addEventListener("DOMContentLoaded", () => {
-  window.appRouter = new AppRouter();
-});
+// Bulletproof instant initialization
+function startApp() {
+  if (!window.appRouter) {
+    try {
+      window.appRouter = new AppRouter();
+    } catch (err) {
+      console.error("[AppRouter] Fatal initialization error:", err);
+      const root = document.getElementById("app-root");
+      if (root) {
+        root.innerHTML = `
+          <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-align: center; padding: 24px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/JKT48.svg" alt="JKT48" style="height: 64px; margin-bottom: 20px;" />
+            <h2 style="color: #E53935; font-size: 1.3rem; margin-bottom: 8px;">Gagal Memuat Aplikasi</h2>
+            <p style="color: #666666; font-size: 0.9rem; max-width: 400px; margin-bottom: 20px;">${err.message || "Terjadi kendala saat memuat direktori."}</p>
+            <button onclick="window.location.reload()" style="background: #E53935; color: #FFFFFF; border: none; padding: 10px 24px; border-radius: 4px; font-weight: 600; cursor: pointer;">
+              Muat Ulang Halaman
+            </button>
+          </div>
+        `;
+      }
+    }
+  }
+}
+
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  startApp();
+} else {
+  document.addEventListener("DOMContentLoaded", startApp);
+  window.addEventListener("load", startApp);
+}
