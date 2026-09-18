@@ -1,4 +1,4 @@
-﻿// Utility Functions for JKT48 Live Radar
+// Utility Functions for JKT48 Live Radar
 
 export function formatTime(isoStringOrTimestamp) {
   if (!isoStringOrTimestamp) return "";
@@ -42,6 +42,7 @@ export function escapeHtml(str) {
 export const Storage = {
   get(key, fallback = null) {
     try {
+      if (typeof localStorage === "undefined") return fallback;
       const val = localStorage.getItem(`jkt48_${key}`);
       return val ? JSON.parse(val) : fallback;
     } catch {
@@ -50,6 +51,7 @@ export const Storage = {
   },
   set(key, val) {
     try {
+      if (typeof localStorage === "undefined") return;
       localStorage.setItem(`jkt48_${key}`, JSON.stringify(val));
     } catch (e) {
       console.warn("Storage write failed", e);
@@ -57,7 +59,34 @@ export const Storage = {
   },
   remove(key) {
     try {
+      if (typeof localStorage === "undefined") return;
       localStorage.removeItem(`jkt48_${key}`);
     } catch {}
   }
 };
+
+export const Session = {
+  get(key, fallback = null) {
+    try {
+      if (typeof sessionStorage === "undefined") return fallback;
+      const val = sessionStorage.getItem(`jkt48_${key}`);
+      return val ? JSON.parse(val) : fallback;
+    } catch {
+      return fallback;
+    }
+  },
+  set(key, val) {
+    try {
+      if (typeof sessionStorage === "undefined") return;
+      sessionStorage.setItem(`jkt48_${key}`, JSON.stringify(val));
+    } catch {}
+  },
+  remove(key) {
+    try {
+      if (typeof sessionStorage === "undefined") return;
+      sessionStorage.removeItem(`jkt48_${key}`);
+    } catch {}
+  }
+};
+
+

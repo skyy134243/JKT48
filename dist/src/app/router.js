@@ -18,6 +18,9 @@ import { renderAdminView } from "./AdminView.js";
 import { renderOnboardingModal } from "./OnboardingModal.js";
 import { playLoginAnimation } from "../components/LoginSplashAnimation.js";
 import { OSHI_PRIORITY } from "../types/schemas.js";
+import { Storage, Session } from "../lib/utils.js";
+
+
 
 class AppRouter {
   constructor() {
@@ -62,16 +65,24 @@ class AppRouter {
   }
 
   initTheme() {
-    const saved = localStorage.getItem("jkt48_theme") || "light";
-    document.documentElement.setAttribute("data-theme", saved);
+    try {
+      const saved = Storage.get("theme", "light");
+      if (document.documentElement) {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    } catch {}
   }
 
   toggleTheme() {
-    const current = document.documentElement.getAttribute("data-theme");
-    const next = current === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("jkt48_theme", next);
+    try {
+      if (!document.documentElement) return;
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      Storage.set("theme", next);
+    } catch {}
   }
+
 
   startLiveMonitoring() {
     // Run first check after 3 seconds (let UI settle)
@@ -197,12 +208,13 @@ class AppRouter {
     if (btnGuest) {
       btnGuest.addEventListener("click", () => {
         playLoginAnimation(() => {
-          sessionStorage.setItem("jkt48_guest_mode", "true");
+          Session.set("guest_mode", "true");
           window.location.hash = "#home";
           this.route();
         });
       });
     }
+
   }
 
   showOnboarding() {
@@ -398,11 +410,12 @@ class AppRouter {
       if (btnLogout) {
         btnLogout.addEventListener("click", async () => {
           await auth.signOut();
-          sessionStorage.removeItem("jkt48_guest_mode");
+          Session.remove("guest_mode");
           window.location.hash = "#home";
         });
       }
     }
+
 
     // Admin Events
     if (route === "admin") {

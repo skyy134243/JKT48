@@ -1,19 +1,22 @@
 // Web Push & Notification Manager
 import { db } from "./database.js";
 import { auth } from "./auth.js";
+import { Storage } from "./utils.js";
+
 
 class NotificationManager {
   constructor() {
-    this.permission = ("Notification" in window) ? Notification.permission : "unsupported";
+    this.permission = (typeof window !== "undefined" && typeof Notification !== "undefined") ? Notification.permission : "unsupported";
   }
 
   isSupported() {
-    return "Notification" in window && "serviceWorker" in navigator;
+    return typeof window !== "undefined" && typeof Notification !== "undefined" && "serviceWorker" in navigator;
   }
 
   getPermission() {
-    return ("Notification" in window) ? Notification.permission : "unsupported";
+    return (typeof window !== "undefined" && typeof Notification !== "undefined") ? Notification.permission : "unsupported";
   }
+
 
   async requestPermission() {
     if (!this.isSupported()) {
@@ -39,11 +42,12 @@ class NotificationManager {
     const user = auth.getUser();
     if (!user) return;
 
-    let deviceId = localStorage.getItem("jkt48_deviceId");
+    let deviceId = Storage.get("deviceId", null);
     if (!deviceId) {
       deviceId = "dev_" + Math.random().toString(36).substring(2, 12);
-      localStorage.setItem("jkt48_deviceId", deviceId);
+      Storage.set("deviceId", deviceId);
     }
+
 
     const browserInfo = navigator.userAgent;
     const isMobile = /Android|iPhone|iPad|iPod/i.test(browserInfo);
