@@ -1,4 +1,4 @@
-// LiveCard Component — Provider Store Lookbook Aesthetic
+// LiveCard Component - Provider Store Lookbook Aesthetic
 // Red & White Palette, Live Radar Pulse, Official JKT48 Logo Fallback
 import { escapeHtml, formatTime } from "../lib/utils.js";
 import { PLATFORMS } from "../types/schemas.js";
@@ -10,15 +10,18 @@ export function renderLiveCard(liveItem, isOshi = false) {
   const platformClass = platform === PLATFORMS.IDN ? "idn" : "showroom";
   const timeFormatted = startedAt ? `Mulai ${formatTime(startedAt)} WIB` : "Sedang Live";
   const photo = member.photoUrl || OFFICIAL_JKT48_LOGO;
+  // FIX: generation is a number, convert explicitly to string
+  const genText = String(member.generation || "");
+  const memberColor = member.color || "#E53935";
 
   return `
-    <article class="live-card">
+    <article class="live-card" style="border-top: 3px solid ${memberColor};">
       <div class="live-card-header">
         <span class="platform-badge ${platformClass}">
           ${platformLabel}
         </span>
         <div style="display: flex; align-items: center; gap: 6px;">
-          ${isOshi ? `<span class="oshi-badge-pill">⭐ OSHI</span>` : ""}
+          ${isOshi ? `<span class="oshi-badge-pill">&#11088; OSHI</span>` : ""}
           <span class="section-badge-live">
             <span class="pulse-dot"></span>
             LIVE
@@ -38,7 +41,7 @@ export function renderLiveCard(liveItem, isOshi = false) {
         </div>
         <div class="live-card-info">
           <h3 class="live-member-name">${escapeHtml(member.nickname)}</h3>
-          <p class="live-meta">JKT48 · Gen ${escapeHtml(member.generation)}</p>
+          <p class="live-meta">JKT48 &middot; Gen ${escapeHtml(genText)}</p>
           <p class="live-start-time">${escapeHtml(timeFormatted)}</p>
         </div>
       </div>
