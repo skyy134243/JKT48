@@ -1333,3 +1333,256 @@
   display: inline-flex;
   align-items: center;
 }
+
+
+/* ==========================================================================
+   ENHANCED STYLING: Specific Icon Sizing, Oshi Hero Banner, Splash, Footer
+   ========================================================================== */
+
+/* --- Strict Specific Icon Sizing (Lonceng / Star / Power) --- */
+.mobile-bottom-nav .nav-item svg,
+.mobile-bottom-nav svg {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  stroke-width: 1.75 !important;
+  flex-shrink: 0 !important;
+}
+
+.oshi-star-btn {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  max-width: 32px !important;
+  font-size: 15px !important;
+  line-height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.btn-icon-editorial {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.btn-icon-editorial svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+}
+
+.sidebar-link svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+}
+
+/* --- Mobile Bottom Nav Responsive Display --- */
+.mobile-bottom-nav {
+  display: flex !important;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: var(--bg-main);
+  border-top: 1px solid var(--border-color);
+  z-index: 50;
+  justify-content: space-around;
+  align-items: stretch;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (min-width: 900px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width: 899px) {
+  .main-wrapper {
+    padding-bottom: 80px !important;
+  }
+}
+
+/* --- Top Provider Store Nav Link Active Styles --- */
+.provider-store-nav {
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-main);
+  position: sticky;
+  top: 64px;
+  z-index: 25;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.provider-store-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.provider-nav-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.provider-nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 16px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.provider-nav-link:hover {
+  color: var(--dark-main);
+  border-bottom-color: var(--border-dark);
+}
+
+.provider-nav-link.active {
+  color: var(--primary-red) !important;
+  border-bottom-color: var(--primary-red) !important;
+  font-weight: 800 !important;
+}
+
+/* --- Dynamic Oshi Hero Banner --- */
+.oshi-hero-banner {
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+/* --- Universal App Footer --- */
+.app-footer {
+  margin-top: 48px;
+  padding: 32px 24px 24px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-main);
+}
+
+.footer-link-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  background-color: var(--bg-card);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-link-item:hover {
+  color: var(--primary-red);
+  border-color: var(--primary-red-glow);
+  background-color: var(--primary-red-subtle);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* --- Login Splash Animation --- */
+.jkt48-splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jkt48-splash-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.jkt48-splash-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a0000 0%, #2d0a0a 30%, #3d0f0f 60%, #1a0000 100%);
+}
+
+.jkt48-ambient-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(229, 57, 53, 0.35) 0%, transparent 70%);
+  animation: ambientPulse 3s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.jkt48-splash-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 32px;
+}
+
+.jkt48-splash-official-logo {
+  height: 90px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 24px rgba(229, 57, 53, 0.75)) brightness(0) invert(1);
+  animation: jkt48Entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes jkt48Entrance {
+  0% { transform: scale(0.7) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.jkt48-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.jkt48-letter, .jkt48-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow: 0 0 40px rgba(229, 57, 53, 0.8);
+}
+
+.number-4, .number-8 {
+  color: #E53935;
+}
