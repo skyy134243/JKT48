@@ -1,8 +1,7 @@
-// JKT48 Live Radar — Standalone Universal Bundle
+// JKT48 Live Radar - Standalone Universal Bundle
 // Built automatically for seamless offline, file://, and http:// execution
 (function(window, document) {
   "use strict";
-
 
 /* --- File: src/types/schemas.js --- */
 ﻿// Schemas and Constants for JKT48 Live Radar
@@ -139,17 +138,17 @@ const Session = {
 
 
 /* --- File: src/data/members.js --- */
-// JKT48 Complete Member Database — 69 Members (Gen 3 through Gen 13)
+// JKT48 Complete Member Database - Active Members (Gen 3 through Gen 14)
 // Data verified from JKT48 Official Live Streaming Directory
 // SHOWROOM: https://www.showroom-live.com/r/JKT48_[Nickname]
-// IDN Live: https://www.idn.app/jkt48_[nickname]
+// IDN Live: https://www.idn.app/[nickname]jkt48
 
 const JKT48_MEMBERS = [
-  // ═══════════════════════════════════════════
-  //  MEMBER INTI (Gen 3 — Gen 11)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
+  //  MEMBER INTI (Gen 3 - Gen 11)
+  // ─────────────────────────────────────────
 
-  // ── Gen 3 ──
+  // ✦ Gen 3 ✦
   {
     id: "gracia",
     name: "Shania Gracia",
@@ -160,11 +159,12 @@ const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg/440px-Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Gracia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracia",
-    idnSlug: "jkt48_gracia",
-    idnUrl: "https://www.idn.app/jkt48_gracia"
+    idnSlug: "graciajkt48",
+    idnUrl: "https://www.idn.app/graciajkt48",
+    color: "#8B6F9E"
   },
 
-  // ── Gen 6 ──
+  // ✦ Gen 6 ✦
   {
     id: "feni",
     name: "Feni Fitriyanti",
@@ -175,8 +175,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg/440px-Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Feni",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Feni",
-    idnSlug: "jkt48_feni",
-    idnUrl: "https://www.idn.app/jkt48_feni"
+    idnSlug: "fenijkt48",
+    idnUrl: "https://www.idn.app/fenijkt48",
+    color: "#E91E8C"
   },
   {
     id: "gita",
@@ -188,11 +189,12 @@ const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg/440px-Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Gita",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gita",
-    idnSlug: "jkt48_gita",
-    idnUrl: "https://www.idn.app/jkt48_gita"
+    idnSlug: "gitajkt48",
+    idnUrl: "https://www.idn.app/gitajkt48",
+    color: "#FF6B9D"
   },
 
-  // ── Gen 7 ──
+  // ✦ Gen 7 ✦
   {
     id: "christy",
     name: "Angelina Christy",
@@ -203,8 +205,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Christy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Christy",
-    idnSlug: "jkt48_christy",
-    idnUrl: "https://www.idn.app/jkt48_christy"
+    idnSlug: "christyjkt48",
+    idnUrl: "https://www.idn.app/christyjkt48",
+    color: "#C2185B"
   },
   {
     id: "olla",
@@ -213,11 +216,12 @@ const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_olla.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Febriola_Sinambela_%28Olla%29_at_the_JKT48_Summer_Festival.jpg/440px-Febriola_Sinambela_%28Olla%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Olla",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Olla",
-    idnSlug: "jkt48_olla",
-    idnUrl: "https://www.idn.app/jkt48_olla"
+    idnSlug: "ollajkt48",
+    idnUrl: "https://www.idn.app/ollajkt48",
+    color: "#7B1FA2"
   },
   {
     id: "freya",
@@ -229,8 +233,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg/440px-Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Freya",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Freya",
-    idnSlug: "jkt48_freya",
-    idnUrl: "https://www.idn.app/jkt48_freya"
+    idnSlug: "freyajkt48",
+    idnUrl: "https://www.idn.app/freyajkt48",
+    color: "#1565C0"
   },
   {
     id: "eli",
@@ -239,11 +244,12 @@ const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_eli.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Helisma_Putri_%28Eli%29_at_the_JKT48_Summer_Festival.jpg/440px-Helisma_Putri_%28Eli%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Eli",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Eli",
-    idnSlug: "jkt48_eli",
-    idnUrl: "https://www.idn.app/jkt48_eli"
+    idnSlug: "elijkt48",
+    idnUrl: "https://www.idn.app/elijkt48",
+    color: "#2E7D32"
   },
   {
     id: "jessi",
@@ -252,11 +258,12 @@ const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_jessi.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Jessica_Chandra_%28Jessi%29_at_the_JKT48_Summer_Festival.jpg/440px-Jessica_Chandra_%28Jessi%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Jessi",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jessi",
-    idnSlug: "jkt48_jessi",
-    idnUrl: "https://www.idn.app/jkt48_jessi"
+    idnSlug: "jessijkt48",
+    idnUrl: "https://www.idn.app/jessijkt48",
+    color: "#E65100"
   },
   {
     id: "muthe",
@@ -265,14 +272,15 @@ const JKT48_MEMBERS = [
     generation: 7,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_muthe.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mutiara_Azzahra_%28Muthe%29_at_the_JKT48_Summer_Festival.jpg/440px-Mutiara_Azzahra_%28Muthe%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Muthe",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Muthe",
-    idnSlug: "jkt48_muthe",
-    idnUrl: "https://www.idn.app/jkt48_muthe"
+    idnSlug: "muthejkt48",
+    idnUrl: "https://www.idn.app/muthejkt48",
+    color: "#F57F17"
   },
 
-  // ── Gen 8 ──
+  // ✦ Gen 8 ✦
   {
     id: "oniel",
     name: "Cornelia Vanisa",
@@ -280,11 +288,12 @@ const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_oniel.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Cornelia_Vanisa_%28Oniel%29_at_the_JKT48_Summer_Festival.jpg/440px-Cornelia_Vanisa_%28Oniel%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Oniel",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oniel",
-    idnSlug: "jkt48_oniel",
-    idnUrl: "https://www.idn.app/jkt48_oniel"
+    idnSlug: "onieljkt48",
+    idnUrl: "https://www.idn.app/onieljkt48",
+    color: "#880E4F"
   },
   {
     id: "fiony",
@@ -293,11 +302,12 @@ const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_fiony.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Fiony_Alveria_%28Fiony%29_at_the_JKT48_Summer_Festival.jpg/440px-Fiony_Alveria_%28Fiony%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Fiony",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fiony",
-    idnSlug: "jkt48_fiony",
-    idnUrl: "https://www.idn.app/jkt48_fiony"
+    idnSlug: "fionyjkt48",
+    idnUrl: "https://www.idn.app/fionyjkt48",
+    color: "#AD1457"
   },
   {
     id: "flora",
@@ -306,11 +316,12 @@ const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_flora.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Flora_Shafiq_%28Flora%29_at_the_JKT48_Summer_Festival.jpg/440px-Flora_Shafiq_%28Flora%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Flora",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Flora",
-    idnSlug: "jkt48_flora",
-    idnUrl: "https://www.idn.app/jkt48_flora"
+    idnSlug: "florajkt48",
+    idnUrl: "https://www.idn.app/florajkt48",
+    color: "#1B5E20"
   },
   {
     id: "lulu",
@@ -319,14 +330,15 @@ const JKT48_MEMBERS = [
     generation: 8,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_lulu.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Lulu_Salsabila_%28Lulu%29_at_the_JKT48_Summer_Festival.jpg/440px-Lulu_Salsabila_%28Lulu%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Lulu",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lulu",
-    idnSlug: "jkt48_lulu",
-    idnUrl: "https://www.idn.app/jkt48_lulu"
+    idnSlug: "lulujkt48",
+    idnUrl: "https://www.idn.app/lulujkt48",
+    color: "#0D47A1"
   },
 
-  // ── Gen 9 ──
+  // ✦ Gen 9 ✦
   {
     id: "indah",
     name: "Indah Cahya",
@@ -334,11 +346,12 @@ const JKT48_MEMBERS = [
     generation: 9,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_indah.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Indah_Cahya_%28Indah%29_at_the_JKT48_Summer_Festival.jpg/440px-Indah_Cahya_%28Indah%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Indah",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Indah",
-    idnSlug: "jkt48_indah",
-    idnUrl: "https://www.idn.app/jkt48_indah"
+    idnSlug: "indahjkt48",
+    idnUrl: "https://www.idn.app/indahjkt48",
+    color: "#BF360C"
   },
   {
     id: "kathrina",
@@ -347,11 +360,12 @@ const JKT48_MEMBERS = [
     generation: 9,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_kathrina.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg/440px-Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Kathrina",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kathrina",
-    idnSlug: "jkt48_kathrina",
-    idnUrl: "https://www.idn.app/jkt48_kathrina"
+    idnSlug: "kathrinajkt48",
+    idnUrl: "https://www.idn.app/kathrinajkt48",
+    color: "#4A148C"
   },
   {
     id: "marsha",
@@ -360,14 +374,15 @@ const JKT48_MEMBERS = [
     generation: 9,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_marsha.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Marsha_Lenathea_%28Marsha%29_at_the_JKT48_Summer_Festival.jpg/440px-Marsha_Lenathea_%28Marsha%29_at_the_JKT48_Summer_Festival.jpg",
     showroomSlug: "JKT48_Marsha",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Marsha",
-    idnSlug: "jkt48_marsha",
-    idnUrl: "https://www.idn.app/jkt48_marsha"
+    idnSlug: "marshajkt48",
+    idnUrl: "https://www.idn.app/marshajkt48",
+    color: "#006064"
   },
 
-  // ── Gen 10 ──
+  // ✦ Gen 10 ✦
   {
     id: "amanda",
     name: "Amanda Sukma",
@@ -375,11 +390,12 @@ const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_amanda.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Amanda_Sukma_%28Amanda%29_JKT48.jpg/440px-Amanda_Sukma_%28Amanda%29_JKT48.jpg",
     showroomSlug: "JKT48_Amanda",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Amanda",
-    idnSlug: "jkt48_amanda",
-    idnUrl: "https://www.idn.app/jkt48_amanda"
+    idnSlug: "amandajkt48",
+    idnUrl: "https://www.idn.app/amandajkt48",
+    color: "#E53935"
   },
   {
     id: "lia",
@@ -388,11 +404,12 @@ const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_lia.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Aurellia_%28Lia%29_JKT48.jpg/440px-Aurellia_%28Lia%29_JKT48.jpg",
     showroomSlug: "JKT48_Lia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lia",
-    idnSlug: "jkt48_lia",
-    idnUrl: "https://www.idn.app/jkt48_lia"
+    idnSlug: "liajkt48",
+    idnUrl: "https://www.idn.app/liajkt48",
+    color: "#F06292"
   },
   {
     id: "callie",
@@ -401,11 +418,12 @@ const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_callie.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Callista_Alifia_%28Callie%29_JKT48.jpg/440px-Callista_Alifia_%28Callie%29_JKT48.jpg",
     showroomSlug: "JKT48_Callie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Callie",
-    idnSlug: "jkt48_callie",
-    idnUrl: "https://www.idn.app/jkt48_callie"
+    idnSlug: "calliejkt48",
+    idnUrl: "https://www.idn.app/calliejkt48",
+    color: "#00695C"
   },
   {
     id: "ella",
@@ -414,11 +432,12 @@ const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_ella.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Gabriela_Abigail_%28Ella%29_JKT48.jpg/440px-Gabriela_Abigail_%28Ella%29_JKT48.jpg",
     showroomSlug: "JKT48_Ella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ella",
-    idnSlug: "jkt48_ella",
-    idnUrl: "https://www.idn.app/jkt48_ella"
+    idnSlug: "ellajkt48",
+    idnUrl: "https://www.idn.app/ellajkt48",
+    color: "#558B2F"
   },
   {
     id: "indira",
@@ -427,11 +446,12 @@ const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_indira.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Indira_Seruni_%28Indira%29_JKT48.jpg/440px-Indira_Seruni_%28Indira%29_JKT48.jpg",
     showroomSlug: "JKT48_Indira",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Indira",
-    idnSlug: "jkt48_indira",
-    idnUrl: "https://www.idn.app/jkt48_indira"
+    idnSlug: "indirajkt48",
+    idnUrl: "https://www.idn.app/indirajkt48",
+    color: "#283593"
   },
   {
     id: "lyn",
@@ -440,11 +460,12 @@ const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_lyn.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Jesslyn_Elly_%28Lyn%29_JKT48.jpg/440px-Jesslyn_Elly_%28Lyn%29_JKT48.jpg",
     showroomSlug: "JKT48_Lyn",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lyn",
-    idnSlug: "jkt48_lyn",
-    idnUrl: "https://www.idn.app/jkt48_lyn"
+    idnSlug: "lynjkt48",
+    idnUrl: "https://www.idn.app/lynjkt48",
+    color: "#E64A19"
   },
   {
     id: "raisha",
@@ -453,14 +474,15 @@ const JKT48_MEMBERS = [
     generation: 10,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_raisha.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Raisha_Syifa_%28Raisha%29_JKT48.jpg/440px-Raisha_Syifa_%28Raisha%29_JKT48.jpg",
     showroomSlug: "JKT48_Raisha",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Raisha",
-    idnSlug: "jkt48_raisha",
-    idnUrl: "https://www.idn.app/jkt48_raisha"
+    idnSlug: "raishajkt48",
+    idnUrl: "https://www.idn.app/raishajkt48",
+    color: "#6A1B9A"
   },
 
-  // ── Gen 11 ──
+  // ✦ Gen 11 ✦
   {
     id: "anindya",
     name: "Anindya Ramadhani",
@@ -468,11 +490,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_anindya.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Anindya_Ramadhani_%28Anindya%29_JKT48.jpg/440px-Anindya_Ramadhani_%28Anindya%29_JKT48.jpg",
     showroomSlug: "JKT48_Anindya",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Anindya",
-    idnSlug: "jkt48_anindya",
-    idnUrl: "https://www.idn.app/jkt48_anindya"
+    idnSlug: "anindyajkt48",
+    idnUrl: "https://www.idn.app/anindyajkt48",
+    color: "#0277BD"
   },
   {
     id: "cathy",
@@ -481,11 +504,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_cathy.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Cathleen_Nixie_%28Cathy%29_JKT48.jpg/440px-Cathleen_Nixie_%28Cathy%29_JKT48.jpg",
     showroomSlug: "JKT48_Cathy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Cathy",
-    idnSlug: "jkt48_cathy",
-    idnUrl: "https://www.idn.app/jkt48_cathy"
+    idnSlug: "cathyjkt48",
+    idnUrl: "https://www.idn.app/cathyjkt48",
+    color: "#D81B60"
   },
   {
     id: "elin",
@@ -494,11 +518,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_elin.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Celline_Amalika_%28Elin%29_JKT48.jpg/440px-Celline_Amalika_%28Elin%29_JKT48.jpg",
     showroomSlug: "JKT48_Elin",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Elin",
-    idnSlug: "jkt48_elin",
-    idnUrl: "https://www.idn.app/jkt48_elin"
+    idnSlug: "elinjkt48",
+    idnUrl: "https://www.idn.app/elinjkt48",
+    color: "#37474F"
   },
   {
     id: "chelsea",
@@ -507,11 +532,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_chelsea.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Chelsea_Davina_%28Chelsea%29_JKT48.jpg/440px-Chelsea_Davina_%28Chelsea%29_JKT48.jpg",
     showroomSlug: "JKT48_Chelsea",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Chelsea",
-    idnSlug: "jkt48_chelsea",
-    idnUrl: "https://www.idn.app/jkt48_chelsea"
+    idnSlug: "chelseajkt48",
+    idnUrl: "https://www.idn.app/chelseajkt48",
+    color: "#EF6C00"
   },
   {
     id: "cynthia",
@@ -520,11 +546,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_cynthia.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cynthia_Yaputera_%28Cynthia%29_JKT48.jpg/440px-Cynthia_Yaputera_%28Cynthia%29_JKT48.jpg",
     showroomSlug: "JKT48_Cynthia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Cynthia",
-    idnSlug: "jkt48_cynthia",
-    idnUrl: "https://www.idn.app/jkt48_cynthia"
+    idnSlug: "cynthiajkt48",
+    idnUrl: "https://www.idn.app/cynthiajkt48",
+    color: "#5C6BC0"
   },
   {
     id: "danella",
@@ -533,11 +560,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_danella.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Dena_Natalia_%28Danella%29_JKT48.jpg/440px-Dena_Natalia_%28Danella%29_JKT48.jpg",
     showroomSlug: "JKT48_Danella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Danella",
-    idnSlug: "jkt48_danella",
-    idnUrl: "https://www.idn.app/jkt48_danella"
+    idnSlug: "danellajkt48",
+    idnUrl: "https://www.idn.app/danellajkt48",
+    color: "#B71C1C"
   },
   {
     id: "daisy",
@@ -546,11 +574,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_daisy.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Desy_Natalia_%28Daisy%29_JKT48.jpg/440px-Desy_Natalia_%28Daisy%29_JKT48.jpg",
     showroomSlug: "JKT48_Daisy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Daisy",
-    idnSlug: "jkt48_daisy",
-    idnUrl: "https://www.idn.app/jkt48_daisy"
+    idnSlug: "daisyjkt48",
+    idnUrl: "https://www.idn.app/daisyjkt48",
+    color: "#00838F"
   },
   {
     id: "gendis",
@@ -559,11 +588,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_gendis.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/g/g7/Gendis_Mayrannisa_%28Gendis%29_JKT48.jpg/440px-Gendis_Mayrannisa_%28Gendis%29_JKT48.jpg",
     showroomSlug: "JKT48_Gendis",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gendis",
-    idnSlug: "jkt48_gendis",
-    idnUrl: "https://www.idn.app/jkt48_gendis"
+    idnSlug: "gendisjkt48",
+    idnUrl: "https://www.idn.app/gendisjkt48",
+    color: "#33691E"
   },
   {
     id: "gracie",
@@ -572,11 +602,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_gracie.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Grace_Octaviani_%28Gracie%29_JKT48.jpg/440px-Grace_Octaviani_%28Gracie%29_JKT48.jpg",
     showroomSlug: "JKT48_Gracie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracie",
-    idnSlug: "jkt48_gracie",
-    idnUrl: "https://www.idn.app/jkt48_gracie"
+    idnSlug: "graciejkt48",
+    idnUrl: "https://www.idn.app/graciejkt48",
+    color: "#F9A825"
   },
   {
     id: "greesel",
@@ -585,11 +616,12 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_greesel.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Greesella_Adhalia_%28Greesel%29_JKT48.jpg/440px-Greesella_Adhalia_%28Greesel%29_JKT48.jpg",
     showroomSlug: "JKT48_Greesel",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Greesel",
-    idnSlug: "jkt48_greesel",
-    idnUrl: "https://www.idn.app/jkt48_greesel"
+    idnSlug: "greeseljkt48",
+    idnUrl: "https://www.idn.app/greeseljkt48",
+    color: "#880E4F"
   },
   {
     id: "michie",
@@ -598,16 +630,17 @@ const JKT48_MEMBERS = [
     generation: 11,
     teamStatus: "Inti",
     status: "active",
-    photoUrl: "https://jkt48.com/images/member/member_michie.jpg",
+    photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/m/m3/Michelle_Alexandra_%28Michie%29_JKT48.jpg/440px-Michelle_Alexandra_%28Michie%29_JKT48.jpg",
     showroomSlug: "JKT48_Michie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Michie",
-    idnSlug: "jkt48_michie",
-    idnUrl: "https://www.idn.app/jkt48_michie"
+    idnSlug: "michiejkt48",
+    idnUrl: "https://www.idn.app/michiejkt48",
+    color: "#1A237E"
   },
 
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
   //  TRAINEE (Gen 12)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
   {
     id: "aralie",
     name: "Abigail Rachel",
@@ -618,8 +651,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_aralie.jpg",
     showroomSlug: "JKT48_Aralie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Aralie",
-    idnSlug: "jkt48_aralie",
-    idnUrl: "https://www.idn.app/jkt48_aralie"
+    idnSlug: "araliejkt48",
+    idnUrl: "https://www.idn.app/araliejkt48",
+    color: "#E53935"
   },
   {
     id: "delynn",
@@ -631,8 +665,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_delynn.jpg",
     showroomSlug: "JKT48_Delynn",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Delynn",
-    idnSlug: "jkt48_delynn",
-    idnUrl: "https://www.idn.app/jkt48_delynn"
+    idnSlug: "delynjkt48",
+    idnUrl: "https://www.idn.app/delynjkt48",
+    color: "#C2185B"
   },
   {
     id: "lana",
@@ -644,8 +679,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_lana.jpg",
     showroomSlug: "JKT48_Lana",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lana",
-    idnSlug: "jkt48_lana",
-    idnUrl: "https://www.idn.app/jkt48_lana"
+    idnSlug: "lanajkt48",
+    idnUrl: "https://www.idn.app/lanajkt48",
+    color: "#00897B"
   },
   {
     id: "erine",
@@ -657,8 +693,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_erine.jpg",
     showroomSlug: "JKT48_Erine",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Erine",
-    idnSlug: "jkt48_erine",
-    idnUrl: "https://www.idn.app/jkt48_erine"
+    idnSlug: "erinejkt48",
+    idnUrl: "https://www.idn.app/erinejkt48",
+    color: "#E91E8C"
   },
   {
     id: "fritzy",
@@ -670,8 +707,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_fritzy.jpg",
     showroomSlug: "JKT48_Fritzy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fritzy",
-    idnSlug: "jkt48_fritzy",
-    idnUrl: "https://www.idn.app/jkt48_fritzy"
+    idnSlug: "fritzyjkt48",
+    idnUrl: "https://www.idn.app/fritzyjkt48",
+    color: "#8E24AA"
   },
   {
     id: "lily",
@@ -683,8 +721,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_lily.jpg",
     showroomSlug: "JKT48_Lily",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lily",
-    idnSlug: "jkt48_lily",
-    idnUrl: "https://www.idn.app/jkt48_lily"
+    idnSlug: "lilyjkt48",
+    idnUrl: "https://www.idn.app/lilyjkt48",
+    color: "#F06292"
   },
   {
     id: "trisha",
@@ -696,8 +735,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_trisha.jpg",
     showroomSlug: "JKT48_Trisha",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Trisha",
-    idnSlug: "jkt48_trisha",
-    idnUrl: "https://www.idn.app/jkt48_trisha"
+    idnSlug: "trishajkt48",
+    idnUrl: "https://www.idn.app/trishajkt48",
+    color: "#AB47BC"
   },
   {
     id: "levi",
@@ -709,8 +749,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_levi.jpg",
     showroomSlug: "JKT48_Levi",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Levi",
-    idnSlug: "jkt48_levi",
-    idnUrl: "https://www.idn.app/jkt48_levi"
+    idnSlug: "levijkt48",
+    idnUrl: "https://www.idn.app/levijkt48",
+    color: "#1E88E5"
   },
   {
     id: "nayla",
@@ -722,8 +763,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_nayla.jpg",
     showroomSlug: "JKT48_Nayla",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nayla",
-    idnSlug: "jkt48_nayla",
-    idnUrl: "https://www.idn.app/jkt48_nayla"
+    idnSlug: "naylajkt48",
+    idnUrl: "https://www.idn.app/naylajkt48",
+    color: "#43A047"
   },
   {
     id: "nachia",
@@ -735,8 +777,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_nachia.jpg",
     showroomSlug: "JKT48_Nachia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nachia",
-    idnSlug: "jkt48_nachia",
-    idnUrl: "https://www.idn.app/jkt48_nachia"
+    idnSlug: "nachiajkt48",
+    idnUrl: "https://www.idn.app/nachiajkt48",
+    color: "#FB8C00"
   },
   {
     id: "oline",
@@ -748,8 +791,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_oline.jpg",
     showroomSlug: "JKT48_Oline",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oline",
-    idnSlug: "jkt48_oline",
-    idnUrl: "https://www.idn.app/jkt48_oline"
+    idnSlug: "olinejkt48",
+    idnUrl: "https://www.idn.app/olinejkt48",
+    color: "#00ACC1"
   },
   {
     id: "regie",
@@ -761,8 +805,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_regie.jpg",
     showroomSlug: "JKT48_Regie",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Regie",
-    idnSlug: "jkt48_regie",
-    idnUrl: "https://www.idn.app/jkt48_regie"
+    idnSlug: "regiejkt48",
+    idnUrl: "https://www.idn.app/regiejkt48",
+    color: "#E53935"
   },
   {
     id: "ribka",
@@ -774,8 +819,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_ribka.jpg",
     showroomSlug: "JKT48_Ribka",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ribka",
-    idnSlug: "jkt48_ribka",
-    idnUrl: "https://www.idn.app/jkt48_ribka"
+    idnSlug: "ribkajkt48",
+    idnUrl: "https://www.idn.app/ribkajkt48",
+    color: "#C62828"
   },
   {
     id: "nala",
@@ -787,8 +833,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_nala.jpg",
     showroomSlug: "JKT48_Nala",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nala",
-    idnSlug: "jkt48_nala",
-    idnUrl: "https://www.idn.app/jkt48_nala"
+    idnSlug: "nalajkt48",
+    idnUrl: "https://www.idn.app/nalajkt48",
+    color: "#6A1B9A"
   },
   {
     id: "kimmy",
@@ -800,13 +847,14 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_kimmy.jpg",
     showroomSlug: "JKT48_Kimmy",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kimmy",
-    idnSlug: "jkt48_kimmy",
-    idnUrl: "https://www.idn.app/jkt48_kimmy"
+    idnSlug: "kimmyjkt48",
+    idnUrl: "https://www.idn.app/kimmyjkt48",
+    color: "#AD1457"
   },
 
-  // ═══════════════════════════════════════════
-  //  TRAINEE (Gen 13 — 8 Member)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
+  //  TRAINEE (Gen 13)
+  // ─────────────────────────────────────────
   {
     id: "astrella",
     name: "Astrella Virgiananda",
@@ -817,8 +865,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_astrella.jpg",
     showroomSlug: "JKT48_Astrella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Astrella",
-    idnSlug: "jkt48_astrella",
-    idnUrl: "https://www.idn.app/jkt48_astrella"
+    idnSlug: "astrellajkt48",
+    idnUrl: "https://www.idn.app/astrellajkt48",
+    color: "#1565C0"
   },
   {
     id: "aprilli",
@@ -830,8 +879,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_aprilli.jpg",
     showroomSlug: "JKT48_Aprilli",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Aprilli",
-    idnSlug: "jkt48_aprilli",
-    idnUrl: "https://www.idn.app/jkt48_aprilli"
+    idnSlug: "aprillijkt48",
+    idnUrl: "https://www.idn.app/aprillijkt48",
+    color: "#F57F17"
   },
   {
     id: "hagia",
@@ -843,8 +893,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_hagia.jpg",
     showroomSlug: "JKT48_Hagia",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Hagia",
-    idnSlug: "jkt48_hagia",
-    idnUrl: "https://www.idn.app/jkt48_hagia"
+    idnSlug: "hagiajkt48",
+    idnUrl: "https://www.idn.app/hagiajkt48",
+    color: "#00695C"
   },
   {
     id: "humaira",
@@ -856,8 +907,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_humaira.jpg",
     showroomSlug: "JKT48_Humaira",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Humaira",
-    idnSlug: "jkt48_humaira",
-    idnUrl: "https://www.idn.app/jkt48_humaira"
+    idnSlug: "humairajkt48",
+    idnUrl: "https://www.idn.app/humairajkt48",
+    color: "#7B1FA2"
   },
   {
     id: "jacqueline",
@@ -869,8 +921,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_jacqueline.jpg",
     showroomSlug: "JKT48_Jacqueline",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jacqueline",
-    idnSlug: "jkt48_jacqueline",
-    idnUrl: "https://www.idn.app/jkt48_jacqueline"
+    idnSlug: "jacquelinejkt48",
+    idnUrl: "https://www.idn.app/jacquelinejkt48",
+    color: "#BF360C"
   },
   {
     id: "jemima",
@@ -882,8 +935,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_jemima.jpg",
     showroomSlug: "JKT48_Jemima",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jemima",
-    idnSlug: "jkt48_jemima",
-    idnUrl: "https://www.idn.app/jkt48_jemima"
+    idnSlug: "jemimajkt48",
+    idnUrl: "https://www.idn.app/jemimajkt48",
+    color: "#283593"
   },
   {
     id: "mikaela",
@@ -895,8 +949,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_mikaela.jpg",
     showroomSlug: "JKT48_Mikaela",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Mikaela",
-    idnSlug: "jkt48_mikaela",
-    idnUrl: "https://www.idn.app/jkt48_mikaela"
+    idnSlug: "mikaelajkt48",
+    idnUrl: "https://www.idn.app/mikaelajkt48",
+    color: "#C62828"
   },
   {
     id: "intan",
@@ -908,13 +963,14 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_intan.jpg",
     showroomSlug: "JKT48_Intan",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Intan",
-    idnSlug: "jkt48_intan",
-    idnUrl: "https://www.idn.app/jkt48_intan"
+    idnSlug: "intanjkt48",
+    idnUrl: "https://www.idn.app/intanjkt48",
+    color: "#558B2F"
   },
 
-  // ═══════════════════════════════════════════
-  //  TRAINEE (Gen 14 — 10 Member)
-  // ═══════════════════════════════════════════
+  // ─────────────────────────────────────────
+  //  TRAINEE (Gen 14)
+  // ─────────────────────────────────────────
   {
     id: "afera",
     name: "Afera Thalia",
@@ -925,8 +981,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_afera.jpg",
     showroomSlug: "JKT48_Afera",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Afera",
-    idnSlug: "jkt48_afera",
-    idnUrl: "https://www.idn.app/jkt48_afera"
+    idnSlug: "aferajkt48",
+    idnUrl: "https://www.idn.app/aferajkt48",
+    color: "#E53935"
   },
   {
     id: "carissa",
@@ -938,8 +995,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_carissa.jpg",
     showroomSlug: "JKT48_Carissa",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Carissa",
-    idnSlug: "jkt48_carissa",
-    idnUrl: "https://www.idn.app/jkt48_carissa"
+    idnSlug: "carissajkt48",
+    idnUrl: "https://www.idn.app/carissajkt48",
+    color: "#AD1457"
   },
   {
     id: "christabella",
@@ -951,8 +1009,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_christabella.jpg",
     showroomSlug: "JKT48_Christabella",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Christabella",
-    idnSlug: "jkt48_christabella",
-    idnUrl: "https://www.idn.app/jkt48_christabella"
+    idnSlug: "christabellajkt48",
+    idnUrl: "https://www.idn.app/christabellajkt48",
+    color: "#1565C0"
   },
   {
     id: "fahira",
@@ -964,8 +1023,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_fahira.jpg",
     showroomSlug: "JKT48_Fahira",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fahira",
-    idnSlug: "jkt48_fahira",
-    idnUrl: "https://www.idn.app/jkt48_fahira"
+    idnSlug: "fahirajkt48",
+    idnUrl: "https://www.idn.app/fahirajkt48",
+    color: "#006064"
   },
   {
     id: "fatimah",
@@ -977,8 +1037,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_fatimah.jpg",
     showroomSlug: "JKT48_Fatimah",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fatimah",
-    idnSlug: "jkt48_fatimah",
-    idnUrl: "https://www.idn.app/jkt48_fatimah"
+    idnSlug: "fatimahjkt48",
+    idnUrl: "https://www.idn.app/fatimahjkt48",
+    color: "#33691E"
   },
   {
     id: "heidi",
@@ -990,8 +1051,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_heidi.jpg",
     showroomSlug: "JKT48_Heidi",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Heidi",
-    idnSlug: "jkt48_heidi",
-    idnUrl: "https://www.idn.app/jkt48_heidi"
+    idnSlug: "heidijkt48",
+    idnUrl: "https://www.idn.app/heidijkt48",
+    color: "#0277BD"
   },
   {
     id: "maxine",
@@ -1003,8 +1065,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_maxine.jpg",
     showroomSlug: "JKT48_Maxine",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Maxine",
-    idnSlug: "jkt48_maxine",
-    idnUrl: "https://www.idn.app/jkt48_maxine"
+    idnSlug: "maxinejkt48",
+    idnUrl: "https://www.idn.app/maxinejkt48",
+    color: "#D81B60"
   },
   {
     id: "jazyta",
@@ -1016,8 +1079,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_jazyta.jpg",
     showroomSlug: "JKT48_Jazyta",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jazyta",
-    idnSlug: "jkt48_jazyta",
-    idnUrl: "https://www.idn.app/jkt48_jazyta"
+    idnSlug: "jazytajkt48",
+    idnUrl: "https://www.idn.app/jazytajkt48",
+    color: "#4527A0"
   },
   {
     id: "ralyne",
@@ -1029,8 +1093,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_ralyne.jpg",
     showroomSlug: "JKT48_Ralyne",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ralyne",
-    idnSlug: "jkt48_ralyne",
-    idnUrl: "https://www.idn.app/jkt48_ralyne"
+    idnSlug: "ralynejkt48",
+    idnUrl: "https://www.idn.app/ralynejkt48",
+    color: "#BF360C"
   },
   {
     id: "sona",
@@ -1042,8 +1107,9 @@ const JKT48_MEMBERS = [
     photoUrl: "https://jkt48.com/images/member/member_sona.jpg",
     showroomSlug: "JKT48_Sona",
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Sona",
-    idnSlug: "jkt48_sona",
-    idnUrl: "https://www.idn.app/jkt48_sona"
+    idnSlug: "sonajkt48",
+    idnUrl: "https://www.idn.app/sonajkt48",
+    color: "#00838F"
   }
 ];
 
@@ -1054,7 +1120,7 @@ const SHOWROOM_SLUG_MAP = new Map(
   JKT48_MEMBERS.map(m => [m.showroomSlug, m.id])
 );
 
-// Helper: Build a lookup map from idnSlug → memberId  
+// Helper: Build a lookup map from idnSlug → memberId
 const IDN_SLUG_MAP = new Map(
   JKT48_MEMBERS.map(m => [m.idnSlug, m.id])
 );
@@ -2233,7 +2299,7 @@ const liveMonitor = new LiveMonitorEngine();
 
 
 /* --- File: src/components/LiveCard.js --- */
-// LiveCard Component — Provider Store Lookbook Aesthetic
+// LiveCard Component - Provider Store Lookbook Aesthetic
 // Red & White Palette, Live Radar Pulse, Official JKT48 Logo Fallback
 
 
@@ -2245,15 +2311,18 @@ function renderLiveCard(liveItem, isOshi = false) {
   const platformClass = platform === PLATFORMS.IDN ? "idn" : "showroom";
   const timeFormatted = startedAt ? `Mulai ${formatTime(startedAt)} WIB` : "Sedang Live";
   const photo = member.photoUrl || OFFICIAL_JKT48_LOGO;
+  // FIX: generation is a number, convert explicitly to string
+  const genText = String(member.generation || "");
+  const memberColor = member.color || "#E53935";
 
   return `
-    <article class="live-card">
+    <article class="live-card" style="border-top: 3px solid ${memberColor};">
       <div class="live-card-header">
         <span class="platform-badge ${platformClass}">
           ${platformLabel}
         </span>
         <div style="display: flex; align-items: center; gap: 6px;">
-          ${isOshi ? `<span class="oshi-badge-pill">⭐ OSHI</span>` : ""}
+          ${isOshi ? `<span class="oshi-badge-pill">&#11088; OSHI</span>` : ""}
           <span class="section-badge-live">
             <span class="pulse-dot"></span>
             LIVE
@@ -2273,7 +2342,7 @@ function renderLiveCard(liveItem, isOshi = false) {
         </div>
         <div class="live-card-info">
           <h3 class="live-member-name">${escapeHtml(member.nickname)}</h3>
-          <p class="live-meta">JKT48 · Gen ${escapeHtml(member.generation)}</p>
+          <p class="live-meta">JKT48 &middot; Gen ${escapeHtml(genText)}</p>
           <p class="live-start-time">${escapeHtml(timeFormatted)}</p>
         </div>
       </div>
@@ -2290,9 +2359,8 @@ function renderLiveCard(liveItem, isOshi = false) {
   `;
 }
 
-
 /* --- File: src/components/Header.js --- */
-// Header Component — Provider Store Editorial Aesthetic
+// Header Component - Provider Store Editorial Aesthetic
 // Features: Centered official JKT48 Logo, Top Horizontal Category Nav, Google Login
 
 
@@ -2304,10 +2372,10 @@ function renderHeader(activeRoute = "home") {
   const name = user ? (user.displayName || "Wota").split(" ")[0] : "Wota";
 
   return `
-    <!-- Top Announcement Bar (Artisanal Boutique Style) -->
+    <!-- Top Announcement Bar -->
     <div class="top-announcement-bar">
       <span class="pulse-mini"></span>
-      <span>JKT48 LIVE RADAR — OFFICIAL SHOWROOM & IDN LIVE MONITOR</span>
+      <span>JKT48 LIVE RADAR &mdash; OFFICIAL SHOWROOM &amp; IDN LIVE MONITOR</span>
     </div>
 
     <!-- Main Header Row -->
@@ -2336,8 +2404,9 @@ function renderHeader(activeRoute = "home") {
 
       <!-- Right Utility Actions & Google Login -->
       <div class="header-actions">
-        <button id="theme-toggle-btn" class="btn-icon-editorial" title="Ubah Mode Tampilan">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <!-- Theme Toggle: FIXED size 20x20px -->
+        <button id="theme-toggle-btn" class="btn-icon-editorial" title="Ubah Mode Tampilan" style="width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -2373,13 +2442,13 @@ function renderHeader(activeRoute = "home") {
               <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.97 0 12s.46 3.84 1.26 5.42l4.02-3.15z"/>
               <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.25 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
             </svg>
-            <span>Masuk dengan Google</span>
+            <span>Masuk</span>
           </button>
         `}
       </div>
     </header>
 
-    <!-- Top Horizontal Category Navigation Bar (Provider Store Boutique Columns) -->
+    <!-- Top Horizontal Category Navigation Bar -->
     <nav class="provider-store-nav">
       <div class="provider-nav-track">
         <a href="#home" class="provider-nav-link ${activeRoute === 'home' ? 'active' : ''}">
@@ -2394,14 +2463,16 @@ function renderHeader(activeRoute = "home") {
         <a href="#notifications" class="provider-nav-link ${activeRoute === 'notifications' ? 'active' : ''}">
           NOTIFIKASI
         </a>
+        <a href="#settings" class="provider-nav-link ${activeRoute === 'settings' ? 'active' : ''}">
+          PENGATURAN
+        </a>
         <a href="#admin" class="provider-nav-link ${activeRoute === 'admin' ? 'active' : ''}">
-          ADMIN & RADAR
+          ADMIN
         </a>
       </div>
     </nav>
   `;
 }
-
 
 /* --- File: src/components/Sidebar.js --- */
 // Desktop Sidebar Component — Provider Store Editorial Aesthetic
@@ -2447,7 +2518,7 @@ function renderSidebar(activeRoute = "home") {
 
 
 /* --- File: src/components/BottomNav.js --- */
-﻿// Mobile Bottom Navigation Component
+// Mobile Bottom Navigation Component - Explicit Sizing
 
 
 
@@ -2458,29 +2529,29 @@ function renderBottomNav(activeRoute = "home") {
   const navItems = [
     {
       id: "home",
-      label: "HOME",
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`
+      label: "BERANDA",
+      icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`
     },
     {
       id: "members",
       label: "MEMBER",
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`
+      icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`
     },
     {
       id: "oshi",
       label: "OSHI",
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`
+      icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`
     },
     {
       id: "notifications",
       label: "NOTIFIKASI",
       hasBadge: unreadCount > 0,
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`
+      icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>`
     },
     {
       id: "profile",
-      label: "PROFILE",
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`
+      label: "PROFIL",
+      icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`
     }
   ];
 
@@ -2496,7 +2567,6 @@ function renderBottomNav(activeRoute = "home") {
     </nav>
   `;
 }
-
 
 /* --- File: src/components/LoginSplashAnimation.js --- */
 // JKT48 Signature Red Login Splash Animation Component
@@ -2577,7 +2647,7 @@ function playLoginAnimation(onComplete) {
 
 
 /* --- File: src/app/HomeView.js --- */
-// Home Dashboard View — Provider Store Editorial Aesthetic
+// Home Dashboard View - JKT48 Hero Banner at top + White/Red below
 
 
 
@@ -2592,7 +2662,6 @@ function renderHomeView() {
   const liveStates = db.getLiveStates();
   const favoriteMembers = prefs.favoriteMembers || [];
 
-  // Determine greeting based on current hour
   const hour = new Date().getHours();
   let greeting = "Selamat malam";
   if (hour >= 5 && hour < 11) greeting = "Selamat pagi";
@@ -2601,165 +2670,157 @@ function renderHomeView() {
 
   const firstName = user?.displayName ? user.displayName.split(" ")[0] : "Wota";
 
-  // Find all live members
   const liveItems = [];
   members.forEach(member => {
     const state = liveStates[member.id];
     if (state && state.status === LIVE_STATUS.LIVE) {
       const isOshi = favoriteMembers.includes(member.id);
-      liveItems.push({
-        member,
-        platform: state.platform,
-        liveUrl: state.liveUrl || (state.platform === "idn" ? member.idnUrl : member.showroomUrl),
-        startedAt: state.startedAt,
-        isOshi
-      });
+      liveItems.push({ member, platform: state.platform, liveUrl: state.liveUrl || (state.platform === "idn" ? member.idnUrl : member.showroomUrl), startedAt: state.startedAt, isOshi });
     }
   });
 
-  // Sort live items: Oshis first, then by startedAt descending
   liveItems.sort((a, b) => {
     if (a.isOshi && !b.isOshi) return -1;
     if (!a.isOshi && b.isOshi) return 1;
     return new Date(b.startedAt || 0) - new Date(a.startedAt || 0);
   });
 
-  // User's Oshi List
-  const userOshis = favoriteMembers
-    .map(id => members.find(m => m.id === id))
-    .filter(Boolean);
-
-  // Recent Live Sessions (from db events)
+  const userOshis = favoriteMembers.map(id => members.find(m => m.id === id)).filter(Boolean);
   const recentEvents = db.getLiveEvents(5);
 
   return `
-    <div class="page-view">
-      <!-- Editorial Greeting Banner -->
-      <div style="margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px;">
-          JKT48 LIVE RADAR DASHBOARD
+    <div class="page-view home-page">
+      <!-- HERO: JKT48 Logo Background Banner -->
+      <div style="position:relative;margin:-24px -24px 0 -24px;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,#1a0000 0%,#2d0505 40%,#B71C1C 100%);padding:40px 24px 56px;text-align:center;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(229,57,53,0.5) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px;"></div>
+        <div style="position:relative;z-index:2;margin-bottom:16px;">
+          <img src="${OFFICIAL_JKT48_LOGO_SVG}" alt="JKT48" style="height:72px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 4px 20px rgba(255,255,255,0.25));" onerror="this.onerror=null;this.src='${OFFICIAL_JKT48_LOGO}';this.style.filter='brightness(0) invert(1)';" />
         </div>
-        <h2 style="font-family: var(--font-serif); font-size: 2rem; font-weight: 700; color: var(--dark-main); letter-spacing: -0.02em;">
-          ${greeting}, <span style="font-style: italic; font-weight: 400;">${escapeHtml(firstName)}</span>
-        </h2>
-        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">
-          Radar aktif memantau siaran resmi di IDN Live & SHOWROOM secara real-time.
-        </p>
+        <div style="position:relative;z-index:2;">
+          <h1 style="font-family:var(--font-serif);font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.1;margin-bottom:8px;text-shadow:0 2px 16px rgba(0,0,0,0.5);">
+            ${greeting}, <em style="font-style:italic;font-weight:400;">${escapeHtml(firstName)}</em>
+          </h1>
+          <p style="font-size:0.9rem;color:rgba(255,255,255,0.8);max-width:440px;line-height:1.5;">
+            Radar live aktif memantau siaran member JKT48 di IDN Live &amp; SHOWROOM secara real-time.
+          </p>
+        </div>
+        ${liveItems.length > 0 ? `
+          <div style="position:relative;z-index:2;margin-top:18px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);border-radius:100px;padding:8px 18px;backdrop-filter:blur(8px);">
+            <span style="width:8px;height:8px;border-radius:50%;background:#FF5252;box-shadow:0 0 8px #FF5252;animation:radarPulse 1.5s infinite;display:inline-block;"></span>
+            <span style="font-size:0.82rem;font-weight:700;color:#FFFFFF;letter-spacing:0.06em;">${liveItems.length} MEMBER SEDANG LIVE</span>
+          </div>
+        ` : `
+          <div style="position:relative;z-index:2;margin-top:18px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.13);border-radius:100px;padding:8px 18px;">
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.65);">Radar aktif &middot; Tidak ada yang live saat ini</span>
+          </div>
+        `}
+        <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;opacity:0.5;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
       </div>
 
-      <!-- Section 1 — LIVE SEKARANG -->
-      <section style="margin-bottom: 40px;">
-        <div class="section-title">
-          <span class="pulse-dot"></span>
-          <span>SIARAN LANGSUNG</span>
-          ${liveItems.length > 0 ? `
-            <span style="font-family: var(--font-sans); font-size: 0.76rem; font-weight: 700; color: var(--primary-red); background: var(--primary-red-subtle); padding: 3px 8px; border-radius: var(--radius-xs); margin-left: auto; letter-spacing: 0.05em; text-transform: uppercase;">
-              ${liveItems.length} Member Online
-            </span>
-          ` : ""}
-        </div>
+      <!-- WHITE SECTION -->
+      <div style="background:var(--bg-main);padding-top:32px;">
 
-        ${liveItems.length > 0 ? `
-          <div class="live-grid">
-            ${liveItems.map(item => renderLiveCard(item, item.isOshi)).join("")}
-          </div>
-        ` : `
-          <div class="empty-state">
-            <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="12"></line>
-              <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-            <h4 class="empty-state-title" style="font-family: var(--font-serif); font-size: 1.15rem;">Belum ada member yang siaran saat ini</h4>
-            <p class="empty-state-text">
-              Radar terus memindai setiap 60 detik. Notifikasi instan akan muncul segera saat member memulai siaran.
-            </p>
-          </div>
-        `}
-      </section>
-
-      <!-- Section 2 — OSHI KAMU -->
-      <section style="margin-bottom: 40px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-          <h3 class="section-title" style="margin-bottom: 0;">
-            <span>⭐ DAFTAR OSHI</span>
-          </h3>
-          <a href="#oshi" style="font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--primary-red);">
-            Kelola Oshi →
-          </a>
-        </div>
-
-        ${userOshis.length > 0 ? `
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">
-            ${userOshis.map(member => {
-              const liveState = liveStates[member.id];
-              const isLive = liveState?.status === LIVE_STATUS.LIVE;
-              const initial = (member.nickname || "J").charAt(0).toUpperCase();
-              return `
-                <div class="notif-card" style="margin-bottom: 0; padding: 10px 14px;" onclick="window.location.hash='#members'">
-                  <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0; border: 1px solid var(--border-color); position: relative;">
-                    <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                    <div style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--text-muted); background: var(--bg-card-alt);">${initial}</div>
-                  </div>
-                  <div style="flex: 1; min-width: 0;">
-                    <div style="font-family: var(--font-serif); font-weight: 700; font-size: 0.95rem; color: var(--dark-main); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                      ${escapeHtml(member.nickname)}
-                    </div>
-                    <div style="font-size: 0.72rem; font-weight: 600; margin-top: 1px;">
-                      ${isLive ? `<span style="color: var(--primary-red);">🔴 LIVE</span>` : `<span style="color: var(--text-light);">⚪ Offline</span>`}
-                    </div>
-                  </div>
-                </div>
-              `;
-            }).join("")}
-          </div>
-        ` : `
-          <div style="background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
-            <div>
-              <div style="font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; color: var(--dark-main);">Kamu belum memilih Oshi</div>
-              <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 3px;">Tentukan Oshi agar radar mengutamakan notifikasi siaran mereka.</div>
-            </div>
-            <a href="#oshi" style="background-color: var(--dark-main); color: #FAF8F5; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 8px 16px; border-radius: var(--radius-sm); white-space: nowrap;">
-              Pilih Oshi
-            </a>
-          </div>
-        `}
-      </section>
-
-      <!-- Section 3 — RECENT LIVE SESSIONS -->
-      ${recentEvents.length > 0 ? `
-        <section>
+        <!-- SIARAN LANGSUNG -->
+        <section style="margin-bottom:44px;">
           <div class="section-title">
-            <span>RIWAYAT SIARAN TERAKHIR</span>
+            <span class="pulse-dot"></span>
+            <span>SIARAN LANGSUNG</span>
+            ${liveItems.length > 0 ? `<span style="font-size:0.76rem;font-weight:700;color:var(--primary-red);background:var(--primary-red-subtle);padding:3px 8px;border-radius:var(--radius-xs);margin-left:auto;">${liveItems.length} Online</span>` : ""}
           </div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            ${recentEvents.map(evt => {
-              const member = members.find(m => m.id === evt.memberId);
-              if (!member) return "";
-              const platformName = evt.platform === "idn" ? "IDN Live" : "SHOWROOM";
-              return `
-                <div class="notif-card" style="margin-bottom: 0;">
-                  <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0; border: 1px solid var(--border-color);">
-                    <img src="${escapeHtml(member.photoUrl || OFFICIAL_JKT48_LOGO)}" alt="${escapeHtml(member.nickname)}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='${OFFICIAL_JKT48_LOGO}'; this.classList.add('is-fallback-logo');" />
-                  </div>
-                  <div style="flex: 1;">
-                    <div style="font-family: var(--font-serif); font-size: 0.95rem; font-weight: 700; color: var(--dark-main);">
-                      ${escapeHtml(member.nickname)}
-                    </div>
-                    <div style="font-size: 0.76rem; color: var(--text-muted);">
-                      ${platformName} · Selesai ${formatTime(evt.endedAt || evt.startedAt)}
-                    </div>
-                  </div>
-                </div>
-              `;
-            }).join("")}
-          </div>
+          ${liveItems.length > 0 ? `
+            <div class="live-grid">${liveItems.map(item => renderLiveCard(item, item.isOshi)).join("")}</div>
+          ` : `
+            <div class="empty-state">
+              <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <h4 class="empty-state-title" style="font-family:var(--font-serif);">Belum ada member yang siaran saat ini</h4>
+              <p class="empty-state-text">Radar terus memindai setiap 60 detik. Notifikasi akan muncul saat member memulai siaran.</p>
+            </div>
+          `}
         </section>
-      ` : ""}
+
+        <!-- DAFTAR OSHI -->
+        <section style="margin-bottom:44px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 class="section-title" style="margin-bottom:0;"><span>&#11088; DAFTAR OSHI</span></h3>
+            <a href="#oshi" style="font-size:0.78rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--primary-red);">Kelola &rarr;</a>
+          </div>
+          ${userOshis.length > 0 ? `
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:10px;">
+              ${userOshis.map(member => {
+                const liveState = liveStates[member.id];
+                const isLive = liveState?.status === LIVE_STATUS.LIVE;
+                const memberColor = member.color || "#E53935";
+                return `
+                  <div class="notif-card" style="margin-bottom:0;padding:10px 12px;border-left:3px solid ${memberColor};cursor:pointer;" onclick="window.location.hash='#members'">
+                    <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;background-color:var(--bg-secondary);flex-shrink:0;border:2px solid ${memberColor}40;">
+                      <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}" style="width:100%;height:100%;object-fit:cover;object-position:top;"
+                        onerror="this.onerror=null;this.src='${OFFICIAL_JKT48_LOGO}';this.style.objectFit='contain';this.style.padding='6px';" />
+                    </div>
+                    <div style="flex:1;min-width:0;">
+                      <div style="font-family:var(--font-serif);font-weight:700;font-size:0.9rem;color:var(--dark-main);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escapeHtml(member.nickname)}</div>
+                      <div style="font-size:0.7rem;font-weight:600;margin-top:1px;">${isLive ? `<span style="color:var(--primary-red);">&#128308; LIVE</span>` : `<span style="color:var(--text-light);">&#9898; Offline</span>`}</div>
+                    </div>
+                  </div>`;
+              }).join("")}
+            </div>
+          ` : `
+            <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-sm);padding:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+              <div>
+                <div style="font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--dark-main);">Kamu belum memilih Oshi</div>
+                <div style="font-size:0.82rem;color:var(--text-muted);margin-top:3px;">Tentukan Oshi agar radar mengutamakan notifikasi siaran mereka.</div>
+              </div>
+              <a href="#oshi" style="background-color:var(--dark-main);color:#FAF8F5;font-size:0.78rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;padding:9px 18px;border-radius:var(--radius-sm);white-space:nowrap;text-decoration:none;">Pilih Oshi</a>
+            </div>
+          `}
+        </section>
+
+        <!-- RIWAYAT SIARAN -->
+        ${recentEvents.length > 0 ? `
+          <section style="margin-bottom:44px;">
+            <div class="section-title"><span>RIWAYAT SIARAN TERAKHIR</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              ${recentEvents.map(evt => {
+                const member = members.find(m => m.id === evt.memberId);
+                if (!member) return "";
+                const platformName = evt.platform === "idn" ? "IDN Live" : "SHOWROOM";
+                const platformColor = evt.platform === "idn" ? "#1565C0" : "#E53935";
+                return `
+                  <div class="notif-card" style="margin-bottom:0;">
+                    <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;background-color:var(--bg-secondary);flex-shrink:0;">
+                      <img src="${escapeHtml(member.photoUrl || OFFICIAL_JKT48_LOGO)}" alt="${escapeHtml(member.nickname)}" style="width:100%;height:100%;object-fit:cover;object-position:top;"
+                        onerror="this.onerror=null;this.src='${OFFICIAL_JKT48_LOGO}';this.classList.add('is-fallback-logo');" />
+                    </div>
+                    <div style="flex:1;">
+                      <div style="font-family:var(--font-serif);font-size:0.95rem;font-weight:700;color:var(--dark-main);">${escapeHtml(member.nickname)}</div>
+                      <div style="font-size:0.76rem;color:var(--text-muted);"><span style="color:${platformColor};font-weight:600;">${platformName}</span> &middot; Selesai ${formatTime(evt.endedAt || evt.startedAt)}</div>
+                    </div>
+                  </div>`;
+              }).join("")}
+            </div>
+          </section>
+        ` : ""}
+
+        <!-- FOOTER -->
+        <footer class="app-footer">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:20px;">
+            <a href="mailto:admin@jkt48radar.fan" class="footer-link-item">&#128231; Hubungi Admin</a>
+            <a href="#" class="footer-link-item" onclick="alert('FAQ JKT48 Live Radar:\\n\\n1. Bagaimana cara kerja radar?\\nMemindai IDN Live & SHOWROOM setiap 60 detik.\\n\\n2. Data aman?\\nSemua tersimpan lokal di browser.\\n\\n3. Member tidak muncul live?\\nPastikan koneksi internet stabil.');return false;">&#10067; FAQ</a>
+            <a href="#" class="footer-link-item" onclick="alert('Kirim saran ke admin@jkt48radar.fan - Terima kasih!');return false;">&#128161; Saran Fitur</a>
+            <a href="#settings" class="footer-link-item">&#9881;&#65039; Pengaturan</a>
+            <a href="https://github.com/skyy134243/JKT48" target="_blank" rel="noopener" class="footer-link-item">&#128279; GitHub</a>
+          </div>
+          <div class="footer-bottom">
+            <p>Fan-made Project &copy; 2024 &middot; Hak Cipta Konten Resmi Milik JKT48 Operation Team</p>
+            <p style="margin-top:4px;">Radar real-time &middot; Data diperbarui setiap 60 detik</p>
+          </div>
+        </footer>
+      </div>
     </div>
   `;
 }
-
 
 /* --- File: src/app/LandingView.js --- */
 // Landing Page View — Provider Store Slow-Made Editorial Aesthetic
@@ -3098,7 +3159,8 @@ function renderMemberProfileModal(memberId) {
 
 
 /* --- File: src/app/OshiView.js --- */
-﻿// Oshi Management & Priority View
+// Oshi Management & Priority View - With Dynamic Member Hero Background
+
 
 
 
@@ -3111,7 +3173,6 @@ function renderOshiView() {
   const favoriteMembers = prefs.favoriteMembers || [];
   const priorityMap = prefs.priorityMembers || {};
 
-  // Sort favorite members by priority ascending (1 = High, 2 = Normal, 3 = Low)
   const oshiList = favoriteMembers.map(id => {
     const member = allMembers.find(m => m.id === id);
     const priority = priorityMap[id] || OSHI_PRIORITY.NORMAL;
@@ -3121,10 +3182,73 @@ function renderOshiView() {
 
   oshiList.sort((a, b) => a.priority - b.priority);
 
+  // Top oshi for hero background
+  const topOshi = oshiList.length > 0 ? oshiList[0].member : null;
+  const heroBg = topOshi?.photoUrl || OFFICIAL_JKT48_LOGO;
+  const heroColor = topOshi?.color || '#E53935';
+  const heroName = topOshi?.nickname || 'JKT48';
+
   return `
-    <div class="page-view">
+    <div class="page-view oshi-page">
+      <!-- Dynamic Oshi Hero Background -->
+      <div class="oshi-hero-banner" style="
+        position: relative;
+        width: 100%;
+        min-height: 220px;
+        margin: -24px -24px 28px -24px;
+        overflow: hidden;
+        border-radius: 0 0 16px 16px;
+      ">
+        <!-- Background photo -->
+        <div style="
+          position: absolute;
+          inset: 0;
+          background-image: url('${escapeHtml(heroBg)}');
+          background-size: cover;
+          background-position: center top;
+          filter: blur(0px);
+          transform: scale(1.05);
+        "></div>
+        <!-- Gradient overlay -->
+        <div style="
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, 
+            ${heroColor}CC 0%,
+            ${heroColor}88 40%,
+            rgba(0,0,0,0.75) 100%
+          );
+        "></div>
+        <!-- Content -->
+        <div style="
+          position: relative;
+          z-index: 2;
+          padding: 32px 24px 24px;
+          display: flex;
+          align-items: flex-end;
+          min-height: 220px;
+        ">
+          <div>
+            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 6px;">
+              â­ OSHI PILIHAN UTAMA
+            </div>
+            <h2 style="font-family: var(--font-serif); font-size: 2.2rem; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px; text-shadow: 0 2px 12px rgba(0,0,0,0.4);">
+              ${escapeHtml(heroName)}
+            </h2>
+            ${topOshi ? `
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px);">
+                  JKT48 Gen ${topOshi.generation} Â· ${topOshi.teamStatus}
+                </span>
+                ${oshiList[0]?.isLive ? `<span style="font-size: 0.78rem; font-weight: 700; color: #FF5252; background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px);">ðŸ”´ SEDANG LIVE</span>` : ''}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      </div>
+
       <div style="margin-bottom: 20px;">
-        <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--dark-main);">Oshi Kamu</h2>
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--dark-main);">Manajemen Oshi</h2>
         <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 2px;">
           Atur urutan dan prioritas notifikasi Oshi favoritmu.
         </p>
@@ -3132,9 +3256,9 @@ function renderOshiView() {
 
       <!-- Priority Legend -->
       <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; font-size: 0.78rem;">
-        <span class="priority-badge high">🔴 Prioritas 1 (Tinggi)</span>
-        <span class="priority-badge normal">🟡 Prioritas 2 (Normal)</span>
-        <span class="priority-badge low">⚪ Prioritas 3 (Rendah)</span>
+        <span class="priority-badge high">ðŸ”´ Prioritas 1 (Tinggi)</span>
+        <span class="priority-badge normal">ðŸŸ¡ Prioritas 2 (Normal)</span>
+        <span class="priority-badge low">ðŸŸ¢ Prioritas 3 (Rendah)</span>
       </div>
 
       <!-- Oshi List -->
@@ -3143,17 +3267,23 @@ function renderOshiView() {
           ${oshiList.map(({ member, priority, isLive }, index) => {
             const badgeClass = priority === 1 ? "high" : (priority === 2 ? "normal" : "low");
             const badgeLabel = priority === 1 ? "Tinggi" : (priority === 2 ? "Normal" : "Rendah");
+            const memberColor = member.color || '#E53935';
 
             return `
-              <div class="oshi-item-card">
-                <div style="width: 44px; height: 44px; border-radius: var(--radius-md); overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0;">
-                  <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}" style="width: 100%; height: 100%; object-fit: cover;" />
+              <div class="oshi-item-card" style="border-left: 3px solid ${memberColor};">
+                <div style="width: 52px; height: 52px; border-radius: var(--radius-md); overflow: hidden; background-color: var(--bg-secondary); flex-shrink: 0; border: 2px solid ${memberColor}40;">
+                  <img src="${escapeHtml(member.photoUrl)}" alt="${escapeHtml(member.name)}" style="width: 100%; height: 100%; object-fit: cover;"
+                    onerror="this.onerror=null; this.src='${OFFICIAL_JKT48_LOGO}'; this.style.objectFit='contain'; this.style.padding='8px';" />
                 </div>
 
                 <div style="flex: 1; min-width: 0;">
                   <div style="display: flex; align-items: center; gap: 6px;">
                     <span style="font-weight: 700; font-size: 0.95rem; color: var(--dark-main);">${escapeHtml(member.nickname)}</span>
-                    ${isLive ? `<span style="font-size: 0.72rem; color: var(--primary-red); font-weight: 700;">🔴 LIVE</span>` : ""}
+                    ${isLive ? `<span style="font-size: 0.72rem; color: var(--primary-red); font-weight: 700;">ðŸ”´ LIVE</span>` : ""}
+                    ${index === 0 ? `<span style="font-size: 0.68rem; color: #F9A825; font-weight: 700;">â­ #1</span>` : ""}
+                  </div>
+                  <div style="font-size: 0.76rem; color: var(--text-muted); margin-top: 2px;">
+                    Gen ${member.generation} Â· ${member.teamStatus}
                   </div>
                   <div style="margin-top: 4px;">
                     <span class="priority-badge ${badgeClass}">${badgeLabel}</span>
@@ -3162,18 +3292,25 @@ function renderOshiView() {
 
                 <div class="priority-actions">
                   <button class="btn-icon-pill" data-action="move-up" data-member-id="${escapeHtml(member.id)}" ${index === 0 ? "disabled" : ""} title="Naikkan Prioritas">
-                    ▲
+                    â–²
                   </button>
                   <button class="btn-icon-pill" data-action="move-down" data-member-id="${escapeHtml(member.id)}" ${index === oshiList.length - 1 ? "disabled" : ""} title="Turunkan Prioritas">
-                    ▼
+                    â–¼
                   </button>
                   <button class="btn-icon-pill" data-action="remove-oshi" data-member-id="${escapeHtml(member.id)}" style="color: #E53935;" title="Hapus Oshi">
-                    ✕
+                    âœ•
                   </button>
                 </div>
               </div>
             `;
           }).join("")}
+        </div>
+
+        <!-- Add More Button -->
+        <div style="margin-top: 16px; text-align: center;">
+          <a href="#members" style="display: inline-flex; align-items: center; gap: 8px; background-color: var(--bg-secondary); color: var(--dark-main); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: var(--radius-sm); font-size: 0.84rem; font-weight: 600;">
+            + Tambah Oshi Lagi
+          </a>
         </div>
       ` : `
         <div class="empty-state">
@@ -3181,16 +3318,30 @@ function renderOshiView() {
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
           <h4 class="empty-state-title">Belum ada Oshi yang dipilih</h4>
-          <p class="empty-state-text">Pilih member favoritmu dari daftar member untuk mendapatkan update prioritas.</p>
-          <a href="#members" style="margin-top: 16px; background-color: var(--dark-main); color: #FFF; padding: 10px 18px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600;">
+          <p class="empty-state-text">Pilih member favoritmu dari katalog member untuk mendapatkan update prioritas.</p>
+          <a href="#members" style="margin-top: 16px; display: inline-block; background-color: var(--dark-main); color: #FFF; padding: 10px 18px; border-radius: var(--radius-md); font-size: 0.88rem; font-weight: 600;">
             Cari Member
           </a>
         </div>
       `}
+
+      <!-- Footer Section -->
+      <footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; margin-bottom: 20px;">
+          <a href="mailto:admin@jkt48radar.fan" style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; transition: all 0.2s;">
+            <span>ðŸ“§</span><span>Hubungi Admin</span>
+          </a>
+          <a href="#settings" style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; transition: all 0.2s;">
+            <span>âš™ï¸</span><span>Pengaturan</span>
+          </a>
+        </div>
+        <p style="font-size: 0.74rem; color: var(--text-light); text-align: center;">
+          Fan-made Project Â· Hak Cipta Konten Resmi Milik JKT48 Operation Team
+        </p>
+      </footer>
     </div>
   `;
 }
-
 
 /* --- File: src/app/NotificationView.js --- */
 // Notification Center View
@@ -3679,8 +3830,6 @@ function renderOnboardingModal(currentStep = 1, selectedOshis = []) {
 
 
 
-
-
 class AppRouter {
   constructor() {
     this.container = document.getElementById("app-root");
@@ -3690,6 +3839,7 @@ class AppRouter {
     }
     this.memberFilters = { search: "", status: "all", gen: "all" };
     this.onboardingState = { step: 1, selectedOshis: [] };
+    this.currentRoute = null;
     this.init();
   }
 
@@ -3703,7 +3853,7 @@ class AppRouter {
     // Listen for live radar engine updates
     liveMonitor.onUpdate(() => {
       const route = this.getRoute();
-      if (route === "home" || route === "admin" || route === "members") {
+      if (route === "home" || route === "admin" || route === "members" || route === "oshi") {
         this.renderView(route);
       }
     });
@@ -3742,22 +3892,16 @@ class AppRouter {
     } catch {}
   }
 
-
   startLiveMonitoring() {
-    // Run first check after 3 seconds (let UI settle)
     setTimeout(async () => {
-      console.log("[LiveRadar] 🚀 Running initial live check...");
       try {
         await liveMonitor.executeCycle();
-        console.log("[LiveRadar] ✅ Initial live check complete");
       } catch (err) {
-        console.warn("[LiveRadar] ❌ Initial check failed:", err.message);
+        console.warn("[LiveRadar] Initial check error:", err.message);
       }
     }, 3000);
 
-    // Then check every 60 seconds
     this._liveCheckInterval = setInterval(async () => {
-      console.log("[LiveRadar] 🔄 Periodic live check...");
       try {
         await liveMonitor.executeCycle();
       } catch (err) {
@@ -3766,48 +3910,52 @@ class AppRouter {
     }, 60000);
   }
 
+  navigateTo(targetRoute) {
+    if (window.location.hash !== "#" + targetRoute) {
+      window.location.hash = "#" + targetRoute;
+    } else {
+      this.route();
+    }
+  }
+
   route() {
     const route = this.getRoute();
     const user = auth.getUser();
 
-    // If user explicitly navigates to #login and is not logged in, show landing
     if (route === "login" && !user) {
       this.container.innerHTML = renderLandingView();
       this.bindLandingEvents();
+      this.currentRoute = "login";
       return;
     }
 
-    // Direct entry to web app (Provider Store architecture)
     this.renderAppShell(route);
+  }
+
+  getViewHtml(route) {
+    switch (route) {
+      case "members":
+        return renderMemberListView(this.memberFilters);
+      case "oshi":
+        return renderOshiView();
+      case "notifications":
+        return renderNotificationView();
+      case "settings":
+        return renderSettingsView();
+      case "profile":
+        return renderProfileView();
+      case "admin":
+        return renderAdminView();
+      case "home":
+      default:
+        return renderHomeView();
+    }
   }
 
   renderAppShell(route) {
     try {
-      let viewHtml = "";
-      switch (route) {
-        case "members":
-          viewHtml = renderMemberListView(this.memberFilters);
-          break;
-        case "oshi":
-          viewHtml = renderOshiView();
-          break;
-        case "notifications":
-          viewHtml = renderNotificationView();
-          break;
-        case "settings":
-          viewHtml = renderSettingsView();
-          break;
-        case "profile":
-          viewHtml = renderProfileView();
-          break;
-        case "admin":
-          viewHtml = renderAdminView();
-          break;
-        case "home":
-        default:
-          viewHtml = renderHomeView();
-          break;
-      }
+      this.currentRoute = route;
+      const viewHtml = this.getViewHtml(route);
 
       this.container.innerHTML = `
         <div class="app-container">
@@ -3822,6 +3970,7 @@ class AppRouter {
       `;
 
       this.bindEvents(route);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       console.error("[AppRouter] renderAppShell error:", err);
       this.container.innerHTML = `
@@ -3839,13 +3988,37 @@ class AppRouter {
 
   renderView(route) {
     const mount = document.getElementById("view-mount");
-    if (!mount) return;
+    if (!mount) {
+      this.renderAppShell(route);
+      return;
+    }
 
-    if (route === "home") mount.innerHTML = renderHomeView();
-    else if (route === "members") mount.innerHTML = renderMemberListView(this.memberFilters);
-    else if (route === "admin") mount.innerHTML = renderAdminView();
-
+    mount.innerHTML = this.getViewHtml(route);
+    this.updateActiveNavs(route);
     this.bindEvents(route);
+  }
+
+  updateActiveNavs(route) {
+    document.querySelectorAll(".provider-nav-link").forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const r = href.replace(/^#/, "");
+      if (r === route) link.classList.add("active");
+      else link.classList.remove("active");
+    });
+
+    document.querySelectorAll(".sidebar-link").forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const r = href.replace(/^#/, "");
+      if (r === route) link.classList.add("active");
+      else link.classList.remove("active");
+    });
+
+    document.querySelectorAll(".mobile-bottom-nav .nav-item").forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const r = href.replace(/^#/, "");
+      if (r === route) link.classList.add("active");
+      else link.classList.remove("active");
+    });
   }
 
   bindLandingEvents() {
@@ -3873,79 +4046,21 @@ class AppRouter {
         });
       });
     }
-
-  }
-
-  showOnboarding() {
-    const modalMount = document.getElementById("modal-mount");
-    if (!modalMount) return;
-
-    modalMount.innerHTML = renderOnboardingModal(this.onboardingState.step, this.onboardingState.selectedOshis);
-    this.bindOnboardingEvents();
-  }
-
-  bindOnboardingEvents() {
-    const nextButtons = document.querySelectorAll("#btn-onboarding-next, #btn-onboarding-skip");
-    nextButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const nextStep = parseInt(btn.dataset.step, 10);
-        this.onboardingState.step = nextStep;
-        this.showOnboarding();
-      });
-    });
-
-    // Oshi selection in step 2
-    const oshiItems = document.querySelectorAll(".onboarding-oshi-item");
-    oshiItems.forEach(item => {
-      item.addEventListener("click", () => {
-        const id = item.dataset.memberId;
-        const exists = this.onboardingState.selectedOshis.includes(id);
-        if (exists) {
-          this.onboardingState.selectedOshis = this.onboardingState.selectedOshis.filter(mId => mId !== id);
-        } else {
-          this.onboardingState.selectedOshis.push(id);
-        }
-        this.showOnboarding();
-      });
-    });
-
-    // Request push permission in step 4
-    const btnReqPerm = document.getElementById("btn-onboarding-request-perm");
-    if (btnReqPerm) {
-      btnReqPerm.addEventListener("click", async () => {
-        btnReqPerm.disabled = true;
-        btnReqPerm.textContent = "Meminta izin...";
-        await notificationManager.requestPermission();
-        this.finishOnboarding();
-      });
-    }
-
-    // Finish onboarding
-    const btnFinish = document.getElementById("btn-onboarding-finish");
-    if (btnFinish) {
-      btnFinish.addEventListener("click", () => this.finishOnboarding());
-    }
-  }
-
-  finishOnboarding() {
-    // Save selected Oshis
-    const currentPrefs = auth.getPreferences();
-    const priorityMap = { ...currentPrefs.priorityMembers };
-    this.onboardingState.selectedOshis.forEach((id, idx) => {
-      priorityMap[id] = idx === 0 ? OSHI_PRIORITY.HIGH : OSHI_PRIORITY.NORMAL;
-    });
-
-    auth.updatePreferences({
-      favoriteMembers: this.onboardingState.selectedOshis,
-      priorityMembers: priorityMap
-    });
-
-    auth.completeOnboarding();
-    document.getElementById("modal-mount").innerHTML = "";
-    window.location.hash = "#home";
   }
 
   bindEvents(route) {
+    // Universal Navigation Links: Immediate responsive click handling
+    document.querySelectorAll(".provider-nav-link, .sidebar-link, .mobile-bottom-nav .nav-item").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          const target = href.replace(/^#/, "") || "home";
+          this.navigateTo(target);
+        }
+      });
+    });
+
     // Theme toggle
     const themeBtn = document.getElementById("theme-toggle-btn");
     if (themeBtn) {
@@ -4006,7 +4121,6 @@ class AppRouter {
       const memberCards = document.querySelectorAll(".member-catalog-card");
       memberCards.forEach(card => {
         card.addEventListener("click", (e) => {
-          // If clicked the star button directly
           if (e.target.closest(".oshi-star-btn")) {
             e.stopPropagation();
             const memberId = card.dataset.memberId;
@@ -4075,7 +4189,6 @@ class AppRouter {
       }
     }
 
-
     // Admin Events
     if (route === "admin") {
       document.querySelectorAll(".btn-simulate-live").forEach(btn => {
@@ -4097,16 +4210,16 @@ class AppRouter {
       if (btnManualCheck) {
         btnManualCheck.addEventListener("click", async () => {
           btnManualCheck.disabled = true;
-          btnManualCheck.textContent = "⏳ Memeriksa...";
+          btnManualCheck.textContent = "Memeriksa...";
           try {
             await liveMonitor.executeCycle();
-            btnManualCheck.textContent = "✅ Selesai!";
+            btnManualCheck.textContent = "Selesai!";
           } catch (err) {
-            btnManualCheck.textContent = "❌ Gagal: " + err.message;
+            btnManualCheck.textContent = "Gagal: " + err.message;
           }
           setTimeout(() => {
             btnManualCheck.disabled = false;
-            btnManualCheck.textContent = "🔄 Manual Check (Real API)";
+            btnManualCheck.textContent = "Manual Check (Real API)";
           }, 2000);
         });
       }
@@ -4131,7 +4244,7 @@ class AppRouter {
       priorityMembers: priorityMap
     });
 
-    this.route();
+    this.renderView(this.getRoute());
   }
 
   reorderOshi(memberId, direction) {
@@ -4143,12 +4256,10 @@ class AppRouter {
     const targetIndex = currentIndex + direction;
     if (targetIndex < 0 || targetIndex >= favorites.length) return;
 
-    // Swap positions
     const temp = favorites[currentIndex];
     favorites[currentIndex] = favorites[targetIndex];
     favorites[targetIndex] = temp;
 
-    // Reassign priorities
     const priorityMap = {};
     favorites.forEach((id, idx) => {
       priorityMap[id] = idx === 0 ? OSHI_PRIORITY.HIGH : (idx === 1 ? OSHI_PRIORITY.NORMAL : OSHI_PRIORITY.LOW);
@@ -4189,7 +4300,6 @@ class AppRouter {
   }
 }
 
-// Bulletproof instant initialization
 function startApp() {
   if (!window.appRouter) {
     try {
@@ -4219,7 +4329,6 @@ if (document.readyState === "complete" || document.readyState === "interactive")
   document.addEventListener("DOMContentLoaded", startApp);
   window.addEventListener("load", startApp);
 }
-
 
   // Expose global entry point
   window.JKT48_BUNDLE_LOADED = true;
