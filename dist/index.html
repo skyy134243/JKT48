@@ -286,7 +286,7 @@
     <!-- Category Pills Sub-Bar (Spotify Pills Style) -->
     <div class="border-t border-red-50 bg-white/95 px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto no-scrollbar flex items-center gap-2">
       <button onclick="setFilter('all')" class="filter-pill active px-3.5 py-1 rounded-full text-xs font-bold bg-red-600 text-white shadow-sm transition-all whitespace-nowrap" data-filter="all">
-        Semua Member (<span id="total-count-badge">67</span>)
+        Semua Member (<span id="total-count-badge">69</span>)
       </button>
       <button onclick="setFilter('live')" class="filter-pill px-3.5 py-1 rounded-full text-xs font-bold bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-600 transition-all whitespace-nowrap flex items-center gap-1.5" data-filter="live">
         <span class="w-2 h-2 rounded-full bg-red-600"></span>
@@ -304,6 +304,7 @@
       <button onclick="setFilter('gen-10')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-10">Gen 10</button>
       <button onclick="setFilter('gen-11')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-11">Gen 11</button>
       <button onclick="setFilter('gen-12')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-12">Gen 12</button>
+      <button onclick="setFilter('gen-13')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-13">Gen 13</button>
       <button onclick="setFilter('trainee')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="trainee">Trainee</button>
     </div>
   </header>
@@ -581,7 +582,7 @@
         <!-- External Quick Link Button -->
         <a 
           id="player-external-link" 
-          href="https://www.idn.app/freyajkt48" 
+          href="https://www.idn.app/jkt48_freya" 
           target="_blank" 
           rel="noopener noreferrer"
           class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-red-600 text-white text-[11px] font-bold transition-colors whitespace-nowrap shadow-sm">
@@ -635,10 +636,10 @@
       } else {
         // Fallback default members
         state.members = [
-          { id: "freya", name: "Freya Jayawardana", nickname: "Freya", generation: 7, teamStatus: "Inti", showroomSlug: "JKT48_Freya", showroomUrl: "https://www.showroom-live.com/r/JKT48_Freya", idnSlug: "freyajkt48", idnUrl: "https://www.idn.app/freyajkt48", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg/440px-Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg" },
-          { id: "christy", name: "Angelina Christy", nickname: "Christy", generation: 7, teamStatus: "Inti", showroomSlug: "JKT48_Christy", showroomUrl: "https://www.showroom-live.com/r/JKT48_Christy", idnSlug: "christyjkt48", idnUrl: "https://www.idn.app/christyjkt48", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg" },
-          { id: "gracia", name: "Shania Gracia", nickname: "Gracia", generation: 3, teamStatus: "Inti", showroomSlug: "JKT48_Gracia", showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracia", idnSlug: "graciajkt48", idnUrl: "https://www.idn.app/graciajkt48", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg/440px-Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg" },
-          { id: "feni", name: "Feni Fitriyanti", nickname: "Feni", generation: 6, teamStatus: "Inti", showroomSlug: "JKT48_Feni", showroomUrl: "https://www.showroom-live.com/r/JKT48_Feni", idnSlug: "fenijkt48", idnUrl: "https://www.idn.app/fenijkt48", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg/440px-Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg" }
+          { id: "freya", name: "Freya Jayawardana", nickname: "Freya", generation: 7, teamStatus: "Inti", showroomSlug: "JKT48_Freya", showroomUrl: "https://www.showroom-live.com/r/JKT48_Freya", idnSlug: "jkt48_freya", idnUrl: "https://www.idn.app/jkt48_freya", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg/440px-Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg" },
+          { id: "christy", name: "Angelina Christy", nickname: "Christy", generation: 7, teamStatus: "Inti", showroomSlug: "JKT48_Christy", showroomUrl: "https://www.showroom-live.com/r/JKT48_Christy", idnSlug: "jkt48_christy", idnUrl: "https://www.idn.app/jkt48_christy", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg/440px-Angelina_Christy_%28Christy%29_at_the_JKT48_Summer_Festival.jpg" },
+          { id: "gracia", name: "Shania Gracia", nickname: "Gracia", generation: 3, teamStatus: "Inti", showroomSlug: "JKT48_Gracia", showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracia", idnSlug: "jkt48_gracia", idnUrl: "https://www.idn.app/jkt48_gracia", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg/440px-Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg" },
+          { id: "feni", name: "Feni Fitriyanti", nickname: "Feni", generation: 6, teamStatus: "Inti", showroomSlug: "JKT48_Feni", showroomUrl: "https://www.showroom-live.com/r/JKT48_Feni", idnSlug: "jkt48_feni", idnUrl: "https://www.idn.app/jkt48_feni", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg/440px-Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg" }
         ];
       }
 
@@ -786,7 +787,7 @@
             platform: "IDN",
             status: "LIVE",
             liveTitle: "Ngobrol Santai Malam Bersama Freya 🍦✨",
-            sourceUrl: "https://www.idn.app/freyajkt48",
+            sourceUrl: "https://www.idn.app/jkt48_freya",
             startedAtWib: "Hari ini 16:30 WIB",
             viewerCount: "14.2K Penonton"
           },
