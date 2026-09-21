@@ -1,4 +1,4 @@
-﻿const members = [
+const members = [
   // MEMBER INTI (Gen 3 - 11)
   { id: "gracia", name: "Shania Gracia", nickname: "Gracia", generation: 3, teamStatus: "Inti (Kapten)", showroomSlug: "JKT48_Gracia", showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracia", idnSlug: "jkt48_gracia", idnUrl: "https://www.idn.app/jkt48_gracia", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg/440px-Shania_Gracia_%28Gracia%29_at_the_JKT48_Summer_Festival.jpg" },
   { id: "feni", name: "Feni Fitriyanti", nickname: "Feni", generation: 6, teamStatus: "Inti", showroomSlug: "JKT48_Feni", showroomUrl: "https://www.showroom-live.com/r/JKT48_Feni", idnSlug: "jkt48_feni", idnUrl: "https://www.idn.app/jkt48_feni", photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg/440px-Feni_Fitriyanti_%28Feni%29_at_the_JKT48_Summer_Festival.jpg" },
