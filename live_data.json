@@ -1,1 +1,19 @@
-{"last_updated":"2026-09-22T06:56:00Z","total_live":0,"live_sessions":[]}
+﻿{
+    "live_sessions":  [
+                          {
+                              "startedAt":  "2026-09-22T15:21:20+07:00",
+                              "generation":  12,
+                              "viewCount":  6776,
+                              "photoUrl":  "https://cdn.idn.app/livestream/b49f3337a819b8b006758a9074d54a49.webp",
+                              "platform":  "IDN Live",
+                              "nickname":  "Delynn",
+                              "name":  "Delynn JKT48",
+                              "platformKey":  "idn",
+                              "liveUrl":  "https://www.idn.app/jkt48_delynn/live/oi-260922152115",
+                              "title":  "oi",
+                              "memberId":  "delynn"
+                          }
+                      ],
+    "total_live":  1,
+    "last_updated":  "2026-09-22T02:05:17Z"
+}
