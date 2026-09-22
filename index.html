@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>`n  <meta name="referrer" content="no-referrer">
+<head>
+  <meta name="referrer" content="no-referrer" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ED1D24" />
@@ -623,16 +624,9 @@
     }
 
     // -------------------------------------------------------------------------
-    // INITIALIZATION & SPLASH SCREEN PROGRESS
+    // OFFICIAL JKT48 MEMBERS ROSTER (70 ACTIVE MEMBERS)
     // -------------------------------------------------------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      initApp();
-    });
-
-    function initApp() {
-      // Load Members Data
-      // Full 69 Official Members Dataset (Direct Inline Embed)
-      const members = [
+    const members = [
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 1. MEMBER INTI (REGULER)
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -1630,6 +1624,30 @@
 
 window.JKT48_MEMBERS = members;
 if (typeof module !== 'undefined' && module.exports) { module.exports = window.JKT48_MEMBERS; }
+
+    function initApp() {
+      state.members = window.JKT48_MEMBERS || members;
+      if (state.members.length > 0) {
+        selectMember(state.members[0].id);
+      }
+      renderMembers();
+      updateLiveStats();
+      startPollingBackend();
+      updateWibClock();
+      setInterval(updateWibClock, 1000);
+      animateSplash();
+    }
+
+    setTimeout(() => {
+      hideSplashScreen();
+    }, 2500);
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initApp);
+    } else {
+      initApp();
+    }
+
     function animateSplash(onDone) {
       const progressBar = document.getElementById('splash-progress');
       const statusText = document.getElementById('splash-status');
@@ -1666,9 +1684,12 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       if (splash) {
         splash.style.opacity = '0';
         splash.style.pointerEvents = 'none';
-        setTimeout(() => splash.remove(), 700);
+        setTimeout(() => {
+          if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
+        }, 500);
       }
     }
+    window.hideSplashScreen = hideSplashScreen;
 
     // -------------------------------------------------------------------------
     // WIB CLOCK ENGINE
