@@ -168,7 +168,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Flora", 
     idnSlug: "jkt48_flora", 
     idnUrl: "https://www.idn.app/jkt48_flora", 
-    photoUrl: "https://jkt48.com/images/member/member_flora.jpg" 
+    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/flora_shafiq.jpg" 
   },
   { 
     id: "lulu", 
@@ -590,7 +590,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Trisha", 
     idnSlug: "jkt48_trisha", 
     idnUrl: "https://www.idn.app/jkt48_trisha", 
-    photoUrl: "https://jkt48.com/images/member/member_trisha.jpg" 
+    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/jazzlyn_trisha.jpg" 
   },
   { 
     id: "moreen", 
@@ -604,7 +604,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Moreen", 
     idnSlug: "jkt48_moreen", 
     idnUrl: "https://www.idn.app/jkt48_moreen", 
-    photoUrl: "https://jkt48.com/images/member/member_moreen.jpg" 
+    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/letycia_moreen.jpg" 
   },
   { 
     id: "levi", 
@@ -734,7 +734,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Astrella", 
     idnSlug: "jkt48_astrella", 
     idnUrl: "https://www.idn.app/jkt48_astrella", 
-    photoUrl: "https://jkt48.com/images/member/member_astrella.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/7f/Astrella_Virgiananda_JKT48_2026.jpg" 
   },
   { 
     id: "aprilli", 
@@ -748,7 +748,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Aprilli", 
     idnSlug: "jkt48_aprilli", 
     idnUrl: "https://www.idn.app/jkt48_aprilli", 
-    photoUrl: "https://jkt48.com/images/member/member_aprilli.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/35/Bong_Aprilli_JKT48_2026.jpg" 
   },
   { 
     id: "hagia", 
@@ -762,7 +762,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Hagia", 
     idnSlug: "jkt48_hagia", 
     idnUrl: "https://www.idn.app/jkt48_hagia", 
-    photoUrl: "https://jkt48.com/images/member/member_hagia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/0/04/Hagia_Sopia_JKT48_2026.jpg" 
   },
   { 
     id: "humaira", 
@@ -776,7 +776,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Humaira", 
     idnSlug: "jkt48_humaira", 
     idnUrl: "https://www.idn.app/jkt48_humaira", 
-    photoUrl: "https://jkt48.com/images/member/member_humaira.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/49/Humaira_Ramadhani_JKT48_2026.jpg" 
   },
   { 
     id: "jacqueline", 
@@ -790,7 +790,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jacqueline", 
     idnSlug: "jkt48_jacqueline", 
     idnUrl: "https://www.idn.app/jkt48_jacqueline", 
-    photoUrl: "https://jkt48.com/images/member/member_jacqueline.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/0/0b/Jacqueline_Immanuela_JKT48_2026.jpg" 
   },
   { 
     id: "jemima", 
@@ -804,7 +804,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jemima", 
     idnSlug: "jkt48_jemima", 
     idnUrl: "https://www.idn.app/jkt48_jemima", 
-    photoUrl: "https://jkt48.com/images/member/member_jemima.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/d0/Jemima_Evodie_JKT48_2026.jpg" 
   },
   { 
     id: "mikaela", 
@@ -818,7 +818,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Mikaela", 
     idnSlug: "jkt48_mikaela", 
     idnUrl: "https://www.idn.app/jkt48_mikaela", 
-    photoUrl: "https://jkt48.com/images/member/member_mikaela.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/cb/Mikaela_Kusjanto_JKT48_2026.jpg" 
   },
   { 
     id: "intan", 
@@ -832,7 +832,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Intan", 
     idnSlug: "jkt48_intan", 
     idnUrl: "https://www.idn.app/jkt48_intan", 
-    photoUrl: "https://jkt48.com/images/member/member_intan.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/a/a0/Nur_Intan_JKT48_2026.jpg" 
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -934,7 +934,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Maegan", 
     idnSlug: "jkt48_maegan", 
     idnUrl: "https://www.idn.app/jkt48_maegan", 
-    photoUrl: "https://jkt48.com/images/member/member_maegan.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/df/Maegan_Jovanka_2026.jpg" 
   },
   { 
     id: "maxine", 
