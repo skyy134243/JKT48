@@ -1,17 +1,18 @@
-﻿{
-  "short_name": "JKT48 Radar",
-  "name": "JKT48 Live Radar",
-  "description": "Pantau live member JKT48 dalam satu tempat.",
+{
+  "short_name": "Asentramerian",
+  "name": "Asentramerian",
+  "description": "Pantau siaran langsung 57 member JKT48 secara real-time di SHOWROOM dan IDN Live.",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23E53935'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23FFFFFF'/%3E%3Cpolygon points='45,40 60,50 45,60' fill='%23E53935'/%3E%3C/svg%3E",
-      "type": "image/svg+xml",
+      "src": "assets/jkt48_hero_logo.jpg",
+      "type": "image/jpeg",
       "sizes": "192x192 512x512"
     }
   ],
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "background_color": "#FFFFFF",
-  "theme_color": "#E53935",
+  "theme_color": "#ED1D24",
   "display": "standalone",
   "orientation": "portrait-primary"
 }
