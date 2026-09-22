@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-  <meta name="referrer" content="no-referrer" />
   <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ED1D24" />
-  <meta name="description" content="JKT48 Live Radar — Pantau siaran langsung member JKT48 di SHOWROOM dan IDN Live dengan antarmuka bergaya Spotify Red & White." />
-  <title>JKT48 Live Radar — Spotify Red & White Edition</title>
+  <meta name="description" content="JKT48 Live Radar â€” Pantau siaran langsung 70 member JKT48 di SHOWROOM dan IDN Live dengan antarmuka modern White & Bright Red." />
+  <title>JKT48 Live Radar â€” Official Live Streaming Portal</title>
 
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,156 +23,92 @@
             jkt: {
               red: '#ED1D24',
               crimson: '#D01017',
-              darkred: '#8A0A0F',
-              softred: '#FFF1F2',
+              darkred: '#990005',
+              softred: '#FFF5F5',
               border: '#FEE2E2',
               card: '#FFFFFF',
-              dark: '#121212',
+              dark: '#0F172A',
               subtext: '#64748B'
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
-            spotify: ['Inter', '"Plus Jakarta Sans"', 'sans-serif']
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif']
           }
         }
       }
     }
   </script>
 
-  <!-- Asset Scripts (Embedded base64 & data arrays) -->
-  <script src="assets/embedded_images.js"></script>
-  <script src="assets/members_data.js"></script>
-
   <style>
-    /* Custom Spotify & JKT48 Red Styling */
+    /* Custom Modern White & Red Aesthetics */
     :root {
       --primary-red: #ED1D24;
       --hover-red: #D01017;
       --card-bg: #FFFFFF;
-      --text-main: #0F172A;
+      --body-bg: #FAFAFA;
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', Inter, sans-serif;
-      background-color: #FAFAFA;
+      background-color: var(--body-bg);
+      font-family: 'Plus Jakarta Sans', sans-serif;
       color: #0F172A;
       overflow-x: hidden;
-      margin: 0;
-      padding-bottom: 96px; /* space for Spotify bottom bar */
     }
 
-    /* Spotify Play Button Animation */
-    .spotify-play-btn {
-      opacity: 0;
-      transform: translateY(8px) scale(0.9);
-      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .member-card:hover .spotify-play-btn {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .member-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 32px -8px rgba(237, 29, 36, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
-    }
-
-    /* Live Pulse Indicator */
-    @keyframes live-pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(237, 29, 36, 0.7);
-      }
-      70% {
-        box-shadow: 0 0 0 10px rgba(237, 29, 36, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(237, 29, 36, 0);
-      }
-    }
-
-    .live-badge-pulse {
-      animation: live-pulse 1.8s infinite;
-    }
-
-    /* Audio Equalizer Bars */
-    @keyframes eq-bounce-1 { 0%, 100% { height: 4px; } 50% { height: 16px; } }
-    @keyframes eq-bounce-2 { 0%, 100% { height: 14px; } 50% { height: 6px; } }
-    @keyframes eq-bounce-3 { 0%, 100% { height: 8px; } 50% { height: 18px; } }
-    @keyframes eq-bounce-4 { 0%, 100% { height: 16px; } 50% { height: 4px; } }
-
-    .eq-bar-1 { animation: eq-bounce-1 0.8s ease-in-out infinite; }
-    .eq-bar-2 { animation: eq-bounce-2 0.7s ease-in-out infinite 0.15s; }
-    .eq-bar-3 { animation: eq-bounce-3 0.9s ease-in-out infinite 0.3s; }
-    .eq-bar-4 { animation: eq-bounce-4 0.6s ease-in-out infinite 0.2s; }
-
-    /* Custom Slim Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F1F5F9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #ED1D24;
-      border-radius: 999px;
-    }
-
-    /* Background Watermark Logo */
-    .bg-watermark {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: min(85vw, 650px);
-      opacity: 0.04;
-      pointer-events: none;
-      z-index: 0;
-      filter: grayscale(10%) contrast(120%);
-    }
-
-    /* Glass Effect */
+    /* Modern Glassmorphism Header */
     .glass-header {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
+
+    /* Card Glow & Shadows */
+    .card-shadow {
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    }
+    .card-shadow-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-shadow-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -8px rgba(237, 29, 36, 0.12), 0 8px 10px -4px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Live Pulse Badge */
+    @keyframes livePulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(237, 29, 36, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(237, 29, 36, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(237, 29, 36, 0); }
+    }
+    .live-badge-pulse {
+      animation: livePulse 1.8s infinite;
+    }
+
+    /* Hide Scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="relative min-h-screen selection:bg-red-500 selection:text-white">
+<body class="min-h-screen flex flex-col pb-24 text-slate-900 bg-[#FAFAFA]">
 
   <!-- ========================================================================= -->
-  <!-- 1. INITIAL LOADING SPLASH SCREEN (JKT48 FIGHT!)                          -->
+  <!-- 1. INITIAL LOADING SPLASH SCREEN (WITH PROGRESS BAR & WATCHDOG)           -->
   <!-- ========================================================================= -->
-  <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#ED1D24] text-white transition-opacity duration-700">
+  <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#ED1D24] text-white transition-opacity duration-500">
     <div class="relative max-w-sm w-full mx-auto px-6 text-center flex flex-col items-center">
-      
-      <!-- JKT48 FIGHT! Logo Box with Red Glow -->
-      <div class="relative mb-6 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/30 bg-white/10 p-2">
+      <!-- JKT48 White Background Logo -->
+      <div class="w-24 h-24 rounded-2xl bg-white p-3 shadow-2xl flex items-center justify-center mb-6">
         <img 
-          id="splash-fight-logo"
-          src="assets/jkt48_fight_loading.jpg" 
-          alt="JKT48 FIGHT!"
-          class="w-64 h-auto object-contain rounded-xl drop-shadow-lg"
-          onerror="if(window.ASSET_FIGHT) this.src=window.ASSET_FIGHT;"
+          src="assets/jkt48_logo_white.jpg" 
+          alt="JKT48" 
+          class="w-full h-full object-contain"
         />
-        <!-- Pulsing 8-Bit Pixel Elements Overlay -->
-        <div class="absolute -top-3 -right-3 text-2xl animate-bounce">🔥</div>
-        <div class="absolute -bottom-2 -left-2 text-2xl animate-pulse">❤️</div>
-        <div class="absolute top-1/2 -left-4 text-xl animate-ping">⭐</div>
       </div>
 
-      <!-- App Title -->
-      <h1 class="text-2xl font-black tracking-tight text-white mb-1">
-        JKT48 <span class="bg-white text-red-600 px-2 py-0.5 rounded-lg text-lg">LIVE RADAR</span>
-      </h1>
-      <p class="text-xs text-white/80 font-medium tracking-wide mb-6">
-        SPOTIFY-STYLE REAL-TIME MONITORING
-      </p>
+      <h1 class="text-2xl font-black tracking-wider uppercase mb-1">JKT48 LIVE RADAR</h1>
+      <p class="text-xs text-white/80 font-medium tracking-wide mb-6">REAL-TIME STREAMING MONITOR</p>
 
-      <!-- Spotify-Style Progress Bar -->
+      <!-- Progress Bar -->
       <div class="w-full bg-white/20 rounded-full h-2.5 overflow-hidden p-0.5 mb-3 shadow-inner">
         <div id="splash-progress" class="bg-white h-full rounded-full transition-all duration-300 w-0"></div>
       </div>
@@ -182,333 +118,482 @@
         Menghubungkan ke Radar SHOWROOM & IDN Live... (0%)
       </div>
 
-      <!-- Instant Skip Button -->
+      <!-- Skip Button -->
       <button 
+        type="button"
         onclick="hideSplashScreen()" 
         class="mt-6 text-xs text-white/90 hover:text-white underline underline-offset-4 font-semibold tracking-wider uppercase transition-colors">
-        Lewati / Masuk Sekarang →
+        Lewati / Masuk Sekarang âž”
       </button>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 2. AMBIENT BACKGROUND WATERMARK (JKT48 WHITE LOGO)                        -->
+  <!-- 2. TOP MODERN NAVIGATION BAR                                              -->
   <!-- ========================================================================= -->
-  <img 
-    id="bg-watermark-img"
-    src="assets/jkt48_logo_white.jpg" 
-    alt="JKT48 Background Emblem" 
-    class="bg-watermark select-none"
-    onerror="if(window.ASSET_LOGO_WHITE) this.src=window.ASSET_LOGO_WHITE;"
-  />
-  <div class="fixed inset-0 pointer-events-none bg-gradient-to-b from-red-50/40 via-transparent to-red-50/20 z-0"></div>
-
-  <!-- ========================================================================= -->
-  <!-- 3. TOP STICKY APP HEADER (SPOTIFY RED & WHITE STYLE)                      -->
-  <!-- ========================================================================= -->
-  <header class="sticky top-0 z-40 glass-header border-b border-red-100/80 shadow-sm transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+  <header class="sticky top-0 z-40 glass-header border-b border-slate-100 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
-      <!-- Left: Brand Logo & Live Radar Pill -->
-      <div class="flex items-center gap-3">
-        <a href="#home" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-xl bg-red-600 flex items-center justify-center text-white font-black text-sm shadow-md shadow-red-500/30 group-hover:scale-105 transition-transform">
-            48
-          </div>
-          <div class="leading-none">
-            <div class="text-base font-black tracking-tight text-slate-900">
-              JKT<span class="text-red-600">48</span>
-              <span class="text-[10px] font-extrabold px-1.5 py-0.5 ml-1 bg-red-100 text-red-600 rounded">RADAR</span>
-            </div>
-            <div class="text-[10px] text-slate-400 font-semibold tracking-wider">LIVE MONITOR</div>
-          </div>
-        </a>
-
-        <!-- Live Status Capsule -->
-        <div id="header-live-badge" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 border border-red-200 text-[11px] font-bold text-red-600">
-          <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
-          <span id="header-live-count">0 MEMBER LIVE</span>
-        </div>
-      </div>
-
-      <!-- Center: Spotify-Style Search Input -->
-      <div class="flex-1 max-w-md mx-2">
-        <div class="relative">
-          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </div>
-          <input 
-            type="text" 
-            id="member-search-input" 
-            placeholder="Cari oshi, nama member, atau generasi..." 
-            class="w-full pl-10 pr-9 py-2 bg-slate-100/80 hover:bg-slate-100 focus:bg-white border border-transparent focus:border-red-400 rounded-full text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all shadow-inner"
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-white border border-slate-100 shadow-sm p-1 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
+          <img 
+            src="assets/jkt48_logo_white.jpg" 
+            alt="JKT48 Logo" 
+            class="w-full h-full object-contain"
           />
-          <button 
-            id="clear-search-btn" 
-            onclick="clearSearch()" 
-            class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600">
-            ✕
-          </button>
         </div>
+        <div>
+          <div class="text-lg font-black tracking-tight text-slate-900 leading-none">
+            JKT<span class="text-red-600">48</span>
+            <span class="text-[10px] font-extrabold px-1.5 py-0.5 ml-1 bg-red-50 text-red-600 rounded border border-red-100">RADAR</span>
+          </div>
+          <div class="text-[10px] text-slate-400 font-semibold tracking-wider mt-0.5">LIVE STREAM PORTAL</div>
+        </div>
+      </a>
+
+      <!-- Center Navigation Links (Matching Travel UI Reference) -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#home" class="hover:text-red-600 transition-colors">Beranda</a>
+        <a href="#section-popular" class="hover:text-red-600 transition-colors">Member & Live</a>
+        <a href="#section-oshi" class="hover:text-red-600 transition-colors">Pilihan Oshi</a>
+        <a href="#section-hero" class="hover:text-red-600 transition-colors" onclick="openLightbox()">Formasi 70 Member</a>
+      </nav>
+
+      <!-- Right: Live Indicator & Clock & CTA -->
+      <div class="flex items-center gap-3">
+        <!-- Live Status Pill -->
+        <div id="header-live-badge" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-50 border border-red-200 text-xs font-bold text-red-600">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-600 live-badge-pulse"></span>
+          <span id="header-live-count">0 LIVE SEKARANG</span>
+        </div>
+
+        <!-- Clock (Desktop) -->
+        <div class="hidden lg:flex flex-col text-right pl-2 border-l border-slate-200">
+          <div id="wib-clock" class="text-xs font-bold text-slate-800 font-mono">--:--:-- WIB</div>
+          <div class="text-[9px] font-semibold text-slate-400">ASIA/JAKARTA</div>
+        </div>
+
+        <!-- Primary Action Button -->
+        <a 
+          href="#section-popular" 
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-slate-900 hover:bg-red-600 text-white rounded-full text-xs font-bold tracking-wide transition-colors shadow-sm">
+          <span>Pantau Live</span>
+          <span>âž”</span>
+        </a>
       </div>
 
-      <!-- Right: Realtime WIB Clock & Simulation Controls -->
-      <div class="flex items-center gap-2.5">
-        <div class="hidden md:flex flex-col text-right">
-          <div id="wib-clock" class="text-xs font-bold text-slate-800 font-mono tracking-wide">--:--:-- WIB</div>
-          <div class="text-[9px] font-semibold text-slate-400 tracking-wider">ASIA/JAKARTA</div>
-        </div>
-
-        <!-- Simulation Toggle Button -->
-        <button 
-          id="btn-toggle-simulation" 
-          onclick="toggleSimulation()" 
-          title="Nyalakan/matikan simulasi member live untuk uji coba visual"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 hover:border-red-300 text-slate-700 hover:text-red-600 rounded-lg text-xs font-semibold shadow-sm transition-all">
-          <span class="text-xs">⚡</span>
-          <span class="hidden lg:inline" id="sim-text">Simulasi Live</span>
-        </button>
-
-        <!-- Refresh Button -->
-        <button 
-          onclick="manualRefresh()" 
-          title="Segarkan Radar Sekarang"
-          class="w-8 h-8 rounded-lg border border-slate-200 hover:border-red-300 bg-white flex items-center justify-center text-slate-600 hover:text-red-600 transition-colors shadow-sm">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-          </svg>
-        </button>
-      </div>
-
-    </div>
-
-    <!-- Category Pills Sub-Bar (Spotify Pills Style) -->
-    <div class="border-t border-red-50 bg-white/95 px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto no-scrollbar flex items-center gap-2">
-      <button onclick="setFilter('all')" class="filter-pill active px-3.5 py-1 rounded-full text-xs font-bold bg-red-600 text-white shadow-sm transition-all whitespace-nowrap" data-filter="all">
-        Semua Member (<span id="total-count-badge">69</span>)
-      </button>
-      <button onclick="setFilter('live')" class="filter-pill px-3.5 py-1 rounded-full text-xs font-bold bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-600 transition-all whitespace-nowrap flex items-center gap-1.5" data-filter="live">
-        <span class="w-2 h-2 rounded-full bg-red-600"></span>
-        Sedang Live (<span id="live-filter-count">0</span>)
-      </button>
-      <button onclick="setFilter('oshi')" class="filter-pill px-3.5 py-1 rounded-full text-xs font-bold bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-600 transition-all whitespace-nowrap flex items-center gap-1" data-filter="oshi">
-        <span>❤️ Oshi Saya</span> (<span id="oshi-count-badge">0</span>)
-      </button>
-      <div class="h-4 w-px bg-slate-200 mx-1"></div>
-      <button onclick="setFilter('gen-3')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-3">Gen 3</button>
-      <button onclick="setFilter('gen-6')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-6">Gen 6</button>
-      <button onclick="setFilter('gen-7')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-7">Gen 7</button>
-      <button onclick="setFilter('gen-8')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-8">Gen 8</button>
-      <button onclick="setFilter('gen-9')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-9">Gen 9</button>
-      <button onclick="setFilter('gen-10')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-10">Gen 10</button>
-      <button onclick="setFilter('gen-11')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-11">Gen 11</button>
-      <button onclick="setFilter('gen-12')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-12">Gen 12</button>
-      <button onclick="setFilter('trainee')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="trainee">Trainee</button>
-      <button onclick="setFilter('gen-14')" class="filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap" data-filter="gen-14">Gen 14</button>
     </div>
   </header>
 
   <!-- ========================================================================= -->
-  <!-- 4. MAIN DASHBOARD CONTENT                                                 -->
+  <!-- 3. MAIN DASHBOARD CONTENT                                                 -->
   <!-- ========================================================================= -->
-  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+  <main id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
 
     <!-- ======================================================================= -->
-    <!-- SECTION 1: SEDANG LIVE SEKARANG (TOP LIVE HERO - FULL PHOTO CARDS)      -->
+    <!-- HERO SECTION: Styled like Travel UI Airplane Card (media_1790045683541)  -->
     <!-- ======================================================================= -->
-    <section id="section-live-now" class="space-y-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <span class="w-3 h-3 rounded-full bg-red-600 live-badge-pulse"></span>
-          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
-            SEDANG LIVE SEKARANG
-          </h2>
-          <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-full border border-red-200">
-            REAL-TIME
-          </span>
-        </div>
-        <div class="text-xs text-slate-500 font-medium">
-          SHOWROOM & IDN Live
-        </div>
-      </div>
+    <section id="section-hero" class="relative rounded-[2.5rem] bg-gradient-to-br from-rose-50/70 via-white to-red-50/50 border border-red-100 shadow-xl overflow-hidden p-6 sm:p-10 lg:p-14">
+      <!-- Background Soft Ambient Glow -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-red-200/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-rose-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
-      <!-- Container: If Live members exist, cards render here. Otherwise spotlight banner renders. -->
-      <div id="live-members-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Dynamically populated by renderLiveSection() -->
-      </div>
-    </section>
-
-    <!-- ======================================================================= -->
-    <!-- SECTION 2: ALL MEMBERS FORMATION (USER UPLOADED PYRAMID TOWER PHOTO)     -->
-    <!-- ======================================================================= -->
-    <section class="space-y-4">
-      <div class="flex items-center justify-between">
-        <div>
-          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-2">
-            <span>JKT48 ALL GENERATIONS</span>
-            <span class="text-xs font-bold px-2 py-0.5 bg-slate-900 text-white rounded">FORMASI LENGKAP</span>
-          </h2>
-          <p class="text-xs text-slate-500 font-medium">
-            Formasi piramida generasi Senbatsu & Trainee JKT48
-          </p>
-        </div>
-        <button 
-          onclick="openLightbox()" 
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-bold rounded-lg border border-red-200 transition-colors">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
-          </svg>
-          <span>Perbesar Foto</span>
-        </button>
-      </div>
-
-      <!-- Grand Showcase Banner -->
-      <div class="relative rounded-2xl overflow-hidden shadow-xl border border-red-100 bg-gradient-to-r from-red-950 via-red-900 to-red-800 text-white">
-        <div class="grid grid-cols-1 lg:grid-cols-12 items-center">
-          
-          <!-- Banner Description & Quick Highlights -->
-          <div class="p-6 sm:p-8 lg:col-span-7 space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[11px] font-bold text-red-200 border border-white/15">
-              <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-              <span>OFFICIAL DIRECTORY & STREAMING ROSTER</span>
-            </div>
-            <h3 class="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
-              Satu Panggung, Puluhan Impian, Satu Keluarga JKT48.
-            </h3>
-            <p class="text-xs sm:text-sm text-red-100/90 leading-relaxed max-w-xl">
-              Pantau langsung seluruh siaran SHOWROOM dan IDN Live member idol favoritmu tanpa ketinggalan momen seru, obrolan santai, hingga pengumuman penting panggung teater.
-            </p>
-
-            <!-- Stats Bar -->
-            <div class="grid grid-cols-3 gap-3 pt-2 max-w-md">
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
-                <div class="text-xl font-black text-white">70</div>
-                <div class="text-[10px] font-semibold text-red-200 uppercase tracking-wider">Member Aktif</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
-                <div class="text-xl font-black text-white">14</div>
-                <div class="text-[10px] font-semibold text-red-200 uppercase tracking-wider">Generasi</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10 text-center">
-                <div class="text-xl font-black text-white">2</div>
-                <div class="text-[10px] font-semibold text-red-200 uppercase tracking-wider">Platform Live</div>
-              </div>
-            </div>
-
-            <!-- Quick Action: Filter Trainee / Inti -->
-            <div class="pt-2 flex flex-wrap gap-2 text-xs font-semibold">
-              <button onclick="setFilter('gen-7')" class="px-3 py-1 rounded-lg bg-white/20 hover:bg-white text-white hover:text-red-900 transition-colors">
-                Lihat Gen 7 (Freya, Christy, Eli...)
-              </button>
-              <button onclick="setFilter('trainee')" class="px-3 py-1 rounded-lg bg-white/20 hover:bg-white text-white hover:text-red-900 transition-colors">
-                Lihat Trainee JKT48
-              </button>
-            </div>
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Column: Copy & CTAs -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-red-200 text-xs font-bold text-red-600 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+            <span class="tracking-wider uppercase">START YOUR IDOL JOURNEY</span>
           </div>
 
-          <!-- All Member Pyramid Image Preview -->
-          <div class="lg:col-span-5 p-4 sm:p-6 flex justify-center items-center bg-black/20">
+          <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-slate-900 leading-[1.15]">
+            Experience<br />
+            The Magic Of<br />
+            <span class="text-red-600">JKT48 Live Stream!</span>
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-lg">
+            Pantau siaran langsung 70 member aktif JKT48 secara real-time di SHOWROOM dan IDN Live. Jangan lewatkan obrolan seru dan interaksi hangat bersama oshi pilihanmu.
+          </p>
+
+          <!-- Buttons Row -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a 
+              href="#section-popular" 
+              class="px-6 py-3.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-red-500/25 transition-all flex items-center gap-2">
+              <span>Tonton Live Sekarang</span>
+              <span>âž”</span>
+            </a>
+            <a 
+              href="#section-oshi" 
+              class="px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 shadow-sm transition-all flex items-center gap-2">
+              <span>Pilih Oshi Favorit â¤ï¸</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats Pills -->
+          <div class="grid grid-cols-3 gap-3 pt-4 max-w-md">
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-3.5 border border-slate-100 shadow-sm text-center">
+              <div class="text-xl sm:text-2xl font-black text-slate-900">70</div>
+              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Member Aktif</div>
+            </div>
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-3.5 border border-slate-100 shadow-sm text-center">
+              <div class="text-xl sm:text-2xl font-black text-red-600">14</div>
+              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Generasi</div>
+            </div>
+            <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-3.5 border border-slate-100 shadow-sm text-center">
+              <div class="text-xl sm:text-2xl font-black text-slate-900">2</div>
+              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Platform Live</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: All Members Pyramid Formation Photo with Cutout Badge -->
+        <div class="lg:col-span-6 flex justify-center items-center relative">
+          <div class="relative w-full max-w-md lg:max-w-none flex justify-center">
+            
+            <!-- Pyramid Photo Container -->
             <div 
               onclick="openLightbox()" 
-              class="group relative max-w-sm rounded-xl overflow-hidden cursor-zoom-in shadow-2xl ring-2 ring-white/20 transition-transform hover:scale-[1.02]">
+              title="Klik untuk melihat formasi piramida ukuran penuh HD"
+              class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group cursor-zoom-in transition-transform duration-500 hover:scale-[1.02]">
               <img 
-                id="banner-all-members-img"
-                src="assets/jkt48_all_members.jpg" 
+                src="assets/jkt48_all_members_formation.jpg" 
                 alt="Formasi Lengkap Member JKT48" 
-                class="w-full h-auto object-contain max-h-[380px] rounded-lg"
-                onerror="if(window.ASSET_ALL_MEMBERS) this.src=window.ASSET_ALL_MEMBERS;"
+                class="w-full h-auto max-h-[460px] object-contain object-bottom"
               />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="px-3.5 py-1.5 rounded-full bg-white text-slate-900 text-xs font-bold shadow-lg flex items-center gap-1.5">
+              <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-4 py-2 rounded-full bg-white text-slate-900 text-xs font-bold shadow-xl flex items-center gap-2">
                   <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                  Klik untuk Zoom Detail
+                  Perbesar Formasi HD
                 </span>
               </div>
             </div>
-          </div>
 
+            <!-- Floating Cutout Pill (Inspired by "Know More / Awesome Places" in reference) -->
+            <div 
+              onclick="openLightbox()"
+              class="absolute -bottom-4 right-2 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-xl border border-slate-100 flex items-center gap-3 cursor-pointer hover:border-red-300 transition-all">
+              <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white font-bold text-sm shadow-md">
+                ðŸ”
+              </div>
+              <div class="text-left">
+                <div class="text-xs font-extrabold text-slate-900">Formasi 70 Member</div>
+                <div class="text-[10px] text-slate-400 font-medium">Klik untuk Zoom Resolusi Tinggi</div>
+              </div>
+              <div class="text-slate-400 font-bold text-xs pl-1">âž”</div>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- ======================================================================= -->
-    <!-- SECTION 3: SPOTIFY MUSIC / ALBUM GRID (KOTAK-KOTAK MEMBER ALA SPOTIFY)   -->
+    <!-- PLATFORMS & PARTNERS STRIP (Airbnb, Booking.com in reference)            -->
     <!-- ======================================================================= -->
-    <section id="section-members-grid" class="space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+    <div class="flex flex-wrap items-center justify-center sm:justify-between gap-6 py-4 px-6 rounded-2xl bg-white border border-slate-100 text-slate-400 text-xs font-bold tracking-wider">
+      <div class="flex items-center gap-2 text-slate-700">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+        <span>SHOWROOM LIVE</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-700">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+        <span>IDN LIVE APP</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-700">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+        <span>JKT48.COM OFFICIAL</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-700">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+        <span>YOUTUBE OFFICIAL</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-700">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+        <span>TIKTOK JKT48</span>
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- POPULAR DESTINATION -> REPLACED WITH "MEMBER & SIARAN LIVE"             -->
+    <!-- (Styled exactly like Popular Destination in reference image)            -->
+    <!-- ======================================================================= -->
+    <section id="section-popular" class="space-y-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-4">
         <div>
-          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
-            KATALOG MEMBER JKT48
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold text-red-600 uppercase tracking-wider mb-1">
+            <span>ðŸ”´ RADAR ACTIVE</span>
+            <span>Â·</span>
+            <span>REAL-TIME STREAMING</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
+            Member & Siaran Live
           </h2>
-          <p class="text-xs text-slate-500 font-medium">
-            Kotak album member: putar siaran langsung, kunjungi akun SHOWROOM dan IDN Live
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">
+            Pilih idol favoritmu untuk langsung membuka siaran SHOWROOM atau IDN Live secara resmi.
           </p>
         </div>
-        <div class="text-xs font-semibold text-slate-400">
-          Menampilkan <span id="visible-member-count" class="text-red-600 font-bold">67</span> Member
+
+        <!-- Search Bar -->
+        <div class="relative w-full md:w-72">
+          <input 
+            type="text" 
+            id="member-search-input" 
+            placeholder="Cari nama atau oshi..." 
+            class="w-full pl-9 pr-8 py-2 bg-white border border-slate-200 focus:border-red-500 rounded-full text-xs font-medium text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all shadow-sm"
+          />
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </div>
+          <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600">âœ•</button>
         </div>
       </div>
 
-      <!-- Spotify Album Card Grid (Responsive 2 to 6 columns) -->
-      <div id="members-grid-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5">
-        <!-- Dynamically rendered via JavaScript renderMemberGrid() -->
+      <!-- Filter Category Pills (All, Live, Oshi, Generations) -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2">
+        <button onclick="setFilter('all')" class="filter-pill active px-4 py-1.5 rounded-full text-xs font-bold bg-red-600 text-white shadow-sm transition-all whitespace-nowrap" data-filter="all">
+          Semua Member (<span id="total-count-badge">70</span>)
+        </button>
+        <button onclick="setFilter('live')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white hover:bg-red-50 text-slate-700 hover:text-red-600 border border-slate-200 transition-all whitespace-nowrap flex items-center gap-1.5" data-filter="live">
+          <span class="w-2 h-2 rounded-full bg-red-600 live-badge-pulse"></span>
+          Sedang Live (<span id="live-filter-count">0</span>)
+        </button>
+        <button onclick="setFilter('oshi')" class="filter-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white hover:bg-red-50 text-slate-700 hover:text-red-600 border border-slate-200 transition-all whitespace-nowrap flex items-center gap-1" data-filter="oshi">
+          <span>â¤ï¸ Oshi Saya</span> (<span id="oshi-count-badge">0</span>)
+        </button>
+        <div class="h-4 w-px bg-slate-200 mx-1"></div>
+        <button onclick="setFilter('gen-3')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-3">Gen 3</button>
+        <button onclick="setFilter('gen-6')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-6">Gen 6</button>
+        <button onclick="setFilter('gen-7')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-7">Gen 7</button>
+        <button onclick="setFilter('gen-8')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-8">Gen 8</button>
+        <button onclick="setFilter('gen-9')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-9">Gen 9</button>
+        <button onclick="setFilter('gen-10')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-10">Gen 10</button>
+        <button onclick="setFilter('gen-11')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-11">Gen 11</button>
+        <button onclick="setFilter('gen-12')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-12">Gen 12</button>
+        <button onclick="setFilter('trainee')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="trainee">Trainee</button>
+        <button onclick="setFilter('gen-14')" class="filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap" data-filter="gen-14">Gen 14</button>
       </div>
 
-      <!-- Empty State If Search / Filter has no results -->
-      <div id="empty-state" class="hidden text-center py-16 space-y-3 bg-white rounded-2xl border border-dashed border-slate-300">
-        <div class="text-4xl">🔍</div>
-        <div class="text-base font-bold text-slate-800">Tidak ada member yang cocok</div>
-        <p class="text-xs text-slate-500 max-w-sm mx-auto">Coba ubah kata kunci pencarian atau pilih kategori generasi lainnya.</p>
-        <button onclick="setFilter('all'); clearSearch();" class="px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold transition-colors">
-          Reset Filter & Pencarian
-        </button>
+      <!-- Cards Grid (Matching the 3-column card style of Popular Destination) -->
+      <div id="members-grid-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Dynamically rendered via renderMembers() -->
       </div>
     </section>
+
+    <!-- ======================================================================= -->
+    <!-- JOURNEY TO THE SKIES -> REPLACED WITH "OSHI PILIHAN PENGGUNA"            -->
+    <!-- (Styled exactly like the 3 cards in reference image)                     -->
+    <!-- ======================================================================= -->
+    <section id="section-oshi" class="space-y-6 pt-6">
+      
+      <!-- Section Centered Heading -->
+      <div class="text-center max-w-xl mx-auto space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[11px] font-extrabold uppercase tracking-wider">
+          <span>â¤ï¸ OSHI EXPERIENCE</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
+          Journey Bersama Oshi Pilihan
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">
+          Dapatkan akses tercepat ke siaran langsung, update status, dan profil resmi oshi pilihanmu.
+        </p>
+      </div>
+
+      <!-- 3 Feature Cards Grid (Center Card Highlighted in Bright Red) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+        
+        <!-- CARD 1 (Left): Oshi List & Quick Favorites -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-red-600 flex items-center justify-center text-xl font-bold shadow-inner">
+              â¤ï¸
+            </div>
+            <h3 class="text-lg font-black text-slate-900">Daftar Oshi Saya</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Tandai ikon hati pada kartu member untuk menambahkan oshi ke daftar favoritmu dan memantau status live mereka secara prioritas.
+            </p>
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-700">
+                <span>Total Oshi Ditandai:</span>
+                <span id="oshi-stat-count" class="text-red-600 font-black text-sm">0 Member</span>
+              </div>
+              <div id="oshi-avatar-strip" class="flex items-center gap-1.5 overflow-x-auto py-1 no-scrollbar">
+                <span class="text-[11px] text-slate-400 italic">Belum ada oshi yang ditandai</span>
+              </div>
+            </div>
+          </div>
+
+          <button 
+            onclick="setFilter('oshi')" 
+            class="w-full py-3 rounded-xl bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-600 font-bold text-xs transition-colors">
+            Lihat Semua Oshi Saya âž”
+          </button>
+        </div>
+
+        <!-- CARD 2 (Center - HIGHLIGHTED BRIGHT RED CARD): Currently Active / Selected Oshi -->
+        <div id="center-oshi-card" class="bg-gradient-to-br from-red-600 via-rose-600 to-red-700 text-white rounded-3xl p-8 shadow-2xl shadow-red-500/30 flex flex-col items-center text-center justify-between space-y-6 relative overflow-hidden">
+          <!-- Background Deco Ring -->
+          <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full border-8 border-white/10 pointer-events-none"></div>
+
+          <!-- Top Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold text-white border border-white/20">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+            <span>OSHI UTAMA DIPILIH</span>
+          </div>
+
+          <!-- Selected Oshi Portrait -->
+          <div class="relative group">
+            <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white/10">
+              <img 
+                id="center-oshi-photo" 
+                src="https://jkt48.com/api/v1/storages/media/jkt48-member/freya_jayawardana.jpg" 
+                alt="Selected Oshi" 
+                referrerpolicy="no-referrer"
+                class="w-full h-full object-cover object-top"
+                onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png';"
+              />
+            </div>
+            <div id="center-oshi-live-dot" class="hidden absolute bottom-1 right-1 w-6 h-6 rounded-full bg-red-500 border-2 border-white live-badge-pulse flex items-center justify-center text-[10px] text-white">
+              â—
+            </div>
+          </div>
+
+          <!-- Oshi Info -->
+          <div class="space-y-1">
+            <h3 id="center-oshi-name" class="text-xl sm:text-2xl font-black tracking-tight text-white">
+              Freya (Freya Jayawardana)
+            </h3>
+            <div id="center-oshi-meta" class="text-xs font-semibold text-rose-100">
+              Member Inti Â· Generasi 7
+            </div>
+            <div id="center-oshi-status" class="pt-1 text-[11px] font-bold tracking-wider uppercase text-white/90">
+              STANDBY Â· SIAP MONITOR
+            </div>
+          </div>
+
+          <!-- Action Button: Open Live / Web -->
+          <div class="w-full space-y-2">
+            <a 
+              id="center-oshi-action-btn"
+              href="https://www.idn.app/jkt48_freya" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="w-full block py-3.5 rounded-full bg-white hover:bg-rose-50 text-red-600 font-extrabold text-xs tracking-wider uppercase shadow-xl transition-transform hover:scale-[1.02]">
+              Tonton Siaran Oshi â–¶
+            </a>
+            <div class="flex justify-center gap-2 pt-1">
+              <button onclick="prevMember()" class="text-xs text-white/80 hover:text-white px-2 py-1">â—€ Sebelumnya</button>
+              <span class="text-white/40">|</span>
+              <button onclick="nextMember()" class="text-xs text-white/80 hover:text-white px-2 py-1">Berikutnya â–¶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 (Right): Real-time Radar & Health Info -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-md flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-red-600 flex items-center justify-center text-xl font-bold shadow-inner">
+              ðŸ“¡
+            </div>
+            <h3 class="text-lg font-black text-slate-900">Radar & Notifikasi Cepat</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Sistem radar memeriksa endpoint API SHOWROOM & IDN Live setiap 6 detik secara otomatis untuk mendeteksi member yang memulai live streaming.
+            </p>
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2.5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-slate-500">Status Server:</span>
+                <span class="text-emerald-600 font-bold flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                  AKTIF & TERHUBUNG
+                </span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-slate-500">Polling Interval:</span>
+                <span class="font-mono font-bold text-slate-700">6000ms</span>
+              </div>
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-semibold text-slate-500">Zona Waktu:</span>
+                <span class="font-mono font-bold text-slate-700">UTC+7 (WIB)</span>
+              </div>
+            </div>
+          </div>
+
+          <button 
+            onclick="manualRefresh()" 
+            class="w-full py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors flex items-center justify-center gap-2">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+            <span>Segarkan Status Sekarang</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- BOTTOM SECTION: Minimal Clean Footer (User asked to keep bottom minimal) -->
+    <!-- ======================================================================= -->
+    <footer class="pt-8 pb-4 border-t border-slate-200 text-center space-y-3">
+      <div class="flex items-center justify-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-white border border-slate-200 p-0.5 shadow-sm">
+          <img src="assets/jkt48_logo_white.jpg" alt="JKT48" class="w-full h-full object-contain" />
+        </div>
+        <span class="text-sm font-black tracking-tight text-slate-800">JKT48 LIVE RADAR</span>
+      </div>
+      <p class="text-xs text-slate-400 max-w-md mx-auto">
+        Platform web interaktif untuk memantau siaran langsung member JKT48 secara real-time. Hak cipta materi, foto profil, dan merek dagang milik JKT48 / PT Indonesia Musik Nusantara.
+      </p>
+      <div class="text-[11px] font-semibold text-slate-400">
+        Â© 2026 JKT48 Live Radar Â· Dibuat dengan cinta untuk seluruh Wota & Fans JKT48
+      </div>
+    </footer>
 
   </main>
 
   <!-- ========================================================================= -->
-  <!-- 5. LIGHTBOX MODAL: FULL RESOLUTION ALL MEMBERS PYRAMID                    -->
+  <!-- 4. LIGHTBOX MODAL: FULL RESOLUTION ALL MEMBERS PYRAMID                    -->
   <!-- ========================================================================= -->
   <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
     <div class="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
       <button 
         onclick="closeLightbox()" 
         class="absolute -top-12 right-0 text-white hover:text-red-400 text-3xl font-bold transition-colors">
-        ✕
+        âœ•
       </button>
       <div class="bg-white rounded-2xl overflow-hidden shadow-2xl p-2 max-h-[85vh] flex justify-center">
         <img 
-          id="lightbox-img"
-          src="assets/jkt48_all_members.jpg" 
+          src="assets/jkt48_all_members_formation.jpg" 
           alt="Formasi Lengkap Member JKT48 Full HD" 
           class="max-h-[80vh] w-auto object-contain rounded-xl"
-          onerror="if(window.ASSET_ALL_MEMBERS) this.src=window.ASSET_ALL_MEMBERS;"
         />
       </div>
       <div class="mt-3 text-white text-xs font-semibold text-center">
-        Formasi Piramida Resmi All Member JKT48 — Tekan ESC atau klik ✕ untuk menutup
+        Formasi Piramida Resmi All Member JKT48 â€” Tekan ESC atau klik âœ• untuk menutup
       </div>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 6. SPOTIFY BOTTOM PLAYER BAR ("NOW MONITORING / NOW PLAYING")             -->
+  <!-- 5. SPOTIFY-STYLE BOTTOM PLAYER BAR ("NOW MONITORING")                      -->
   <!-- ========================================================================= -->
-  <footer class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+  <aside class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-2 flex items-center justify-between gap-4">
       
-      <!-- Left: Currently Monitored / Selected Member Info -->
+      <!-- Left: Selected Member Thumb & Name -->
       <div class="flex items-center gap-3 w-1/3 min-w-[180px]">
-        <div class="relative w-12 h-12 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shadow-sm flex-shrink-0">
+        <div class="relative w-11 h-11 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm flex-shrink-0">
           <img 
             id="player-thumb" 
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg/440px-Freya_Jayawardana_%28Freya%29_at_the_JKT48_Summer_Festival.jpg" 
+            src="https://jkt48.com/api/v1/storages/media/jkt48-member/freya_jayawardana.jpg" 
             alt="Now Monitored" 
-            class="w-full h-full object-cover"
-            onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png';"
+            referrerpolicy="no-referrer"
+            class="w-full h-full object-cover object-top"
+            onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png';"
           />
           <div id="player-live-dot" class="hidden absolute top-1 right-1 w-2 h-2 rounded-full bg-red-600 animate-ping"></div>
         </div>
@@ -516,91 +601,51 @@
           <div id="player-name" class="text-xs sm:text-sm font-bold text-slate-900 truncate">
             Freya Jayawardana
           </div>
-          <div id="player-status" class="text-[10px] text-slate-500 font-medium truncate flex items-center gap-1.5">
-            <span id="player-status-badge" class="inline-block w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-            <span id="player-status-text">Standby · IDN & Showroom</span>
+          <div id="player-status-text" class="text-[10px] text-slate-400 font-medium truncate">
+            Standby Â· Gen 7
           </div>
         </div>
-        <!-- Like/Oshi Button on player -->
-        <button 
-          id="player-heart-btn" 
-          onclick="togglePlayerOshi()" 
-          title="Tandai sebagai Oshi"
-          class="text-slate-400 hover:text-red-600 text-lg transition-colors ml-1 hidden sm:block">
-          ♡
+        <button id="player-heart-btn" onclick="toggleOshiFromPlayer()" class="text-slate-400 hover:text-red-600 text-base ml-1 hidden sm:block">
+          â™¡
         </button>
       </div>
 
-      <!-- Center: Monitoring Playback Controls & Animated Wave -->
-      <div class="flex flex-col items-center justify-center flex-1 max-w-md">
-        <div class="flex items-center gap-4">
-          <!-- Prev Member -->
-          <button onclick="prevMember()" title="Member Sebelumnya" class="text-slate-400 hover:text-slate-800 transition-colors">
+      <!-- Center: Controls -->
+      <div class="flex flex-col items-center justify-center">
+        <div class="flex items-center gap-3">
+          <button onclick="prevMember()" title="Member Sebelumnya" class="text-slate-400 hover:text-slate-800 transition-colors p-1">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
           </button>
-
-          <!-- Play/Pause Live Radar Button (Spotify Signature Style) -->
-          <button 
-            id="player-play-btn" 
-            onclick="openActiveStream()" 
-            title="Buka Siaran Live Member Ini"
-            class="w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-lg shadow-red-500/30 hover:scale-105 transition-all">
-            <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"></path>
-            </svg>
+          <button onclick="openActiveStream()" title="Buka Siaran Langsung" class="w-8 h-8 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-md shadow-red-500/30 transition-transform hover:scale-105">
+            <svg class="w-3.5 h-3.5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
           </button>
-
-          <!-- Next Member -->
-          <button onclick="nextMember()" title="Member Berikutnya" class="text-slate-400 hover:text-slate-800 transition-colors">
+          <button onclick="nextMember()" title="Member Berikutnya" class="text-slate-400 hover:text-slate-800 transition-colors p-1">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
           </button>
         </div>
-
-        <!-- Radar Status & Equalizer Bar -->
-        <div class="flex items-center gap-2 mt-1.5">
-          <div class="flex items-end gap-0.5 h-3">
-            <span class="w-1 bg-red-600 rounded-full eq-bar-1"></span>
-            <span class="w-1 bg-red-600 rounded-full eq-bar-2"></span>
-            <span class="w-1 bg-red-600 rounded-full eq-bar-3"></span>
-            <span class="w-1 bg-red-600 rounded-full eq-bar-4"></span>
-          </div>
-          <span id="player-radar-status" class="text-[10px] font-mono font-semibold text-slate-500">
-            RADAR ACTIVE · POLLING 3000ms
-          </span>
-        </div>
+        <div class="text-[9px] font-mono text-slate-400 tracking-wider hidden sm:block">RADAR POLLING 6000ms</div>
       </div>
 
-      <!-- Right: Backend Health & Action Links -->
-      <div class="flex items-center justify-end gap-3 w-1/3 min-w-[160px] text-right">
-        <div class="hidden md:block">
-          <div class="text-[10px] font-bold text-emerald-600 flex items-center justify-end gap-1">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span id="api-status-text">DAEMON: PORT 5000 ONLINE</span>
-          </div>
-          <div class="text-[9px] text-slate-400 font-medium">SHOWROOM & IDN VERIFIED</div>
-        </div>
-
-        <!-- External Quick Link Button -->
+      <!-- Right: Direct Link Button -->
+      <div class="flex items-center justify-end w-1/3 min-w-[160px]">
         <a 
           id="player-external-link" 
           href="https://www.idn.app/jkt48_freya" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-red-600 text-white text-[11px] font-bold transition-colors whitespace-nowrap shadow-sm">
-          Buka Live ↗
+          class="px-4 py-2 rounded-full bg-slate-900 hover:bg-red-600 text-white text-xs font-bold transition-colors whitespace-nowrap shadow-sm">
+          Buka Akun â†—
         </a>
       </div>
 
     </div>
-  </footer>
+  </aside>
 
   <!-- ========================================================================= -->
-  <!-- 7. APPLICATION LOGIC & STATE ENGINE                                       -->
+  <!-- 6. APPLICATION LOGIC & STATE ENGINE                                       -->
   <!-- ========================================================================= -->
   <script>
-    // -------------------------------------------------------------------------
-    // APPLICATION STATE
-    // -------------------------------------------------------------------------
+    // App State
     const state = {
       members: [],
       liveSessions: [],
@@ -608,7 +653,6 @@
       searchQuery: '',
       currentSelectedMember: null,
       oshiSet: new Set(),
-      isSimulatingLive: false,
       radarInterval: null,
       backendUrl: 'http://127.0.0.1:5000'
     };
@@ -623,26 +667,24 @@
       console.warn("Storage warning:", e);
     }
 
-    // -------------------------------------------------------------------------
-    // OFFICIAL JKT48 MEMBERS ROSTER (70 ACTIVE MEMBERS)
-    // -------------------------------------------------------------------------
-    const members = [
+    // Embed Verified Members Roster (70 Members)
+const members = [
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 1. MEMBER INTI (REGULER)
+  // 1. MEMBER INTI (REGULER) - 39 MEMBERS
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   { 
-    id: "gracia", 
-    name: "Shania Gracia", 
-    nickname: "Gracia", 
-    generation: 3, 
+    id: "freya", 
+    name: "Freya Jayawardana", 
+    nickname: "Freya", 
+    generation: 7, 
     teamStatus: "Inti (Kapten)", 
-    officialId: 88,
-    officialUrl: "https://jkt48.com/member/detail/id/88",
-    showroomSlug: "JKT48_Gracia", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracia", 
-    idnSlug: "jkt48_gracia", 
-    idnUrl: "https://www.idn.app/jkt48_gracia", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/shania_gracia.jpg" 
+    officialId: 209,
+    officialUrl: "https://jkt48.com/member/detail/id/209",
+    showroomSlug: "JKT48_Freya", 
+    showroomUrl: "https://www.showroom-live.com/r/JKT48_Freya", 
+    idnSlug: "jkt48_freya", 
+    idnUrl: "https://www.idn.app/jkt48_freya", 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c4/Freya_Jayawardana_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "feni", 
@@ -656,7 +698,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Feni", 
     idnSlug: "jkt48_feni", 
     idnUrl: "https://www.idn.app/jkt48_feni", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/feni_fitriyanti.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b6/Feni_Fitriyanti_JKT48_2026.jpg" 
   },
   { 
     id: "gita", 
@@ -670,7 +712,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gita", 
     idnSlug: "jkt48_gita", 
     idnUrl: "https://www.idn.app/jkt48_gita", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/gita_sekar_andarini.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/dc/Gita_Sekar_Andarini_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "christy", 
@@ -684,7 +726,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Christy", 
     idnSlug: "jkt48_christy", 
     idnUrl: "https://www.idn.app/jkt48_christy", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/angelina_christy.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/26/Angelina_Christy_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "olla", 
@@ -698,21 +740,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Olla", 
     idnSlug: "jkt48_olla", 
     idnUrl: "https://www.idn.app/jkt48_olla", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/febriola_sinambela.jpg" 
-  },
-  { 
-    id: "freya", 
-    name: "Freya Jayawardana", 
-    nickname: "Freya", 
-    generation: 7, 
-    teamStatus: "Inti", 
-    officialId: 209,
-    officialUrl: "https://jkt48.com/member/detail/id/209",
-    showroomSlug: "JKT48_Freya", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Freya", 
-    idnSlug: "jkt48_freya", 
-    idnUrl: "https://www.idn.app/jkt48_freya", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/freya_jayawardana.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/1a/Febriola_Sinambela_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "eli", 
@@ -726,7 +754,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Eli", 
     idnSlug: "jkt48_eli", 
     idnUrl: "https://www.idn.app/jkt48_eli", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/helisma_putri.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/45/Helisma_Putri_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "jessi", 
@@ -740,7 +768,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jessi", 
     idnSlug: "jkt48_jessi", 
     idnUrl: "https://www.idn.app/jkt48_jessi", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/jessica_chandra.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/5/52/Jessica_Chandra_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "muthe", 
@@ -754,7 +782,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Muthe", 
     idnSlug: "jkt48_muthe", 
     idnUrl: "https://www.idn.app/jkt48_muthe", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/mutiara_azzahra.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/e/e4/Mutiara_Azzahra_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "oniel", 
@@ -768,7 +796,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oniel", 
     idnSlug: "jkt48_oniel", 
     idnUrl: "https://www.idn.app/jkt48_oniel", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/cornelia_vanisa.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/30/Cornelia_Vanisa_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "fiony", 
@@ -782,21 +810,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fiony", 
     idnSlug: "jkt48_fiony", 
     idnUrl: "https://www.idn.app/jkt48_fiony", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/fiony_alveria.jpg" 
-  },
-  { 
-    id: "flora", 
-    name: "Flora Shafiq", 
-    nickname: "Flora", 
-    generation: 8, 
-    teamStatus: "Inti", 
-    officialId: 221,
-    officialUrl: "https://jkt48.com/member/detail/id/221",
-    showroomSlug: "JKT48_Flora", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Flora", 
-    idnSlug: "jkt48_flora", 
-    idnUrl: "https://www.idn.app/jkt48_flora", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/flora_shafiq.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c7/Fiony_Alveria_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lulu", 
@@ -810,7 +824,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lulu", 
     idnSlug: "jkt48_lulu", 
     idnUrl: "https://www.idn.app/jkt48_lulu", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/lulu_salsabila.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/21/Lulu_Salsabila_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "indah", 
@@ -824,7 +838,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Indah", 
     idnSlug: "jkt48_indah", 
     idnUrl: "https://www.idn.app/jkt48_indah", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/indah_cahya.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2f/Indah_Cahya_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "kathrina", 
@@ -838,7 +852,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kathrina", 
     idnSlug: "jkt48_kathrina", 
     idnUrl: "https://www.idn.app/jkt48_kathrina", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/kathrina_irene.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c6/Kathrina_Irene_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "marsha", 
@@ -852,21 +866,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Marsha", 
     idnSlug: "jkt48_marsha", 
     idnUrl: "https://www.idn.app/jkt48_marsha", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/marsha_lenathea.jpg" 
-  },
-  { 
-    id: "amanda", 
-    name: "Amanda Sukma", 
-    nickname: "Amanda", 
-    generation: 10, 
-    teamStatus: "Inti", 
-    officialId: 233,
-    officialUrl: "https://jkt48.com/member/detail/id/233",
-    showroomSlug: "JKT48_Amanda", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Amanda", 
-    idnSlug: "jkt48_amanda", 
-    idnUrl: "https://www.idn.app/jkt48_amanda", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/amanda_sukma.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/9/9e/Marsha_Lenathea_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lia", 
@@ -880,21 +880,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lia", 
     idnSlug: "jkt48_lia", 
     idnUrl: "https://www.idn.app/jkt48_lia", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/aurellia.jpg" 
-  },
-  { 
-    id: "callie", 
-    name: "Callista Alifia", 
-    nickname: "Callie", 
-    generation: 10, 
-    teamStatus: "Inti", 
-    officialId: 235,
-    officialUrl: "https://jkt48.com/member/detail/id/235",
-    showroomSlug: "JKT48_Callie", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Callie", 
-    idnSlug: "jkt48_callie", 
-    idnUrl: "https://www.idn.app/jkt48_callie", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/callista_alifia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2c/Aurellia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "ella", 
@@ -908,21 +894,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ella", 
     idnSlug: "jkt48_ella", 
     idnUrl: "https://www.idn.app/jkt48_ella", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/gabriela_abigail.jpg" 
-  },
-  { 
-    id: "indira", 
-    name: "Indira Seruni", 
-    nickname: "Indira", 
-    generation: 10, 
-    teamStatus: "Inti", 
-    officialId: 237,
-    officialUrl: "https://jkt48.com/member/detail/id/237",
-    showroomSlug: "JKT48_Indira", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Indira", 
-    idnSlug: "jkt48_indira", 
-    idnUrl: "https://www.idn.app/jkt48_indira", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/indira_seruni.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/4c/Gabriela_Abigail_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lyn", 
@@ -936,7 +908,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lyn", 
     idnSlug: "jkt48_lyn", 
     idnUrl: "https://www.idn.app/jkt48_lyn", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/jesslyn_elly.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/15/Jesslyn_Elly_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "raisha", 
@@ -950,21 +922,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Raisha", 
     idnSlug: "jkt48_raisha", 
     idnUrl: "https://www.idn.app/jkt48_raisha", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/raisha_syifa.jpg" 
-  },
-  { 
-    id: "alya", 
-    name: "Alya Amanda", 
-    nickname: "Alya", 
-    generation: 11, 
-    teamStatus: "Inti", 
-    officialId: 260,
-    officialUrl: "https://jkt48.com/member/detail/id/260",
-    showroomSlug: "JKT48_Alya", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Alya", 
-    idnSlug: "jkt48_alya", 
-    idnUrl: "https://www.idn.app/jkt48_alya", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/alya_amanda.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/e/e1/Raisha_Syifa_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "anindya", 
@@ -978,21 +936,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Anindya", 
     idnSlug: "jkt48_anindya", 
     idnUrl: "https://www.idn.app/jkt48_anindya", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/anindya_ramadhani.jpg" 
-  },
-  { 
-    id: "cathy", 
-    name: "Cathleen Nixie", 
-    nickname: "Cathy", 
-    generation: 11, 
-    teamStatus: "Inti", 
-    officialId: 262,
-    officialUrl: "https://jkt48.com/member/detail/id/262",
-    showroomSlug: "JKT48_Cathy", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Cathy", 
-    idnSlug: "jkt48_cathy", 
-    idnUrl: "https://www.idn.app/jkt48_cathy", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/cathleen_nixie.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/bb/Anindya_Ramadhani_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "elin", 
@@ -1006,21 +950,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Elin", 
     idnSlug: "jkt48_elin", 
     idnUrl: "https://www.idn.app/jkt48_elin", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/celline_thefani.jpg" 
-  },
-  { 
-    id: "chelsea", 
-    name: "Chelsea Davina", 
-    nickname: "Chelsea", 
-    generation: 11, 
-    teamStatus: "Inti", 
-    officialId: 263,
-    officialUrl: "https://jkt48.com/member/detail/id/263",
-    showroomSlug: "JKT48_Chelsea", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Chelsea", 
-    idnSlug: "jkt48_chelsea", 
-    idnUrl: "https://www.idn.app/jkt48_chelsea", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/chelsea_davina.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/f/f0/Celline_Thefani_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "cynthia", 
@@ -1034,7 +964,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Cynthia", 
     idnSlug: "jkt48_cynthia", 
     idnUrl: "https://www.idn.app/jkt48_cynthia", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/cynthia_yaputera.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/8b/Cynthia_Yaputera_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "danella", 
@@ -1048,7 +978,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Danella", 
     idnSlug: "jkt48_danella", 
     idnUrl: "https://www.idn.app/jkt48_danella", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/dena_natalia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/d9/Dena_Natalia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "daisy", 
@@ -1062,21 +992,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Daisy", 
     idnSlug: "jkt48_daisy", 
     idnUrl: "https://www.idn.app/jkt48_daisy", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/desy_natalia.jpg" 
-  },
-  { 
-    id: "gendis", 
-    name: "Gendis Mayrannisa", 
-    nickname: "Gendis", 
-    generation: 11, 
-    teamStatus: "Inti", 
-    officialId: 264,
-    officialUrl: "https://jkt48.com/member/detail/id/264",
-    showroomSlug: "JKT48_Gendis", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Gendis", 
-    idnSlug: "jkt48_gendis", 
-    idnUrl: "https://www.idn.app/jkt48_gendis", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/gendis_mayrannisa.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/13/Desy_Natalia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "gracie", 
@@ -1090,7 +1006,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracie", 
     idnSlug: "jkt48_gracie", 
     idnUrl: "https://www.idn.app/jkt48_gracie", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/grace_octaviani.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b9/Grace_Octaviani_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "greesel", 
@@ -1104,7 +1020,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Greesel", 
     idnSlug: "jkt48_greesel", 
     idnUrl: "https://www.idn.app/jkt48_greesel", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/greesella_adhalia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2d/Greesella_Adhalia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "michie", 
@@ -1118,10 +1034,8 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Michie", 
     idnSlug: "jkt48_michie", 
     idnUrl: "https://www.idn.app/jkt48_michie", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/michelle_alexandra.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/30/Michelle_Alexandra_JKT48_2026_%283%29.jpg" 
   },
-
-  // GENERASI 12 (MEMBER REGULER)
   { 
     id: "aralie", 
     name: "Abigail Rachel", 
@@ -1134,7 +1048,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Aralie", 
     idnSlug: "jkt48_aralie", 
     idnUrl: "https://www.idn.app/jkt48_aralie", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/abigail_rachel.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/26/Abigail_Rachel_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "delynn", 
@@ -1148,7 +1062,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Delynn", 
     idnSlug: "jkt48_delynn", 
     idnUrl: "https://www.idn.app/jkt48_delynn", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/adeline_wijaya.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/27/Adeline_Wijaya_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lana", 
@@ -1162,7 +1076,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lana", 
     idnSlug: "jkt48_lana", 
     idnUrl: "https://www.idn.app/jkt48_lana", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/aurhel_alana.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/79/Aurhel_Alana_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "erine", 
@@ -1176,7 +1090,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Erine", 
     idnSlug: "jkt48_erine", 
     idnUrl: "https://www.idn.app/jkt48_erine", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/catherina_vallencia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/9/97/Catherina_Vallencia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "fritzy", 
@@ -1190,7 +1104,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fritzy", 
     idnSlug: "jkt48_fritzy", 
     idnUrl: "https://www.idn.app/jkt48_fritzy", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/fritzy_rosmerian.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/a/ac/Fritzy_Rosmerian_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lily", 
@@ -1204,35 +1118,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lily", 
     idnSlug: "jkt48_lily", 
     idnUrl: "https://www.idn.app/jkt48_lily", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/hillary_abigail.jpg" 
-  },
-  { 
-    id: "trisha", 
-    name: "Jazzlyn Trisha", 
-    nickname: "Trisha", 
-    generation: 12, 
-    teamStatus: "Member", 
-    officialId: 289,
-    officialUrl: "https://jkt48.com/member/detail/id/289",
-    showroomSlug: "JKT48_Trisha", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Trisha", 
-    idnSlug: "jkt48_trisha", 
-    idnUrl: "https://www.idn.app/jkt48_trisha", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/jazzlyn_trisha.jpg" 
-  },
-  { 
-    id: "moreen", 
-    name: "Letycia Moreen", 
-    nickname: "Moreen", 
-    generation: 12, 
-    teamStatus: "Member", 
-    officialId: 290,
-    officialUrl: "https://jkt48.com/member/detail/id/290",
-    showroomSlug: "JKT48_Moreen", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Moreen", 
-    idnSlug: "jkt48_moreen", 
-    idnUrl: "https://www.idn.app/jkt48_moreen", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/letycia_moreen.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/4f/Hillary_Abigail_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "levi", 
@@ -1246,7 +1132,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Levi", 
     idnSlug: "jkt48_levi", 
     idnUrl: "https://www.idn.app/jkt48_levi", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/michelle_levia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/79/Michelle_Levia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "nayla", 
@@ -1260,7 +1146,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nayla", 
     idnSlug: "jkt48_nayla", 
     idnUrl: "https://www.idn.app/jkt48_nayla", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/nayla_suji.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b9/Nayla_Suji_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "nachia", 
@@ -1274,7 +1160,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nachia", 
     idnSlug: "jkt48_nachia", 
     idnUrl: "https://www.idn.app/jkt48_nachia", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/nina_tutachia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/1b/Nina_Tutachia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "oline", 
@@ -1288,21 +1174,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oline", 
     idnSlug: "jkt48_oline", 
     idnUrl: "https://www.idn.app/jkt48_oline", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/oline_manuel.jpg" 
-  },
-  { 
-    id: "regie", 
-    name: "Regina Wilian", 
-    nickname: "Regie", 
-    generation: 12, 
-    teamStatus: "Member", 
-    officialId: 293,
-    officialUrl: "https://jkt48.com/member/detail/id/293",
-    showroomSlug: "JKT48_Regie", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Regie", 
-    idnSlug: "jkt48_regie", 
-    idnUrl: "https://www.idn.app/jkt48_regie", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/regina_wilian.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b0/Oline_Manuel_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "ribka", 
@@ -1316,7 +1188,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ribka", 
     idnSlug: "jkt48_ribka", 
     idnUrl: "https://www.idn.app/jkt48_ribka", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/ribka_budiman.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/84/Ribka_Budiman_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "nala", 
@@ -1330,7 +1202,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nala", 
     idnSlug: "jkt48_nala", 
     idnUrl: "https://www.idn.app/jkt48_nala", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/shabilqis_naila.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/cc/Shabilqis_Naila_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "kimmy", 
@@ -1344,11 +1216,11 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kimmy", 
     idnSlug: "jkt48_kimmy", 
     idnUrl: "https://www.idn.app/jkt48_kimmy", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/victoria_kimberly.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/86/Victoria_Kimberly_JKT48_2026_%283%29.jpg" 
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 2. MEMBER TRAINEE (GENERASI 13)
+  // 2. MEMBER TRAINEE (GENERASI 13) - 8 MEMBERS
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   { 
     id: "astrella", 
@@ -1464,7 +1336,7 @@
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 3. MEMBER TRAINEE (GENERASI 14)
+  // 3. MEMBER TRAINEE (GENERASI 14) - 10 MEMBERS (MAEGAN REMOVED)
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   { 
     id: "afera", 
@@ -1478,7 +1350,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fera", 
     idnSlug: "jkt48_fera", 
     idnUrl: "https://www.idn.app/jkt48_fera", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/afera_thalia.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b1/Afera_Thalia_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "carissa", 
@@ -1492,7 +1364,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Carissa", 
     idnSlug: "jkt48_carissa", 
     idnUrl: "https://www.idn.app/jkt48_carissa", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/carissa_dini.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/12/Carissa_Dini_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "bella", 
@@ -1506,7 +1378,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Bella", 
     idnSlug: "jkt48_bella", 
     idnUrl: "https://www.idn.app/jkt48_bella", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/christabella_bonita.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b3/Christabella_Bonita_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "fahira", 
@@ -1520,7 +1392,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fahira", 
     idnSlug: "jkt48_fahira", 
     idnUrl: "https://www.idn.app/jkt48_fahira", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/fahira_putri.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b0/Fahira_Putri_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "rara", 
@@ -1534,7 +1406,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Rara", 
     idnSlug: "jkt48_rara", 
     idnUrl: "https://www.idn.app/jkt48_rara", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/fatimah_azzahra.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/47/Fatimah_Azzahra_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "heidi", 
@@ -1548,21 +1420,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Heidi", 
     idnSlug: "jkt48_heidi", 
     idnUrl: "https://www.idn.app/jkt48_heidi", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/heidi_suyangga.jpg" 
-  },
-  { 
-    id: "maegan", 
-    name: "Maegan Jovanka", 
-    nickname: "Maegan", 
-    generation: 14, 
-    teamStatus: "Trainee", 
-    officialId: 316,
-    officialUrl: "https://jkt48.com/member/detail/id/316",
-    showroomSlug: "JKT48_Maegan", 
-    showroomUrl: "https://www.showroom-live.com/r/JKT48_Maegan", 
-    idnSlug: "jkt48_maegan", 
-    idnUrl: "https://www.idn.app/jkt48_maegan", 
-    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/df/Maegan_Jovanka_2026.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/f/f7/Heidi_Suyangga_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "maxine", 
@@ -1576,7 +1434,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Maxine", 
     idnSlug: "jkt48_maxine", 
     idnUrl: "https://www.idn.app/jkt48_maxine", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/maxine_faye_lee.jpg" 
+    photoUrl: "https://images.weserv.nl/?url=https://jkt48.com/api/v1/storages/media/jkt48-member/maxine_faye_lee.jpg" 
   },
   { 
     id: "jazy", 
@@ -1590,7 +1448,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jazy", 
     idnSlug: "jkt48_jazy", 
     idnUrl: "https://www.idn.app/jkt48_jazy", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/putry_jazyta.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/5/59/Putry_Jazyta_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "ralyne", 
@@ -1604,7 +1462,7 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ralyne", 
     idnSlug: "jkt48_ralyne", 
     idnUrl: "https://www.idn.app/jkt48_ralyne", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/ralyne_van_irwan.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b5/Ralyne_Van_Irwan_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "sona", 
@@ -1618,45 +1476,69 @@
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Sona", 
     idnSlug: "jkt48_sona", 
     idnUrl: "https://www.idn.app/jkt48_sona", 
-    photoUrl: "https://jkt48.com/api/v1/storages/media/jkt48-member/sona_kalyana.jpg" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/bb/Sona_Kalyana_JKT48_2026_%282%29.jpg" 
   }
 ];
 
 window.JKT48_MEMBERS = members;
 if (typeof module !== 'undefined' && module.exports) { module.exports = window.JKT48_MEMBERS; }
 
+    // Synchronize global roster
+    state.members = window.JKT48_MEMBERS || members;
+
+    // -------------------------------------------------------------------------
+    // APPLICATION BOOT & LIFECYCLE
+    // -------------------------------------------------------------------------
     function initApp() {
       state.members = window.JKT48_MEMBERS || members;
+
+      // Select default member
       if (state.members.length > 0) {
         selectMember(state.members[0].id);
       }
+
+      // Initial render of member cards & Oshi section
       renderMembers();
+      renderOshiSection();
       updateLiveStats();
+
+      // Start live radar polling
       startPollingBackend();
+
+      // Start WIB clock
       updateWibClock();
       setInterval(updateWibClock, 1000);
-      animateSplash();
+
+      // Start splash animation
+      animateSplash(() => {
+        console.log("JKT48 Live Radar Ready! Total members:", state.members.length);
+      });
     }
 
+    // Safety watchdog: ensure splash is never stuck
     setTimeout(() => {
       hideSplashScreen();
-    }, 2500);
+    }, 2200);
 
+    // Boot reliably across all execution modes
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", initApp);
     } else {
       initApp();
     }
 
+    // -------------------------------------------------------------------------
+    // SPLASH SCREEN ANIMATION
+    // -------------------------------------------------------------------------
     function animateSplash(onDone) {
       const progressBar = document.getElementById('splash-progress');
       const statusText = document.getElementById('splash-status');
       let progress = 0;
 
       const steps = [
-        { at: 25, text: "Memuat 67 Profil Resmi Member JKT48..." },
-        { at: 60, text: "Menghubungkan ke API SHOWROOM & IDN Live..." },
-        { at: 85, text: "Sinkronisasi State Machine & Waktu Asia/Jakarta..." },
+        { at: 25, text: "Memuat 70 Profil Resmi Member JKT48..." },
+        { at: 55, text: "Menghubungkan ke API SHOWROOM & IDN Live..." },
+        { at: 80, text: "Sinkronisasi State Machine & Waktu Asia/Jakarta..." },
         { at: 100, text: "Siap! Membuka JKT48 Live Radar..." }
       ];
 
@@ -1664,19 +1546,19 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
         progress += 4;
         if (progress > 100) progress = 100;
 
-        progressBar.style.width = progress + '%';
+        if (progressBar) progressBar.style.width = progress + '%';
 
         const curStep = steps.find(s => progress <= s.at) || steps[steps.length - 1];
-        statusText.textContent = `${curStep.text} (${progress}%)`;
+        if (statusText) statusText.textContent = `${curStep.text} (${progress}%)`;
 
         if (progress >= 100) {
           clearInterval(timer);
           setTimeout(() => {
             hideSplashScreen();
             if (onDone) onDone();
-          }, 350);
+          }, 300);
         }
-      }, 40);
+      }, 30);
     }
 
     function hideSplashScreen() {
@@ -1696,7 +1578,6 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     // -------------------------------------------------------------------------
     function updateWibClock() {
       const now = new Date();
-      // Format to Asia/Jakarta WIB (UTC+7)
       const options = { timeZone: 'Asia/Jakarta', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
       const timeStr = new Intl.DateTimeFormat('id-ID', options).format(now);
       const clockEl = document.getElementById('wib-clock');
@@ -1706,7 +1587,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     }
 
     // -------------------------------------------------------------------------
-    // BACKEND POLLING & LIVE STATUS
+    // RADAR POLLING ENGINE
     // -------------------------------------------------------------------------
     async function startPollingBackend() {
       pollLiveData();
@@ -1714,12 +1595,9 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     }
 
     async function pollLiveData() {
-      if (state.isSimulatingLive) return;
-
       let detectedSessions = [];
-      let sourceName = "";
 
-      // Tier 1: Try Local C# Monitoring Daemon (Port 5000)
+      // Tier 1: Try Local C# Daemon
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 1200);
@@ -1729,15 +1607,12 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
           const data = await res.json();
           if (Array.isArray(data.activeSessions)) {
             detectedSessions = data.activeSessions;
-            sourceName = "DAEMON: PORT 5000 ONLINE";
           }
         }
-      } catch (e) {
-        // Backend not on localhost or blocked by browser mixed-content
-      }
+      } catch(e) {}
 
       // Tier 2: Real-time IDN Live Cloud GraphQL (Direct CORS Support)
-      if (sourceName === "") {
+      if (detectedSessions.length === 0) {
         try {
           const idnQuery = `query {
             getLivestreams {
@@ -1769,99 +1644,47 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
             streams.forEach(stream => {
               const statusStr = (stream.status || "").toLowerCase();
               const isLive = statusStr === "live" || statusStr === "streaming" || statusStr === "ongoing";
+              if (!isLive) return;
 
-              if (isLive) {
-                const creatorName = (stream.creator?.name || "").toLowerCase();
-                const username = (stream.creator?.username || "").toLowerCase();
-                const slug = (stream.slug || "").toLowerCase();
+              const creatorName = (stream.creator && stream.creator.name || "").toLowerCase();
+              const creatorUsername = (stream.creator && stream.creator.username || "").toLowerCase();
+              const streamSlug = (stream.slug || "").toLowerCase();
 
-                // Match against our 69 active members
-                const matched = state.members.find(m => {
-                  const nick = m.nickname.toLowerCase();
-                  const id = m.id.toLowerCase();
-                  return creatorName.includes(nick) || username.includes(nick) || slug.includes(nick) ||
-                         creatorName.includes(id) || username.includes(id) || slug.includes(id);
+              const matched = state.members.find(m => {
+                const nick = (m.nickname || "").toLowerCase();
+                const idnSlug = (m.idnSlug || "").toLowerCase();
+                return (
+                  creatorUsername === idnSlug ||
+                  creatorUsername.includes(nick) ||
+                  creatorName.includes(nick) ||
+                  streamSlug.includes(nick)
+                );
+              });
+
+              if (matched) {
+                detectedSessions.push({
+                  memberId: matched.id,
+                  platform: "IDN Live",
+                  title: stream.title || `Live ${matched.name}`,
+                  viewerCount: stream.view_count || 0,
+                  startedAt: stream.live_at || new Date().toISOString(),
+                  sourceUrl: `https://www.idn.app/${stream.creator ? stream.creator.username : matched.idnSlug}/live/${stream.slug}`,
+                  imageUrl: stream.image_url || matched.photoUrl
                 });
-
-                if (matched && !detectedSessions.some(s => s.memberId === matched.id)) {
-                  detectedSessions.push({
-                    memberId: matched.id,
-                    platform: "IDN",
-                    status: "LIVE",
-                    liveTitle: stream.title || `Live Streaming IDN bersama ${matched.nickname}`,
-                    sourceUrl: `https://www.idn.app/${stream.slug}`,
-                    startedAtWib: "Sedang Berlangsung",
-                    viewerCount: `${(stream.view_count || 0).toLocaleString('id-ID')} Penonton`
-                  });
-                }
               }
             });
-            sourceName = "RADAR CLOUD: IDN & SHOWROOM ACTIVE";
           }
-        } catch (idnErr) {
-          console.warn("Client IDN Radar:", idnErr);
-        }
-      }
-
-      // Tier 3: Real-time SHOWROOM onlives mirror
-      if (sourceName !== "DAEMON: PORT 5000 ONLINE") {
-        try {
-          const srRes = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://www.showroom-live.com/api/live/onlives"));
-          if (srRes.ok) {
-            const srData = await srRes.json();
-            if (srData && srData.onlives) {
-              srData.onlives.forEach(genre => {
-                (genre.lives || []).forEach(live => {
-                  const roomKey = (live.room_url_key || "").toLowerCase();
-                  const mainName = (live.main_name || "").toLowerCase();
-                  if (roomKey.includes("jkt48") || mainName.includes("jkt48")) {
-                    const matched = state.members.find(m => {
-                      const nick = m.nickname.toLowerCase();
-                      const slug = (m.showroomSlug || "").toLowerCase();
-                      return roomKey === slug || roomKey.includes(nick) || mainName.includes(nick);
-                    });
-                    if (matched && !detectedSessions.some(s => s.memberId === matched.id)) {
-                      detectedSessions.push({
-                        memberId: matched.id,
-                        platform: "SHOWROOM",
-                        status: "LIVE",
-                        liveTitle: live.main_name || `SHOWROOM Live ${matched.nickname}`,
-                        sourceUrl: matched.showroomUrl,
-                        startedAtWib: "Sedang Berlangsung",
-                        viewerCount: `${(live.view_num || 0).toLocaleString('id-ID')} Penonton`
-                      });
-                    }
-                  }
-                });
-              });
-            }
-          }
-        } catch (srErr) {
-          // ignore mirror timeout
+        } catch(e) {
+          console.warn("IDN GraphQL check:", e);
         }
       }
 
       state.liveSessions = detectedSessions;
-
-      const statusEl = document.getElementById('api-status-text');
-      if (statusEl) {
-        statusEl.textContent = sourceName || 'RADAR CLOUD AKTIF';
-        statusEl.className = 'text-[10px] font-bold text-emerald-600 flex items-center justify-end gap-1';
-      }
-
-      updateLiveBadges();
-      renderLiveSection();
-      renderMemberGrid();
+      updateLiveStats();
+      renderMembers();
+      renderOshiSection();
       if (state.currentSelectedMember) {
         updatePlayerBar(state.currentSelectedMember);
-      }
-    }
-
-    function fallbackOffline() {
-      const statusEl = document.getElementById('api-status-text');
-      if (statusEl) {
-        statusEl.textContent = 'RADAR STANDALONE AKTIF';
-        statusEl.className = 'text-[10px] font-bold text-slate-500 flex items-center justify-end gap-1';
       }
     }
 
@@ -1870,443 +1693,261 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     }
 
     // -------------------------------------------------------------------------
-    // SIMULATION MODE (TESTING LIVE VISUALS)
+    // RENDER POPULAR DESTINATION CARDS -> MEMBER & SIARAN LIVE
     // -------------------------------------------------------------------------
-    function toggleSimulation() {
-      state.isSimulatingLive = !state.isSimulatingLive;
-      const btn = document.getElementById('btn-toggle-simulation');
-      const text = document.getElementById('sim-text');
-
-      if (state.isSimulatingLive) {
-        if (btn) {
-          btn.classList.add('bg-red-600', 'text-white', 'border-red-600');
-          btn.classList.remove('bg-white', 'text-slate-700');
-        }
-        if (text) text.textContent = 'Demo 2 Live: AKTIF ðŸ”´';
-
-        // Simulate 2 members live (Freya on IDN & Christy on SHOWROOM)
-        state.liveSessions = [
-          {
-            memberId: "freya",
-            platform: "IDN",
-            status: "LIVE",
-            liveTitle: "Ngobrol Santai Bersama Freya ðŸ¦âœ¨",
-            sourceUrl: "https://www.idn.app/jkt48_freya",
-            startedAtWib: "Sedang Berlangsung",
-            viewerCount: "14.2K Penonton"
-          },
-          {
-            memberId: "christy",
-            platform: "SHOWROOM",
-            status: "LIVE",
-            liveTitle: "Latihan Panggung Teater Bersama Christy ðŸŽ¤ðŸŽ€",
-            sourceUrl: "https://www.showroom-live.com/r/JKT48_Christy",
-            startedAtWib: "Sedang Berlangsung",
-            viewerCount: "8.9K Penonton"
-          }
-        ];
-      } else {
-        if (btn) {
-          btn.classList.remove('bg-red-600', 'text-white', 'border-red-600');
-          btn.classList.add('bg-white', 'text-slate-700');
-        }
-        if (text) text.textContent = 'Tes Demo Live (2 Member)';
-        state.liveSessions = [];
-        pollLiveData();
-      }
-
-      updateLiveBadges();
-      renderLiveSection();
-      renderMemberGrid();
-      if (state.currentSelectedMember) {
-        updatePlayerBar(state.currentSelectedMember);
-      }
-    }
-
-    function updateLiveBadges() {
-      const liveCount = state.liveSessions.length;
-      document.getElementById('header-live-count').textContent = `${liveCount} MEMBER LIVE`;
-      document.getElementById('header-live-badge').classList.toggle('hidden', liveCount === 0);
-      document.getElementById('live-filter-count').textContent = liveCount;
-    }
-
-    // -------------------------------------------------------------------------
-    // RENDER SECTION 1: SEDANG LIVE SEKARANG (FULL PHOTO LIVE CARDS)
-    // -------------------------------------------------------------------------
-    function renderLiveSection() {
-      const container = document.getElementById('live-members-container');
-      container.innerHTML = '';
-
-      if (state.liveSessions.length > 0) {
-        // Render large rich cards filled with the photos of members currently LIVE
-        state.liveSessions.forEach(session => {
-          const member = state.members.find(m => m.id === session.memberId) || {
-            name: session.memberId,
-            photoUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png"
-          };
-
-          const liveUrl = session.sourceUrl || (session.platform === 'IDN' ? member.idnUrl : member.showroomUrl);
-
-          const card = document.createElement('div');
-          card.className = "relative rounded-2xl overflow-hidden shadow-2xl border-2 border-red-600 bg-black group transition-all duration-300 hover:scale-[1.01]";
-          card.innerHTML = `
-            <!-- Full Photo Cover -->
-            <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-900">
-              <img 
-                src="${member.photoUrl}" 
-                alt="${member.name}" 
-                class="w-full h-full object-cover object-top filter brightness-95 group-hover:scale-105 transition-transform duration-500"
-                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png';"
-              />
-              <!-- Dark-Red Gradient Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-
-              <!-- Top Floating Pills -->
-              <div class="absolute top-3 inset-x-3 flex items-center justify-between">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-black tracking-wider uppercase shadow-lg live-badge-pulse">
-                  <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-                  LIVE ON AIR
-                </span>
-                <span class="px-2.5 py-1 rounded-full text-xs font-bold ${session.platform === 'IDN' ? 'bg-red-500 text-white' : 'bg-cyan-500 text-white'} shadow-md">
-                  ${session.platform === 'IDN' ? 'IDN Live' : 'SHOWROOM'}
-                </span>
-              </div>
-
-              <!-- Bottom Content Over Photo -->
-              <div class="absolute bottom-3 inset-x-4 space-y-2">
-                <div>
-                  <div class="text-[11px] font-semibold text-red-400 uppercase tracking-widest">
-                    ${member.generation ? 'Generasi ' + member.generation : 'JKT48 Member'}
-                  </div>
-                  <h3 class="text-xl sm:text-2xl font-black text-white leading-tight drop-shadow">
-                    ${member.name}
-                  </h3>
-                  <p class="text-xs text-white/80 line-clamp-1 italic">
-                    "${session.liveTitle || 'Sedang siaran langsung streaming resmi JKT48'}"
-                  </p>
-                </div>
-
-                <!-- Direct Stream Launch Button (Spotify Big Play Style) -->
-                <div class="pt-1 flex items-center gap-2">
-                  <a 
-                    href="${liveUrl}" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    onclick="selectMember('${member.id}')"
-                    class="flex-1 py-2.5 px-4 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-red-600/40 hover:scale-[1.02] transition-all">
-                    <span>▶ Tonton Live Sekarang</span>
-                  </a>
-                  <button 
-                    onclick="selectMember('${member.id}')" 
-                    title="Pilih ke Player Bawah"
-                    class="w-10 h-10 rounded-xl bg-white/20 hover:bg-white/30 backdrop-blur-md text-white flex items-center justify-center transition-colors">
-                    🎵
-                  </button>
-                </div>
-              </div>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-      } else {
-        // Fallback: No one is live right now, display an elegant standby banner + spotlight
-        const featured = state.members[0]; // Freya
-        container.innerHTML = `
-          <div class="md:col-span-2 lg:col-span-3 rounded-2xl bg-white border border-red-100 shadow-lg p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="space-y-3 max-w-xl">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">
-                <span class="w-2 h-2 rounded-full bg-slate-400"></span>
-                <span>STATUS: STANDBY MEMANTAU</span>
-              </div>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
-                Belum Ada Member yang Sedang Siaran Langsung
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                Radar otomatis memperbarui status setiap 3 detik. Begitu member memulai siaran di SHOWROOM atau IDN Live, kartu siaran langsung akan muncul otomatis di sini.
-              </p>
-              <div class="flex items-center gap-3 pt-1">
-                <button 
-                  onclick="toggleSimulation()" 
-                  class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md shadow-red-500/20 transition-all flex items-center gap-1.5">
-                  <span>⚡ Uji Coba Tampilan Live (Simulasi)</span>
-                </button>
-                <button 
-                  onclick="manualRefresh()" 
-                  class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all">
-                  Cek Ulang
-                </button>
-              </div>
-            </div>
-
-            <!-- Spotlight Card -->
-            <div class="relative w-full md:w-72 bg-gradient-to-br from-red-50 to-white rounded-xl p-4 border border-red-200 text-center space-y-3">
-              <div class="text-[10px] font-black uppercase text-red-600 tracking-wider">Spotlight Member Hari Ini</div>
-              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden ring-4 ring-red-500/20 shadow-md">
-                <img src="${featured.photoUrl}" alt="${featured.name}" class="w-full h-full object-cover" />
-              </div>
-              <div>
-                <div class="text-sm font-bold text-slate-900">${featured.name}</div>
-                <div class="text-xs text-slate-400">Gen ${featured.generation} · ${featured.teamStatus}</div>
-              </div>
-              <div class="flex justify-center gap-2 pt-1 text-xs">
-                <a href="${featured.showroomUrl}" target="_blank" class="px-2.5 py-1 rounded-md bg-cyan-600 text-white font-bold hover:bg-cyan-700">SHOWROOM</a>
-                <a href="${featured.idnUrl}" target="_blank" class="px-2.5 py-1 rounded-md bg-red-600 text-white font-bold hover:bg-red-700">IDN Live</a>
-              </div>
-            </div>
-          </div>
-        `;
-      }
-    }
-
-    // -------------------------------------------------------------------------
-    // RENDER SECTION 3: SPOTIFY ALBUM GRID (KOTAK-KOTAK MEMBER ALA SPOTIFY)
-    // -------------------------------------------------------------------------
-    function renderMemberGrid() {
+    function renderMembers() {
       const container = document.getElementById('members-grid-container');
-      const emptyState = document.getElementById('empty-state');
-      container.innerHTML = '';
+      if (!container) return;
 
-      // Filter members
       const filtered = state.members.filter(m => {
-        // Category Filter
-        if (state.activeFilter === 'live') {
-          const isLive = state.liveSessions.some(s => s.memberId === m.id);
-          if (!isLive) return false;
-        } else if (state.activeFilter === 'oshi') {
-          if (!state.oshiSet.has(m.id)) return false;
-        } else if (state.activeFilter === 'trainee') {
-          // Trainee adalah Member Gen 13 (sesuai arahan)
-          if (m.generation !== 13) return false;
-        } else if (state.activeFilter === 'gen-14') {
-          if (m.generation !== 14) return false;
-        } else if (state.activeFilter.startsWith('gen-')) {
-          const genNum = parseInt(state.activeFilter.replace('gen-', ''));
-          if (m.generation !== genNum) return false;
-        }
-
-        // Search Filter
+        // Search query
         if (state.searchQuery) {
-          const nameMatch = m.name.toLowerCase().includes(state.searchQuery);
-          const nickMatch = (m.nickname || '').toLowerCase().includes(state.searchQuery);
-          const genMatch = ('gen ' + m.generation).includes(state.searchQuery);
-          if (!nameMatch && !nickMatch && !genMatch) return false;
+          const q = state.searchQuery.toLowerCase();
+          const matchName = (m.name || '').toLowerCase().includes(q);
+          const matchNick = (m.nickname || '').toLowerCase().includes(q);
+          const matchGen = `gen ${m.generation}`.toLowerCase().includes(q);
+          if (!matchName && !matchNick && !matchGen) return false;
         }
 
+        // Category filter
+        if (state.activeFilter === 'all') return true;
+        if (state.activeFilter === 'live') return state.liveSessions.some(s => s.memberId === m.id);
+        if (state.activeFilter === 'oshi') return state.oshiSet.has(m.id);
+        if (state.activeFilter.startsWith('gen-')) {
+          const genNum = parseInt(state.activeFilter.replace('gen-', ''), 10);
+          return m.generation === genNum;
+        }
+        if (state.activeFilter === 'trainee') return m.generation === 13;
         return true;
       });
 
-      document.getElementById('visible-member-count').textContent = filtered.length;
-
       if (filtered.length === 0) {
-        emptyState.classList.remove('hidden');
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 bg-white rounded-3xl border border-slate-100 p-8 shadow-sm">
+            <div class="text-3xl mb-2">ðŸ”</div>
+            <div class="text-sm font-bold text-slate-700">Tidak ada member yang sesuai filter.</div>
+            <div class="text-xs text-slate-400 mt-1">Coba pilih kategori lain atau bersihkan pencarian.</div>
+            <button onclick="setFilter('all'); clearSearch();" class="mt-4 px-4 py-2 rounded-full bg-red-600 text-white font-bold text-xs shadow-md">
+              Lihat Semua Member
+            </button>
+          </div>
+        `;
         return;
-      } else {
-        emptyState.classList.add('hidden');
       }
 
-      // Render Spotify Cards
-      filtered.forEach(m => {
+      container.innerHTML = filtered.map(m => {
         const isLive = state.liveSessions.some(s => s.memberId === m.id);
         const liveSession = state.liveSessions.find(s => s.memberId === m.id);
         const isOshi = state.oshiSet.has(m.id);
 
-        const card = document.createElement('div');
-        card.className = "member-card group bg-white rounded-2xl p-3 border border-slate-200/80 shadow-sm transition-all duration-300 flex flex-col justify-between";
-        card.innerHTML = `
-          <div>
-            <!-- Square Photo with Floating Red Spotify Play Button -->
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-slate-100 mb-3 shadow-inner">
+        return `
+          <div 
+            onclick="selectMember('${m.id}')"
+            class="bg-white rounded-3xl border border-slate-100 shadow-sm card-shadow-hover overflow-hidden flex flex-col cursor-pointer group relative">
+            
+            <!-- Photo Container with Badges -->
+            <div class="relative w-full aspect-[4/5] overflow-hidden bg-slate-100">
               <img 
                 src="${m.photoUrl}" 
                 alt="${m.name}" 
-                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png';"
+                referrerpolicy="no-referrer"
                 loading="lazy"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png';"
               />
 
-              <!-- Live Badge Overlay -->
-              ${isLive ? `
-                <div class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md live-badge-pulse flex items-center gap-1">
-                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-                  LIVE
-                </div>
-              ` : ''}
+              <!-- Top Left: Live or Standby Badge -->
+              <div class="absolute top-3 left-3">
+                ${isLive ? `
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-600 text-white text-[10px] font-black tracking-wider uppercase shadow-lg shadow-red-500/40">
+                    <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                    LIVE
+                  </span>
+                ` : `
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-slate-600 text-[10px] font-bold shadow-sm">
+                    Gen ${m.generation || '-'}
+                  </span>
+                `}
+              </div>
 
-              <!-- Oshi Heart Top-Right Button -->
+              <!-- Top Right: Oshi Heart Toggle -->
               <button 
                 onclick="event.stopPropagation(); toggleOshi('${m.id}')" 
-                title="${isOshi ? 'Hapus dari Oshi' : 'Tambah ke Oshi'}"
-                class="absolute top-2 right-2 w-7 h-7 rounded-full ${isOshi ? 'bg-red-600 text-white' : 'bg-black/30 hover:bg-black/50 text-white'} backdrop-blur-sm flex items-center justify-center text-xs transition-colors">
-                ${isOshi ? '❤️' : '♡'}
+                title="${isOshi ? 'Hapus dari Oshi' : 'Jadikan Oshi'}"
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 hover:bg-white backdrop-blur-sm flex items-center justify-center text-sm shadow-md transition-transform hover:scale-110">
+                <span class="${isOshi ? 'text-red-600 scale-110' : 'text-slate-400'}">
+                  ${isOshi ? 'â¤ï¸' : 'â™¡'}
+                </span>
               </button>
 
-              <!-- Floating Spotify Red Play Button (Slide Up on Hover) -->
-              <button 
-                onclick="event.stopPropagation(); playMember('${m.id}')" 
-                title="Buka Siaran Live / Profil ${m.nickname || m.name}"
-                class="spotify-play-btn absolute bottom-2.5 right-2.5 w-11 h-11 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-xl shadow-red-600/50 hover:scale-110 active:scale-95 transition-transform">
-                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"></path>
-                </svg>
-              </button>
-            </div>
+              <!-- Bottom Gradient Overlay -->
+              <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 to-transparent"></div>
 
-            <!-- Member Meta (Spotify Track/Album Style) -->
-            <div class="space-y-1">
-              <div class="text-sm font-bold text-slate-900 truncate leading-snug group-hover:text-red-600 transition-colors" title="${m.name}">
-                ${m.name}
-              </div>
-              <div class="flex items-center justify-between text-[11px] text-slate-400 font-medium">
-                <span>Gen ${m.generation || '-'}</span>
-                <span class="px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 font-semibold text-[10px]">${m.teamStatus || 'Member'}</span>
+              <!-- Nickname overlay on image -->
+              <div class="absolute bottom-2.5 left-3 text-white">
+                <div class="text-sm font-black drop-shadow-md">${m.nickname}</div>
               </div>
             </div>
-          </div>
 
-          <!-- Direct Links: Web Resmi JKT48, SHOWROOM & IDN Live -->
-          <div class="pt-3 mt-2 border-t border-slate-100 flex items-center gap-1">
-            <a 
-              href="${m.officialUrl || ('https://jkt48.com/member/detail/id/' + (m.officialId || ''))}" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="Lihat Profil Resmi di JKT48.com"
-              class="py-1 px-1.5 text-center rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 text-[9px] font-bold transition-all whitespace-nowrap">
-              ðŸŒ Web
-            </a>
-            <a 
-              href="${m.showroomUrl}" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="Buka SHOWROOM: ${m.name}"
-              class="flex-1 py-1 text-center rounded-lg bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-300 text-slate-700 hover:text-cyan-700 text-[9px] font-bold transition-all">
-              SHOWROOM
-            </a>
-            <a 
-              href="${m.idnUrl}" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="Buka IDN Live: ${m.name}"
-              class="flex-1 py-1 text-center rounded-lg bg-slate-50 hover:bg-red-50 border border-slate-200 hover:border-red-300 text-slate-700 hover:text-red-600 text-[9px] font-bold transition-all">
-              IDN Live
-            </a>
+            <!-- Card Bottom: Name & Action Links -->
+            <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <h3 class="font-extrabold text-sm text-slate-900 group-hover:text-red-600 transition-colors line-clamp-1">
+                  ${m.name}
+                </h3>
+                <div class="text-[11px] text-slate-400 font-medium">
+                  ${m.teamStatus || 'Member'} Â· Generasi ${m.generation}
+                </div>
+              </div>
+
+              <!-- Action Buttons Row (Web, SHOWROOM, IDN) -->
+              <div class="pt-1 flex items-center gap-1.5" onclick="event.stopPropagation()">
+                <a 
+                  href="${m.officialUrl || ('https://jkt48.com/member/detail/id/' + (m.officialId || ''))}" 
+                  target="_blank" 
+                  title="Lihat Profil Resmi JKT48.com"
+                  class="py-1.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-[10px] text-center transition-colors">
+                  ðŸŒ
+                </a>
+                <a 
+                  href="${m.showroomUrl}" 
+                  target="_blank" 
+                  title="Buka SHOWROOM Live"
+                  class="flex-1 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 text-white font-bold text-[10px] text-center transition-colors shadow-sm">
+                  SHOWROOM
+                </a>
+                <a 
+                  href="${m.idnUrl}" 
+                  target="_blank" 
+                  title="Buka IDN Live"
+                  class="flex-1 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-[10px] text-center transition-colors shadow-sm">
+                  IDN LIVE
+                </a>
+              </div>
+            </div>
+
           </div>
         `;
-
-        card.addEventListener('click', () => {
-          selectMember(m.id);
-        });
-
-        container.appendChild(card);
-      });
+      }).join('');
     }
 
     // -------------------------------------------------------------------------
-    // FILTER CONTROLS
+    // RENDER OSHI FEATURE CARDS (CENTER CARD IN BRIGHT RED)
     // -------------------------------------------------------------------------
-    function setFilter(filterKey) {
-      state.activeFilter = filterKey;
-      document.querySelectorAll('.filter-pill').forEach(btn => {
-        if (btn.getAttribute('data-filter') === filterKey) {
-          btn.className = "filter-pill active px-3.5 py-1 rounded-full text-xs font-bold bg-red-600 text-white shadow-sm transition-all whitespace-nowrap";
+    function renderOshiSection() {
+      // 1. Update Left Card: Count & Avatars
+      const oshiCountEl = document.getElementById('oshi-stat-count');
+      const oshiStrip = document.getElementById('oshi-avatar-strip');
+      const oshiMembers = state.members.filter(m => state.oshiSet.has(m.id));
+
+      if (oshiCountEl) oshiCountEl.textContent = `${oshiMembers.length} Member`;
+
+      if (oshiStrip) {
+        if (oshiMembers.length === 0) {
+          oshiStrip.innerHTML = '<span class="text-[11px] text-slate-400 italic">Belum ada oshi yang ditandai</span>';
         } else {
-          btn.className = "filter-pill px-3 py-1 rounded-full text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all whitespace-nowrap";
+          oshiStrip.innerHTML = oshiMembers.slice(0, 7).map(m => `
+            <div 
+              onclick="selectMember('${m.id}')"
+              title="${m.name} (${m.nickname})"
+              class="w-8 h-8 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0 cursor-pointer hover:scale-110 transition-transform">
+              <img src="${m.photoUrl}" alt="${m.nickname}" referrerpolicy="no-referrer" class="w-full h-full object-cover object-top" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/JKT48.svg/440px-JKT48.svg.png';" />
+            </div>
+          `).join('');
         }
-      });
-      renderMemberGrid();
-    }
+      }
 
-    function clearSearch() {
-      const searchInput = document.getElementById('member-search-input');
-      searchInput.value = '';
-      state.searchQuery = '';
-      document.getElementById('clear-search-btn').classList.add('hidden');
-      renderMemberGrid();
+      // 2. Update Center Highlighted Card: Selected Oshi
+      const member = state.currentSelectedMember || state.members[0];
+      if (member) {
+        const photoEl = document.getElementById('center-oshi-photo');
+        const nameEl = document.getElementById('center-oshi-name');
+        const metaEl = document.getElementById('center-oshi-meta');
+        const statusEl = document.getElementById('center-oshi-status');
+        const actionBtn = document.getElementById('center-oshi-action-btn');
+        const liveDot = document.getElementById('center-oshi-live-dot');
+
+        if (photoEl) photoEl.src = member.photoUrl;
+        if (nameEl) nameEl.textContent = `${member.nickname} (${member.name})`;
+        if (metaEl) metaEl.textContent = `${member.teamStatus || 'Member'} Â· Generasi ${member.generation}`;
+
+        const isLive = state.liveSessions.some(s => s.memberId === member.id);
+        const liveSession = state.liveSessions.find(s => s.memberId === member.id);
+
+        if (isLive) {
+          if (statusEl) statusEl.textContent = `ðŸ”´ SEDANG LIVE DI ${liveSession ? liveSession.platform.toUpperCase() : 'STREAM'}`;
+          if (liveDot) liveDot.classList.remove('hidden');
+          if (actionBtn) {
+            actionBtn.href = liveSession ? liveSession.sourceUrl : member.idnUrl;
+            actionBtn.textContent = "Tonton Live Oshi Sekarang â–¶";
+          }
+        } else {
+          if (statusEl) statusEl.textContent = "STANDBY Â· SIAP MONITOR";
+          if (liveDot) liveDot.classList.add('hidden');
+          if (actionBtn) {
+            actionBtn.href = member.idnUrl || member.showroomUrl;
+            actionBtn.textContent = "Buka Akun Resmi Oshi âž”";
+          }
+        }
+      }
     }
 
     // -------------------------------------------------------------------------
-    // OSHI FAVORITE SYSTEM
-    // -------------------------------------------------------------------------
-    function toggleOshi(memberId) {
-      if (state.oshiSet.has(memberId)) {
-        state.oshiSet.delete(memberId);
-      } else {
-        state.oshiSet.add(memberId);
-      }
-      try {
-        localStorage.setItem('jkt48_oshi_ids', JSON.stringify([...state.oshiSet]));
-      } catch(e) {}
-      updateOshiCount();
-      renderMemberGrid();
-      if (state.currentSelectedMember && state.currentSelectedMember.id === memberId) {
-        updatePlayerBar(state.currentSelectedMember);
-      }
-    }
-
-    function togglePlayerOshi() {
-      if (state.currentSelectedMember) {
-        toggleOshi(state.currentSelectedMember.id);
-      }
-    }
-
-    function updateOshiCount() {
-      document.getElementById('oshi-count-badge').textContent = state.oshiSet.size;
-    }
-
-    // -------------------------------------------------------------------------
-    // SPOTIFY PLAYER BAR ACTIONS
+    // SELECT MEMBER & PLAYER BAR SYNC
     // -------------------------------------------------------------------------
     function selectMember(memberId) {
       const member = state.members.find(m => m.id === memberId);
-      if (member) {
-        state.currentSelectedMember = member;
-        updatePlayerBar(member);
-      }
-    }
+      if (!member) return;
 
-    function playMember(memberId) {
-      selectMember(memberId);
-      openActiveStream();
+      state.currentSelectedMember = member;
+      renderOshiSection();
+      updatePlayerBar(member);
     }
 
     function updatePlayerBar(member) {
       if (!member) return;
-      document.getElementById('player-thumb').src = member.photoUrl;
-      document.getElementById('player-name').textContent = member.name;
-
-      const isLive = state.liveSessions.some(s => s.memberId === member.id);
-      const isOshi = state.oshiSet.has(member.id);
-
-      const statusBadge = document.getElementById('player-status-badge');
+      const thumb = document.getElementById('player-thumb');
+      const name = document.getElementById('player-name');
       const statusText = document.getElementById('player-status-text');
       const liveDot = document.getElementById('player-live-dot');
-      const linkBtn = document.getElementById('player-external-link');
       const heartBtn = document.getElementById('player-heart-btn');
+      const linkBtn = document.getElementById('player-external-link');
+
+      if (thumb) thumb.src = member.photoUrl;
+      if (name) name.textContent = member.name;
+
+      const isLive = state.liveSessions.some(s => s.memberId === member.id);
+      const liveSession = state.liveSessions.find(s => s.memberId === member.id);
+      const isOshi = state.oshiSet.has(member.id);
 
       if (isLive) {
-        statusBadge.className = "inline-block w-1.5 h-1.5 rounded-full bg-red-600 animate-ping";
-        statusText.textContent = "SEDANG LIVE SEKARANG 🔴";
-        statusText.className = "text-[10px] text-red-600 font-bold truncate flex items-center gap-1.5";
-        liveDot.classList.remove('hidden');
-        linkBtn.textContent = "Tonton Live ▶";
-        linkBtn.className = "px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-[11px] font-bold transition-colors whitespace-nowrap shadow-sm";
+        if (statusText) statusText.textContent = "SEDANG LIVE SEKARANG ðŸ”´";
+        if (statusText) statusText.className = "text-[10px] text-red-600 font-bold truncate";
+        if (liveDot) liveDot.classList.remove('hidden');
+        if (linkBtn) {
+          linkBtn.textContent = "Tonton Live â–¶";
+          linkBtn.href = liveSession ? liveSession.sourceUrl : member.idnUrl;
+        }
       } else {
-        statusBadge.className = "inline-block w-1.5 h-1.5 rounded-full bg-slate-400";
-        statusText.textContent = `Standby · Gen ${member.generation || '-'}`;
-        statusText.className = "text-[10px] text-slate-500 font-medium truncate flex items-center gap-1.5";
-        liveDot.classList.add('hidden');
-        linkBtn.textContent = "Buka Akun ↗";
-        linkBtn.className = "px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-red-600 text-white text-[11px] font-bold transition-colors whitespace-nowrap shadow-sm";
+        if (statusText) statusText.textContent = `Standby Â· Gen ${member.generation}`;
+        if (statusText) statusText.className = "text-[10px] text-slate-400 font-medium truncate";
+        if (liveDot) liveDot.classList.add('hidden');
+        if (linkBtn) {
+          linkBtn.textContent = "Buka Akun â†—";
+          linkBtn.href = member.idnUrl || member.showroomUrl;
+        }
       }
 
-      linkBtn.href = member.idnUrl || member.showroomUrl;
-      heartBtn.textContent = isOshi ? "❤️" : "♡";
-      heartBtn.className = isOshi ? "text-red-600 text-lg transition-colors ml-1 hidden sm:block" : "text-slate-400 hover:text-red-600 text-lg transition-colors ml-1 hidden sm:block";
+      if (heartBtn) {
+        heartBtn.textContent = isOshi ? "â¤ï¸" : "â™¡";
+        heartBtn.className = isOshi ? "text-red-600 text-base ml-1 hidden sm:block" : "text-slate-400 hover:text-red-600 text-base ml-1 hidden sm:block";
+      }
     }
 
     function openActiveStream() {
       if (!state.currentSelectedMember) return;
       const liveSession = state.liveSessions.find(s => s.memberId === state.currentSelectedMember.id);
-      const url = liveSession ? (liveSession.sourceUrl || state.currentSelectedMember.idnUrl) : (state.currentSelectedMember.idnUrl || state.currentSelectedMember.showroomUrl);
+      const url = liveSession ? liveSession.sourceUrl : (state.currentSelectedMember.idnUrl || state.currentSelectedMember.showroomUrl);
       window.open(url, '_blank');
     }
 
@@ -2324,15 +1965,78 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       selectMember(state.members[nextIdx].id);
     }
 
-    // -------------------------------------------------------------------------
-    // LIGHTBOX ALL MEMBERS MODAL
-    // -------------------------------------------------------------------------
+    function toggleOshi(memberId) {
+      if (state.oshiSet.has(memberId)) {
+        state.oshiSet.delete(memberId);
+      } else {
+        state.oshiSet.add(memberId);
+      }
+      try {
+        localStorage.setItem('jkt48_oshi_ids', JSON.stringify([...state.oshiSet]));
+      } catch(e) {}
+      renderMembers();
+      renderOshiSection();
+      if (state.currentSelectedMember) updatePlayerBar(state.currentSelectedMember);
+    }
+
+    function toggleOshiFromPlayer() {
+      if (!state.currentSelectedMember) return;
+      toggleOshi(state.currentSelectedMember.id);
+    }
+
+    function setFilter(filter) {
+      state.activeFilter = filter;
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        if (btn.getAttribute('data-filter') === filter) {
+          btn.className = "filter-pill active px-4 py-1.5 rounded-full text-xs font-bold bg-red-600 text-white shadow-sm transition-all whitespace-nowrap";
+        } else {
+          btn.className = "filter-pill px-4 py-1.5 rounded-full text-xs font-semibold bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 transition-all whitespace-nowrap";
+        }
+      });
+      renderMembers();
+    }
+
+    function updateLiveStats() {
+      const liveCount = state.liveSessions.length;
+      const headerLiveCount = document.getElementById('header-live-count');
+      const liveFilterCount = document.getElementById('live-filter-count');
+      const oshiCountBadge = document.getElementById('oshi-count-badge');
+
+      if (headerLiveCount) headerLiveCount.textContent = `${liveCount} LIVE SEKARANG`;
+      if (liveFilterCount) liveFilterCount.textContent = liveCount;
+      if (oshiCountBadge) oshiCountBadge.textContent = state.oshiSet.size;
+    }
+
+    // Search input listener
+    const searchInput = document.getElementById('member-search-input');
+    const clearBtn = document.getElementById('clear-search-btn');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        state.searchQuery = e.target.value.trim();
+        if (clearBtn) {
+          if (state.searchQuery) clearBtn.classList.remove('hidden');
+          else clearBtn.classList.add('hidden');
+        }
+        renderMembers();
+      });
+    }
+
+    function clearSearch() {
+      if (searchInput) searchInput.value = '';
+      state.searchQuery = '';
+      if (clearBtn) clearBtn.classList.add('hidden');
+      renderMembers();
+    }
+
+    // Lightbox Controls
     function openLightbox() {
-      document.getElementById('lightbox-modal').classList.remove('hidden');
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) modal.classList.remove('hidden');
     }
 
     function closeLightbox() {
-      document.getElementById('lightbox-modal').classList.add('hidden');
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) modal.classList.add('hidden');
     }
 
     document.addEventListener('keydown', (e) => {
