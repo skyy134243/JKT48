@@ -797,24 +797,143 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     // -------------------------------------------------------------------------
     async function startPollingBackend() {
       pollLiveData();
-      state.radarInterval = setInterval(pollLiveData, 4000);
+      state.radarInterval = setInterval(pollLiveData, 6000);
     }
 
     async function pollLiveData() {
       if (state.isSimulatingLive) return;
 
+      let detectedSessions = [];
+      let sourceName = "";
+
+      // Tier 1: Try Local C# Monitoring Daemon (Port 5000)
       try {
-        const res = await fetch(`${state.backendUrl}/api/live`, { cache: 'no-store' });
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1200);
+        const res = await fetch(`${state.backendUrl}/api/live`, { cache: 'no-store', signal: controller.signal });
+        clearTimeout(timeoutId);
         if (res.ok) {
           const data = await res.json();
-          state.liveSessions = data.activeSessions || [];
-          document.getElementById('api-status-text').textContent = 'DAEMON: PORT 5000 ONLINE';
-          document.getElementById('api-status-text').className = 'text-[10px] font-bold text-emerald-600 flex items-center justify-end gap-1';
-        } else {
-          fallbackOffline();
+          if (Array.isArray(data.activeSessions)) {
+            detectedSessions = data.activeSessions;
+            sourceName = "DAEMON: PORT 5000 ONLINE";
+          }
         }
-      } catch (err) {
-        fallbackOffline();
+      } catch (e) {
+        // Backend not on localhost or blocked by browser mixed-content
+      }
+
+      // Tier 2: Real-time IDN Live Cloud GraphQL (Direct CORS Support)
+      if (sourceName === "") {
+        try {
+          const idnQuery = `query {
+            getLivestreams {
+              slug
+              title
+              image_url
+              view_count
+              room_identifier
+              status
+              live_at
+              creator {
+                name
+                username
+                uuid
+              }
+            }
+          }`;
+
+          const idnRes = await fetch("https://api.idn.app/graphql", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: idnQuery })
+          });
+
+          if (idnRes.ok) {
+            const idnJson = await idnRes.json();
+            const streams = (idnJson.data && idnJson.data.getLivestreams) || [];
+
+            streams.forEach(stream => {
+              const statusStr = (stream.status || "").toLowerCase();
+              const isLive = statusStr === "live" || statusStr === "streaming" || statusStr === "ongoing";
+
+              if (isLive) {
+                const creatorName = (stream.creator?.name || "").toLowerCase();
+                const username = (stream.creator?.username || "").toLowerCase();
+                const slug = (stream.slug || "").toLowerCase();
+
+                // Match against our 69 active members
+                const matched = state.members.find(m => {
+                  const nick = m.nickname.toLowerCase();
+                  const id = m.id.toLowerCase();
+                  return creatorName.includes(nick) || username.includes(nick) || slug.includes(nick) ||
+                         creatorName.includes(id) || username.includes(id) || slug.includes(id);
+                });
+
+                if (matched && !detectedSessions.some(s => s.memberId === matched.id)) {
+                  detectedSessions.push({
+                    memberId: matched.id,
+                    platform: "IDN",
+                    status: "LIVE",
+                    liveTitle: stream.title || `Live Streaming IDN bersama ${matched.nickname}`,
+                    sourceUrl: `https://www.idn.app/${stream.slug}`,
+                    startedAtWib: "Sedang Berlangsung",
+                    viewerCount: `${(stream.view_count || 0).toLocaleString('id-ID')} Penonton`
+                  });
+                }
+              }
+            });
+            sourceName = "RADAR CLOUD: IDN & SHOWROOM ACTIVE";
+          }
+        } catch (idnErr) {
+          console.warn("Client IDN Radar:", idnErr);
+        }
+      }
+
+      // Tier 3: Real-time SHOWROOM onlives mirror
+      if (sourceName !== "DAEMON: PORT 5000 ONLINE") {
+        try {
+          const srRes = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://www.showroom-live.com/api/live/onlives"));
+          if (srRes.ok) {
+            const srData = await srRes.json();
+            if (srData && srData.onlives) {
+              srData.onlives.forEach(genre => {
+                (genre.lives || []).forEach(live => {
+                  const roomKey = (live.room_url_key || "").toLowerCase();
+                  const mainName = (live.main_name || "").toLowerCase();
+                  if (roomKey.includes("jkt48") || mainName.includes("jkt48")) {
+                    const matched = state.members.find(m => {
+                      const nick = m.nickname.toLowerCase();
+                      const slug = (m.showroomSlug || "").toLowerCase();
+                      return roomKey === slug || roomKey.includes(nick) || mainName.includes(nick);
+                    });
+                    if (matched && !detectedSessions.some(s => s.memberId === matched.id)) {
+                      detectedSessions.push({
+                        memberId: matched.id,
+                        platform: "SHOWROOM",
+                        status: "LIVE",
+                        liveTitle: live.main_name || `SHOWROOM Live ${matched.nickname}`,
+                        sourceUrl: matched.showroomUrl,
+                        startedAtWib: "Sedang Berlangsung",
+                        viewerCount: `${(live.view_num || 0).toLocaleString('id-ID')} Penonton`
+                      });
+                    }
+                  }
+                });
+              });
+            }
+          }
+        } catch (srErr) {
+          // ignore mirror timeout
+        }
+      }
+
+      state.liveSessions = detectedSessions;
+
+      const statusEl = document.getElementById('api-status-text');
+      if (statusEl) {
+        statusEl.textContent = sourceName || 'RADAR CLOUD AKTIF';
+        statusEl.className = 'text-[10px] font-bold text-emerald-600 flex items-center justify-end gap-1';
       }
 
       updateLiveBadges();
@@ -826,9 +945,11 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     }
 
     function fallbackOffline() {
-      // Backend not running locally on 5000, keep state clean
-      document.getElementById('api-status-text').textContent = 'RADAR STANDALONE READY';
-      document.getElementById('api-status-text').className = 'text-[10px] font-bold text-slate-500 flex items-center justify-end gap-1';
+      const statusEl = document.getElementById('api-status-text');
+      if (statusEl) {
+        statusEl.textContent = 'RADAR STANDALONE AKTIF';
+        statusEl.className = 'text-[10px] font-bold text-slate-500 flex items-center justify-end gap-1';
+      }
     }
 
     function manualRefresh() {
@@ -844,36 +965,41 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       const text = document.getElementById('sim-text');
 
       if (state.isSimulatingLive) {
-        btn.classList.add('bg-red-600', 'text-white', 'border-red-600');
-        btn.classList.remove('bg-white', 'text-slate-700');
-        text.textContent = 'Simulasi: AKTIF 🔴';
+        if (btn) {
+          btn.classList.add('bg-red-600', 'text-white', 'border-red-600');
+          btn.classList.remove('bg-white', 'text-slate-700');
+        }
+        if (text) text.textContent = 'Demo 2 Live: AKTIF ðŸ”´';
 
-        // Simulate 2 members live (Freya & Christy)
+        // Simulate 2 members live (Freya on IDN & Christy on SHOWROOM)
         state.liveSessions = [
           {
             memberId: "freya",
             platform: "IDN",
             status: "LIVE",
-            liveTitle: "Ngobrol Santai Malam Bersama Freya 🍦✨",
+            liveTitle: "Ngobrol Santai Bersama Freya ðŸ¦âœ¨",
             sourceUrl: "https://www.idn.app/jkt48_freya",
-            startedAtWib: "Hari ini 16:30 WIB",
+            startedAtWib: "Sedang Berlangsung",
             viewerCount: "14.2K Penonton"
           },
           {
             memberId: "christy",
             platform: "SHOWROOM",
             status: "LIVE",
-            liveTitle: "Selamat Sore! Latihan Panggung Teater 🎤🎀",
+            liveTitle: "Latihan Panggung Teater Bersama Christy ðŸŽ¤ðŸŽ€",
             sourceUrl: "https://www.showroom-live.com/r/JKT48_Christy",
-            startedAtWib: "Hari ini 16:45 WIB",
+            startedAtWib: "Sedang Berlangsung",
             viewerCount: "8.9K Penonton"
           }
         ];
       } else {
-        btn.classList.remove('bg-red-600', 'text-white', 'border-red-600');
-        btn.classList.add('bg-white', 'text-slate-700');
-        text.textContent = 'Simulasi Live';
+        if (btn) {
+          btn.classList.remove('bg-red-600', 'text-white', 'border-red-600');
+          btn.classList.add('bg-white', 'text-slate-700');
+        }
+        if (text) text.textContent = 'Tes Demo Live (2 Member)';
         state.liveSessions = [];
+        pollLiveData();
       }
 
       updateLiveBadges();
