@@ -2169,14 +2169,22 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
             </div>
           </div>
 
-          <!-- Direct Links to SHOWROOM & IDN Live -->
-          <div class="pt-3 mt-2 border-t border-slate-100 flex items-center gap-1.5">
+          <!-- Direct Links: Web Resmi JKT48, SHOWROOM & IDN Live -->
+          <div class="pt-3 mt-2 border-t border-slate-100 flex items-center gap-1">
+            <a 
+              href="${m.officialUrl || ('https://jkt48.com/member/detail/id/' + (m.officialId || ''))}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Lihat Profil Resmi di JKT48.com"
+              class="py-1 px-1.5 text-center rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 text-[9px] font-bold transition-all whitespace-nowrap">
+              ðŸŒ Web
+            </a>
             <a 
               href="${m.showroomUrl}" 
               target="_blank" 
               rel="noopener noreferrer"
               title="Buka SHOWROOM: ${m.name}"
-              class="flex-1 py-1 text-center rounded-lg bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-300 text-slate-700 hover:text-cyan-700 text-[10px] font-bold transition-all">
+              class="flex-1 py-1 text-center rounded-lg bg-slate-50 hover:bg-cyan-50 border border-slate-200 hover:border-cyan-300 text-slate-700 hover:text-cyan-700 text-[9px] font-bold transition-all">
               SHOWROOM
             </a>
             <a 
@@ -2184,7 +2192,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
               target="_blank" 
               rel="noopener noreferrer"
               title="Buka IDN Live: ${m.name}"
-              class="flex-1 py-1 text-center rounded-lg bg-slate-50 hover:bg-red-50 border border-slate-200 hover:border-red-300 text-slate-700 hover:text-red-600 text-[10px] font-bold transition-all">
+              class="flex-1 py-1 text-center rounded-lg bg-slate-50 hover:bg-red-50 border border-slate-200 hover:border-red-300 text-slate-700 hover:text-red-600 text-[9px] font-bold transition-all">
               IDN Live
             </a>
           </div>
