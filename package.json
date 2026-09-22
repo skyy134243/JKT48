@@ -1,13 +1,8 @@
 {
-  "name": "jkt48-live-radar",
+  "name": "asentramerian",
   "version": "1.0.0",
-  "description": "Fan-made real-time live monitoring radar and notification system for JKT48 members (IDN Live & SHOWROOM)",
+  "description": "Asentramerian - Real-time live monitoring radar and notification system for JKT48 members (IDN Live & SHOWROOM)",
   "author": "skyy134243",
   "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "build": "node build.js",
-    "start": "node server.js",
-    "test": "node test/stateMachine.test.js"
-  }
+  "type": "module"
 }
