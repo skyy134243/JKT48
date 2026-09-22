@@ -1575,59 +1575,213 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     }
 
     // =========================================================================
-    // REAL-TIME RADAR POLLING ENGINE
+    // REAL-TIME RADAR POLLING ENGINE v3 — ROBUST MULTI-SOURCE
     // =========================================================================
-    async function fetchLiveStatus() {
-      try {
-        // Multi-tier live data retrieval:
-        // Tier 1: Same-origin live_data.json with cache buster (zero CORS, ultra-fast)
-        const timestamp = Date.now();
-        const res = await fetch(`live_data.json?_t=${timestamp}`, {
-          cache: 'no-store',
-          headers: { 'Accept': 'application/json' }
-        });
+    // Bug fixes:
+    //  1. Absolute URL for GitHub Pages (no more 404 on missing trailing slash)
+    //  2. Multiple community API endpoints with proper fallback
+    //  3. NEVER resets liveSessions to [] on transient failure
+    //  4. Smart merge: combines results from all successful sources
+    //  5. SHOWROOM per-room scanning as final verification tier
 
-        if (res.ok) {
-          const data = await res.json();
-          if (data && Array.isArray(data.live_sessions)) {
-            state.liveSessions = data.live_sessions;
-            state.lastSyncTime = new Date();
-            updateLiveStats();
-            renderMembers();
-            renderOshiSection();
-            console.log(`[Radar Engine] Live check synced: ${state.liveSessions.length} active stream(s) found.`);
-            return;
+    let _radarScanCount = 0;
+
+    async function fetchLiveStatus() {
+      _radarScanCount++;
+      const scanId = _radarScanCount;
+      console.log(`[Radar v3] Scan #${scanId} starting...`);
+
+      // Collect live data from all sources, merge at end
+      let collectedSessions = [];
+      let anySourceSucceeded = false;
+
+      // ─── TIER 1: Same-origin live_data.json (multiple URL candidates) ───
+      const liveDataCandidates = [
+        'https://skyy134243.github.io/JKT48/live_data.json',
+        './live_data.json',
+        'live_data.json'
+      ];
+
+      for (const url of liveDataCandidates) {
+        try {
+          const res = await fetch(`${url}?_t=${Date.now()}`, {
+            cache: 'no-store',
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && Array.isArray(data.live_sessions) && data.live_sessions.length > 0) {
+              console.log(`[Radar v3] Tier 1 OK from ${url}: ${data.live_sessions.length} stream(s)`);
+              collectedSessions.push(...data.live_sessions);
+              anySourceSucceeded = true;
+              break; // Only need one success from live_data.json
+            }
           }
+        } catch (e) {
+          console.warn(`[Radar v3] Tier 1 fail (${url}):`, e.message);
         }
-      } catch (err) {
-        console.warn("[Radar Engine] Local live_data fetch error:", err.message);
       }
 
-      // Tier 2: Community API fallback
-      try {
-        const res2 = await fetch(`https://api.crstlnz.my.id/api/now_live?_t=${Date.now()}`);
-        if (res2.ok) {
-          const data2 = await res2.json();
-          if (Array.isArray(data2) && data2.length > 0) {
-            const mapped = data2.map(item => ({
-              memberId: item.member_id || item.room_id || 'unknown',
-              name: item.name || item.room_name,
-              nickname: item.nickname || item.name,
+      // ─── TIER 2: Community APIs ───
+      const communityAPIs = [
+        {
+          url: 'https://api.crstlnz.my.id/api/now_live',
+          name: 'crstlnz',
+          parse: (data) => {
+            if (!Array.isArray(data)) return [];
+            return data.filter(item => item && item.name).map(item => ({
+              memberId: (item.url_key || item.room_id || item.name || 'unknown').toString().toLowerCase().replace('jkt48_',''),
+              name: item.name || item.room_name || 'Unknown',
+              nickname: item.nickname || item.name || 'Unknown',
               generation: item.generation || 0,
-              platform: item.type === 'idn' ? 'IDN Live' : 'SHOWROOM',
-              platformKey: item.type === 'idn' ? 'idn' : 'showroom',
+              platform: (item.type === 'idn' || item.platform === 'idn') ? 'IDN Live' : 'SHOWROOM',
+              platformKey: (item.type === 'idn' || item.platform === 'idn') ? 'idn' : 'showroom',
               title: item.title || `Live Streaming - ${item.name}`,
-              liveUrl: item.url || (item.type === 'idn' ? `https://www.idn.app/${item.slug}` : `https://www.showroom-live.com/r/${item.slug}`),
-              startedAt: item.started_at || new Date().toISOString(),
-              photoUrl: item.image || item.img
+              liveUrl: item.streaming_url_list?.[0]?.url || item.url || (item.type === 'idn' ? `https://www.idn.app/${item.slug || item.url_key}` : `https://www.showroom-live.com/r/${item.url_key}`),
+              startedAt: item.started_at || item.live_started || new Date().toISOString(),
+              photoUrl: item.image || item.img || item.image_square
             }));
-            state.liveSessions = mapped;
-            updateLiveStats();
-            renderMembers();
-            renderOshiSection();
+          }
+        },
+        {
+          url: 'https://jkt48-showroom-api.vercel.app/api/now_live',
+          name: 'vercel-proxy',
+          parse: (data) => {
+            const arr = Array.isArray(data) ? data : (data?.data || data?.live || []);
+            return arr.filter(item => item && item.name).map(item => ({
+              memberId: (item.url_key || item.room_id || item.name || '').toString().toLowerCase().replace('jkt48_',''),
+              name: item.name || 'Unknown',
+              nickname: item.nickname || item.name || 'Unknown',
+              generation: item.generation || 0,
+              platform: (item.type === 'idn' || item.platform === 'idn') ? 'IDN Live' : 'SHOWROOM',
+              platformKey: (item.type === 'idn' || item.platform === 'idn') ? 'idn' : 'showroom',
+              title: item.title || `Live - ${item.name}`,
+              liveUrl: item.url || item.streaming_url || '#',
+              startedAt: item.started_at || new Date().toISOString(),
+              photoUrl: item.image || item.img || ''
+            }));
           }
         }
-      } catch(e) {}
+      ];
+
+      for (const api of communityAPIs) {
+        try {
+          const res = await fetch(`${api.url}?_t=${Date.now()}`, {
+            signal: AbortSignal.timeout(6000)
+          });
+          if (res.ok) {
+            const data = await res.json();
+            const parsed = api.parse(data);
+            if (parsed.length > 0) {
+              console.log(`[Radar v3] Tier 2 OK (${api.name}): ${parsed.length} stream(s)`);
+              collectedSessions.push(...parsed);
+              anySourceSucceeded = true;
+            } else {
+              console.log(`[Radar v3] Tier 2 (${api.name}): responded OK but 0 streams`);
+              anySourceSucceeded = true; // API is reachable, just no one live
+            }
+          }
+        } catch (e) {
+          console.warn(`[Radar v3] Tier 2 fail (${api.name}):`, e.message);
+        }
+      }
+
+      // ─── TIER 3: Direct SHOWROOM per-room scanning (sample top members) ───
+      // Only scan a subset to avoid rate-limiting, rotate which members we check
+      const showroomScanPool = state.members.filter(m => m.showroomSlug);
+      const scanBatchSize = 10;
+      const offset = ((scanId - 1) * scanBatchSize) % showroomScanPool.length;
+      const batch = [];
+      for (let i = 0; i < scanBatchSize && i < showroomScanPool.length; i++) {
+        batch.push(showroomScanPool[(offset + i) % showroomScanPool.length]);
+      }
+
+      const showroomChecks = batch.map(async (m) => {
+        try {
+          const res = await fetch(`https://www.showroom-live.com/api/room/status?room_url_key=${m.showroomSlug}`, {
+            signal: AbortSignal.timeout(4000)
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.is_live === true || data.is_live === 1) {
+              console.log(`[Radar v3] Tier 3 SHOWROOM LIVE: ${m.name}`);
+              return {
+                memberId: m.id,
+                name: m.name,
+                nickname: m.nickname,
+                generation: m.generation,
+                platform: 'SHOWROOM',
+                platformKey: 'showroom',
+                title: data.room_name || `SHOWROOM Live - ${m.name}`,
+                liveUrl: m.showroomUrl,
+                startedAt: new Date().toISOString(),
+                photoUrl: m.photoUrl
+              };
+            }
+          }
+        } catch (e) { /* timeout or CORS - expected */ }
+        return null;
+      });
+
+      try {
+        const showroomResults = await Promise.allSettled(showroomChecks);
+        for (const result of showroomResults) {
+          if (result.status === 'fulfilled' && result.value) {
+            collectedSessions.push(result.value);
+            anySourceSucceeded = true;
+          }
+        }
+      } catch (e) {
+        console.warn('[Radar v3] Tier 3 batch error:', e.message);
+      }
+
+      // ─── MERGE & DEDUPLICATE ───
+      if (collectedSessions.length > 0) {
+        // Deduplicate by memberId (prefer the one with more info)
+        const merged = new Map();
+        for (const session of collectedSessions) {
+          const key = (session.memberId || session.nickname || session.name || '').toLowerCase();
+          if (!key) continue;
+          
+          // Also try to match by nickname against our member roster
+          let resolvedKey = key;
+          const matchedMember = state.members.find(m => 
+            m.id.toLowerCase() === key ||
+            m.nickname.toLowerCase() === key ||
+            m.name.toLowerCase().includes(key) ||
+            key.includes(m.nickname.toLowerCase())
+          );
+          if (matchedMember) {
+            resolvedKey = matchedMember.id;
+            session.memberId = matchedMember.id;
+            session.name = session.name || matchedMember.name;
+            session.nickname = session.nickname || matchedMember.nickname;
+            session.generation = session.generation || matchedMember.generation;
+            session.photoUrl = session.photoUrl || matchedMember.photoUrl;
+          }
+
+          if (!merged.has(resolvedKey)) {
+            merged.set(resolvedKey, session);
+          }
+        }
+
+        state.liveSessions = Array.from(merged.values());
+        state.lastSyncTime = new Date();
+        console.log(`[Radar v3] Scan #${scanId} complete: ${state.liveSessions.length} unique live stream(s)`);
+      } else if (anySourceSucceeded) {
+        // All APIs reachable but returned 0 live — this is genuine: no one is live
+        state.liveSessions = [];
+        state.lastSyncTime = new Date();
+        console.log(`[Radar v3] Scan #${scanId}: All sources OK, 0 members live.`);
+      } else {
+        // All sources FAILED (network error) — keep existing data, do NOT wipe
+        console.warn(`[Radar v3] Scan #${scanId}: ALL SOURCES FAILED. Keeping previous ${state.liveSessions.length} session(s).`);
+      }
+
+      // Always update UI
+      updateLiveStats();
+      renderMembers();
+      renderOshiSection();
     }
 
     // Force Manual Radar Sync
