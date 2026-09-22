@@ -1,18 +1,30 @@
 {
-  "last_updated": "2026-09-22T06:20:00Z",
-  "total_live": 1,
+  "last_updated": "2026-09-22T06:26:00Z",
+  "total_live": 2,
   "live_sessions": [
     {
-      "memberId": "michie",
-      "name": "Michelle Alexandra",
-      "nickname": "Michie",
+      "memberId": "kathrina",
+      "name": "Kathrina Irene",
+      "nickname": "Kathrina",
+      "generation": 9,
+      "platform": "IDN Live",
+      "platformKey": "idn",
+      "title": "IDN Live - Kathrina Irene",
+      "liveUrl": "https://www.idn.app/jkt48_kathrina",
+      "startedAt": "2026-09-22T06:20:00Z",
+      "photoUrl": "https://static.wikia.nocookie.net/akb48/images/b/b3/Kathrina_Irene_JKT48_2026.jpg"
+    },
+    {
+      "memberId": "daisy",
+      "name": "Desy Natalia",
+      "nickname": "Daisy",
       "generation": 11,
       "platform": "IDN Live",
       "platformKey": "idn",
-      "title": "IDN Live - Michelle Alexandra (Michie)",
-      "liveUrl": "https://www.idn.app/jkt48_michie",
-      "startedAt": "2026-09-22T06:00:00Z",
-      "photoUrl": "https://static.wikia.nocookie.net/akb48/images/b/b2/Michelle_Alexandra_JKT48_2026.jpg"
+      "title": "IDN Live - Desy Natalia (Daisy)",
+      "liveUrl": "https://www.idn.app/jkt48_daisy",
+      "startedAt": "2026-09-22T06:22:00Z",
+      "photoUrl": "https://static.wikia.nocookie.net/akb48/images/b/b0/Desy_Natalia_JKT48_2026.jpg"
     }
   ]
 }
