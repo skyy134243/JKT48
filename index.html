@@ -1516,10 +1516,10 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       renderOshiSection();
       updateLiveStats();
 
-      // Start Real-Time Live Radar Polling
+      // Start Real-Time Live Radar Polling (Every 2 seconds)
       fetchLiveStatus();
       if (state.radarInterval) clearInterval(state.radarInterval);
-      state.radarInterval = setInterval(fetchLiveStatus, 8000);
+      state.radarInterval = setInterval(fetchLiveStatus, 2000);
 
       // WIB Clock
       updateWibClock();
@@ -1575,213 +1575,164 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     }
 
     // =========================================================================
-    // REAL-TIME RADAR POLLING ENGINE v3 — ROBUST MULTI-SOURCE
+    // REAL-TIME RADAR POLLING ENGINE v4 — 2-SECOND REAL-TIME ENGINE
     // =========================================================================
-    // Bug fixes:
-    //  1. Absolute URL for GitHub Pages (no more 404 on missing trailing slash)
-    //  2. Multiple community API endpoints with proper fallback
-    //  3. NEVER resets liveSessions to [] on transient failure
-    //  4. Smart merge: combines results from all successful sources
-    //  5. SHOWROOM per-room scanning as final verification tier
-
     let _radarScanCount = 0;
+    let _lastLiveSignature = '';
 
     async function fetchLiveStatus() {
       _radarScanCount++;
-      const scanId = _radarScanCount;
-      console.log(`[Radar v3] Scan #${scanId} starting...`);
+      const currentSessions = [];
+      let sourceSuccess = false;
 
-      // Collect live data from all sources, merge at end
-      let collectedSessions = [];
-      let anySourceSucceeded = false;
+      // ─── TIER 1: Direct IDN Live GraphQL API (Zero CORS proxy, Instant, 100% Official) ───
+      try {
+        const idnBody = {
+          query: 'query SearchLivestream { searchLivestream(query: "", limit: 100) { result { slug title image_url view_count playback_url room_identifier status live_at creator { username name avatar } } } }'
+        };
+        const res = await fetch('https://api.idn.app/graphql', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(idnBody),
+          signal: AbortSignal.timeout(3500)
+        });
 
-      // ─── TIER 1: Same-origin live_data.json (multiple URL candidates) ───
-      const liveDataCandidates = [
+        if (res.ok) {
+          const json = await res.json();
+          const results = json?.data?.searchLivestream?.result;
+          if (Array.isArray(results)) {
+            sourceSuccess = true;
+            for (const item of results) {
+              const uName = (item.creator?.username || '').toLowerCase();
+              if (uName.startsWith('jkt48_')) {
+                const nick = uName.replace('jkt48_', '');
+                // Find matching member in our verified 57 member roster
+                const member = state.members.find(m => 
+                  m.id.toLowerCase() === nick ||
+                  m.nickname.toLowerCase() === nick ||
+                  (m.idnSlug && m.idnSlug.toLowerCase() === uName)
+                );
+
+                if (member) {
+                  currentSessions.push({
+                    memberId: member.id,
+                    name: member.name,
+                    nickname: member.nickname,
+                    generation: member.generation,
+                    platform: 'IDN Live',
+                    platformKey: 'idn',
+                    title: item.title || `IDN Live - ${member.name}`,
+                    liveUrl: `https://www.idn.app/${item.creator.username}/live/${item.slug}`,
+                    startedAt: item.live_at || new Date().toISOString(),
+                    photoUrl: item.image_url || member.photoUrl,
+                    viewCount: item.view_count || 0
+                  });
+                }
+              }
+            }
+          }
+        }
+      } catch (err) {
+        // Fall through to next tier
+      }
+
+      // ─── TIER 2: Same-origin live_data.json (Sync with local daemon & GitHub) ───
+      const candidateUrls = [
         'https://skyy134243.github.io/JKT48/live_data.json',
         './live_data.json',
         'live_data.json'
       ];
 
-      for (const url of liveDataCandidates) {
+      for (const url of candidateUrls) {
         try {
           const res = await fetch(`${url}?_t=${Date.now()}`, {
             cache: 'no-store',
-            headers: { 'Accept': 'application/json' }
+            headers: { 'Accept': 'application/json' },
+            signal: AbortSignal.timeout(2500)
           });
           if (res.ok) {
             const data = await res.json();
-            if (data && Array.isArray(data.live_sessions) && data.live_sessions.length > 0) {
-              console.log(`[Radar v3] Tier 1 OK from ${url}: ${data.live_sessions.length} stream(s)`);
-              collectedSessions.push(...data.live_sessions);
-              anySourceSucceeded = true;
-              break; // Only need one success from live_data.json
+            if (data && Array.isArray(data.live_sessions)) {
+              sourceSuccess = true;
+              for (const s of data.live_sessions) {
+                // Only add if not already in currentSessions (from IDN GraphQL)
+                if (!currentSessions.some(x => x.memberId === s.memberId && x.platformKey === s.platformKey)) {
+                  currentSessions.push(s);
+                }
+              }
+              break;
             }
           }
-        } catch (e) {
-          console.warn(`[Radar v3] Tier 1 fail (${url}):`, e.message);
-        }
+        } catch (e) {}
       }
 
-      // ─── TIER 2: Community APIs ───
-      const communityAPIs = [
-        {
-          url: 'https://api.crstlnz.my.id/api/now_live',
-          name: 'crstlnz',
-          parse: (data) => {
-            if (!Array.isArray(data)) return [];
-            return data.filter(item => item && item.name).map(item => ({
-              memberId: (item.url_key || item.room_id || item.name || 'unknown').toString().toLowerCase().replace('jkt48_',''),
-              name: item.name || item.room_name || 'Unknown',
-              nickname: item.nickname || item.name || 'Unknown',
-              generation: item.generation || 0,
-              platform: (item.type === 'idn' || item.platform === 'idn') ? 'IDN Live' : 'SHOWROOM',
-              platformKey: (item.type === 'idn' || item.platform === 'idn') ? 'idn' : 'showroom',
-              title: item.title || `Live Streaming - ${item.name}`,
-              liveUrl: item.streaming_url_list?.[0]?.url || item.url || (item.type === 'idn' ? `https://www.idn.app/${item.slug || item.url_key}` : `https://www.showroom-live.com/r/${item.url_key}`),
-              startedAt: item.started_at || item.live_started || new Date().toISOString(),
-              photoUrl: item.image || item.img || item.image_square
-            }));
-          }
-        },
-        {
-          url: 'https://jkt48-showroom-api.vercel.app/api/now_live',
-          name: 'vercel-proxy',
-          parse: (data) => {
-            const arr = Array.isArray(data) ? data : (data?.data || data?.live || []);
-            return arr.filter(item => item && item.name).map(item => ({
-              memberId: (item.url_key || item.room_id || item.name || '').toString().toLowerCase().replace('jkt48_',''),
-              name: item.name || 'Unknown',
-              nickname: item.nickname || item.name || 'Unknown',
-              generation: item.generation || 0,
-              platform: (item.type === 'idn' || item.platform === 'idn') ? 'IDN Live' : 'SHOWROOM',
-              platformKey: (item.type === 'idn' || item.platform === 'idn') ? 'idn' : 'showroom',
-              title: item.title || `Live - ${item.name}`,
-              liveUrl: item.url || item.streaming_url || '#',
-              startedAt: item.started_at || new Date().toISOString(),
-              photoUrl: item.image || item.img || ''
-            }));
-          }
-        }
-      ];
-
-      for (const api of communityAPIs) {
+      // ─── TIER 3: Community API fallback (SHOWROOM & IDN aggregated) ───
+      if (currentSessions.length === 0) {
         try {
-          const res = await fetch(`${api.url}?_t=${Date.now()}`, {
-            signal: AbortSignal.timeout(6000)
+          const res = await fetch(`https://api.crstlnz.my.id/api/now_live?_t=${Date.now()}`, {
+            signal: AbortSignal.timeout(3000)
           });
           if (res.ok) {
             const data = await res.json();
-            const parsed = api.parse(data);
-            if (parsed.length > 0) {
-              console.log(`[Radar v3] Tier 2 OK (${api.name}): ${parsed.length} stream(s)`);
-              collectedSessions.push(...parsed);
-              anySourceSucceeded = true;
-            } else {
-              console.log(`[Radar v3] Tier 2 (${api.name}): responded OK but 0 streams`);
-              anySourceSucceeded = true; // API is reachable, just no one live
+            if (Array.isArray(data) && data.length > 0) {
+              sourceSuccess = true;
+              for (const item of data) {
+                const uKey = (item.url_key || item.slug || item.name || '').toLowerCase().replace('jkt48_', '');
+                const member = state.members.find(m => 
+                  m.id.toLowerCase() === uKey ||
+                  m.nickname.toLowerCase() === uKey ||
+                  m.name.toLowerCase().includes(uKey)
+                );
+                if (member) {
+                  currentSessions.push({
+                    memberId: member.id,
+                    name: member.name,
+                    nickname: member.nickname,
+                    generation: member.generation,
+                    platform: item.type === 'idn' ? 'IDN Live' : 'SHOWROOM',
+                    platformKey: item.type === 'idn' ? 'idn' : 'showroom',
+                    title: item.title || `Live - ${member.name}`,
+                    liveUrl: item.url || (item.type === 'idn' ? member.idnUrl : member.showroomUrl),
+                    startedAt: item.started_at || new Date().toISOString(),
+                    photoUrl: item.image || member.photoUrl,
+                    viewCount: item.view_num || 0
+                  });
+                }
+              }
             }
           }
-        } catch (e) {
-          console.warn(`[Radar v3] Tier 2 fail (${api.name}):`, e.message);
-        }
+        } catch (e) {}
       }
 
-      // ─── TIER 3: Direct SHOWROOM per-room scanning (sample top members) ───
-      // Only scan a subset to avoid rate-limiting, rotate which members we check
-      const showroomScanPool = state.members.filter(m => m.showroomSlug);
-      const scanBatchSize = 10;
-      const offset = ((scanId - 1) * scanBatchSize) % showroomScanPool.length;
-      const batch = [];
-      for (let i = 0; i < scanBatchSize && i < showroomScanPool.length; i++) {
-        batch.push(showroomScanPool[(offset + i) % showroomScanPool.length]);
-      }
-
-      const showroomChecks = batch.map(async (m) => {
-        try {
-          const res = await fetch(`https://www.showroom-live.com/api/room/status?room_url_key=${m.showroomSlug}`, {
-            signal: AbortSignal.timeout(4000)
-          });
-          if (res.ok) {
-            const data = await res.json();
-            if (data.is_live === true || data.is_live === 1) {
-              console.log(`[Radar v3] Tier 3 SHOWROOM LIVE: ${m.name}`);
-              return {
-                memberId: m.id,
-                name: m.name,
-                nickname: m.nickname,
-                generation: m.generation,
-                platform: 'SHOWROOM',
-                platformKey: 'showroom',
-                title: data.room_name || `SHOWROOM Live - ${m.name}`,
-                liveUrl: m.showroomUrl,
-                startedAt: new Date().toISOString(),
-                photoUrl: m.photoUrl
-              };
-            }
-          }
-        } catch (e) { /* timeout or CORS - expected */ }
-        return null;
-      });
-
-      try {
-        const showroomResults = await Promise.allSettled(showroomChecks);
-        for (const result of showroomResults) {
-          if (result.status === 'fulfilled' && result.value) {
-            collectedSessions.push(result.value);
-            anySourceSucceeded = true;
-          }
+      // Deduplicate by memberId + platformKey
+      const uniqueMap = new Map();
+      for (const s of currentSessions) {
+        const key = s.memberId + '_' + s.platformKey;
+        if (!uniqueMap.has(key)) {
+          uniqueMap.set(key, s);
         }
-      } catch (e) {
-        console.warn('[Radar v3] Tier 3 batch error:', e.message);
       }
+      const finalSessions = Array.from(uniqueMap.values());
 
-      // ─── MERGE & DEDUPLICATE ───
-      if (collectedSessions.length > 0) {
-        // Deduplicate by memberId (prefer the one with more info)
-        const merged = new Map();
-        for (const session of collectedSessions) {
-          const key = (session.memberId || session.nickname || session.name || '').toLowerCase();
-          if (!key) continue;
-          
-          // Also try to match by nickname against our member roster
-          let resolvedKey = key;
-          const matchedMember = state.members.find(m => 
-            m.id.toLowerCase() === key ||
-            m.nickname.toLowerCase() === key ||
-            m.name.toLowerCase().includes(key) ||
-            key.includes(m.nickname.toLowerCase())
-          );
-          if (matchedMember) {
-            resolvedKey = matchedMember.id;
-            session.memberId = matchedMember.id;
-            session.name = session.name || matchedMember.name;
-            session.nickname = session.nickname || matchedMember.nickname;
-            session.generation = session.generation || matchedMember.generation;
-            session.photoUrl = session.photoUrl || matchedMember.photoUrl;
-          }
-
-          if (!merged.has(resolvedKey)) {
-            merged.set(resolvedKey, session);
-          }
-        }
-
-        state.liveSessions = Array.from(merged.values());
+      // If at least one source succeeded, update state
+      if (sourceSuccess || finalSessions.length > 0) {
+        state.liveSessions = finalSessions;
         state.lastSyncTime = new Date();
-        console.log(`[Radar v3] Scan #${scanId} complete: ${state.liveSessions.length} unique live stream(s)`);
-      } else if (anySourceSucceeded) {
-        // All APIs reachable but returned 0 live — this is genuine: no one is live
-        state.liveSessions = [];
-        state.lastSyncTime = new Date();
-        console.log(`[Radar v3] Scan #${scanId}: All sources OK, 0 members live.`);
-      } else {
-        // All sources FAILED (network error) — keep existing data, do NOT wipe
-        console.warn(`[Radar v3] Scan #${scanId}: ALL SOURCES FAILED. Keeping previous ${state.liveSessions.length} session(s).`);
       }
 
-      // Always update UI
+      // Calculate signature to prevent DOM blinking/flickering
+      const newSignature = finalSessions.map(s => s.memberId + ':' + s.title).sort().join('|');
+      const hasChanged = newSignature !== _lastLiveSignature;
+
       updateLiveStats();
-      renderMembers();
-      renderOshiSection();
+
+      // Only re-render member cards if live status actually changed!
+      if (hasChanged) {
+        _lastLiveSignature = newSignature;
+        console.log(`[Radar Engine] Live status update: ${finalSessions.length} active member(s).`);
+        renderMembers();
+        renderOshiSection();
+      }
     }
 
     // Force Manual Radar Sync
