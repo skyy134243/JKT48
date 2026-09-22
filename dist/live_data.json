@@ -1,0 +1,18 @@
+{
+  "last_updated": "2026-09-22T06:20:00Z",
+  "total_live": 1,
+  "live_sessions": [
+    {
+      "memberId": "michie",
+      "name": "Michelle Alexandra",
+      "nickname": "Michie",
+      "generation": 11,
+      "platform": "IDN Live",
+      "platformKey": "idn",
+      "title": "IDN Live - Michelle Alexandra (Michie)",
+      "liveUrl": "https://www.idn.app/jkt48_michie",
+      "startedAt": "2026-09-22T06:00:00Z",
+      "photoUrl": "https://static.wikia.nocookie.net/akb48/images/b/b2/Michelle_Alexandra_JKT48_2026.jpg"
+    }
+  ]
+}
