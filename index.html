@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="referrer" content="no-referrer" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#ED1D24" />
-  <meta name="description" content="Asentramerian &mdash; Pantau siaran langsung 57 member JKT48 di SHOWROOM dan IDN Live secara real-time." />
+  <meta name="description" content="Asentramerian â€” Portal Real-Time Live Streaming 57 Member JKT48 di SHOWROOM dan IDN Live." />
   <meta name="application-name" content="Asentramerian" />
   <meta name="apple-mobile-web-app-title" content="Asentramerian" />
   <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/jpeg" href="assets/asentramerian_logo.jpg" />
 
-  <title>Asentramerian &mdash; JKT48 Live Streaming Portal</title>
+  <title>Asentramerian â€” JKT48 Real-Time Live Radar</title>
 
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -88,89 +89,88 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col pb-32 text-slate-900 bg-[#FAFAFA]">
+<body class="min-h-screen flex flex-col pb-28 text-slate-900 bg-[#FAFAFA]">
 
   <!-- ========================================================================= -->
-  <!-- 1. INITIAL LOADING SPLASH SCREEN (FAST 500ms WATCHDOG)                     -->
+  <!-- 1. SPLASH SCREEN WATCHDOG (500ms AUTO-DISMISS)                            -->
   <!-- ========================================================================= -->
   <div id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#ED1D24] text-white transition-opacity duration-500">
     <div class="relative max-w-sm w-full mx-auto px-6 text-center flex flex-col items-center">
-      <div class="w-24 h-24 rounded-2xl bg-white p-3 shadow-2xl flex items-center justify-center mb-6">
+      <div class="w-24 h-24 rounded-2xl bg-white p-2 shadow-2xl flex items-center justify-center mb-6">
         <img 
-          src="assets/jkt48_hero_logo.jpg" 
+          src="assets/asentramerian_logo.jpg" 
           alt="Asentramerian Logo" 
-          class="max-w-full max-h-full object-contain"
-          onerror="this.onerror=null; this.src='assets/jkt48_logo_white.jpg';"
+          class="w-full h-full object-cover rounded-xl"
         />
       </div>
 
       <h1 class="text-2xl font-black tracking-wider uppercase mb-1">ASENTRAMERIAN</h1>
-      <p class="text-xs text-red-100 font-medium tracking-widest uppercase mb-6">JKT48 Live Streaming Portal</p>
+      <p class="text-xs text-red-100 font-medium tracking-widest uppercase mb-6">JKT48 Real-Time Live Radar</p>
 
       <div class="w-full bg-red-900/50 rounded-full h-2 overflow-hidden mb-3 border border-red-400/30">
-        <div id="splash-progress" class="h-full bg-white rounded-full transition-all duration-300" style="width: 25%;"></div>
+        <div id="splash-progress" class="h-full bg-white rounded-full transition-all duration-300" style="width: 35%;"></div>
       </div>
 
       <div id="splash-status" class="text-xs text-white/90 font-mono tracking-wide">
-        Sinkronisasi Radar Live 57 Member...
+        Menghubungkan Radar 57 Member...
       </div>
     </div>
   </div>
 
   <!-- ========================================================================= -->
-  <!-- 2. STICKY TOP NAVIGATION BAR                                              -->
+  <!-- 2. NAVBAR                                                                 -->
   <!-- ========================================================================= -->
   <header class="sticky top-0 z-40 glass-header border-b border-red-100/80 shadow-sm transition-all duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
       <a href="#home" class="flex items-center gap-3 group flex-shrink-0">
-        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white border border-red-100 p-1.5 shadow-md flex items-center justify-center group-hover:scale-105 transition-transform flex-shrink-0">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-red-600 p-0.5 shadow-md flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden flex-shrink-0">
           <img 
-            src="assets/jkt48_hero_logo.jpg" 
-            alt="Asentramerian Logo" 
-            class="max-w-full max-h-full object-contain"
-            onerror="this.onerror=null; this.src='assets/jkt48_logo_white.jpg';"
+            src="assets/asentramerian_logo.jpg" 
+            alt="AsentraMerian Logo" 
+            class="w-full h-full object-cover rounded-[14px]"
           />
         </div>
         <div>
           <div class="flex items-center gap-1.5">
             <span class="font-black text-lg sm:text-xl tracking-tight text-slate-900">ASENTRA</span><span class="font-black text-lg sm:text-xl tracking-tight text-red-600">MERIAN</span>
-            <span class="px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-black bg-red-600 text-white tracking-wider uppercase">LIVE</span>
+            <span class="px-1.5 py-0.5 rounded text-[9px] font-black bg-red-600 text-white tracking-wider uppercase">LIVE</span>
           </div>
-          <div class="text-[9px] sm:text-[10px] text-slate-400 font-semibold tracking-wider">PORTAL RESMI LIVE STREAMING</div>
+          <div class="text-[9px] sm:text-[10px] text-slate-400 font-semibold tracking-wider">RADAR SIARAN 57 MEMBER</div>
         </div>
       </a>
 
       <!-- Center Nav Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-bold text-slate-600">
         <a href="#home" class="hover:text-red-600 transition-colors">Beranda</a>
-        <a href="#section-formation" class="hover:text-red-600 transition-colors">Formasi Member</a>
-        <a href="#section-popular" class="hover:text-red-600 transition-colors">Member &amp; Live</a>
-        <a href="#section-oshi" class="hover:text-red-600 transition-colors">Pilihan Oshi</a>
+        <a href="#section-features" class="hover:text-red-600 transition-colors">Oshi Dashboard</a>
+        <a href="#section-live" class="hover:text-red-600 transition-colors">Sedang Live</a>
+        <a href="#section-roster" class="hover:text-red-600 transition-colors">Roster Member</a>
+        <a href="#section-faq" class="hover:text-red-600 transition-colors">Saran &amp; FAQ</a>
       </nav>
 
       <!-- Right: Live Indicator & Sync Action Button -->
       <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-        <!-- Live Status Badge (Clickable to jump to live streams) -->
-        <button 
-          onclick="setFilter('live')"
+        <!-- Live Status Badge -->
+        <a 
+          href="#section-live"
           id="header-live-badge" 
           class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-[11px] sm:text-xs font-bold text-red-600 transition-all hover:bg-red-100">
           <span class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-red-600 live-badge-pulse flex-shrink-0"></span>
-          <span id="header-live-count" class="whitespace-nowrap">MEMERIKSA LIVE...</span>
-        </button>
+          <span id="header-live-count" class="whitespace-nowrap">RADAR AKTIF</span>
+        </a>
 
-        <!-- Sync Button (Interactive Radar Refresh) -->
+        <!-- Sync Button -->
         <button 
           onclick="forceRadarSync()" 
-          title="Periksa Ulang Siaran Live Secara Real-Time" 
+          title="Pindai Ulang Siaran Live Sekarang" 
           class="w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 flex items-center justify-center shadow-sm transition-all active:scale-95">
           <svg id="sync-icon" class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path></svg>
         </button>
 
-        <!-- Clock (Desktop) -->
-        <div class="hidden lg:flex flex-col text-right pl-2 border-l border-slate-200">
+        <!-- WIB Clock -->
+        <div class="hidden sm:flex flex-col text-right pl-2 border-l border-slate-200">
           <div id="wib-clock" class="text-xs font-bold text-slate-800 font-mono">--:--:-- WIB</div>
           <div class="text-[9px] font-semibold text-slate-400">ASIA/JAKARTA</div>
         </div>
@@ -180,12 +180,12 @@
   </header>
 
   <!-- ========================================================================= -->
-  <!-- 3. MAIN DASHBOARD CONTENT                                                 -->
+  <!-- 3. MAIN CONTENT (WIREFRAME ORDER)                                         -->
   <!-- ========================================================================= -->
-  <main id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+  <main id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-20">
 
     <!-- ======================================================================= -->
-    <!-- HERO SECTION: FEATURING JKT48 WHITE BACKGROUND PHOTO                    -->
+    <!-- HERO SECTION (Left: Heading/CTAs, Right: Foto JKT48 Team Fight)         -->
     <!-- ======================================================================= -->
     <section id="section-hero" class="relative rounded-[2.5rem] bg-gradient-to-br from-rose-50/70 via-white to-red-50/50 border border-red-100 shadow-xl overflow-hidden p-6 sm:p-10 lg:p-14">
       <div class="absolute -top-24 -right-24 w-96 h-96 bg-red-200/40 rounded-full blur-3xl pointer-events-none"></div>
@@ -193,41 +193,41 @@
 
       <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        <!-- Left Column: Copy & CTAs -->
+        <!-- Left Column: Copy & Actions -->
         <div class="lg:col-span-7 space-y-6">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-red-200 text-xs font-bold text-red-600 shadow-sm">
             <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-            <span class="tracking-wider uppercase">ASENTRAMERIAN &bull; LIVE STREAM RADAR</span>
+            <span class="tracking-wider uppercase">2500+ Active Fans â€¢ Radar Live 2 Detik</span>
           </div>
 
           <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-slate-900 leading-[1.15]">
-            Experience<br />
-            The Magic Of<br />
-            <span class="text-red-600">Asentramerian!</span>
+            Pantau Siaran Langsung<br />
+            57 Member JKT48<br />
+            <span class="text-red-600">Secara Real-Time!</span>
           </h1>
 
           <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-lg">
-            Pantau siaran langsung 57 member aktif JKT48 secara real-time di SHOWROOM dan IDN Live. Dapatkan informasi instan saat member memulai siaran.
+            Akses bilik SHOWROOM dan IDN Live seluruh member aktif JKT48 New Era secara instan, akurat, dan terpercaya tanpa delay dan tanpa data palsu.
           </p>
 
-          <!-- Buttons Row -->
+          <!-- Action Buttons -->
           <div class="flex flex-wrap items-center gap-3 pt-2">
-            <button 
-              onclick="setFilter('live')" 
+            <a 
+              href="#section-live" 
               class="px-6 py-3.5 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm shadow-lg shadow-red-500/25 transition-all flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-white live-badge-pulse"></span>
-              <span>Tonton Live Sekarang</span>
+              <span>Pantau Siaran Live</span>
               <span>&rarr;</span>
-            </button>
+            </a>
             <a 
-              href="#section-formation" 
+              href="#section-features" 
               class="px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 shadow-sm transition-all flex items-center gap-2">
-              <span>Lihat Formasi Member</span>
+              <span>â¤ï¸ Pilih Oshi Utama</span>
               <span>&darr;</span>
             </a>
           </div>
 
-          <!-- Quick Stats Pills -->
+          <!-- Quick Stats Bar -->
           <div class="grid grid-cols-3 gap-3 pt-4 max-w-md">
             <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-3.5 border border-slate-100 shadow-sm text-center">
               <div class="text-xl sm:text-2xl font-black text-slate-900">57</div>
@@ -238,35 +238,24 @@
               <div class="text-[10px] font-bold text-red-600 uppercase tracking-wider">Sedang Live</div>
             </div>
             <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-3.5 border border-slate-100 shadow-sm text-center">
-              <div class="text-xl sm:text-2xl font-black text-slate-900">2</div>
-              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Platform Live</div>
+              <div class="text-xl sm:text-2xl font-black text-slate-900">2s</div>
+              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Radar Refresh</div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Hero Visual -->
+        <!-- Right Column: Foto JKT48 Team Fight -->
         <div class="lg:col-span-5 flex justify-center items-center">
-          <div class="w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white p-6 flex flex-col items-center justify-center text-center transition-transform duration-500 hover:scale-[1.02]">
-            
+          <div class="w-full max-w-sm rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-red-600 p-2 flex flex-col items-center justify-center transition-transform duration-500 hover:scale-[1.02]">
             <img 
-              src="assets/jkt48_hero_logo.jpg" 
-              alt="Asentramerian Visual" 
-              class="w-full h-auto max-h-[300px] object-contain drop-shadow-sm rounded-2xl"
-              onerror="this.onerror=null; this.src='assets/jkt48_logo_white.jpg';"
+              src="assets/jkt48_fight_hero.jpg" 
+              alt="Foto JKT48 Team Fight" 
+              class="w-full h-auto max-h-[380px] object-cover rounded-[1.6rem] shadow-inner"
             />
-
-            <!-- Inside-Card Info Bar -->
-            <div class="mt-5 pt-4 border-t border-slate-100 w-full flex flex-wrap items-center justify-between gap-2 text-left">
-              <div>
-                <div class="text-xs font-black text-slate-900 uppercase tracking-wider">ASENTRAMERIAN</div>
-                <div class="text-[10px] text-slate-400 font-semibold">Kapten: Freya Jayawardana</div>
-              </div>
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-[10px] font-black border border-red-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-red-600 live-badge-pulse"></span>
-                <span>RADAR AKTIF</span>
-              </div>
+            <div class="p-3 w-full flex items-center justify-between text-white text-xs font-bold">
+              <span class="tracking-wide">JKT48 NEW ERA â€¢ FIGHT!</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[10px] uppercase font-mono">OFFICIAL POSTER</span>
             </div>
-
           </div>
         </div>
 
@@ -274,74 +263,7 @@
     </section>
 
     <!-- ======================================================================= -->
-    <!-- DEDICATED SECTION: FORMASI LENGKAP ALL MEMBER JKT48                     -->
-    <!-- ======================================================================= -->
-    <section id="section-formation" class="space-y-6">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-4">
-        <div>
-          <div class="inline-flex items-center gap-2 text-xs font-extrabold text-red-600 uppercase tracking-wider mb-1">
-            <span class="w-2 h-2 rounded-full bg-red-600"></span>
-            <span>FORMASI RESMI JKT48</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Formasi Lengkap All Member JKT48
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-500 mt-1">
-            Formasi piramida 57 member aktif (Member Inti, Trainee Gen 13, Trainee Gen 14) New Era. Klik foto untuk melihat tampilan Full HD.
-          </p>
-        </div>
-
-        <!-- Action Button -->
-        <button 
-          onclick="openLightbox()" 
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md shadow-red-500/20 transition-all flex-shrink-0">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-          <span>Perbesar Full HD</span>
-        </button>
-      </div>
-
-      <!-- Formation Photo Showcase Box -->
-      <div 
-        onclick="openLightbox()" 
-        title="Klik untuk memperbesar formasi ke resolusi penuh"
-        class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-white group cursor-zoom-in transition-all duration-300 hover:shadow-2xl hover:border-red-200">
-        
-        <img 
-          id="formation-main-image"
-          src="assets/jkt48_all_members_formation.jpg" 
-          alt="Formasi Lengkap Member JKT48" 
-          class="w-full h-auto max-h-[580px] object-contain object-center transition-transform duration-500 group-hover:scale-[1.01]"
-          onerror="this.onerror=null; this.src='assets/jkt48_all_members.jpg';"
-        />
-
-        <!-- Hover Overlay -->
-        <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="px-5 py-2.5 rounded-full bg-white text-slate-900 text-xs font-extrabold shadow-2xl flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-            Klik untuk Membuka Fullscreen HD
-          </span>
-        </div>
-
-        <!-- Caption Strip -->
-        <div class="p-4 sm:p-5 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <div class="flex items-center gap-2.5">
-            <span class="w-2.5 h-2.5 rounded-full bg-red-500 flex-shrink-0"></span>
-            <span class="text-xs sm:text-sm font-black tracking-wide">Formasi Piramida All Member JKT48</span>
-          </div>
-          <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] font-semibold text-slate-300">
-            <span>39 Member Inti</span>
-            <span>&bull;</span>
-            <span>8 Trainee Gen 13</span>
-            <span>&bull;</span>
-            <span>10 Trainee Gen 14</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================= -->
-    <!-- PLATFORMS & PARTNERS STRIP                                              -->
+    <!-- ECOSYSTEM & PLATFORM TICKER STRIP                                       -->
     <!-- ======================================================================= -->
     <div class="flex flex-wrap items-center justify-center sm:justify-between gap-6 py-4 px-6 rounded-2xl bg-white border border-slate-100 text-slate-400 text-xs font-bold tracking-wider">
       <div class="flex items-center gap-2 text-slate-700">
@@ -363,192 +285,384 @@
     </div>
 
     <!-- ======================================================================= -->
-    <!-- POPULAR DESTINATION -> REPLACED WITH "MEMBER & SIARAN LIVE"             -->
+    <!-- FEATURES SECTION (BENTO GRID): DASHBOARD MEMBER OSHI & STATUS LIVE     -->
     <!-- ======================================================================= -->
-    <section id="section-popular" class="space-y-6">
-      
-      <!-- Section Header -->
+    <section id="section-features" class="space-y-6">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-4">
         <div>
           <div class="inline-flex items-center gap-2 text-xs font-extrabold text-red-600 uppercase tracking-wider mb-1">
-            <span class="w-2 h-2 rounded-full bg-red-600 live-badge-pulse"></span>
-            <span>RADAR SIARAN LANGSUNG</span>
+            <span>â¤ï¸</span>
+            <span>PERSONALIZED OSHI RADAR</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            Member &amp; Siaran Live
+            Dashboard Oshi Pilihan
           </h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1">
-            Pantau siaran member yang sedang mengudara secara otomatis dan akses langsung ke bilik streaming resmi mereka.
+            Pilih oshi favoritmu dari 57 member aktif dan pantau status siaran langsung mereka secara eksklusif.
           </p>
         </div>
-
-        <!-- Search Bar -->
-        <div class="relative w-full md:w-72 flex-shrink-0">
-          <input 
-            type="text" 
-            id="search-input" 
-            placeholder="Cari nama atau panggilan..." 
-            oninput="handleSearch(this.value)"
-            class="w-full pl-10 pr-4 py-2.5 rounded-full bg-white border border-slate-200 text-xs font-medium placeholder-slate-400 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100 transition-all shadow-sm"
-          />
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </div>
       </div>
 
-      <!-- Filter Tabs Strip -->
-      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 pt-1 text-xs font-bold">
-        <button 
-          onclick="setFilter('all')" 
-          id="tab-all" 
-          class="tab-btn flex-shrink-0 px-4 py-2 rounded-full bg-red-600 text-white shadow-md shadow-red-500/20 whitespace-nowrap transition-all">
-          Semua Member (57)
-        </button>
-        <button 
-          onclick="setFilter('live')" 
-          id="tab-live" 
-          class="tab-btn flex-shrink-0 px-4 py-2 rounded-full bg-white text-slate-700 hover:bg-red-50 hover:text-red-600 border border-slate-200 whitespace-nowrap transition-all flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-red-600 live-badge-pulse"></span>
-          <span>Sedang Live (<span id="tab-live-count">0</span>)</span>
-        </button>
-        <button 
-          onclick="setFilter('inti')" 
-          id="tab-inti" 
-          class="tab-btn flex-shrink-0 px-4 py-2 rounded-full bg-white text-slate-700 hover:bg-red-50 hover:text-red-600 border border-slate-200 whitespace-nowrap transition-all">
-          Member Inti (39)
-        </button>
-        <button 
-          onclick="setFilter('trainee13')" 
-          id="tab-trainee13" 
-          class="tab-btn flex-shrink-0 px-4 py-2 rounded-full bg-white text-slate-700 hover:bg-red-50 hover:text-red-600 border border-slate-200 whitespace-nowrap transition-all">
-          Trainee Gen 13 (8)
-        </button>
-        <button 
-          onclick="setFilter('trainee14')" 
-          id="tab-trainee14" 
-          class="tab-btn flex-shrink-0 px-4 py-2 rounded-full bg-white text-slate-700 hover:bg-red-50 hover:text-red-600 border border-slate-200 whitespace-nowrap transition-all">
-          Trainee Gen 14 (10)
-        </button>
-        <button 
-          onclick="setFilter('oshi')" 
-          id="tab-oshi" 
-          class="tab-btn flex-shrink-0 px-4 py-2 rounded-full bg-white text-slate-700 hover:bg-red-50 hover:text-red-600 border border-slate-200 whitespace-nowrap transition-all flex items-center gap-1.5">
-          <span>&hearts; Oshi Saya (<span id="tab-oshi-count">0</span>)</span>
-        </button>
-      </div>
-
-      <!-- Live Broadcast Alert Banner (Prominently displayed when members are live!) -->
-      <div id="live-broadcast-banner" class="hidden rounded-2xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white p-4 sm:p-5 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-2 border-white/20">
-        <div class="flex items-center gap-3">
-          <div class="w-3.5 h-3.5 rounded-full bg-white live-badge-pulse flex-shrink-0"></div>
-          <div>
-            <div class="text-xs sm:text-sm font-black tracking-wide flex items-center gap-2" id="live-banner-title">
-              <span>MEMBER SEDANG SIARAN LANGSUNG!</span>
-            </div>
-            <div class="text-[11px] text-red-100 font-medium" id="live-banner-subtitle">
-              Klik kartu di bawah untuk langsung menonton siaran oshi pilihanmu.
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2 w-full sm:w-auto">
-          <button 
-            onclick="setFilter('live')" 
-            class="flex-1 sm:flex-initial px-4 py-2 rounded-full bg-white text-red-600 text-xs font-black shadow hover:bg-red-50 transition-colors whitespace-nowrap">
-            Lihat Yang Sedang Live &rarr;
-          </button>
-        </div>
-      </div>
-
-      <!-- Member Grid Container -->
-      <div id="members-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3.5 sm:gap-5">
-        <!-- Dynamically Rendered via JS -->
-      </div>
-
-      <!-- Empty State -->
-      <div id="empty-state" class="hidden py-12 px-6 rounded-3xl bg-white border border-dashed border-red-200 text-center">
-        <div class="w-14 h-14 rounded-full bg-red-50 text-red-600 flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-          !
-        </div>
-        <h3 id="empty-state-title" class="text-sm sm:text-base font-black text-slate-800">Tidak ada member ditemukan</h3>
-        <p id="empty-state-subtitle" class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
-          Coba pilih tab filter lain atau klik tombol di bawah untuk menampilkan seluruh 57 member.
-        </p>
-        <button 
-          onclick="setFilter('all')" 
-          class="mt-4 px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md shadow-red-500/20 transition-all">
-          Tampilkan Semua 57 Member &rarr;
-        </button>
-      </div>
-
-    </section>
-
-    <!-- ======================================================================= -->
-    <!-- JOURNEY TO SKY -> REPLACED WITH "OSHI PILIHAN PENGGUNA"                 -->
-    <!-- ======================================================================= -->
-    <section id="section-oshi" class="relative rounded-[2.5rem] bg-gradient-to-br from-slate-900 via-slate-800 to-red-950 text-white p-6 sm:p-10 lg:p-14 shadow-2xl overflow-hidden">
-      <div class="absolute top-0 right-0 w-96 h-96 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Bento Grid (4 Highlighted Feature Boxes) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
         
-        <!-- Left: Oshi Showcase & Selector -->
-        <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-red-300">
-            <span>&hearts;</span>
-            <span class="tracking-wider uppercase">PERSONALIZED OSHI EXPERIENCE</span>
-          </div>
+        <!-- Bento 1 (Large Card - 5 cols): Kartu Foto Oshi & Status Terkini -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-5 border border-slate-100 shadow-md flex flex-col justify-between" id="oshi-card-main">
+          <!-- Dynamically populated via renderOshiDashboard() -->
+        </div>
 
-          <h2 class="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
-            Dukung Oshi Favoritmu<br />
-            <span class="text-red-500">Setiap Kali Mereka Mengudara!</span>
-          </h2>
+        <!-- Bento 2, 3, 4 (Right Column - 7 cols) -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          
+          <!-- Bento 2: Pemilih Oshi Cepat -->
+          <div class="sm:col-span-2 bg-gradient-to-br from-slate-900 via-slate-800 to-red-950 text-white rounded-3xl p-6 shadow-xl flex flex-col justify-between">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-red-300 text-[10px] font-bold uppercase tracking-wider mb-3">
+                <span>âœ¦</span>
+                <span>PILIH OSHI UTAMA</span>
+              </div>
+              <h3 class="text-lg font-black tracking-tight">Pilih Member Oshi Andalanku</h3>
+              <p class="text-xs text-slate-300 mt-1">
+                Pilih salah satu dari 57 member aktif JKT48 New Era untuk dipantau secara prioritas.
+              </p>
+            </div>
 
-          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-lg">
-            Pilih oshi andalanmu dari 57 member aktif JKT48 New Era. Dapatkan kartu profil interaktif dengan status siaran real-time dan akses instan ke SHOWROOM dan IDN Live mereka.
-          </p>
+            <div class="mt-4 space-y-3">
+              <div class="relative">
+                <select 
+                  id="oshi-select" 
+                  onchange="selectOshiDropdown(this.value)"
+                  class="w-full px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold focus:outline-none focus:border-red-500 transition-all appearance-none cursor-pointer">
+                  <!-- Dynamically populated -->
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">
+                  &darr;
+                </div>
+              </div>
 
-          <!-- Oshi Picker Select -->
-          <div class="space-y-2 max-w-md">
-            <label class="block text-[11px] font-bold text-slate-300 uppercase tracking-wider">
-              Pilih Oshi Utama:
-            </label>
-            <div class="relative">
-              <select 
-                id="oshi-select" 
-                onchange="selectOshiDropdown(this.value)"
-                class="w-full px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold focus:outline-none focus:border-red-500 transition-all appearance-none cursor-pointer">
-                <!-- Dynamically populated -->
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">
-                &darr;
+              <div id="oshi-fav-toggle-btn">
+                <!-- Dynamically populated button -->
               </div>
             </div>
           </div>
 
-          <!-- Quick Link Buttons for Chosen Oshi -->
-          <div id="oshi-quick-actions" class="flex flex-wrap items-center gap-3 pt-2">
-            <!-- Dynamically populated -->
+          <!-- Bento 3: Status Bilik Oshi -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-sm font-black mb-3">
+                ðŸ“¡
+              </div>
+              <h4 class="text-sm font-black text-slate-900">Status Siaran Oshi</h4>
+              <p class="text-xs text-slate-500 mt-1" id="oshi-status-desc">
+                Memeriksa status siaran...
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100">
+              <div id="oshi-status-badge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase">
+                <!-- Status badge -->
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- Right: Interactive Oshi Feature Card -->
-        <div class="lg:col-span-6 flex justify-center items-center">
-          <div id="oshi-feature-card" class="relative w-full max-w-sm rounded-3xl bg-white text-slate-900 p-6 shadow-2xl border-4 border-white/20">
-            <!-- Dynamically rendered -->
+          <!-- Bento 4: Akses Cepat SHOWROOM & IDN -->
+          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-sm font-black mb-3">
+                ðŸ”—
+              </div>
+              <h4 class="text-sm font-black text-slate-900">Bilik Resmi Oshi</h4>
+              <p class="text-xs text-slate-500 mt-1">
+                Kunjungi bilik siaran resmi SHOWROOM atau IDN Live milik oshi.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col gap-2" id="oshi-direct-links">
+              <!-- Links populated -->
+            </div>
           </div>
+
         </div>
 
       </div>
     </section>
 
     <!-- ======================================================================= -->
-    <!-- CLEAN MINIMAL FOOTER                                                    -->
+    <!-- WHY US SECTION: MEMBER YANG SEDANG LIVE (4 SLOTS / SLIDER RULE)         -->
     <!-- ======================================================================= -->
-    <footer class="pt-8 border-t border-slate-200 text-center space-y-2 pb-6">
-      <div class="flex items-center justify-center gap-1.5">
-        <span class="font-black text-xl text-slate-800">ASENTRA</span><span class="font-black text-xl text-red-600">MERIAN</span>
+    <section id="section-live" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold text-red-600 uppercase tracking-wider mb-1">
+            <span class="w-2 h-2 rounded-full bg-red-600 live-badge-pulse"></span>
+            <span>SIARAN AKTIF REAL-TIME</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Member Sedang Live
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Pantau siaran langsung yang aktif saat ini. Menampilkan hingga 4 slot utama, atau geser menyamping jika lebih dari 4 member mengudara.
+          </p>
+        </div>
+
+        <!-- Controls / Indicator -->
+        <div class="flex items-center gap-3">
+          <div id="live-slot-count-badge" class="px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-bold border border-red-200 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-red-600 live-badge-pulse"></span>
+            <span id="live-slot-count-text">0 Siaran Aktif</span>
+          </div>
+          <div id="live-nav-buttons" class="hidden items-center gap-1.5">
+            <button onclick="scrollLiveGrid(-1)" title="Geser ke kiri" class="w-8 h-8 rounded-full bg-white hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-700 shadow-sm transition-all">
+              &larr;
+            </button>
+            <button onclick="scrollLiveGrid(1)" title="Geser ke kanan" class="w-8 h-8 rounded-full bg-white hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-700 shadow-sm transition-all">
+              &rarr;
+            </button>
+          </div>
+        </div>
       </div>
-      <p class="text-xs text-slate-500">
-        Portal Real-Time Live Streaming 57 Member Aktif &bull; SHOWROOM &amp; IDN Live
+
+      <!-- 4-Slot Container / Slider -->
+      <div 
+        id="live-slots-container" 
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 overflow-x-auto no-scrollbar scroll-smooth py-1">
+        <!-- Dynamically rendered via renderLiveSection() -->
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- REVIEW SECTION: DAFTAR MEMBER SECARA MENYAMPING (HORIZONTAL CAROUSEL)   -->
+    <!-- ======================================================================= -->
+    <section id="section-roster" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold text-red-600 uppercase tracking-wider mb-1">
+            <span>ðŸ‘¥</span>
+            <span>DAFTAR MEMBER MENYAMPING</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            57 Member Aktif JKT48
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Daftar skala kecil seluruh 57 member yang dapat digeser secara menyamping. Klik kartu untuk melihat profil lengkap.
+          </p>
+        </div>
+
+        <!-- Carousel Navigation & Filter Buttons -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <button onclick="scrollRoster(-1)" title="Geser Kiri" class="w-9 h-9 rounded-full bg-white hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 font-bold shadow-sm transition-all">
+            &larr;
+          </button>
+          <button onclick="scrollRoster(1)" title="Geser Kanan" class="w-9 h-9 rounded-full bg-white hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 font-bold shadow-sm transition-all">
+            &rarr;
+          </button>
+          <button onclick="openLightbox()" class="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-sm transition-all flex items-center gap-1.5">
+            <span>Lihat Formasi Piramida HD</span>
+            <span>&nearr;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Carousel Container -->
+      <div 
+        id="roster-carousel" 
+        class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1">
+        <!-- Dynamically rendered via renderRosterCarousel() -->
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- FAQ SECTION: SARAN KE ADMIN UNTUK FITUR LAINNYA + FAQ TANYA JAWAB       -->
+    <!-- ======================================================================= -->
+    <section id="section-faq" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold text-red-600 uppercase tracking-wider mb-1">
+            <span>ðŸ’¡</span>
+            <span>KOMUNITAS &amp; FEEDBACK</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Saran Fitur &amp; FAQ
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Sampaikan saran ke admin untuk fitur-fitur lainnya atau baca jawaban pertanyaan seputar platform Asentramerian.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Form Saran ke Admin -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-7 border border-slate-100 shadow-md space-y-4">
+          <div class="flex items-center gap-3 pb-3 border-b border-slate-100">
+            <div class="w-10 h-10 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-lg font-black">
+              âœ‰ï¸
+            </div>
+            <div>
+              <h3 class="text-base font-black text-slate-900">Saran ke Admin</h3>
+              <p class="text-xs text-slate-400">Punya usulan fitur baru? Kirimkan di sini.</p>
+            </div>
+          </div>
+
+          <form id="suggestion-form" onsubmit="event.preventDefault(); submitSuggestion();" class="space-y-3.5">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Nama / Nickname Fans:</label>
+              <input 
+                type="text" 
+                id="saran-nama" 
+                placeholder="Contoh: Wota Senayan" 
+                required
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-medium focus:outline-none focus:border-red-500 focus:bg-white transition-all"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Kategori Usulan Fitur:</label>
+              <select 
+                id="saran-kategori" 
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-medium focus:outline-none focus:border-red-500 focus:bg-white transition-all cursor-pointer">
+                <option value="Radar Live">Fitur Radar Live Streaming</option>
+                <option value="Jadwal & Setlist">Jadwal &amp; Setlist Teater JKT48</option>
+                <option value="Notifikasi & Alarm">Notifikasi Push / Alarm Live</option>
+                <option value="Data Member & Oshi">Data Profil Member &amp; Oshi</option>
+                <option value="Lainnya">Usulan Fitur Lainnya</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Pesan Saran Anda:</label>
+              <textarea 
+                id="saran-pesan" 
+                rows="3" 
+                placeholder="Jelaskan fitur yang Anda harapkan..." 
+                required
+                class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-medium focus:outline-none focus:border-red-500 focus:bg-white transition-all"></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-md shadow-red-500/20 transition-all flex items-center justify-center gap-2">
+              <span>Kirim Saran ke Admin</span>
+              <span>&rarr;</span>
+            </button>
+
+            <div id="saran-success-msg" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold text-center">
+              Terima kasih! Saran Anda telah tersimpan dan akan ditinjau oleh admin.
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: FAQ Accordions -->
+        <div class="lg:col-span-7 space-y-3">
+          
+          <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(0)" class="w-full px-5 py-4 flex items-center justify-between text-left text-xs sm:text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <span>Seberapa sering radar Asentramerian memindai siaran live?</span>
+              <span id="faq-icon-0" class="text-red-600 text-base font-bold">+</span>
+            </button>
+            <div id="faq-ans-0" class="hidden px-5 pb-4 text-xs text-slate-500 leading-relaxed border-t border-slate-50 pt-2">
+              Radar Asentramerian memindai secara otomatis setiap <strong>2 detik</strong> langsung ke GraphQL IDN Live resmi dan endpoint SHOWROOM. Halaman langsung diperbarui tanpa perlu refresh manual.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(1)" class="w-full px-5 py-4 flex items-center justify-between text-left text-xs sm:text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <span>Bagaimana sistem memastikan tidak ada data palsu atau tertukar?</span>
+              <span id="faq-icon-1" class="text-red-600 text-base font-bold">+</span>
+            </button>
+            <div id="faq-ans-1" class="hidden px-5 pb-4 text-xs text-slate-500 leading-relaxed border-t border-slate-50 pt-2">
+              Sistem menggunakan <em>Strict MemberId Matching</em> (pencocokan identitas unik 1-ke-1) terhadap 57 member resmi. Sistem melarang pencocokan substring nama sehingga mustahil terjadi salah tautan atau member hantu.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(2)" class="w-full px-5 py-4 flex items-center justify-between text-left text-xs sm:text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <span>Bagaimana cara menyimpan oshi pilihan saya?</span>
+              <span id="faq-icon-2" class="text-red-600 text-base font-bold">+</span>
+            </button>
+            <div id="faq-ans-2" class="hidden px-5 pb-4 text-xs text-slate-500 leading-relaxed border-t border-slate-50 pt-2">
+              Pilih oshi pada bagian Dashboard Oshi atau klik ikon hati pada kartu member manapun. Pilihan oshi tersimpan otomatis di browser Anda untuk kunjungan berikutnya.
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm">
+            <button onclick="toggleFaq(3)" class="w-full px-5 py-4 flex items-center justify-between text-left text-xs sm:text-sm font-bold text-slate-800 hover:text-red-600 transition-colors">
+              <span>Apakah platform Asentramerian ini gratis dan bebas iklan?</span>
+              <span id="faq-icon-3" class="text-red-600 text-base font-bold">+</span>
+            </button>
+            <div id="faq-ans-3" class="hidden px-5 pb-4 text-xs text-slate-500 leading-relaxed border-t border-slate-50 pt-2">
+              Ya, 100% gratis dibuat oleh sesama penggemar untuk memudahkan seluruh fans JKT48 memantau siaran langsung member kesayangan.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- CTA HEADING SECTION: PLACEHOLDER FITUR SETLIST TEATER                   -->
+    <!-- (Per instruksi: cuman dikosongi untuk fitur setlist, bukan dihapus)     -->
+    <!-- ======================================================================= -->
+    <section id="section-setlist" class="relative rounded-[2.5rem] bg-gradient-to-br from-slate-900 via-slate-800 to-red-950 text-white p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <div class="space-y-3 max-w-xl text-center md:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-red-300 text-[10px] font-bold uppercase tracking-wider">
+            <span>ðŸŽ­</span>
+            <span>FITUR MENDATANG â€¢ COMING SOON</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black tracking-tight">
+            Jadwal &amp; Setlist Teater JKT48
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Fitur pemantauan jadwal pertunjukan teater, setlist yang akan atau sedang berlangsung, serta daftar shonichi / senshuuraku sedang dalam persiapan.
+          </p>
+        </div>
+
+        <!-- Stylized Empty Placeholder Bento Box -->
+        <div class="w-full md:w-80 rounded-2xl bg-white/10 backdrop-blur-md border-2 border-dashed border-white/20 p-6 text-center flex flex-col items-center justify-center space-y-2">
+          <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl">
+            ðŸŽŸï¸
+          </div>
+          <div class="text-xs font-black text-white">Area Pratinjau Setlist</div>
+          <div class="text-[10px] text-slate-300">Bagian ini disiapkan untuk data jadwal pertunjukan teater mendatang.</div>
+          <span class="inline-block mt-2 px-3 py-1 rounded-full bg-red-600/80 text-[9px] font-black uppercase tracking-wider">
+            SEGERA HADIR
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- FOOTER                                                                  -->
+    <!-- ======================================================================= -->
+    <footer class="pt-8 border-t border-slate-200 text-center space-y-4 pb-6">
+      <div class="flex items-center justify-center gap-3">
+        <img 
+          src="assets/asentramerian_logo.jpg" 
+          alt="AsentraMerian" 
+          class="w-8 h-8 rounded-lg object-cover"
+        />
+        <div class="flex items-center gap-1.5">
+          <span class="font-black text-xl text-slate-800">ASENTRA</span><span class="font-black text-xl text-red-600">MERIAN</span>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 max-w-md mx-auto">
+        Portal Real-Time Live Streaming 57 Member Aktif JKT48 &bull; SHOWROOM &amp; IDN Live
       </p>
+      <div class="flex items-center justify-center gap-4 text-xs font-semibold text-slate-400">
+        <a href="#home" class="hover:text-red-600 transition-colors">Beranda</a>
+        <span>&bull;</span>
+        <a href="#section-features" class="hover:text-red-600 transition-colors">Oshi</a>
+        <span>&bull;</span>
+        <a href="#section-live" class="hover:text-red-600 transition-colors">Live</a>
+        <span>&bull;</span>
+        <a href="#section-roster" class="hover:text-red-600 transition-colors">Roster</a>
+        <span>&bull;</span>
+        <a href="#section-faq" class="hover:text-red-600 transition-colors">Saran Admin</a>
+      </div>
       <div class="text-[11px] font-semibold text-slate-400">
         &copy; 2026 Asentramerian &bull; Dibuat untuk seluruh penggemar JKT48
       </div>
@@ -596,7 +710,7 @@
             alt="Now Monitored" 
             referrerpolicy="no-referrer"
             class="w-full h-full object-cover object-top"
-            onerror="this.onerror=null; this.src='assets/jkt48_hero_logo.jpg';"
+            onerror="this.onerror=null; this.src='assets/asentramerian_logo.jpg';"
           />
           <div id="player-live-dot" class="hidden absolute top-1 right-1 w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></div>
         </div>
@@ -626,7 +740,7 @@
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
           </button>
         </div>
-        <div class="text-[9px] font-mono text-slate-400 tracking-wider">RADAR AKTIF</div>
+        <div class="text-[9px] font-mono text-slate-400 tracking-wider">RADAR AKTIF 2S</div>
       </div>
 
       <!-- Right: Direct Link Button -->
@@ -1473,47 +1587,37 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     const state = {
       members: typeof members !== 'undefined' ? members : [],
       liveSessions: [],
-      activeFilter: 'all',
-      searchQuery: '',
       currentSelectedMember: null,
       oshiSet: new Set(),
       chosenOshiId: 'freya',
       radarInterval: null,
-      isSyncing: false,
       lastSyncTime: null
     };
 
     // Load Oshi from localStorage safely
     try {
       const saved = localStorage.getItem('jkt48_oshi_ids');
-      if (saved) {
-        state.oshiSet = new Set(JSON.parse(saved));
-      }
+      if (saved) state.oshiSet = new Set(JSON.parse(saved));
       const chosen = localStorage.getItem('jkt48_chosen_oshi');
-      if (chosen) {
-        state.chosenOshiId = chosen;
-      }
-    } catch(e) {
-      console.warn("Storage access:", e);
-    }
+      if (chosen) state.chosenOshiId = chosen;
+    } catch(e) {}
 
     // Initialize App
     function initApp() {
       if (typeof members !== 'undefined' && Array.isArray(members)) {
         state.members = members;
-      } else if (window.JKT48_MEMBERS && Array.isArray(window.JKT48_MEMBERS)) {
-        state.members = window.JKT48_MEMBERS;
       }
 
-      console.log("Asentramerian Engine initialized. Members:", state.members.length);
+      console.log("Asentramerian Engine initialized. 57 Members loaded.");
 
       if (state.members.length > 0) {
         selectMember(state.chosenOshiId || state.members[0].id);
       }
 
       populateOshiDropdown();
-      renderMembers();
-      renderOshiSection();
+      renderOshiDashboard();
+      renderLiveSection();
+      renderRosterCarousel();
       updateLiveStats();
 
       // Start Real-Time Live Radar Polling (Every 2 seconds)
@@ -1529,10 +1633,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       animateSplash();
     }
 
-    // Safety watchdog for splash screen
-    setTimeout(() => {
-      hideSplashScreen();
-    }, 600);
+    setTimeout(() => { hideSplashScreen(); }, 500);
 
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", initApp);
@@ -1543,25 +1644,23 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     // Splash animation
     function animateSplash() {
       const progressBar = document.getElementById('splash-progress');
-      let progress = 25;
+      let progress = 35;
       const interval = setInterval(() => {
         progress += 35;
         if (progress > 100) progress = 100;
         if (progressBar) progressBar.style.width = progress + '%';
         if (progress >= 100) {
           clearInterval(interval);
-          setTimeout(hideSplashScreen, 200);
+          setTimeout(hideSplashScreen, 150);
         }
-      }, 80);
+      }, 70);
     }
 
     function hideSplashScreen() {
       const splash = document.getElementById('splash-screen');
       if (splash && splash.style.display !== 'none') {
         splash.style.opacity = '0';
-        setTimeout(() => {
-          splash.style.display = 'none';
-        }, 300);
+        setTimeout(() => { splash.style.display = 'none'; }, 250);
       }
     }
 
@@ -1575,17 +1674,15 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
     }
 
     // =========================================================================
-    // REAL-TIME RADAR POLLING ENGINE v4 — 2-SECOND REAL-TIME ENGINE
+    // REAL-TIME RADAR POLLING ENGINE (2-SECOND TICKER, STRICT 1-TO-1 MATCHING)
     // =========================================================================
-    let _radarScanCount = 0;
     let _lastLiveSignature = '';
 
     async function fetchLiveStatus() {
-      _radarScanCount++;
       const currentSessions = [];
       let sourceSuccess = false;
 
-      // ─── TIER 1: Direct IDN Live GraphQL API (Zero CORS proxy, Instant, 100% Official) ───
+      // â”€â”€â”€ TIER 1: Direct IDN Live GraphQL API (100% Official, Zero CORS issues) â”€â”€â”€
       try {
         const idnBody = {
           query: 'query SearchLivestream { searchLivestream(query: "", limit: 100) { result { slug title image_url view_count playback_url room_identifier status live_at creator { username name avatar } } } }'
@@ -1594,7 +1691,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(idnBody),
-          signal: AbortSignal.timeout(3500)
+          signal: AbortSignal.timeout(3000)
         });
 
         if (res.ok) {
@@ -1606,11 +1703,10 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
               const uName = (item.creator?.username || '').toLowerCase();
               if (uName.startsWith('jkt48_')) {
                 const nick = uName.replace('jkt48_', '');
-                // Find matching member in our verified 57 member roster
                 const member = state.members.find(m => 
+                  (m.idnSlug && m.idnSlug.toLowerCase() === uName) ||
                   m.id.toLowerCase() === nick ||
-                  m.nickname.toLowerCase() === nick ||
-                  (m.idnSlug && m.idnSlug.toLowerCase() === uName)
+                  m.nickname.toLowerCase() === nick
                 );
 
                 if (member) {
@@ -1632,11 +1728,9 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
             }
           }
         }
-      } catch (err) {
-        // Fall through to next tier
-      }
+      } catch (err) {}
 
-      // ─── TIER 2: SHOWROOM Onlives Check ───
+      // â”€â”€â”€ TIER 2: SHOWROOM Onlives Check â”€â”€â”€
       try {
         const srRes = await fetch('https://api.crstlnz.my.id/api/now_live?_t=' + Date.now(), {
           signal: AbortSignal.timeout(2500)
@@ -1673,7 +1767,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
         }
       } catch (e) {}
 
-      // ─── TIER 3: Fallback to live_data.json ONLY if live Tier 1 failed ───
+      // â”€â”€â”€ TIER 3: Fallback to live_data.json ONLY if Tier 1 failed â”€â”€â”€
       if (!sourceSuccess) {
         const candidateUrls = [
           'https://skyy134243.github.io/JKT48/live_data.json',
@@ -1700,7 +1794,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
         }
       }
 
-      // Deduplicate strictly by memberId (only 1 entry per member)
+      // Deduplicate strictly by memberId
       const uniqueMap = new Map();
       for (const s of currentSessions) {
         if (!uniqueMap.has(s.memberId)) {
@@ -1709,175 +1803,377 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       }
       const finalSessions = Array.from(uniqueMap.values());
 
-      // If at least one source succeeded, update state
       if (sourceSuccess || finalSessions.length > 0) {
         state.liveSessions = finalSessions;
         state.lastSyncTime = new Date();
       }
 
-      // Calculate signature to prevent DOM blinking/flickering
       const newSignature = finalSessions.map(s => s.memberId + ':' + s.title).sort().join('|');
       const hasChanged = newSignature !== _lastLiveSignature;
 
       updateLiveStats();
 
-      // Only re-render member cards if live status actually changed!
       if (hasChanged) {
         _lastLiveSignature = newSignature;
-        console.log(`[Radar Engine] Live status update: ${finalSessions.length} active member(s).`);
-        renderMembers();
-        renderOshiSection();
+        renderLiveSection();
+        renderOshiDashboard();
+        renderRosterCarousel();
       }
     }
 
-    // Force Manual Radar Sync
+    // Force Manual Sync
     async function forceRadarSync() {
       const syncIcon = document.getElementById('sync-icon');
       if (syncIcon) syncIcon.classList.add('animate-spin');
 
       const headerCount = document.getElementById('header-live-count');
-      if (headerCount) headerCount.textContent = "MEMINDAI SIARAN...";
+      if (headerCount) headerCount.textContent = "MEMINDAI...";
 
       await fetchLiveStatus();
 
       setTimeout(() => {
         if (syncIcon) syncIcon.classList.remove('animate-spin');
         updateLiveStats();
-      }, 600);
+      }, 500);
     }
 
-    // Lightbox Controls
-    function openLightbox() {
-      const modal = document.getElementById('lightbox-modal');
-      if (modal) modal.classList.remove('hidden');
-    }
+    // Update Live Stats
+    function updateLiveStats() {
+      const headerCount = document.getElementById('header-live-count');
+      const heroLiveStat = document.getElementById('hero-live-stat');
+      const slotCountText = document.getElementById('live-slot-count-text');
 
-    function closeLightbox() {
-      const modal = document.getElementById('lightbox-modal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-
-    // Filter Logic
-    function setFilter(filterType) {
-      state.activeFilter = filterType;
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('bg-red-600', 'text-white', 'shadow-md', 'shadow-red-500/20');
-        btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
-      });
-      const activeBtn = document.getElementById('tab-' + filterType);
-      if (activeBtn) {
-        activeBtn.classList.add('bg-red-600', 'text-white', 'shadow-md', 'shadow-red-500/20');
-        activeBtn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+      const count = state.liveSessions.length;
+      if (headerCount) {
+        headerCount.textContent = count > 0 ? `${count} LIVE SEKARANG` : 'RADAR STANDBY';
       }
-      renderMembers();
+      if (heroLiveStat) heroLiveStat.textContent = count;
+      if (slotCountText) {
+        slotCountText.textContent = count > 0 ? `${count} Member Mengudara` : '0 Siaran Aktif';
+      }
     }
 
-    function handleSearch(val) {
-      state.searchQuery = (val || '').toLowerCase().trim();
-      renderMembers();
+    // =========================================================================
+    // SECTION 1: OSHI DASHBOARD (BENTO GRID 4 CARDS)
+    // =========================================================================
+    function populateOshiDropdown() {
+      const select = document.getElementById('oshi-select');
+      if (!select) return;
+      select.innerHTML = state.members.map(m => `
+        <option value="${m.id}" ${m.id === state.chosenOshiId ? 'selected' : ''}>
+          ${m.name} (${m.nickname}) â€¢ Gen ${m.generation}
+        </option>
+      `).join('');
     }
 
-    // Render Member Grid
-    function renderMembers() {
-      const grid = document.getElementById('members-grid');
-      const emptyState = document.getElementById('empty-state');
-      const emptyTitle = document.getElementById('empty-state-title');
-      const emptySubtitle = document.getElementById('empty-state-subtitle');
-      if (!grid) return;
+    function selectOshiDropdown(val) {
+      state.chosenOshiId = val;
+      try {
+        localStorage.setItem('jkt48_chosen_oshi', val);
+      } catch(e) {}
+      renderOshiDashboard();
+      selectMember(val);
+    }
 
-      if (!state.members || state.members.length === 0) {
-        if (typeof members !== 'undefined') state.members = members;
+    function renderOshiDashboard() {
+      const mainCard = document.getElementById('oshi-card-main');
+      const favToggleBtn = document.getElementById('oshi-fav-toggle-btn');
+      const statusDesc = document.getElementById('oshi-status-desc');
+      const statusBadge = document.getElementById('oshi-status-badge');
+      const directLinks = document.getElementById('oshi-direct-links');
+
+      const m = state.members.find(x => x.id === state.chosenOshiId) || state.members[0];
+      if (!m) return;
+
+      const liveSession = state.liveSessions.find(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
+      const isLive = !!liveSession;
+      const isOshi = state.oshiSet.has(m.id);
+
+      // 1. Main Bento Card (Photo & Details)
+      if (mainCard) {
+        mainCard.innerHTML = `
+          <div>
+            <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-4">
+              <img 
+                src="${m.photoUrl}" 
+                alt="${m.name}" 
+                class="w-full h-full object-cover object-top"
+                onerror="this.onerror=null; this.src='assets/asentramerian_logo.jpg';"
+              />
+              <div class="absolute top-3 left-3">
+                ${isLive ? `
+                  <span class="px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black live-badge-pulse shadow-md">
+                    ðŸ”´ SEDANG LIVE DI ${liveSession.platform}
+                  </span>
+                ` : `
+                  <span class="px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold">
+                    âš¡ STANDBY
+                  </span>
+                `}
+              </div>
+              <div class="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/85 backdrop-blur-md text-white">
+                <div class="text-sm font-black">${m.name}</div>
+                <div class="text-[11px] text-red-300 font-semibold">${m.nickname} â€¢ ${m.teamStatus} (Gen ${m.generation})</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <a 
+              href="${isLive && liveSession.liveUrl ? liveSession.liveUrl : m.idnUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-full py-3 px-4 rounded-xl ${isLive ? 'bg-red-600 hover:bg-red-700 animate-pulse text-white' : 'bg-red-50 hover:bg-red-600 hover:text-white text-red-600'} text-xs font-bold text-center shadow transition-colors flex items-center justify-center gap-2">
+              <span>${isLive ? `Tonton Live ${m.nickname} Sekarang &rarr;` : `Kunjungi Bilik Live ${m.nickname} &rarr;`}</span>
+            </a>
+          </div>
+        `;
       }
 
-      const filtered = state.members.filter(m => {
-        if (state.searchQuery) {
-          const matchName = m.name.toLowerCase().includes(state.searchQuery);
-          const matchNick = m.nickname.toLowerCase().includes(state.searchQuery);
-          if (!matchName && !matchNick) return false;
+      // 2. Favorite Toggle Button
+      if (favToggleBtn) {
+        favToggleBtn.innerHTML = `
+          <button 
+            onclick="toggleOshi('${m.id}')" 
+            class="w-full py-2.5 rounded-xl ${isOshi ? 'bg-red-600 text-white' : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'} text-xs font-bold transition-all flex items-center justify-center gap-1.5">
+            <span>${isOshi ? 'â¤ï¸ Oshi Favorit Tersimpan' : 'ðŸ¤ Jadikan Oshi Favorit'}</span>
+          </button>
+        `;
+      }
+
+      // 3. Status Description & Badge
+      if (statusDesc) {
+        statusDesc.textContent = isLive 
+          ? `Oshi Anda sedang mengudara di platform ${liveSession.platform}! Judul siaran: "${liveSession.title}".`
+          : `Saat ini ${m.nickname} belum memulai siaran langsung. Radar akan otomatis menyala begitu siaran dimulai.`;
+      }
+      if (statusBadge) {
+        if (isLive) {
+          statusBadge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-700 text-[10px] font-black uppercase";
+          statusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-600 live-badge-pulse"></span> Mengudara Sekarang`;
+        } else {
+          statusBadge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold uppercase";
+          statusBadge.innerHTML = `<span>â³</span> Bilik Siaga (Standby)`;
         }
-
-        const isLive = state.liveSessions.some(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
-
-        if (state.activeFilter === 'live') return isLive;
-        if (state.activeFilter === 'oshi') return state.oshiSet.has(m.id);
-        if (state.activeFilter === 'inti') return m.teamStatus && m.teamStatus.toLowerCase().includes('inti');
-        if (state.activeFilter === 'trainee13') return m.generation === 13;
-        if (state.activeFilter === 'trainee14') return m.generation === 14;
-
-        return true;
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = '';
-        if (emptyState) {
-          emptyState.classList.remove('hidden');
-          if (state.activeFilter === 'live') {
-            if (emptyTitle) emptyTitle.textContent = "Belum Ada Member yang Sedang Live";
-            if (emptySubtitle) emptySubtitle.textContent = "Radar sedang aktif memantau 57 member. Saat ini belum ada siaran langsung di SHOWROOM maupun IDN Live.";
-          } else if (state.activeFilter === 'oshi') {
-            if (emptyTitle) emptyTitle.textContent = "Belum Ada Oshi Favorit";
-            if (emptySubtitle) emptySubtitle.textContent = "Klik ikon hati pada kartu member untuk menambahkan oshi ke daftar favoritmu.";
-          } else {
-            if (emptyTitle) emptyTitle.textContent = "Tidak ada member ditemukan";
-            if (emptySubtitle) emptySubtitle.textContent = "Coba ubah kata kunci pencarian atau pilih tab filter yang berbeda.";
-          }
-        }
-        return;
       }
 
-      if (emptyState) emptyState.classList.add('hidden');
+      // 4. Direct Links
+      if (directLinks) {
+        directLinks.innerHTML = `
+          <a 
+            href="${m.showroomUrl}" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="py-2 px-3 rounded-xl bg-slate-50 hover:bg-red-50 hover:text-red-600 text-slate-700 text-xs font-bold text-center transition-colors truncate">
+            Buka SHOWROOM &rarr;
+          </a>
+          <a 
+            href="${m.idnUrl}" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="py-2 px-3 rounded-xl bg-slate-50 hover:bg-red-50 hover:text-red-600 text-slate-700 text-xs font-bold text-center transition-colors truncate">
+            Buka IDN Live &rarr;
+          </a>
+        `;
+      }
+    }
 
-      grid.innerHTML = filtered.map(m => {
+    function toggleOshi(id) {
+      if (state.oshiSet.has(id)) {
+        state.oshiSet.delete(id);
+      } else {
+        state.oshiSet.add(id);
+      }
+      try {
+        localStorage.setItem('jkt48_oshi_ids', JSON.stringify(Array.from(state.oshiSet)));
+      } catch(e) {}
+      renderOshiDashboard();
+      renderRosterCarousel();
+    }
+
+    function toggleOshiFromPlayer() {
+      if (!state.currentSelectedMember) return;
+      toggleOshi(state.currentSelectedMember.id);
+      selectMember(state.currentSelectedMember.id);
+    }
+
+    // =========================================================================
+    // SECTION 2: WHY US / MEMBER SEDANG LIVE (4-SLOT RULE / SLIDER)
+    // =========================================================================
+    function renderLiveSection() {
+      const container = document.getElementById('live-slots-container');
+      const navButtons = document.getElementById('live-nav-buttons');
+      if (!container) return;
+
+      const liveList = state.liveSessions;
+      const count = liveList.length;
+
+      // Show/hide nav buttons if more than 4
+      if (navButtons) {
+        if (count > 4) navButtons.classList.remove('hidden');
+        else navButtons.classList.add('hidden');
+      }
+
+      let html = '';
+
+      // 1. Render all active live member cards
+      liveList.forEach((live, idx) => {
+        const member = state.members.find(m => m.id === live.memberId) || {
+          id: live.memberId,
+          name: live.name,
+          nickname: live.nickname,
+          generation: live.generation,
+          photoUrl: live.photoUrl,
+          teamStatus: 'Member'
+        };
+
+        html += `
+          <div 
+            onclick="selectMember('${member.id}')"
+            class="group relative bg-white rounded-3xl overflow-hidden border-2 border-red-500 shadow-xl shadow-red-500/15 ring-2 ring-red-400/40 card-shadow-hover flex flex-col cursor-pointer flex-shrink-0 w-full sm:w-auto">
+            
+            <!-- Photo Frame -->
+            <div class="relative aspect-[3/4] w-full bg-slate-100 overflow-hidden">
+              <img 
+                src="${live.photoUrl || member.photoUrl}" 
+                alt="${live.name}" 
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                onerror="this.onerror=null; this.src='assets/asentramerian_logo.jpg';"
+              />
+              
+              <!-- Badges -->
+              <div class="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black tracking-wider uppercase shadow-md live-badge-pulse">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                  LIVE ${live.platformKey === 'idn' ? 'IDN' : 'SHOWROOM'}
+                </span>
+              </div>
+
+              <!-- Gen Badge -->
+              <div class="absolute bottom-3 left-3">
+                <span class="px-2.5 py-1 rounded-md bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold">
+                  Gen ${member.generation || live.generation}
+                </span>
+              </div>
+            </div>
+
+            <!-- Card Info -->
+            <div class="p-4 flex flex-col flex-grow justify-between bg-white">
+              <div>
+                <h4 class="text-sm font-black text-slate-900 truncate group-hover:text-red-600 transition-colors">
+                  ${live.name}
+                </h4>
+                <div class="text-[11px] text-slate-400 font-semibold truncate mt-0.5">
+                  "${live.title || 'Siaran Langsung'}"
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100">
+                <a 
+                  href="${live.liveUrl}" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onclick="event.stopPropagation()"
+                  class="w-full py-2 px-3 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-black text-center shadow transition-colors flex items-center justify-center gap-1.5">
+                  <span>Tonton Live Sekarang</span>
+                  <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        `;
+      });
+
+      // 2. If less than 4, fill the remaining slots with Bilik Siaga (Standby) cards
+      if (count < 4) {
+        const slotsNeeded = 4 - count;
+        const standbySubtitles = [
+          "Radar memindai 57 member setiap 2 detik...",
+          "Menunggu sinyal siaran member berikutnya...",
+          "Siaga bilik SHOWROOM & IDN Live...",
+          "Bilik standby aktif 24/7..."
+        ];
+
+        for (let i = 0; i < slotsNeeded; i++) {
+          const slotNum = count + i + 1;
+          html += `
+            <div class="relative bg-white/70 rounded-3xl overflow-hidden border-2 border-dashed border-red-200/80 p-6 flex flex-col items-center justify-center text-center space-y-3 min-h-[360px]">
+              <div class="w-14 h-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-2xl font-black shadow-inner">
+                ðŸ“¡
+              </div>
+              <div>
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-black uppercase tracking-wider mb-1">
+                  BILIK SIAGA #${slotNum}
+                </span>
+                <h4 class="text-sm font-black text-slate-800">Menunggu Siaran</h4>
+                <p class="text-xs text-slate-400 max-w-[200px] mx-auto mt-1">
+                  ${standbySubtitles[i % standbySubtitles.length]}
+                </p>
+              </div>
+              <div class="pt-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-bold border border-emerald-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Radar Siaga
+                </span>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      container.innerHTML = html;
+    }
+
+    function scrollLiveGrid(direction) {
+      const container = document.getElementById('live-slots-container');
+      if (container) {
+        container.scrollBy({ left: direction * 300, behavior: 'smooth' });
+      }
+    }
+
+    // =========================================================================
+    // SECTION 3: ROSTER MEMBER SECARA MENYAMPING (HORIZONTAL CAROUSEL)
+    // =========================================================================
+    function renderRosterCarousel() {
+      const carousel = document.getElementById('roster-carousel');
+      if (!carousel) return;
+
+      carousel.innerHTML = state.members.map(m => {
         const liveSession = state.liveSessions.find(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
         const isLive = !!liveSession;
         const isOshi = state.oshiSet.has(m.id);
-        const isKapten = m.id === 'freya' || (m.teamStatus && m.teamStatus.includes('Kapten'));
-
-        // Highlight border if member is live
-        const cardBorderClass = isLive 
-          ? "border-2 border-red-500 shadow-xl shadow-red-500/15 ring-2 ring-red-400/40" 
-          : "border border-slate-100 shadow-sm";
 
         return `
           <div 
             onclick="selectMember('${m.id}')"
-            class="group relative bg-white rounded-2xl overflow-hidden ${cardBorderClass} card-shadow-hover flex flex-col cursor-pointer">
+            class="flex-shrink-0 w-44 sm:w-48 bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-shadow-hover flex flex-col cursor-pointer">
             
-            <!-- Photo Frame -->
             <div class="relative aspect-[3/4] w-full bg-slate-100 overflow-hidden">
               <img 
                 src="${m.photoUrl}" 
                 alt="${m.name}" 
                 loading="lazy"
                 referrerpolicy="no-referrer"
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                onerror="this.onerror=null; this.src='assets/jkt48_hero_logo.jpg';"
+                class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                onerror="this.onerror=null; this.src='assets/asentramerian_logo.jpg';"
               />
               
-              <!-- Badges Container -->
-              <div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
-                ${isLive ? `
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-600 text-white text-[9px] font-black tracking-wider uppercase shadow-md live-badge-pulse">
-                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-                    LIVE ${liveSession.platformKey === 'idn' ? 'IDN' : 'SHOWROOM'}
+              <!-- Live Indicator -->
+              ${isLive ? `
+                <div class="absolute top-2 left-2 z-10">
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-600 text-white text-[9px] font-black uppercase tracking-wider live-badge-pulse shadow">
+                    LIVE
                   </span>
-                ` : ''}
-                ${isKapten ? `
-                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500 text-white text-[9px] font-black tracking-wider uppercase shadow-md">
-                    KAPTEN
-                  </span>
-                ` : ''}
-              </div>
+                </div>
+              ` : ''}
 
-              <!-- Heart / Oshi Button -->
+              <!-- Heart Button -->
               <button 
                 onclick="event.stopPropagation(); toggleOshi('${m.id}')" 
-                title="${isOshi ? 'Hapus dari Oshi' : 'Jadikan Oshi'}"
-                class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-xs shadow-sm transition-transform hover:scale-110 ${isOshi ? 'text-red-600' : 'text-slate-400'}">
+                title="${isOshi ? 'Hapus Oshi' : 'Jadikan Oshi'}"
+                class="absolute top-2 right-2 w-6 h-6 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-xs shadow transition-transform hover:scale-110 ${isOshi ? 'text-red-600' : 'text-slate-400'}">
                 ${isOshi ? '&hearts;' : '&#9825;'}
               </button>
 
@@ -1889,37 +2185,32 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
               </div>
             </div>
 
-            <!-- Member Info -->
-            <div class="p-2.5 sm:p-3 flex flex-col flex-grow justify-between bg-white">
+            <div class="p-3 flex flex-col justify-between flex-grow">
               <div>
-                <h4 class="text-xs font-black text-slate-900 truncate group-hover:text-red-600 transition-colors">
+                <h5 class="text-xs font-black text-slate-900 truncate">
                   ${m.name}
-                </h4>
+                </h5>
                 <div class="text-[10px] text-slate-400 font-semibold truncate">
-                  ${m.nickname} &bull; ${m.teamStatus || 'Member'}
+                  ${m.nickname} â€¢ ${m.teamStatus || 'Member'}
                 </div>
               </div>
 
-              <!-- Direct Stream Action Links -->
-              <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center gap-1.5" onclick="event.stopPropagation()">
+              <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center gap-1" onclick="event.stopPropagation()">
                 <a 
                   href="${m.showroomUrl}" 
                   target="_blank" 
-                  rel="noopener noreferrer"
-                  title="Buka SHOWROOM" 
-                  class="flex-1 py-1 px-1 rounded-lg ${isLive && liveSession.platformKey === 'showroom' ? 'bg-red-600 text-white font-black animate-pulse' : 'bg-slate-50 hover:bg-red-50 hover:text-red-600 text-slate-600'} text-[9px] sm:text-[10px] font-bold text-center transition-colors truncate">
-                  SHOWROOM
+                  rel="noopener noreferrer" 
+                  class="flex-1 py-1 rounded bg-slate-50 hover:bg-red-50 hover:text-red-600 text-slate-600 text-[9px] font-bold text-center transition-colors truncate">
+                  SR
                 </a>
                 <a 
                   href="${isLive && liveSession.liveUrl ? liveSession.liveUrl : m.idnUrl}" 
                   target="_blank" 
-                  rel="noopener noreferrer"
-                  title="Buka IDN Live" 
-                  class="flex-1 py-1 px-1 rounded-lg ${isLive && liveSession.platformKey === 'idn' ? 'bg-red-600 text-white font-black animate-pulse' : 'bg-red-50 hover:bg-red-600 hover:text-white text-red-600'} text-[9px] sm:text-[10px] font-bold text-center transition-colors truncate">
-                  IDN Live ${isLive && liveSession.platformKey === 'idn' ? 'â—' : ''}
+                  rel="noopener noreferrer" 
+                  class="flex-1 py-1 rounded ${isLive ? 'bg-red-600 text-white font-bold animate-pulse' : 'bg-red-50 hover:bg-red-600 hover:text-white text-red-600'} text-[9px] font-bold text-center transition-colors truncate">
+                  IDN
                 </a>
               </div>
-
             </div>
 
           </div>
@@ -1927,14 +2218,68 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       }).join('');
     }
 
-    // Select Member
+    function scrollRoster(direction) {
+      const carousel = document.getElementById('roster-carousel');
+      if (carousel) {
+        carousel.scrollBy({ left: direction * 350, behavior: 'smooth' });
+      }
+    }
+
+    // =========================================================================
+    // SECTION 4: SARAN KE ADMIN & FAQ ACCORDIONS
+    // =========================================================================
+    function submitSuggestion() {
+      const nama = document.getElementById('saran-nama').value;
+      const kategori = document.getElementById('saran-kategori').value;
+      const pesan = document.getElementById('saran-pesan').value;
+      const msg = document.getElementById('saran-success-msg');
+
+      if (!nama || !pesan) return;
+
+      const saranData = {
+        nama,
+        kategori,
+        pesan,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        const existing = JSON.parse(localStorage.getItem('asentramerian_saran') || '[]');
+        existing.push(saranData);
+        localStorage.setItem('asentramerian_saran', JSON.stringify(existing));
+      } catch(e) {}
+
+      if (msg) {
+        msg.classList.remove('hidden');
+        setTimeout(() => { msg.classList.add('hidden'); }, 4000);
+      }
+
+      document.getElementById('suggestion-form').reset();
+    }
+
+    function toggleFaq(index) {
+      const ans = document.getElementById(`faq-ans-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      if (!ans || !icon) return;
+
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.textContent = 'âˆ’';
+      } else {
+        ans.classList.add('hidden');
+        icon.textContent = '+';
+      }
+    }
+
+    // =========================================================================
+    // SELECTION & PLAYER BAR LOGIC
+    // =========================================================================
     function selectMember(memberId) {
       const m = state.members.find(x => x.id === memberId);
       if (!m) return;
 
       state.currentSelectedMember = m;
 
-      // Update player bar
       const thumb = document.getElementById('player-thumb');
       const name = document.getElementById('player-name');
       const statusText = document.getElementById('player-status-text');
@@ -1949,8 +2294,8 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       if (name) name.textContent = m.name;
       if (statusText) {
         statusText.innerHTML = isLive 
-          ? `<span class="text-red-600 font-bold">SEDANG LIVE DI ${liveSession.platform}</span> &bull; Gen ${m.generation}`
-          : `${m.nickname} &bull; Gen ${m.generation} (${m.teamStatus})`;
+          ? `<span class="text-red-600 font-bold">SEDANG LIVE DI ${liveSession.platform}</span> â€¢ Gen ${m.generation}`
+          : `${m.nickname} â€¢ Gen ${m.generation} (${m.teamStatus})`;
       }
       if (extLink) {
         if (isLive && liveSession.liveUrl) {
@@ -2000,149 +2345,20 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       }
     }
 
-    function toggleOshiFromPlayer() {
-      if (!state.currentSelectedMember) return;
-      toggleOshi(state.currentSelectedMember.id);
-      selectMember(state.currentSelectedMember.id);
+    // Lightbox Controls
+    function openLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) modal.classList.remove('hidden');
     }
 
-    function toggleOshi(id) {
-      if (state.oshiSet.has(id)) {
-        state.oshiSet.delete(id);
-      } else {
-        state.oshiSet.add(id);
-      }
-      try {
-        localStorage.setItem('jkt48_oshi_ids', JSON.stringify(Array.from(state.oshiSet)));
-      } catch(e) {}
-      updateLiveStats();
-      renderMembers();
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      if (modal) modal.classList.add('hidden');
     }
 
-    // Populate Oshi Dropdown
-    function populateOshiDropdown() {
-      const select = document.getElementById('oshi-select');
-      if (!select) return;
-      select.innerHTML = state.members.map(m => `
-        <option value="${m.id}" ${m.id === state.chosenOshiId ? 'selected' : ''}>
-          ${m.name} (${m.nickname}) &bull; Gen ${m.generation}
-        </option>
-      `).join('');
-    }
-
-    function selectOshiDropdown(val) {
-      state.chosenOshiId = val;
-      try {
-        localStorage.setItem('jkt48_chosen_oshi', val);
-      } catch(e) {}
-      renderOshiSection();
-      selectMember(val);
-    }
-
-    // Render Oshi Section
-    function renderOshiSection() {
-      const card = document.getElementById('oshi-feature-card');
-      const quickActions = document.getElementById('oshi-quick-actions');
-      const m = state.members.find(x => x.id === state.chosenOshiId) || state.members[0];
-      if (!m || !card) return;
-
-      const liveSession = state.liveSessions.find(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
-      const isLive = !!liveSession;
-
-      card.innerHTML = `
-        <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-4">
-          <img 
-            src="${m.photoUrl}" 
-            alt="${m.name}" 
-            class="w-full h-full object-cover object-top"
-            onerror="this.onerror=null; this.src='assets/jkt48_hero_logo.jpg';"
-          />
-          <div class="absolute top-3 left-3">
-            ${isLive ? `
-              <span class="px-3 py-1 rounded-full bg-red-600 text-white text-[10px] font-black live-badge-pulse shadow-md">
-                SEDANG LIVE DI ${liveSession.platform}
-              </span>
-            ` : `
-              <span class="px-2.5 py-1 rounded-full bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold">
-                STANDBY
-              </span>
-            `}
-          </div>
-          <div class="absolute bottom-3 inset-x-3 p-3 rounded-xl bg-slate-900/85 backdrop-blur-md text-white">
-            <div class="text-sm font-black">${m.name}</div>
-            <div class="text-[11px] text-red-300 font-semibold">${m.nickname} &bull; ${m.teamStatus} (Gen ${m.generation})</div>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-2">
-          <a 
-            href="${m.showroomUrl}" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold text-center transition-colors">
-            Buka SHOWROOM &rarr;
-          </a>
-          <a 
-            href="${isLive && liveSession.liveUrl ? liveSession.liveUrl : m.idnUrl}" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="py-2.5 px-3 rounded-xl ${isLive ? 'bg-red-600 hover:bg-red-700 animate-pulse text-white' : 'bg-red-50 hover:bg-red-600 hover:text-white text-red-600'} text-xs font-bold text-center shadow transition-colors">
-            ${isLive ? 'Tonton Live Sekarang &rarr;' : 'Buka IDN Live &rarr;'}
-          </a>
-        </div>
-      `;
-
-      if (quickActions) {
-        quickActions.innerHTML = `
-          <a 
-            href="${isLive && liveSession.liveUrl ? liveSession.liveUrl : m.idnUrl}" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="px-5 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-lg shadow-red-500/20 transition-all flex items-center gap-2">
-            ${isLive ? '<span class="w-2 h-2 rounded-full bg-white live-badge-pulse"></span>' : ''}
-            <span>${isLive ? `Tonton Live ${m.nickname} Sekarang &rarr;` : `Kunjungi Bilik Live ${m.nickname} &rarr;`}</span>
-          </a>
-          <button 
-            onclick="toggleOshi('${m.id}')" 
-            class="px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/20 transition-all">
-            ${state.oshiSet.has(m.id) ? '&hearts; Oshi Tersimpan' : '&#9825; Jadikan Favorit'}
-          </button>
-        `;
-      }
-    }
-
-    // Live Stats
-    function updateLiveStats() {
-      const headerCount = document.getElementById('header-live-count');
-      const tabLiveCount = document.getElementById('tab-live-count');
-      const tabOshiCount = document.getElementById('tab-oshi-count');
-      const liveBanner = document.getElementById('live-broadcast-banner');
-      const heroLiveStat = document.getElementById('hero-live-stat');
-      const bannerTitle = document.getElementById('live-banner-title');
-      const bannerSubtitle = document.getElementById('live-banner-subtitle');
-
-      const count = state.liveSessions.length;
-      if (headerCount) {
-        headerCount.textContent = count > 0 ? `${count} LIVE SEKARANG` : 'RADAR STANDBY';
-      }
-      if (heroLiveStat) heroLiveStat.textContent = count;
-      if (tabLiveCount) tabLiveCount.textContent = count;
-      if (tabOshiCount) tabOshiCount.textContent = state.oshiSet.size;
-
-      if (liveBanner) {
-        if (count > 0) {
-          liveBanner.classList.remove('hidden');
-          const firstLive = state.liveSessions[0];
-          if (bannerTitle) {
-            bannerTitle.innerHTML = `<span class="w-2 h-2 rounded-full bg-white animate-ping"></span><span>${firstLive.name.toUpperCase()} SEDANG SIARAN LANGSUNG!</span>`;
-          }
-          if (bannerSubtitle) {
-            bannerSubtitle.textContent = `Mengudara di platform ${firstLive.platform}. Klik tombol di samping untuk langsung menyaksikan.`;
-          }
-        } else {
-          liveBanner.classList.add('hidden');
-        }
-      }
-    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
   </script>
 
 </body>
