@@ -111,6 +111,44 @@
       -webkit-user-drag: none;
     }
 
+    /* Explicit Guaranteed Card Image Dimensions (Prevents Collapsing & Overlapping) */
+    .catalog-card-image {
+      position: relative;
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+    @media (max-width: 640px) {
+      .catalog-card-image {
+        height: 270px;
+      }
+    }
+
+    .roster-card-image {
+      position: relative;
+      width: 100%;
+      height: 230px;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+
+    .setlist-card-image {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background-color: #0f172a;
+    }
+
+    .live-card-image {
+      position: relative;
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+      background-color: #0f172a;
+    }
+
     /* Podium Styles */
     .podium-1 {
       background: linear-gradient(135deg, #FFE873 0%, #F59E0B 100%);
@@ -123,7 +161,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col pb-28 text-slate-900 relative selection:bg-red-500 selection:text-white" style="background-color: #FAFAFA;">
+<body class="min-h-screen flex flex-col pb-44 sm:pb-36 text-slate-900 relative selection:bg-red-500 selection:text-white" style="background-color: #FAFAFA;">
 
   <!-- ========================================================================= -->
   <!-- 0. FIXED EMBEDDED WALLPAPER (FULL 57-MEMBER FORMATION HIGH-VISIBILITY)    -->
@@ -2212,6 +2250,11 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (viewName === 'members') {
+        renderLargeMemberCatalog();
+      } else if (viewName === 'oshi') {
+        renderOshiLeaderboard();
+      }
 
       // Refresh specific view data
       if (viewName === 'members') renderLargeMemberCatalog();
@@ -2476,7 +2519,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
             onclick="selectMember('${member.id || ''}')"
             class="group relative bg-white rounded-3xl overflow-hidden border border-red-200 shadow-md card-shadow-hover flex flex-col justify-between cursor-pointer">
             
-            <div class="relative aspect-video sm:aspect-square w-full bg-slate-900 overflow-hidden">
+            <div class="live-card-image">
               <img 
                 src="${live.imageUrl || member.photoUrl}" 
                 alt="${live.name}" 
@@ -2666,7 +2709,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       carousel.innerHTML = JKT48_SETLISTS.map(setlist => `
         <div class="w-80 sm:w-96 flex-shrink-0 bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden border border-slate-200/80 shadow-md card-shadow-hover flex flex-col justify-between">
           <div>
-            <div class="relative w-full aspect-[16/9] bg-gradient-to-br from-slate-900 via-slate-800 to-red-950 overflow-hidden">
+            <div class="setlist-card-image">
               <img 
                 src="${setlist.bannerUrl}" 
                 alt="${setlist.title}" 
@@ -2775,7 +2818,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
             onclick="handleMemberCardClick('${m.id}')"
             class="flex-shrink-0 w-44 sm:w-48 bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm card-shadow-hover flex flex-col cursor-pointer select-none">
             
-            <div class="relative aspect-[3/4] w-full bg-slate-100 overflow-hidden">
+            <div class="catalog-card-image">
               <img 
                 src="${m.photoUrl}" 
                 alt="${m.name}" 
@@ -2978,7 +3021,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
             class="group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm card-shadow-hover flex flex-col justify-between transition-all cursor-pointer">
             
             <!-- Large Image Container with Top-Left LIVE Badge -->
-            <div class="relative aspect-[3/4] w-full bg-slate-100 overflow-hidden">
+            <div class="catalog-card-image">
               <img 
                 src="${m.photoUrl}" 
                 alt="${m.name}" 
@@ -3295,12 +3338,21 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
 
         state.lastSyncTime = new Date();
         updateLiveStats();
-        renderLiveSection();
-        renderOshiDashboard();
-        renderRosterCarousel();
-      renderSetlists();
-        renderLargeMemberCatalog();
-        updatePlayerBar();
+
+        // Calculate live state fingerprint
+        const currentLiveFingerprint = state.liveSessions.map(s => (s.memberId || '') + '_' + (s.platform || '')).sort().join('|');
+        const liveStateChanged = (state._prevLiveFingerprint !== currentLiveFingerprint);
+        state._prevLiveFingerprint = currentLiveFingerprint;
+
+        // Only update DOM when live status actually changes to prevent lag, card thrashing, or overlapping!
+        if (liveStateChanged || !state._hasInitialRender) {
+          state._hasInitialRender = true;
+          renderLiveSection();
+          renderOshiDashboard();
+          renderRosterCarousel();
+          renderLargeMemberCatalog();
+          updatePlayerBar();
+        }
 
       } catch (err) {
         console.warn("Live status sync warning:", err);
