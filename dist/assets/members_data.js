@@ -3,12 +3,7 @@
   // 1. MEMBER INTI (REGULER) - 39 MEMBERS
   // 
   { 
-    id: "freya",
-    birthDate: "13 Februari 2006",
-    bloodType: "B",
-    horoscope: "Aquarius",
-    height: "154 cm",
-    jikoshoukai: "Gadis koleris yang suka berimajinasi, terangi harimu dengan senyum karamelku!",
+    Gadis koloris yang suka mewarnai harimu, halo semuanya aku Freya!,
     votes: 98520, 
     name: "Freya Jayawardana", 
     nickname: "Freya", 
@@ -23,12 +18,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c4/Freya_Jayawardana_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "feni",
-    birthDate: "16 Januari 1999",
-    bloodType: "O",
-    horoscope: "Capricorn",
-    height: "160 cm",
-    jikoshoukai: "Matahari yang selalu bersinar dan menghangatkan hatimu!",
+    Ceria dan selalu menebar kebahagiaan, halo aku Feni!,
     votes: 87410, 
     name: "Feni Fitriyanti", 
     nickname: "Feni", 
@@ -43,12 +33,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b6/Feni_Fitriyanti_JKT48_2026.jpg" 
   },
   { 
-    id: "gita",
-    birthDate: "30 Juni 2001",
-    bloodType: "O",
-    horoscope: "Cancer",
-    height: "165 cm",
-    jikoshoukai: "Diam bukan berarti tak peduli, perhatikan aku selalu!",
+    Diam-diam menghanyutkan, halo semuanya aku Gita!,
     votes: 92350, 
     name: "Gita Sekar Andarini", 
     nickname: "Gita", 
@@ -63,12 +48,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/dc/Gita_Sekar_Andarini_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "christy",
-    birthDate: "5 Desember 2005",
-    bloodType: "O",
-    horoscope: "Sagittarius",
-    height: "163 cm",
-    jikoshoukai: "Peduli dan berhati hangat, selalu tersenyum!",
+    Pedas manis seperti gulali, halo semua aku Christy!,
     votes: 89120, 
     name: "Angelina Christy", 
     nickname: "Christy", 
@@ -83,12 +63,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/26/Angelina_Christy_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "olla",
-    birthDate: "26 Februari 2005",
-    bloodType: "B",
-    horoscope: "Pisces",
-    height: "159 cm",
-    jikoshoukai: "Manis seperti madu, ceria setiap hari!",
+    Manis seperti gulali, ceria seperti pelangi, halo aku Olla!,
     votes: 65400, 
     name: "Febriola Sinambela", 
     nickname: "Olla", 
@@ -103,12 +78,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/1a/Febriola_Sinambela_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "eli",
-    birthDate: "10 Juli 2000",
-    bloodType: "O",
-    horoscope: "Cancer",
-    height: "165 cm",
-    jikoshoukai: "Bagaikan helikopter yang berputar di hatimu!",
+    Seperti musik yang merdu, halo semuanya aku Eli!,
     votes: 58900, 
     name: "Helisma Putri", 
     nickname: "Eli", 
@@ -123,12 +93,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/45/Helisma_Putri_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "jessi",
-    birthDate: "23 September 2005",
-    bloodType: "O",
-    horoscope: "Libra",
-    height: "163 cm",
-    jikoshoukai: "Bunga melati yang semerbak harum!",
+    Si penari yang tangguh dan selalu bersemangat, halo aku Jessi!,
     votes: 71200, 
     name: "Jessica Chandra", 
     nickname: "Jessi", 
@@ -143,12 +108,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/5/52/Jessica_Chandra_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "muthe",
-    birthDate: "12 Juli 2004",
-    bloodType: "B",
-    horoscope: "Cancer",
-    height: "158 cm",
-    jikoshoukai: "Dengan senyum manis dan lesung pipit, aku Muthe!",
+    Seindah kilauan mutiara, halo semuanya aku Muthe!,
     votes: 76800, 
     name: "Mutiara Azzahra", 
     nickname: "Muthe", 
@@ -163,12 +123,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/e/e4/Mutiara_Azzahra_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "oniel",
-    birthDate: "25 Juli 2002",
-    bloodType: "O",
-    horoscope: "Leo",
-    height: "164 cm",
-    jikoshoukai: "Si ratu komedi yang siap membuat harimu tertawa!",
+    Dengan ketulusan dan kerja keras, halo semuanya aku Oniel!,
     votes: 69300, 
     name: "Cornelia Syafa", 
     nickname: "Oniel", 
@@ -183,12 +138,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/30/Cornelia_Vanisa_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "fiony",
-    birthDate: "4 Februari 2002",
-    bloodType: "O",
-    horoscope: "Aquarius",
-    height: "158 cm",
-    jikoshoukai: "Secercah cahaya di gelapnya malam!",
+    Seperti cermin yang memantulkan kebahagiaan, halo semuanya aku Fiony!,
     votes: 74500, 
     name: "Fiony Alveria", 
     nickname: "Fiony", 
@@ -203,12 +153,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c7/Fiony_Alveria_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "lulu",
-    birthDate: "26 Maret 2002",
-    bloodType: "B",
-    horoscope: "Aries",
-    height: "157 cm",
-    jikoshoukai: "Lincah dan enerjik menyebarkan semangat!",
+    Dengan keceriaan dan senyuman tak terbatas, halo aku Lulu!,
     votes: 62100, 
     name: "Lulu Salsabila", 
     nickname: "Lulu", 
@@ -223,12 +168,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/21/Lulu_Salsabila_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "indah",
-    birthDate: "20 Maret 2001",
-    bloodType: "A",
-    horoscope: "Pisces",
-    height: "166 cm",
-    jikoshoukai: "Indah seperti pelangi sehabis hujan!",
+    Seperti namanya, selalu berusaha indah di mana pun berada, halo aku Indah!,
     votes: 54300, 
     name: "Indah Cahya", 
     nickname: "Indah", 
@@ -243,12 +183,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2f/Indah_Cahya_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "kathrina",
-    birthDate: "24 Juli 2006",
-    bloodType: "A",
-    horoscope: "Leo",
-    height: "165 cm",
-    jikoshoukai: "Si bungsu yang ceria dan penuh energi!",
+    Bagaikan angin segar yang menghampiri harimu, halo aku Kathrina!,
     votes: 78900, 
     name: "Kathrina Irene", 
     nickname: "Kathrina", 
@@ -263,12 +198,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c6/Kathrina_Irene_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "marsha",
-    birthDate: "8 Januari 2006",
-    bloodType: "O",
-    horoscope: "Capricorn",
-    height: "163 cm",
-    jikoshoukai: "Bintang berkilau yang menyinari langkahmu!",
+    Seperti keajaiban yang tak pernah habis, halo aku Marsha!,
     votes: 84600, 
     name: "Marsha Lenathea", 
     nickname: "Marsha", 
@@ -283,12 +213,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/9/9e/Marsha_Lenathea_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "lia",
-    birthDate: "10 Mei 2002",
-    bloodType: "A",
-    horoscope: "Taurus",
-    height: "161 cm",
-    jikoshoukai: "Pemberi kehangatan bagi siapa saja!",
+    Si pemimpi yang pantang menyerah, halo semuanya aku Lia!,
     votes: 61200, 
     name: "Aurellia", 
     nickname: "Lia", 
@@ -303,12 +228,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2c/Aurellia_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "ella",
-    birthDate: "16 November 2005",
-    bloodType: "O",
-    horoscope: "Scorpio",
-    height: "158 cm",
-    jikoshoukai: "Si ceria yang suka membuat tertawa!",
+    Anak pertama dari tiga bersaudara yang siap menerangi harimu, halo aku Ella!,
     votes: 67800, 
     name: "Gabriela Abigail", 
     nickname: "Ella", 
@@ -323,12 +243,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/4c/Gabriela_Abigail_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "lyn",
-    birthDate: "18 Januari 2004",
-    bloodType: "B",
-    horoscope: "Capricorn",
-    height: "160 cm",
-    jikoshoukai: "Bunga lily putih yang menyejukkan pandangan!",
+    Manis dan imut seperti peri kecil, halo aku Lyn!,
     votes: 57800, 
     name: "Jesslyn Elly", 
     nickname: "Lyn", 
@@ -343,12 +258,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/15/Jesslyn_Elly_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "raisha",
-    birthDate: "11 November 2007",
-    bloodType: "AB",
-    horoscope: "Scorpio",
-    height: "164 cm",
-    jikoshoukai: "Senyuman manis yang selalu menemani harimu!",
+    Si ceria yang pantang menyerah, halo semuanya aku Raisha!,
     votes: 56700, 
     name: "Raisha Syifa", 
     nickname: "Raisha", 
@@ -363,12 +273,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/e/e1/Raisha_Syifa_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "anindya",
-    birthDate: "20 Oktober 2005",
-    bloodType: "O",
-    horoscope: "Libra",
-    height: "164 cm",
-    jikoshoukai: "Penuh tekad dan pesona memikat!",
+    Si ceria yang selalu memberikan kehangatan, halo aku Anindya!,
     votes: 53900, 
     name: "Anindya Ramadhani", 
     nickname: "Anindya", 
@@ -383,12 +288,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/bb/Anindya_Ramadhani_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "elin",
-    birthDate: "1 Maret 2007",
-    bloodType: "O",
-    horoscope: "Pisces",
-    height: "163 cm",
-    jikoshoukai: "Bagaikan embun sejuk di pagi hari!",
+    Manis dan selalu menebar senyuman, halo aku Celline!,
     votes: 52700, 
     name: "Celline Thefani", 
     nickname: "Elin", 
@@ -403,12 +303,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/f/f0/Celline_Thefani_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "cynthia",
-    birthDate: "22 November 2003",
-    bloodType: "O",
-    horoscope: "Sagittarius",
-    height: "162 cm",
-    jikoshoukai: "Laksana bulan yang menerangi malam!",
+    Si mungil yang selalu memberikan kebahagiaan, halo aku Cynthia!,
     votes: 51900, 
     name: "Cynthia Yaputera", 
     nickname: "Cynthia", 
@@ -423,12 +318,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/8b/Cynthia_Yaputera_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "danella",
-    birthDate: "12 Juni 2007",
-    bloodType: "O",
-    horoscope: "Gemini",
-    height: "162 cm",
-    jikoshoukai: "Penuh semangat dan senyuman tulus!",
+    Penuh semangat dan senyuman, halo semuanya aku Dena!,
     votes: 55100, 
     name: "Dena Natalia", 
     nickname: "Danella", 
@@ -443,12 +333,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/d9/Dena_Natalia_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "daisy",
-    birthDate: "16 Desember 2005",
-    bloodType: "B",
-    horoscope: "Sagittarius",
-    height: "165 cm",
-    jikoshoukai: "Bunga daisy yang selalu mekar!",
+    Si manis yang siap memberikan keceriaan, halo aku Desy!,
     votes: 53200, 
     name: "Desy Natalia", 
     nickname: "Daisy", 
@@ -463,12 +348,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/13/Desy_Natalia_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "gracie",
-    birthDate: "18 Maret 2007",
-    bloodType: "AB",
-    horoscope: "Pisces",
-    height: "160 cm",
-    jikoshoukai: "Gadis manis yang membawa kedamaian!",
+    Manis dan penuh energi, halo semuanya aku Gracie!,
     votes: 72100, 
     name: "Grace Octaviani", 
     nickname: "Gracie", 
@@ -483,12 +363,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b9/Grace_Octaviani_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "greesel",
-    birthDate: "15 Desember 2006",
-    bloodType: "O",
-    horoscope: "Sagittarius",
-    height: "165 cm",
-    jikoshoukai: "Bunga mawar merah yang berani dan anggun!",
+    Gadis manis yang akan menyinari harimu dengan senyuman, halo aku Greesel!,
     votes: 76400, 
     name: "Greesella Adhalia", 
     nickname: "Greesel", 
@@ -503,12 +378,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2d/Greesella_Adhalia_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "michie",
-    birthDate: "19 Agustus 2009",
-    bloodType: "O",
-    horoscope: "Leo",
-    height: "153 cm",
-    jikoshoukai: "Gadis mungil penabur kebahagiaan!",
+    Selalu bersemangat dan ceria, halo semuanya aku Michie!,
     votes: 67300, 
     name: "Michelle Alexandra", 
     nickname: "Michie", 
@@ -523,12 +393,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/30/Michelle_Alexandra_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "aralie",
-    birthDate: "10 Desember 2008",
-    bloodType: "B",
-    horoscope: "Sagittarius",
-    height: "162 cm",
-    jikoshoukai: "Bintang kecil penabur harapan!",
+    Si penerang di dalam kegelapan, halo semuanya aku Aralie!,
     votes: 52100, 
     name: "Abigail Rachel", 
     nickname: "Aralie", 
@@ -543,12 +408,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/26/Abigail_Rachel_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "delynn",
-    birthDate: "25 Oktober 2007",
-    bloodType: "B",
-    horoscope: "Scorpio",
-    height: "160 cm",
-    jikoshoukai: "Gadis manis dengan sejuta mimpi!",
+    Percaya diri dan pantang menyerah, halo semua aku Delynn!,
     votes: 54800, 
     name: "Adeline Wijaya", 
     nickname: "Delynn", 
@@ -563,12 +423,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/27/Adeline_Wijaya_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "lana",
-    birthDate: "25 Juli 2006",
-    bloodType: "B",
-    horoscope: "Leo",
-    height: "159 cm",
-    jikoshoukai: "Gadis lincah pembawa sukacita!",
+    Dengan senyuman secerah mentari, halo semuanya aku Lana!,
     votes: 53100, 
     name: "Aurhel Alana", 
     nickname: "Lana", 
@@ -583,12 +438,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/79/Aurhel_Alana_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "erine",
-    birthDate: "10 Maret 2007",
-    bloodType: "A",
-    horoscope: "Pisces",
-    height: "160 cm",
-    jikoshoukai: "Cahaya mentari yang lembut menghangatkan!",
+    Si mungil yang penuh kejutan, halo semuanya aku Cathy!,
     votes: 51200, 
     name: "Catherina Vallencia", 
     nickname: "Erine", 
@@ -603,12 +453,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/9/97/Catherina_Vallencia_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "fritzy",
-    birthDate: "28 Juli 2008",
-    bloodType: "A",
-    horoscope: "Leo",
-    height: "157 cm",
-    jikoshoukai: "Penuh keajaiban dan sulap keceriaan!",
+    Ajaib dan penuh dengan misteri, halo semuanya aku Fritzy!,
     votes: 68400, 
     name: "Fritzy Rosmerian", 
     nickname: "Fritzy", 
@@ -623,12 +468,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/a/ac/Fritzy_Rosmerian_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "lily",
-    birthDate: "19 Oktober 2007",
-    bloodType: "B",
-    horoscope: "Libra",
-    height: "156 cm",
-    jikoshoukai: "Bunga lili yang anggun dan memesona!",
+    Bagaikan bunga lily yang mekar indah, halo semuanya aku Lily!,
     votes: 55600, 
     name: "Hillary Abigail", 
     nickname: "Lily", 
@@ -643,12 +483,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/4f/Hillary_Abigail_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "levi",
-    birthDate: "18 Agustus 2008",
-    bloodType: "O",
-    horoscope: "Leo",
-    height: "160 cm",
-    jikoshoukai: "Penyemangat hari-harimu!",
+    Kecil-kecil cabe rawit, penuh semangat dan energi, halo aku Levi!,
     votes: 52400, 
     name: "Michelle Levia", 
     nickname: "Levi", 
@@ -663,12 +498,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/79/Michelle_Levia_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "nayla",
-    birthDate: "18 Juni 2007",
-    bloodType: "B",
-    horoscope: "Gemini",
-    height: "163 cm",
-    jikoshoukai: "Angin sepoi-sepoi pembawa ketenangan!",
+    Si ceria yang siap mewarnai harimu, halo semuanya aku Nayla!,
     votes: 51500, 
     name: "Nayla Suji", 
     nickname: "Nayla", 
@@ -683,12 +513,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b9/Nayla_Suji_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "nachia",
-    birthDate: "10 Mei 2009",
-    bloodType: "A",
-    horoscope: "Taurus",
-    height: "158 cm",
-    jikoshoukai: "Selalu berusaha memberikan yang terbaik!",
+    Gadis imut dan menggemaskan, halo aku Nina!,
     votes: 53800, 
     name: "Nina Tutachia", 
     nickname: "Nachia", 
@@ -703,12 +528,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/1b/Nina_Tutachia_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "oline",
-    birthDate: "13 November 2007",
-    bloodType: "B",
-    horoscope: "Scorpio",
-    height: "167 cm",
-    jikoshoukai: "Tinggi semampai penuh kharisma!",
+    Penuh energi dan selalu siap menghiburmu, halo aku Oline!,
     votes: 57100, 
     name: "Oline Manuel", 
     nickname: "Oline", 
@@ -723,12 +543,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b0/Oline_Manuel_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "ribka",
-    birthDate: "13 Januari 2009",
-    bloodType: "O",
-    horoscope: "Capricorn",
-    height: "158 cm",
-    jikoshoukai: "Senyuman manis yang selalu tulus!",
+    Seperti melodi yang selalu membawa kebahagiaan, halo aku Ribka!,
     votes: 54200, 
     name: "Ribka Budiman", 
     nickname: "Ribka", 
@@ -743,12 +558,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/84/Ribka_Budiman_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "nala",
-    birthDate: "25 Agustus 2006",
-    bloodType: "O",
-    horoscope: "Virgo",
-    height: "166 cm",
-    jikoshoukai: "Penyejuk suasana di setiap langkah!",
+    Si ceria yang pantang menyerah, halo semuanya aku Nala!,
     votes: 52900, 
     name: "Shabilqis Naila", 
     nickname: "Nala", 
@@ -763,12 +573,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/cc/Shabilqis_Naila_JKT48_2026_%283%29.jpg" 
   },
   { 
-    id: "kimmy",
-    birthDate: "8 Maret 2009",
-    bloodType: "A",
-    horoscope: "Pisces",
-    height: "159 cm",
-    jikoshoukai: "Mutiara kecil yang bersinar terang!",
+    Dengan senyuman dan keceriaan tak terhingga, halo aku Kimmy!,
     votes: 56200, 
     name: "Victoria Kimberly", 
     nickname: "Kimmy", 
@@ -787,12 +592,7 @@
   // 2. MEMBER TRAINEE (GENERASI 13) - 8 MEMBERS
   // 
   { 
-    id: "astrella",
-    birthDate: "14 April 2008",
-    bloodType: "A",
-    horoscope: "Aries",
-    height: "161 cm",
-    jikoshoukai: "Bintang yang terus bersinar menuju puncak!",
+    Bagaikan bintang yang selalu bersinar terang, halo semuanya aku Astrella!,
     votes: 49200, 
     name: "Astrella Virgiananda", 
     nickname: "Virgi", 
@@ -807,12 +607,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/7f/Astrella_Virgiananda_JKT48_2026.jpg" 
   },
   { 
-    id: "aprilli",
-    birthDate: "1 April 2010",
-    bloodType: "A",
-    horoscope: "Aries",
-    height: "158 cm",
-    jikoshoukai: "Ceria dan bersemangat mengejar mimpi!",
+    Penuh semangat dan senyuman manis, halo aku Aprilli!,
     votes: 48500, 
     name: "Bong Aprilli", 
     nickname: "Aprilli", 
@@ -827,12 +622,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/35/Bong_Aprilli_JKT48_2026.jpg" 
   },
   { 
-    id: "hagia",
-    birthDate: "1 Juli 2008",
-    bloodType: "B",
-    horoscope: "Cancer",
-    height: "160 cm",
-    jikoshoukai: "Menebar kebahagiaan di mana pun berada!",
+    Si ceria yang selalu ingin membagikan kebahagiaan, halo aku Hagia!,
     votes: 50100, 
     name: "Hagia Sopia", 
     nickname: "Hagia", 
@@ -847,12 +637,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/0/04/Hagia_Sopia_JKT48_2026.jpg" 
   },
   { 
-    id: "humaira",
-    birthDate: "13 Agustus 2011",
-    bloodType: "O",
-    horoscope: "Leo",
-    height: "152 cm",
-    jikoshoukai: "Penceria yang membuatmu tertawa dengan tingkahku!",
+    Manis dan hangat seperti mentari pagi, halo aku Humaira!,
     votes: 51200, 
     name: "Humaira Ramadhani", 
     nickname: "Humaira", 
@@ -867,12 +652,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/49/Humaira_Ramadhani_JKT48_2026.jpg" 
   },
   { 
-    id: "jacqueline",
-    birthDate: "19 November 2009",
-    bloodType: "A",
-    horoscope: "Scorpio",
-    height: "157 cm",
-    jikoshoukai: "Melangkah pasti menyongsong masa depan!",
+    Selalu berusaha berikan yang terbaik dengan ketulusan hati, halo aku Jacqueline!,
     votes: 47800, 
     name: "Jacqueline Immanuela", 
     nickname: "Jacqueline", 
@@ -887,12 +667,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/0/0b/Jacqueline_Immanuela_JKT48_2026.jpg" 
   },
   { 
-    id: "jemima",
-    birthDate: "7 September 2009",
-    bloodType: "B",
-    horoscope: "Virgo",
-    height: "160 cm",
-    jikoshoukai: "Manis dan ramah kepada semua orang!",
+    Dengan keceriaan dan energi yang melimpah, halo semuanya aku Jemima!,
     votes: 48200, 
     name: "Jemima Evodie", 
     nickname: "Jemima", 
@@ -907,12 +682,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/d0/Jemima_Evodie_JKT48_2026.jpg" 
   },
   { 
-    id: "mikaela",
-    birthDate: "15 Oktober 2008",
-    bloodType: "O",
-    horoscope: "Libra",
-    height: "162 cm",
-    jikoshoukai: "Senyuman hangat penyejuk jiwa!",
+    Gadis penuh ide dan semangat membara, halo aku Mikaela!,
     votes: 47100, 
     name: "Mikaela Kusjanto", 
     nickname: "Mikaela", 
@@ -927,12 +697,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/cb/Mikaela_Kusjanto_JKT48_2026.jpg" 
   },
   { 
-    id: "intan",
-    birthDate: "28 Januari 2006",
-    bloodType: "A",
-    horoscope: "Aquarius",
-    height: "160 cm",
-    jikoshoukai: "Bagaikan intan permata yang berkilau!",
+    Murni dan berkilau bagaikan intan, halo aku Intan!,
     votes: 46900, 
     name: "Nur Intan", 
     nickname: "Intan", 
@@ -951,12 +716,7 @@
   // 3. MEMBER TRAINEE (GENERASI 14) - 10 MEMBERS (MAEGAN REMOVED)
   // 
   { 
-    id: "afera",
-    birthDate: "21 Maret 2010",
-    bloodType: "O",
-    horoscope: "Aries",
-    height: "156 cm",
-    jikoshoukai: "Kecil-kecil penuh talenta hebat!",
+    Si manis yang siap menebar senyuman dan energi positif, halo aku Fera!,
     votes: 45200, 
     name: "Afera Thalia", 
     nickname: "Fera", 
@@ -971,12 +731,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b1/Afera_Thalia_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "carissa",
-    birthDate: "11 April 2011",
-    bloodType: "B",
-    horoscope: "Aries",
-    height: "155 cm",
-    jikoshoukai: "Mekar bersama irama kebahagiaan!",
+    Penuh keceriaan dan kerja keras untuk meraih mimpi, halo aku Carissa!,
     votes: 44800, 
     name: "Carissa Dini", 
     nickname: "Carissa", 
@@ -991,12 +746,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/12/Carissa_Dini_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "bella",
-    birthDate: "15 Juni 2010",
-    bloodType: "A",
-    horoscope: "Gemini",
-    height: "158 cm",
-    jikoshoukai: "Suara merdu penyapa harimu!",
+    Cantik dan bersemangat bagaikan bunga yang mekar, halo aku Bella!,
     votes: 45100, 
     name: "Christabella Bonita", 
     nickname: "Bella", 
@@ -1011,12 +761,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b3/Christabella_Bonita_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "fahira",
-    birthDate: "23 Januari 2010",
-    bloodType: "B",
-    horoscope: "Aquarius",
-    height: "160 cm",
-    jikoshoukai: "Penuh semangat untuk melangkah maju!",
+    Si paling muda yang siap tumbuh dan belajar bersama kalian, halo aku Fahira!,
     votes: 44200, 
     name: "Fahira Putri", 
     nickname: "Fahira", 
@@ -1031,12 +776,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b0/Fahira_Putri_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "rara",
-    birthDate: "14 Februari 2010",
-    bloodType: "O",
-    horoscope: "Aquarius",
-    height: "157 cm",
-    jikoshoukai: "Pemberi rasa manis di setiap saat!",
+    Manis dan ramah, siap menyinari harimu dengan senyuman, halo aku Rara!,
     votes: 46100, 
     name: "Fatimah Azzahra", 
     nickname: "Rara", 
@@ -1051,12 +791,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/47/Fatimah_Azzahra_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "heidi",
-    birthDate: "5 Mei 2011",
-    bloodType: "A",
-    horoscope: "Taurus",
-    height: "154 cm",
-    jikoshoukai: "Bintang baru penyejuk panggung!",
+    Penuh rasa ingin tahu dan semangat pantang menyerah, halo aku Heidi!,
     votes: 43900, 
     name: "Heidi Suyangga", 
     nickname: "Heidi", 
@@ -1071,12 +806,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/f/f7/Heidi_Suyangga_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "maxine",
-    birthDate: "18 Juli 2010",
-    bloodType: "B",
-    horoscope: "Cancer",
-    height: "159 cm",
-    jikoshoukai: "Pesona anggun dan penuh pesona!",
+    Si mungil yang aktif dan siap memberikan performa maksimal, halo aku Maxine!,
     votes: 44500, 
     name: "Maxine Faye Lee", 
     nickname: "Maxine", 
@@ -1091,12 +821,7 @@
     photoUrl: "https://images.weserv.nl/?url=https://jkt48.com/api/v1/storages/media/jkt48-member/maxine_faye_lee.jpg" 
   },
   { 
-    id: "jazy",
-    birthDate: "12 Maret 2011",
-    bloodType: "O",
-    horoscope: "Pisces",
-    height: "156 cm",
-    jikoshoukai: "Irama melodi yang selalu menyenangkan!",
+    Gadis ceria yang selalu membawa kehangatan, halo aku Jazy!,
     votes: 45800, 
     name: "Putry Jazyta", 
     nickname: "Jazy", 
@@ -1111,12 +836,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/5/59/Putry_Jazyta_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "ralyne",
-    birthDate: "17 Agustus 2010",
-    bloodType: "A",
-    horoscope: "Leo",
-    height: "158 cm",
-    jikoshoukai: "Bunga merah putih lambang semangat!",
+    Si percaya diri yang siap melangkah maju menggapai impian, halo aku Ralyne!,
     votes: 43700, 
     name: "Ralyne Van Irwan", 
     nickname: "Ralyne", 
@@ -1131,12 +851,7 @@
     photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b5/Ralyne_Van_Irwan_JKT48_2026_%282%29.jpg" 
   },
   { 
-    id: "sona",
-    birthDate: "29 September 2011",
-    bloodType: "O",
-    horoscope: "Libra",
-    height: "155 cm",
-    jikoshoukai: "Penuh warna dan keceriaan tak terbatas!",
+    Dengan aura positif dan keceriaan tak terbatas, halo aku Maegan!,
     votes: 44100, 
     name: "Sona Kalyana", 
     nickname: "Sona", 
