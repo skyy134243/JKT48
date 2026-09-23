@@ -1,7 +1,19 @@
 {
     "live_sessions":  [
-
+                          {
+                              "startedAt":  "2026-09-23T14:25:08+07:00",
+                              "generation":  12,
+                              "viewCount":  0,
+                              "photoUrl":  "https://cdn.idn.app/livestream/816e767097cdcbac9c5f7d84b56df037.webp",
+                              "platform":  "IDN Live",
+                              "nickname":  "Gita",
+                              "name":  "Gita JKT48",
+                              "platformKey":  "idn",
+                              "liveUrl":  "https://www.idn.app/jkt48_gita/live/gits-260923142503",
+                              "title":  "Gits",
+                              "memberId":  "gita"
+                          }
                       ],
-    "total_live":  0,
-    "last_updated":  "2026-09-23T00:17:05Z"
+    "total_live":  1,
+    "last_updated":  "2026-09-23T00:25:10Z"
 }
