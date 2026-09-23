@@ -1636,52 +1636,21 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
         // Fall through to next tier
       }
 
-      // ─── TIER 2: Same-origin live_data.json (Sync with local daemon & GitHub) ───
-      const candidateUrls = [
-        'https://skyy134243.github.io/JKT48/live_data.json',
-        './live_data.json',
-        'live_data.json'
-      ];
-
-      for (const url of candidateUrls) {
-        try {
-          const res = await fetch(`${url}?_t=${Date.now()}`, {
-            cache: 'no-store',
-            headers: { 'Accept': 'application/json' },
-            signal: AbortSignal.timeout(2500)
-          });
-          if (res.ok) {
-            const data = await res.json();
-            if (data && Array.isArray(data.live_sessions)) {
-              sourceSuccess = true;
-              for (const s of data.live_sessions) {
-                // Only add if not already in currentSessions (from IDN GraphQL)
-                if (!currentSessions.some(x => x.memberId === s.memberId && x.platformKey === s.platformKey)) {
-                  currentSessions.push(s);
-                }
-              }
-              break;
-            }
-          }
-        } catch (e) {}
-      }
-
-      // ─── TIER 3: Community API fallback (SHOWROOM & IDN aggregated) ───
-      if (currentSessions.length === 0) {
-        try {
-          const res = await fetch(`https://api.crstlnz.my.id/api/now_live?_t=${Date.now()}`, {
-            signal: AbortSignal.timeout(3000)
-          });
-          if (res.ok) {
-            const data = await res.json();
-            if (Array.isArray(data) && data.length > 0) {
-              sourceSuccess = true;
-              for (const item of data) {
+      // ─── TIER 2: SHOWROOM Onlives Check ───
+      try {
+        const srRes = await fetch('https://api.crstlnz.my.id/api/now_live?_t=' + Date.now(), {
+          signal: AbortSignal.timeout(2500)
+        });
+        if (srRes.ok) {
+          const srData = await srRes.json();
+          if (Array.isArray(srData)) {
+            for (const item of srData) {
+              if (item.type !== 'idn') {
                 const uKey = (item.url_key || item.slug || item.name || '').toLowerCase().replace('jkt48_', '');
                 const member = state.members.find(m => 
                   m.id.toLowerCase() === uKey ||
                   m.nickname.toLowerCase() === uKey ||
-                  m.name.toLowerCase().includes(uKey)
+                  (m.showroomSlug && m.showroomSlug.toLowerCase() === 'jkt48_' + uKey)
                 );
                 if (member) {
                   currentSessions.push({
@@ -1689,10 +1658,10 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
                     name: member.name,
                     nickname: member.nickname,
                     generation: member.generation,
-                    platform: item.type === 'idn' ? 'IDN Live' : 'SHOWROOM',
-                    platformKey: item.type === 'idn' ? 'idn' : 'showroom',
-                    title: item.title || `Live - ${member.name}`,
-                    liveUrl: item.url || (item.type === 'idn' ? member.idnUrl : member.showroomUrl),
+                    platform: 'SHOWROOM',
+                    platformKey: 'showroom',
+                    title: item.title || `SHOWROOM Live - ${member.name}`,
+                    liveUrl: item.url || member.showroomUrl,
                     startedAt: item.started_at || new Date().toISOString(),
                     photoUrl: item.image || member.photoUrl,
                     viewCount: item.view_num || 0
@@ -1701,15 +1670,41 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
               }
             }
           }
-        } catch (e) {}
+        }
+      } catch (e) {}
+
+      // ─── TIER 3: Fallback to live_data.json ONLY if live Tier 1 failed ───
+      if (!sourceSuccess) {
+        const candidateUrls = [
+          'https://skyy134243.github.io/JKT48/live_data.json',
+          './live_data.json',
+          'live_data.json'
+        ];
+
+        for (const url of candidateUrls) {
+          try {
+            const res = await fetch(`${url}?_t=${Date.now()}`, {
+              cache: 'no-store',
+              headers: { 'Accept': 'application/json' },
+              signal: AbortSignal.timeout(2000)
+            });
+            if (res.ok) {
+              const data = await res.json();
+              if (data && Array.isArray(data.live_sessions)) {
+                sourceSuccess = true;
+                currentSessions.push(...data.live_sessions);
+                break;
+              }
+            }
+          } catch (e) {}
+        }
       }
 
-      // Deduplicate by memberId + platformKey
+      // Deduplicate strictly by memberId (only 1 entry per member)
       const uniqueMap = new Map();
       for (const s of currentSessions) {
-        const key = s.memberId + '_' + s.platformKey;
-        if (!uniqueMap.has(key)) {
-          uniqueMap.set(key, s);
+        if (!uniqueMap.has(s.memberId)) {
+          uniqueMap.set(s.memberId, s);
         }
       }
       const finalSessions = Array.from(uniqueMap.values());
@@ -1805,11 +1800,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
           if (!matchName && !matchNick) return false;
         }
 
-        const isLive = state.liveSessions.some(s => s && (
-          (s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase()) ||
-          (s.nickname && s.nickname.toLowerCase() === m.nickname.toLowerCase()) ||
-          (s.name && s.name.toLowerCase().includes(m.nickname.toLowerCase()))
-        ));
+        const isLive = state.liveSessions.some(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
 
         if (state.activeFilter === 'live') return isLive;
         if (state.activeFilter === 'oshi') return state.oshiSet.has(m.id);
@@ -1841,11 +1832,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       if (emptyState) emptyState.classList.add('hidden');
 
       grid.innerHTML = filtered.map(m => {
-        const liveSession = state.liveSessions.find(s => s && (
-          (s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase()) ||
-          (s.nickname && s.nickname.toLowerCase() === m.nickname.toLowerCase()) ||
-          (s.name && s.name.toLowerCase().includes(m.nickname.toLowerCase()))
-        ));
+        const liveSession = state.liveSessions.find(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
         const isLive = !!liveSession;
         const isOshi = state.oshiSet.has(m.id);
         const isKapten = m.id === 'freya' || (m.teamStatus && m.teamStatus.includes('Kapten'));
@@ -1955,10 +1942,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       const extLink = document.getElementById('player-external-link');
       const liveDot = document.getElementById('player-live-dot');
 
-      const liveSession = state.liveSessions.find(s => s && (
-        (s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase()) ||
-        (s.nickname && s.nickname.toLowerCase() === m.nickname.toLowerCase())
-      ));
+      const liveSession = state.liveSessions.find(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
       const isLive = !!liveSession;
 
       if (thumb) thumb.src = m.photoUrl;
@@ -2008,10 +1992,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
 
     function openActiveStream() {
       if (!state.currentSelectedMember) return;
-      const liveSession = state.liveSessions.find(s => s && (
-        (s.memberId && s.memberId.toLowerCase() === state.currentSelectedMember.id.toLowerCase()) ||
-        (s.nickname && s.nickname.toLowerCase() === state.currentSelectedMember.nickname.toLowerCase())
-      ));
+      const liveSession = state.liveSessions.find(s => s && s.memberId && s.memberId.toLowerCase() === state.currentSelectedMember.id.toLowerCase());
       if (liveSession && liveSession.liveUrl) {
         window.open(liveSession.liveUrl, '_blank');
       } else {
@@ -2065,10 +2046,7 @@ if (typeof module !== 'undefined' && module.exports) { module.exports = window.J
       const m = state.members.find(x => x.id === state.chosenOshiId) || state.members[0];
       if (!m || !card) return;
 
-      const liveSession = state.liveSessions.find(s => s && (
-        (s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase()) ||
-        (s.nickname && s.nickname.toLowerCase() === m.nickname.toLowerCase())
-      ));
+      const liveSession = state.liveSessions.find(s => s && s.memberId && s.memberId.toLowerCase() === m.id.toLowerCase());
       const isLive = !!liveSession;
 
       card.innerHTML = `
