@@ -1,4 +1,4 @@
-const members = [
+﻿const members = [
   // 
   // 1. MEMBER INTI (REGULER) - 39 MEMBERS
   // 
@@ -14,7 +14,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Freya", 
     idnSlug: "jkt48_freya", 
     idnUrl: "https://www.idn.app/jkt48_freya", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/cd2b6cf94d461b64c9215d808c58d7cbf029cd8d624e5c59e9b3a10a34ecfe33_square_m.jpeg?v=1772450689" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c4/Freya_Jayawardana_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "feni", 
@@ -28,7 +28,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Feni", 
     idnSlug: "jkt48_feni", 
     idnUrl: "https://www.idn.app/jkt48_feni", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/bc8b10acffc5adee44b5d8b7dade3bc9435607fe3a766ae772ec633ac08b649b_square_m.jpeg?v=1716901909" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b6/Feni_Fitriyanti_JKT48_2026.jpg" 
   },
   { 
     id: "gita", 
@@ -42,7 +42,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gita", 
     idnSlug: "jkt48_gita", 
     idnUrl: "https://www.idn.app/jkt48_gita", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/388fa55ee4ee2a438a34d1b0a71de03f472b76b5560203930f103850edb577c8_square_m.jpeg?v=1768984311" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/dc/Gita_Sekar_Andarini_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "christy", 
@@ -56,7 +56,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Christy", 
     idnSlug: "jkt48_christy", 
     idnUrl: "https://www.idn.app/jkt48_christy", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/8b704fbdc371c9dd64fa6b2a15839ae3e912e9a5f76173d40502969a31a936f4_square_m.jpeg?v=1768984354" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/26/Angelina_Christy_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "olla", 
@@ -70,7 +70,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Olla", 
     idnSlug: "jkt48_olla", 
     idnUrl: "https://www.idn.app/jkt48_olla", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/79b9c42d1f5ea5d5805fefcfac6e92198e434cd6b6244c79b309b9e93ab3f7cb_square_m.jpeg?v=1768984193" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/1a/Febriola_Sinambela_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "eli", 
@@ -84,7 +84,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Eli", 
     idnSlug: "jkt48_eli", 
     idnUrl: "https://www.idn.app/jkt48_eli", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/6ac7ec5ce772cca881de55354f99c07c0987240e057c4f2fecb11024eeaae6a6_square_m.jpeg?v=1768984279" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/45/Helisma_Putri_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "jessi", 
@@ -98,7 +98,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jessi", 
     idnSlug: "jkt48_jessi", 
     idnUrl: "https://www.idn.app/jkt48_jessi", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/293a846d52a0e9b04a50dafb6c0f80367256a0f3e2a7d9fdc5e92e572ad2415f_square_m.jpeg?v=1768984046" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/5/52/Jessica_Chandra_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "muthe", 
@@ -112,7 +112,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Muthe", 
     idnSlug: "jkt48_muthe", 
     idnUrl: "https://www.idn.app/jkt48_muthe", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/d6cd1a52b06d7bed1bd0bda75b917eb18667e060c175952babc50733bf3a7e40_square_m.jpeg?v=1768984255" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/e/e4/Mutiara_Azzahra_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "oniel", 
@@ -126,7 +126,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oniel", 
     idnSlug: "jkt48_oniel", 
     idnUrl: "https://www.idn.app/jkt48_oniel", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/6f5b72d14f8cf4d61ab8c16aa8b7a9c387c5f6de37f513a884b6fbadabb5784d_square_m.jpeg?v=1768984219" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/30/Cornelia_Vanisa_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "fiony", 
@@ -140,7 +140,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fiony", 
     idnSlug: "jkt48_fiony", 
     idnUrl: "https://www.idn.app/jkt48_fiony", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/a2345e2127cf122ef7adb9d988a41e080dbd7f0db28bfc113335b7a341b68c7e_square_m.jpeg?v=1768984147" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c7/Fiony_Alveria_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lulu", 
@@ -154,7 +154,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lulu", 
     idnSlug: "jkt48_lulu", 
     idnUrl: "https://www.idn.app/jkt48_lulu", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/b0dfb9a6b2a6d51b17d0149d72ac19992469d2734876ca2c1d55672ae91e0943_square_m.jpeg?v=1768983877" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/21/Lulu_Salsabila_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "indah", 
@@ -168,7 +168,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Indah", 
     idnSlug: "jkt48_indah", 
     idnUrl: "https://www.idn.app/jkt48_indah", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/58f3d939319e28956fd771e0f587a347ea0fec6b5c3415067e122f4794fd3514_square_m.jpeg?v=1768984089" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2f/Indah_Cahya_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "kathrina", 
@@ -182,7 +182,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kathrina", 
     idnSlug: "jkt48_kathrina", 
     idnUrl: "https://www.idn.app/jkt48_kathrina", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/8da2ecaebb02c89b4f12ac22ba4b76f9777f610cdaf3194d0f556146b69f240c_square_m.jpeg?v=1768983958" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/c6/Kathrina_Irene_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "marsha", 
@@ -196,7 +196,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Marsha", 
     idnSlug: "jkt48_marsha", 
     idnUrl: "https://www.idn.app/jkt48_marsha", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/31c718d6829b5e484fac4f3284acc40a9788271be0066153cb2bb48880558507_square_m.jpeg?v=1768983814" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/9/9e/Marsha_Lenathea_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lia", 
@@ -210,7 +210,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lia", 
     idnSlug: "jkt48_lia", 
     idnUrl: "https://www.idn.app/jkt48_lia", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/104f71ef35980e70baeb6a7ed59f18c7374f9a33bf7d1720a0581b8a0b2edb1e_square_m.jpeg?v=1768983610" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2c/Aurellia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "ella", 
@@ -224,7 +224,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ella", 
     idnSlug: "jkt48_ella", 
     idnUrl: "https://www.idn.app/jkt48_ella", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/33b9a09551fb56e388c636720e88c310983d759c7be62230d59aa4a84303e1dc_square_m.jpeg?v=1768983563" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/4c/Gabriela_Abigail_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lyn", 
@@ -238,7 +238,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lyn", 
     idnSlug: "jkt48_lyn", 
     idnUrl: "https://www.idn.app/jkt48_lyn", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/261d835846ccd54052d7bede79f89171d1f79af054ada2fecf81086644ff6ea4_square_m.jpeg?v=1768983510" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/15/Jesslyn_Elly_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "raisha", 
@@ -252,7 +252,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Raisha", 
     idnSlug: "jkt48_raisha", 
     idnUrl: "https://www.idn.app/jkt48_raisha", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/b5e493484b3fdd07ebadfd478837295c9968208cf3721934b46611eca5cb92b8_square_m.jpeg?v=1768983439" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/e/e1/Raisha_Syifa_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "anindya", 
@@ -266,7 +266,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Anindya", 
     idnSlug: "jkt48_anindya", 
     idnUrl: "https://www.idn.app/jkt48_anindya", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/ab71b7dec20fb6950c5afba136808e39486665d861f0592d1457a9682f78736b_square_m.jpeg?v=1781070219" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/bb/Anindya_Ramadhani_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "elin", 
@@ -280,7 +280,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Elin", 
     idnSlug: "jkt48_elin", 
     idnUrl: "https://www.idn.app/jkt48_elin", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/d0ab8b151a1a0f7c2a69ea29624ef4ae7800ef1bee00df7f8c0c1f103331079d_square_m.jpeg?v=1768982652" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/f/f0/Celline_Thefani_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "cynthia", 
@@ -294,7 +294,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Cynthia", 
     idnSlug: "jkt48_cynthia", 
     idnUrl: "https://www.idn.app/jkt48_cynthia", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/e3e88b5c96d4af6c2bd0e951809d808214a6bb8837903c1d8a83fa87ad1ea080_square_m.jpeg?v=1768982799" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/8b/Cynthia_Yaputera_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "danella", 
@@ -308,7 +308,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Danella", 
     idnSlug: "jkt48_danella", 
     idnUrl: "https://www.idn.app/jkt48_danella", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/002771d7d8969132b8749564920a354426fad0c56857e3818de960035c560ed7_square_m.jpeg?v=1768982695" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/d9/Dena_Natalia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "daisy", 
@@ -322,7 +322,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Daisy", 
     idnSlug: "jkt48_daisy", 
     idnUrl: "https://www.idn.app/jkt48_daisy", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/a5054230e2eeeae789ccdf134345e4f3cf05801d689d9ec57397d34eae090343_square_m.jpeg?v=1768982744" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/13/Desy_Natalia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "gracie", 
@@ -336,7 +336,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Gracie", 
     idnSlug: "jkt48_gracie", 
     idnUrl: "https://www.idn.app/jkt48_gracie", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/510862226ac09996461772b226e5fa4a30ce574bce18672725724e0284c8fed2_square_m.jpeg?v=1772381867" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b9/Grace_Octaviani_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "greesel", 
@@ -350,7 +350,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Greesel", 
     idnSlug: "jkt48_greesel", 
     idnUrl: "https://www.idn.app/jkt48_greesel", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/940f5a1692b60af65bcec53d6db81138436b4ada3b796b7f0ac69aab2c4870bd_square_m.jpeg?v=1768982474" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/2d/Greesella_Adhalia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "michie", 
@@ -364,7 +364,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Michie", 
     idnSlug: "jkt48_michie", 
     idnUrl: "https://www.idn.app/jkt48_michie", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/fc878be06fb484b4edcb8051e8456a93279b2395e711aada3d7547b1b78e3720_square_m.jpeg?v=1768982402" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/30/Michelle_Alexandra_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "aralie", 
@@ -378,7 +378,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Aralie", 
     idnSlug: "jkt48_aralie", 
     idnUrl: "https://www.idn.app/jkt48_aralie", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/7bbb128443499700909dea11a4e2d9973c9f9c74974b3dafe269ec7b6dbc3315_square_m.jpeg?v=1768984372" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/26/Abigail_Rachel_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "delynn", 
@@ -392,7 +392,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Delynn", 
     idnSlug: "jkt48_delynn", 
     idnUrl: "https://www.idn.app/jkt48_delynn", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/2ad9a198ac8cc653476c6c5c3b29d8089e621299ab2cb6fa97159e92eb733d7d_square_m.jpeg?v=1768982308" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/2/27/Adeline_Wijaya_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lana", 
@@ -406,7 +406,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lana", 
     idnSlug: "jkt48_lana", 
     idnUrl: "https://www.idn.app/jkt48_lana", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/bbf5793ce9431e26532a55331376e1f2428e8bc1365960f1468602383361ad68_square_m.jpeg?v=1768982238" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/79/Aurhel_Alana_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "erine", 
@@ -420,7 +420,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Erine", 
     idnSlug: "jkt48_erine", 
     idnUrl: "https://www.idn.app/jkt48_erine", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/1dcb1281d3280600c17e1881a5a97e17051f795b65b26b0ae42841acc779facd_square_m.jpeg?v=1768982166" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/9/97/Catherina_Vallencia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "fritzy", 
@@ -434,7 +434,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fritzy", 
     idnSlug: "jkt48_fritzy", 
     idnUrl: "https://www.idn.app/jkt48_fritzy", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/f5a4b163de5618013399ceb9dca9028aa00ef7e635813ca9f06aa941024f6890_square_m.jpeg?v=1768982064" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/a/ac/Fritzy_Rosmerian_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "lily", 
@@ -448,7 +448,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Lily", 
     idnSlug: "jkt48_lily", 
     idnUrl: "https://www.idn.app/jkt48_lily", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/60d4c94941de7e2ab93f05ed5eb60dd1ae7b97936422b289335be63f23d61b27_square_m.jpeg?v=1768981963" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/4f/Hillary_Abigail_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "levi", 
@@ -462,7 +462,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Levi", 
     idnSlug: "jkt48_levi", 
     idnUrl: "https://www.idn.app/jkt48_levi", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/8063737c0d03194a4a8f48a6be704c0b5c262ce326d8cdac428c75f552855166_square_m.jpeg?v=1768980629" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/79/Michelle_Levia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "nayla", 
@@ -476,7 +476,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nayla", 
     idnSlug: "jkt48_nayla", 
     idnUrl: "https://www.idn.app/jkt48_nayla", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/7f0a24fb6d6d354299b727610887cba42d22cd4b15c15a708bdffea42ca623cb_square_m.jpeg?v=1768980267" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b9/Nayla_Suji_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "nachia", 
@@ -490,7 +490,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nachia", 
     idnSlug: "jkt48_nachia", 
     idnUrl: "https://www.idn.app/jkt48_nachia", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/be9cc81c23250f46d686c9a750c5876b19f6c93234b2d3bdabc5c71ae9be4835_square_m.jpeg?v=1768980137" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/1b/Nina_Tutachia_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "oline", 
@@ -504,7 +504,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Oline", 
     idnSlug: "jkt48_oline", 
     idnUrl: "https://www.idn.app/jkt48_oline", 
-    photoUrl: "https://cdn.idn.media/idnaccount/avatar/500/09ea7e6a6a2e99103b3386f154a5c54a.webp?v=1778756388" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b0/Oline_Manuel_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "ribka", 
@@ -518,7 +518,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ribka", 
     idnSlug: "jkt48_ribka", 
     idnUrl: "https://www.idn.app/jkt48_ribka", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/0ea497d76f19f795612efedadd1951482c140044483b8b67cbac909e34309363_square_m.jpeg?v=1768979989" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/84/Ribka_Budiman_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "nala", 
@@ -532,7 +532,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Nala", 
     idnSlug: "jkt48_nala", 
     idnUrl: "https://www.idn.app/jkt48_nala", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/e44adf3c6b43f688c3203dc24922621299a959827611d233c5390bc97e68e217_square_m.jpeg?v=1768979919" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/cc/Shabilqis_Naila_JKT48_2026_%283%29.jpg" 
   },
   { 
     id: "kimmy", 
@@ -546,7 +546,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Kimmy", 
     idnSlug: "jkt48_kimmy", 
     idnUrl: "https://www.idn.app/jkt48_kimmy", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/b490a7a1fb00562ff0f7e481c69269bf0fd4cf0ac162ff645a999cdff204f954_square_m.jpeg?v=1768979797" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/8/86/Victoria_Kimberly_JKT48_2026_%283%29.jpg" 
   },
 
   // 
@@ -564,7 +564,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Virgi", 
     idnSlug: "jkt48_virgi", 
     idnUrl: "https://www.idn.app/jkt48_virgi", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/af8764e5f2a73e6370cc8c525fe7f31aefcb3b8571e55bb9018b1e859139b11c_square_m.jpeg?v=1743174618" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/7/7f/Astrella_Virgiananda_JKT48_2026.jpg" 
   },
   { 
     id: "aprilli", 
@@ -578,7 +578,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Rilly", 
     idnSlug: "jkt48_rilly", 
     idnUrl: "https://www.idn.app/jkt48_rilly", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/75ad2813df4740316da5352c4c890cd3675d675283d73ffaf8fa67ade36c23e7_square_m.jpeg?v=1743225791" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/3/35/Bong_Aprilli_JKT48_2026.jpg" 
   },
   { 
     id: "hagia", 
@@ -592,7 +592,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Giaa", 
     idnSlug: "jkt48_giaa", 
     idnUrl: "https://www.idn.app/jkt48_giaa", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/48f81b1bfbbbccc83c2f43d0152a0b0c3ea19a7087e5706f74c1422a93ffe071_square_m.jpeg?v=1743174525" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/0/04/Hagia_Sopia_JKT48_2026.jpg" 
   },
   { 
     id: "humaira", 
@@ -606,7 +606,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Maira", 
     idnSlug: "jkt48_maira", 
     idnUrl: "https://www.idn.app/jkt48_maira", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/ab7f86c10b77097a3e43b741b066703e1be452185dfe2902d8e52cb614f13b8c_square_m.jpeg?v=1743174563" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/49/Humaira_Ramadhani_JKT48_2026.jpg" 
   },
   { 
     id: "jacqueline", 
@@ -620,7 +620,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ekin", 
     idnSlug: "jkt48_ekin", 
     idnUrl: "https://www.idn.app/jkt48_ekin", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/d4f471fdbc03db75fd995f3304f5e2447a2ae0d59aeb6ed5950712d22bd89ed3_square_m.jpeg?v=1743174549" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/0/0b/Jacqueline_Immanuela_JKT48_2026.jpg" 
   },
   { 
     id: "jemima", 
@@ -634,7 +634,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jemima", 
     idnSlug: "jkt48_jemima", 
     idnUrl: "https://www.idn.app/jkt48_jemima", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/65b174ccd2430c13403e9103a8685f2f8fae0e0721a0e2388f757aec27cb29b7_square_m.jpeg?v=1743174511" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/d/d0/Jemima_Evodie_JKT48_2026.jpg" 
   },
   { 
     id: "mikaela", 
@@ -648,7 +648,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Mikaela", 
     idnSlug: "jkt48_mikaela", 
     idnUrl: "https://www.idn.app/jkt48_mikaela", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/e170d79a17313b88439702bdcb9dfa5b9548eea36e2d02fd52b1721c1661ea69_square_m.jpeg?v=1743174538" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/c/cb/Mikaela_Kusjanto_JKT48_2026.jpg" 
   },
   { 
     id: "intan", 
@@ -662,7 +662,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Intan", 
     idnSlug: "jkt48_intan", 
     idnUrl: "https://www.idn.app/jkt48_intan", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/a1e1c18ae74668eb568ed90208dbde1afbb55ca8d5049387d5c06ffbfe11d41c_square_m.jpeg?v=1743174498" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/a/a0/Nur_Intan_JKT48_2026.jpg" 
   },
 
   // 
@@ -680,7 +680,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fera", 
     idnSlug: "jkt48_fera", 
     idnUrl: "https://www.idn.app/jkt48_fera", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/7ccc802416ec9c4316cdd507369a5478dad05a5aac7a365099c85b6aba732d17_square_m.jpeg?v=1779093989" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b1/Afera_Thalia_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "carissa", 
@@ -694,7 +694,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Carissa", 
     idnSlug: "jkt48_carissa", 
     idnUrl: "https://www.idn.app/jkt48_carissa", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/c961136f5b6f91eda8b4c9dcfb0b79b226c8fc1e90c340ab2d8a36ea21da6fe4_square_m.jpeg?v=1779095244" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/1/12/Carissa_Dini_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "bella", 
@@ -708,7 +708,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Bella", 
     idnSlug: "jkt48_bella", 
     idnUrl: "https://www.idn.app/jkt48_bella", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/4cbd985380479526e9b45bc2b8339300f563551b6a9ce05d4879864552ebb2ef_square_m.jpeg?v=1779095231" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b3/Christabella_Bonita_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "fahira", 
@@ -722,7 +722,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Fahira", 
     idnSlug: "jkt48_fahira", 
     idnUrl: "https://www.idn.app/jkt48_fahira", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/d771d6834900da5399224daccf32d99d3f6357a41e4cc8829ba5b26cfa043fad_square_m.jpeg?v=1779095223" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b0/Fahira_Putri_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "rara", 
@@ -736,7 +736,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Rara", 
     idnSlug: "jkt48_rara", 
     idnUrl: "https://www.idn.app/jkt48_rara", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/f0516c039b62c39462a30d660a3cda2cc694d550c5ee761e2d938fea73e1f66d_square_m.jpeg?v=1779094081" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/4/47/Fatimah_Azzahra_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "heidi", 
@@ -750,7 +750,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Heidi", 
     idnSlug: "jkt48_heidi", 
     idnUrl: "https://www.idn.app/jkt48_heidi", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/6ffe457b6d28058c2837b1ab7078cebf8749e14591b41bbef31b7781f5fe9896_square_m.jpeg?v=1779093975" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/f/f7/Heidi_Suyangga_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "maxine", 
@@ -764,7 +764,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Maxine", 
     idnSlug: "jkt48_maxine", 
     idnUrl: "https://www.idn.app/jkt48_maxine", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/6d655ea53b453945a943ff83cf6fff60e1a53f524e7c1394972d39abaa6db830_square_m.jpeg?v=1779094071" 
+    photoUrl: "https://images.weserv.nl/?url=https://jkt48.com/api/v1/storages/media/jkt48-member/maxine_faye_lee.jpg" 
   },
   { 
     id: "jazy", 
@@ -778,7 +778,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Jazzy", 
     idnSlug: "jkt48_jazzy", 
     idnUrl: "https://www.idn.app/jkt48_jazzy", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/de0ca7ec814d7861c5674c8e5246a8d0d288e16f9dbb442831e4e3f8079c6e97_square_m.jpeg?v=1779100280" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/5/59/Putry_Jazyta_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "ralyne", 
@@ -792,7 +792,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Ralyne", 
     idnSlug: "jkt48_ralyne", 
     idnUrl: "https://www.idn.app/jkt48_ralyne", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/a9c6bbd97e3f4716b0300fe24ec0b697928a9a1ca09b4cd800335b9377eb951d_square_m.jpeg?v=1779094002" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/b5/Ralyne_Van_Irwan_JKT48_2026_%282%29.jpg" 
   },
   { 
     id: "sona", 
@@ -806,7 +806,7 @@ const members = [
     showroomUrl: "https://www.showroom-live.com/r/JKT48_Sona", 
     idnSlug: "jkt48_sona", 
     idnUrl: "https://www.idn.app/jkt48_sona", 
-    photoUrl: "https://static.showroom-live.com/image/room/cover/6a3b327a3a00f32242918c9eecab0d570b1d37335b564019e6e0a96d740c8a63_square_m.jpeg?v=1779094023" 
+    photoUrl: "https://static.wikia.nocookie.net/akb48/images/b/bb/Sona_Kalyana_JKT48_2026_%282%29.jpg" 
   }
 ];
 
