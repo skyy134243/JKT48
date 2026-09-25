@@ -2433,10 +2433,16 @@ const members = [
       loadUserProfileUI();
       updateLiveStats();
 
-      // Radar live poll every 2 seconds
+      // Radar live poll: immediate initial scan + background sync + mobile visibility resume
       fetchLiveStatus();
       if (state.radarInterval) clearInterval(state.radarInterval);
-      state.radarInterval = setInterval(fetchLiveStatus, 2000);
+      state.radarInterval = setInterval(fetchLiveStatus, 8000);
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === 'visible') {
+          fetchLiveStatus();
+        }
+      });
 
       // WIB Clock
       updateWibClock();
@@ -3576,39 +3582,115 @@ const members = [
     }
 
     // =========================================================================
-    // SECTION 7: REAL-TIME RADAR SCANNER ENGINE (2-SECOND REFRESH)
+    // SECTION 7: REAL-TIME RADAR SCANNER ENGINE (MULTI-SOURCE CLIENT RADAR)
     // =========================================================================
+    function matchMemberFromSession(item) {
+      if (!item) return null;
+      const rawId = (item.memberId || item.id || '').toLowerCase();
+      const rawNick = (item.nickname || item.name || '').toLowerCase();
+      const rawSlug = (item.showroomSlug || item.idnSlug || item.slug || item.url_key || item.room_url_key || '').toLowerCase();
+      const rawName = (item.name || item.title || '').toLowerCase();
+
+      return state.members.find(m => {
+        const mId = m.id.toLowerCase();
+        const mNick = m.nickname.toLowerCase();
+        const mName = m.name.toLowerCase();
+        const mSrSlug = (m.showroomSlug || '').toLowerCase();
+        const mIdnSlug = (m.idnSlug || '').toLowerCase();
+
+        if (rawId && mId === rawId) return true;
+        if (rawSlug && (mSrSlug === rawSlug || mIdnSlug === rawSlug)) return true;
+        if (rawNick && (mNick === rawNick || rawNick.includes(mNick))) return true;
+        if (rawName && (rawName.includes(mNick) || rawName.includes(mName))) return true;
+        return false;
+      });
+    }
+
     async function fetchLiveStatus() {
       try {
         const cacheBuster = Date.now();
-        const res = await fetch(`data/live_data.json?_t=${cacheBuster}`, { cache: 'no-store' });
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        const data = await res.json();
+        let sessions = [];
 
-        const rawList = Array.isArray(data) ? data : (data.liveSessions || []);
+        // Source 1: Static JSON from repository (tries multiple resilient relative & root paths)
+        const pathsToTry = [
+          `live_data.json?_t=${cacheBuster}`,
+          `./live_data.json?_t=${cacheBuster}`,
+          `data/live_data.json?_t=${cacheBuster}`
+        ];
 
-        state.liveSessions = rawList.map(session => {
-          if (!session) return null;
-          const matchedMember = state.members.find(m => {
-            if (session.memberId && m.id.toLowerCase() === session.memberId.toLowerCase()) return true;
-            if (session.slug && (m.showroomSlug === session.slug || m.idnSlug === session.slug)) return true;
-            return false;
+        let fetchedData = null;
+        for (const p of pathsToTry) {
+          try {
+            const res = await fetch(p, { cache: 'no-store' });
+            if (res.ok) {
+              fetchedData = await res.json();
+              break;
+            }
+          } catch (e) {
+            // try next path
+          }
+        }
+
+        if (fetchedData) {
+          const rawList = Array.isArray(fetchedData) 
+            ? fetchedData 
+            : (fetchedData.live_sessions || fetchedData.liveSessions || fetchedData.lives || []);
+          sessions = sessions.concat(rawList);
+        }
+
+        // Source 2: Autonomous Client-Side Open-CORS Live Stream Detector (crstlnz Live API)
+        // Works directly inside mobile and desktop browsers with 100% CORS support
+        try {
+          const ctrl = new AbortController();
+          const timeoutId = setTimeout(() => ctrl.abort(), 3500);
+          const extRes = await fetch('https://api.crstlnz.my.id/api/now_live', {
+            signal: ctrl.signal,
+            cache: 'no-store'
           });
+          clearTimeout(timeoutId);
+          if (extRes.ok) {
+            const extList = await extRes.json();
+            if (Array.isArray(extList) && extList.length > 0) {
+              sessions = sessions.concat(extList);
+            }
+          }
+        } catch (extErr) {
+          // Gracefully fallback to repository live_data.json
+        }
 
-          if (matchedMember) {
-            return {
-              ...session,
+        // Map and deduplicate by memberId + platform
+        const matchedMap = new Map();
+        for (const item of sessions) {
+          if (!item) continue;
+          const matchedMember = matchMemberFromSession(item);
+          if (!matchedMember) continue;
+
+          const isIdn = (item.platform || item.type || item.platformKey || '').toLowerCase().includes('idn');
+          const platform = isIdn ? 'IDN Live' : 'SHOWROOM';
+          const platformKey = isIdn ? 'idn' : 'showroom';
+          const key = matchedMember.id + '_' + platformKey;
+
+          if (!matchedMap.has(key)) {
+            matchedMap.set(key, {
+              ...item,
               memberId: matchedMember.id,
               name: matchedMember.name,
               nickname: matchedMember.nickname,
               generation: matchedMember.generation,
+              teamStatus: matchedMember.teamStatus,
               photoUrl: matchedMember.photoUrl,
-              liveUrl: session.liveUrl || (session.platform === 'SHOWROOM' ? matchedMember.showroomUrl : matchedMember.idnUrl)
-            };
+              imageUrl: matchedMember.photoUrl,
+              platform: platform,
+              platformKey: platformKey,
+              title: item.title || `${platform} - ${matchedMember.name}`,
+              liveUrl: item.liveUrl || item.url || (platform === 'SHOWROOM' ? matchedMember.showroomUrl : matchedMember.idnUrl),
+              startedAt: item.startedAt || item.started_at || new Date().toISOString(),
+              viewers: item.viewCount || item.viewers || item.view_num || 0
+            });
           }
-          return null;
-        }).filter(Boolean);
+        }
 
+        state.liveSessions = Array.from(matchedMap.values());
         state.lastSyncTime = new Date();
         updateLiveStats();
 
@@ -3617,7 +3699,7 @@ const members = [
         const liveStateChanged = (state._prevLiveFingerprint !== currentLiveFingerprint);
         state._prevLiveFingerprint = currentLiveFingerprint;
 
-        // Only update DOM when live status actually changes to prevent lag, card thrashing, or overlapping!
+        // Only update DOM when live status actually changes to prevent lag or card overlapping
         if (liveStateChanged || !state._hasInitialRender) {
           state._hasInitialRender = true;
           renderLiveSection();
@@ -3639,7 +3721,34 @@ const members = [
         setTimeout(() => {
           if (icon) icon.classList.remove('animate-spin');
         }, 600);
+
+        const count = state.liveSessions.length;
+        const msg = count > 0 
+          ? `ðŸ“¡ Radar Terhubung: ${count} Siaran Aktif!` 
+          : 'ðŸ“¡ Radar Terhubung: Belum Ada Member Live';
+        showToast(msg);
       });
+    }
+
+    function showToast(text, duration = 3000) {
+      let toast = document.getElementById('radar-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'radar-toast';
+        toast.className = 'fixed bottom-24 sm:bottom-28 left-1/2 -translate-x-1/2 z-50 px-5 py-2.5 rounded-full bg-slate-900/95 text-white text-xs font-bold shadow-2xl backdrop-blur-md border border-white/10 flex items-center gap-2.5 transition-all duration-300 opacity-0 pointer-events-none translate-y-4';
+        toast.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span><span id="radar-toast-text"></span>`;
+        document.body.appendChild(toast);
+      }
+      const label = document.getElementById('radar-toast-text');
+      if (label) label.textContent = text;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(state._toastTimeout);
+      state._toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, duration);
     }
 
     function updateLiveStats() {
