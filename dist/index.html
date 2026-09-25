@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -2391,7 +2391,7 @@ const members = [
       catalogSearchQuery: '',
       userProfile: {
         name: 'Wota Senayan',
-        badge: 'WOTA SENIOR • SUPER FAN',
+        badge: 'WOTA SENIOR â€¢ SUPER FAN',
         idnUsername: '@wota_senayan',
         srUsername: 'WotaSenayan_48'
       }
@@ -2951,7 +2951,7 @@ const members = [
       },
       {
         id: "itadaki-love",
-        title: "ITADAKIâ™¥LOVE",
+        title: "ITADAKIÃ¢â„¢Â¥LOVE",
         japanese: "Itadaki Love",
         desc: "Penuh energi cinta melimpah dan keceriaan panggung yang membakar semangat penonton.",
         officialUrl: "https://jkt48.com/schedule/sh86b2-itadaki-love",
@@ -3409,7 +3409,7 @@ const members = [
 
           <!-- Rank 1: Gold (Center - Tallest) -->
           <div class="flex flex-col items-center -translate-y-4">
-            <div class="text-2xl sm:text-3xl animate-bounce mb-1">👑</div>
+            <div class="text-2xl sm:text-3xl animate-bounce mb-1">ðŸ‘‘</div>
             <div class="relative w-24 sm:w-36 aspect-square rounded-3xl overflow-hidden border-4 border-amber-400 shadow-2xl mb-3 cursor-pointer ring-4 ring-amber-400/30" onclick="selectMember('${top1.id}')">
               <img src="${top1.photoUrl}" alt="${top1.name}" class="w-full h-full object-cover object-top" onerror="safeImageFallback(this)" />
               <div class="absolute top-1.5 left-1.5 w-7 h-7 rounded-full bg-amber-400 text-white text-xs font-black flex items-center justify-center shadow">1</div>
@@ -3623,7 +3623,9 @@ const members = [
           try {
             const res = await fetch(p, { cache: 'no-store' });
             if (res.ok) {
-              fetchedData = await res.json();
+              const text = await res.text();
+              const clean = text.replace(/^\uFEFF/, '').trim();
+              fetchedData = JSON.parse(clean);
               break;
             }
           } catch (e) {
@@ -3724,8 +3726,8 @@ const members = [
 
         const count = state.liveSessions.length;
         const msg = count > 0 
-          ? `ðŸ“¡ Radar Terhubung: ${count} Siaran Aktif!` 
-          : 'ðŸ“¡ Radar Terhubung: Belum Ada Member Live';
+          ? `Ã°Å¸â€œÂ¡ Radar Terhubung: ${count} Siaran Aktif!` 
+          : 'Ã°Å¸â€œÂ¡ Radar Terhubung: Belum Ada Member Live';
         showToast(msg);
       });
     }
