@@ -1,20 +1,21 @@
 {
     "live_sessions":  [
                           {
-                              "startedAt":  "2026-09-25T04:58:43Z",
-                              "generation":  6,
-                              "photoUrl":  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg/440px-Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg",
-                              "platform":  "IDN Live",
-                              "nickname":  "Gita",
-                              "teamStatus":  "Inti",
-                              "name":  "Gita Sekar Andarini",
+                              "photoUrl":  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg/440px-Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg",
+                              "nickname":  "Kathrina",
+                              "title":  "Hi",
+                              "viewers":  1500,
+                              "startedAt":  "2026-09-25T08:11:24Z",
                               "platformKey":  "idn",
-                              "liveUrl":  "https://www.idn.app/jkt48_gita",
-                              "title":  "Ngobrol Santai Malam Bersama Gits ✨",
-                              "memberId":  "gita",
-                              "viewers":  18450
+                              "name":  "Kathrina Irene",
+                              "generation":  9,
+                              "memberId":  "kathrina",
+                              "platform":  "IDN Live",
+                              "teamStatus":  "Inti",
+                              "imageUrl":  "https://cdn.idn.app/livestream/768c6f8568e7f763def7323598641b2f.webp",
+                              "liveUrl":  "https://www.idn.app/jkt48_kathrina/live/hi-260925151124"
                           }
                       ],
     "total_live":  1,
-    "last_updated":  "2026-09-25T05:23:43Z"
+    "last_updated":  "2026-09-25T08:35:26Z"
 }
