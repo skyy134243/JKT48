@@ -1,19 +1,20 @@
-{
+﻿{
     "live_sessions":  [
                           {
-                              "startedAt":  "2026-09-23T14:25:08+07:00",
-                              "generation":  12,
-                              "viewCount":  0,
-                              "photoUrl":  "https://cdn.idn.app/livestream/816e767097cdcbac9c5f7d84b56df037.webp",
+                              "startedAt":  "2026-09-25T04:58:43Z",
+                              "generation":  6,
+                              "photoUrl":  "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg/440px-Gita_Sekar_Andarini_%28Gita%29_at_the_JKT48_Summer_Festival.jpg",
                               "platform":  "IDN Live",
                               "nickname":  "Gita",
-                              "name":  "Gita JKT48",
+                              "teamStatus":  "Inti",
+                              "name":  "Gita Sekar Andarini",
                               "platformKey":  "idn",
-                              "liveUrl":  "https://www.idn.app/jkt48_gita/live/gits-260923142503",
-                              "title":  "Gits",
-                              "memberId":  "gita"
+                              "liveUrl":  "https://www.idn.app/jkt48_gita",
+                              "title":  "Ngobrol Santai Malam Bersama Gits ✨",
+                              "memberId":  "gita",
+                              "viewers":  18450
                           }
                       ],
     "total_live":  1,
-    "last_updated":  "2026-09-23T00:25:10Z"
+    "last_updated":  "2026-09-25T05:23:43Z"
 }
