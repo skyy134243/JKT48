@@ -1,21 +1,21 @@
 {
+    "last_updated":  "2026-09-25T08:55:08Z",
+    "total_live":  1,
     "live_sessions":  [
                           {
-                              "photoUrl":  "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg/440px-Kathrina_Irene_%28Kathrina%29_at_the_JKT48_Summer_Festival.jpg",
-                              "nickname":  "Kathrina",
-                              "title":  "Hi",
-                              "viewers":  1500,
-                              "startedAt":  "2026-09-25T08:11:24Z",
-                              "platformKey":  "idn",
-                              "name":  "Kathrina Irene",
-                              "generation":  9,
                               "memberId":  "kathrina",
-                              "platform":  "IDN Live",
+                              "name":  "Kathrina Irene",
+                              "nickname":  "Kathrina",
+                              "generation":  9,
                               "teamStatus":  "Inti",
+                              "platform":  "IDN Live",
+                              "platformKey":  "idn",
+                              "title":  "Hi",
+                              "liveUrl":  "https://www.idn.app/jkt48_kathrina/live/hi-260925151124",
+                              "photoUrl":  "https://static.wikia.nocookie.net/akb48/images/c/c6/Kathrina_Irene_JKT48_2026_%283%29.jpg",
                               "imageUrl":  "https://cdn.idn.app/livestream/768c6f8568e7f763def7323598641b2f.webp",
-                              "liveUrl":  "https://www.idn.app/jkt48_kathrina/live/hi-260925151124"
+                              "startedAt":  "2026-09-25T08:11:30Z",
+                              "viewers":  1382
                           }
-                      ],
-    "total_live":  1,
-    "last_updated":  "2026-09-25T08:35:26Z"
+                      ]
 }
